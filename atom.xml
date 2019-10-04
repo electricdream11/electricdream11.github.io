@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/electricdream11/"/>
-  <updated>2019-10-03T13:55:24.480Z</updated>
+  <updated>2019-10-04T06:24:24.227Z</updated>
   <id>https://github.com/electricdream11/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://github.com/electricdream11/2019/10/03/1003_FPGA/"/>
     <id>https://github.com/electricdream11/2019/10/03/1003_FPGA/</id>
     <published>2019-10-03T12:29:17.000Z</published>
-    <updated>2019-10-03T13:55:24.480Z</updated>
+    <updated>2019-10-04T06:24:24.227Z</updated>
     
     <content type="html"><![CDATA[<p>FPGA是这个博客的主要的内容，认真的学习好相应的内容是解决这个问题的关键。不定时的上传一些学习过程可以有效地解决资源不足的问题。</p>]]></content>
     
@@ -36,10 +36,10 @@
     </summary>
     
     
-      <category term="FPGA" scheme="https://github.com/electricdream11/categories/FPGA/"/>
+      <category term="test" scheme="https://github.com/electricdream11/categories/test/"/>
     
     
-      <category term="FPGA" scheme="https://github.com/electricdream11/tags/FPGA/"/>
+      <category term="test" scheme="https://github.com/electricdream11/tags/test/"/>
     
   </entry>
   
@@ -48,7 +48,7 @@
     <link href="https://github.com/electricdream11/2019/10/03/myaim/"/>
     <id>https://github.com/electricdream11/2019/10/03/myaim/</id>
     <published>2019-10-03T08:01:58.000Z</published>
-    <updated>2019-10-03T08:05:15.697Z</updated>
+    <updated>2019-10-04T06:24:55.871Z</updated>
     
     <content type="html"><![CDATA[<p>test for categories</p>]]></content>
     
@@ -63,10 +63,10 @@
     </summary>
     
     
-      <category term="mywork" scheme="https://github.com/electricdream11/categories/mywork/"/>
+      <category term="test" scheme="https://github.com/electricdream11/categories/test/"/>
     
     
-      <category term="dream" scheme="https://github.com/electricdream11/tags/dream/"/>
+      <category term="test" scheme="https://github.com/electricdream11/tags/test/"/>
     
   </entry>
   
@@ -75,7 +75,7 @@
     <link href="https://github.com/electricdream11/2019/10/02/myfirstarticle/"/>
     <id>https://github.com/electricdream11/2019/10/02/myfirstarticle/</id>
     <published>2019-10-02T08:44:32.000Z</published>
-    <updated>2019-10-02T14:47:51.361Z</updated>
+    <updated>2019-10-04T06:25:06.956Z</updated>
     
     <content type="html"><![CDATA[<img src="/2019/10/02/myfirstarticle/test.jpg" title="test"><p>测试一下功能。</p>]]></content>
     
@@ -92,6 +92,10 @@
     </summary>
     
     
+      <category term="test" scheme="https://github.com/electricdream11/categories/test/"/>
+    
+    
+      <category term="test" scheme="https://github.com/electricdream11/tags/test/"/>
     
   </entry>
   
@@ -100,22 +104,26 @@
     <link href="https://github.com/electricdream11/2019/10/01/hello-blog/"/>
     <id>https://github.com/electricdream11/2019/10/01/hello-blog/</id>
     <published>2019-10-01T04:29:10.000Z</published>
-    <updated>2019-10-01T04:29:10.514Z</updated>
+    <updated>2019-10-04T06:24:34.579Z</updated>
     
     <summary type="html">
     
     </summary>
     
     
+      <category term="test" scheme="https://github.com/electricdream11/categories/test/"/>
+    
+    
+      <category term="test" scheme="https://github.com/electricdream11/tags/test/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="https://github.com/electricdream11/2019/10/01/hello-world/"/>
-    <id>https://github.com/electricdream11/2019/10/01/hello-world/</id>
+    <link href="https://github.com/electricdream11/2019/10/01/Hello-World/"/>
+    <id>https://github.com/electricdream11/2019/10/01/Hello-World/</id>
     <published>2019-10-01T03:08:35.851Z</published>
-    <updated>2019-10-01T03:08:35.851Z</updated>
+    <updated>2019-10-04T06:24:45.785Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
     
@@ -129,6 +137,10 @@
     </summary>
     
     
+      <category term="test" scheme="https://github.com/electricdream11/categories/test/"/>
+    
+    
+      <category term="test" scheme="https://github.com/electricdream11/tags/test/"/>
     
   </entry>
   
