@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/electricdream11/"/>
-  <updated>2019-10-06T07:44:42.379Z</updated>
+  <updated>2019-10-06T07:49:35.534Z</updated>
   <id>https://github.com/electricdream11/</id>
   
   <author>
@@ -21,15 +21,14 @@
     <link href="https://github.com/electricdream11/2019/10/06/%E5%8F%AF%E7%BC%96%E7%A8%8B%E9%80%BB%E8%BE%91%E5%9F%BA%E7%A1%80/"/>
     <id>https://github.com/electricdream11/2019/10/06/可编程逻辑基础/</id>
     <published>2019-10-06T07:39:27.000Z</published>
-    <updated>2019-10-06T07:44:42.379Z</updated>
+    <updated>2019-10-06T07:49:35.534Z</updated>
     
-    <content type="html"><![CDATA[<p>可编程逻辑器件</p><p>#1.可编程逻辑器件将电路连线简化。</p><p>#2.CPLD与FPGA的原理：化简电路后级联。</p><a id="more"></a> <p>#3.逻辑器件的历史：</p><p>##一、TTL逻辑设计：采用真值表构建模型，利用卡诺图化简后得到逻辑表达式。TTL采用乘积和的模式设计，组成与门和多或门组成。</p><p>##二、PAL可编程阵列逻辑：逻辑门与输出寄存器固定，输入与与门构成乘积项，与乘积项和寄存项构成宏单元。跨线编程依靠浮珊晶体管（FAMOS或FLOTOX），工作方式分别为电擦除和紫光擦除。</p><p>##三、CPLD复杂可编程逻辑器件：利用可编程逻辑阵列的模块（LAB），<br>并且使用了可控乘积项提高效率。可编程互联阵列（PI）采用EPROM等技术编程。IO模块都采用了更加合理的结构。采用JTAG接口实现ISP（系统编程）。提高了可编程的器件的数量。</p><p>#4.从CPLD到FPGA的改善</p><p>##一、FPGA的LAB采用逻辑模块来提供单元，并成阵列式的分布于网格线中。</p><p>##二、加入的查找表（LUT）可以有效地提高逻辑器件的利用率。</p><p>##三、可编程的寄存器可以灵活的适应各种逻辑输出。</p><p>##四、FPGA内依靠寄存器链和LAB的级联实现进位，不需要进位逻辑块。</p><p>##五、高级的FPGA采用ALM（自适应逻辑模块），基于LE并包括专用资源和LUT以提高利用效率。</p><p>##六、FPGA中的IO模块支持各种的标准，有电流驱动能力。可设置IO的开漏等等可以提高效率的模块。主要有输入、输出、使能模块。</p><p>##七、存储器模块，嵌入式乘法器，高速收发器等定制的模块</p><p>##八、FPGA的时钟：特殊的结构控制并向器件中的同步逻辑扇出时钟。自带时钟控制模块可以配置时钟资源。</p><p>##九、SRAM单元技术用于实现互联和LUT功能级进行编程。行列互联结是易失的，上电时才可以编程。SRAM编程单元也需要上电后进行编程。</p><p>#5.ASIC<br>一、Altera ASIC是ASIC，用于测试ASIC系统，可以有效地提高ASIC的开发效率。</p><p>#6.CPLD和FPAG的对比。<br>  CPLD是非易失编程，FPGA是易失的编程设计。<br>  小中型设计            大型设计</p><p>#7.设计流程<br>   设计输入-&gt;功能仿真-&gt;综合仿真-&gt;布局布线-&gt;门级仿真（可选）<br>                                             |<br>                                          PCB布局</p><p>#8.总结：FPGA提高逻辑设计的速度。</p>]]></content>
+    <content type="html"><![CDATA[<p>可编程逻辑器件</p><h1 id="1-可编程逻辑器件将电路连线简化。"><a href="#1-可编程逻辑器件将电路连线简化。" class="headerlink" title="1.可编程逻辑器件将电路连线简化。"></a>1.可编程逻辑器件将电路连线简化。</h1><h1 id="2-CPLD与FPGA的原理：化简电路后级联。"><a href="#2-CPLD与FPGA的原理：化简电路后级联。" class="headerlink" title="2.CPLD与FPGA的原理：化简电路后级联。"></a>2.CPLD与FPGA的原理：化简电路后级联。</h1><a id="more"></a> <h1 id="3-逻辑器件的历史："><a href="#3-逻辑器件的历史：" class="headerlink" title="3.逻辑器件的历史："></a>3.逻辑器件的历史：</h1><p>一、TTL逻辑设计：<br>采用真值表构建模型，利用卡诺图化简后得到逻辑表达式。TTL采用乘积和的模式设计，组成与门和多或门组成。<br>二、PAL可编程阵列逻辑：<br>逻辑门与输出寄存器固定，输入与与门构成乘积项，与乘积项和寄存项构成宏单元。跨线编程依靠浮珊晶体管（FAMOS或FLOTOX），工作方式分别为电擦除和紫光擦除。<br>三、CPLD复杂可编程逻辑器件：<br>利用可编程逻辑阵列的模块（LAB），<br>并且使用了可控乘积项提高效率。可编程互联阵列（PI）采用EPROM等技术编程。IO模块都采用了更加合理的结构。采用JTAG接口实现ISP（系统编程）。提高了可编程的器件的数量。</p><h1 id="4-从CPLD到FPGA的改善"><a href="#4-从CPLD到FPGA的改善" class="headerlink" title="4.从CPLD到FPGA的改善"></a>4.从CPLD到FPGA的改善</h1><p>一、FPGA的LAB采用逻辑模块来提供单元，并成阵列式的分布于网格线中。<br>二、加入的查找表（LUT）可以有效地提高逻辑器件的利用率。<br>三、可编程的寄存器可以灵活的适应各种逻辑输出。<br>四、FPGA内依靠寄存器链和LAB的级联实现进位，不需要进位逻辑块。<br>五、高级的FPGA采用ALM（自适应逻辑模块），基于LE并包括专用资源和LUT以提高利用效率。<br>六、FPGA中的IO模块支持各种的标准，有电流驱动能力。可设置IO的开漏等等可以提高效率的模块。主要有输入、输出、使能模块。<br>七、存储器模块，嵌入式乘法器，高速收发器等定制的模块<br>八、FPGA的时钟：特殊的结构控制并向器件中的同步逻辑扇出时钟。自带时钟控制模块可以配置时钟资源。<br>九、SRAM单元技术用于实现互联和LUT功能级进行编程。行列互联结是易失的，上电时才可以编程。SRAM编程单元也需要上电后进行编程。</p><h1 id="5-ASIC"><a href="#5-ASIC" class="headerlink" title="5.ASIC"></a>5.ASIC</h1><p>一、Altera ASIC是ASIC，用于测试ASIC系统，可以有效地提高ASIC的开发效率。</p><h1 id="6-CPLD和FPAG的对比。"><a href="#6-CPLD和FPAG的对比。" class="headerlink" title="6.CPLD和FPAG的对比。"></a>6.CPLD和FPAG的对比。</h1><p>  CPLD是非易失编程，FPGA是易失的编程设计。<br>  小中型设计            大型设计</p><h1 id="7-设计流程"><a href="#7-设计流程" class="headerlink" title="7.设计流程"></a>7.设计流程</h1><p>   设计输入-&gt;功能仿真-&gt;综合仿真-&gt;布局布线-&gt;门级仿真（可选）<br>                                             |<br>                                          PCB布局</p><h1 id="8-总结："><a href="#8-总结：" class="headerlink" title="8.总结："></a>8.总结：</h1><p>FPGA提高逻辑设计的速度。</p>]]></content>
     
     <summary type="html">
     
       &lt;p&gt;可编程逻辑器件&lt;/p&gt;
-&lt;p&gt;#1.可编程逻辑器件将电路连线简化。&lt;/p&gt;
-&lt;p&gt;#2.CPLD与FPGA的原理：化简电路后级联。&lt;/p&gt;
+&lt;h1 id=&quot;1-可编程逻辑器件将电路连线简化。&quot;&gt;&lt;a href=&quot;#1-可编程逻辑器件将电路连线简化。&quot; class=&quot;headerlink&quot; title=&quot;1.可编程逻辑器件将电路连线简化。&quot;&gt;&lt;/a&gt;1.可编程逻辑器件将电路连线简化。&lt;/h1&gt;&lt;h1 id=&quot;2-CPLD与FPGA的原理：化简电路后级联。&quot;&gt;&lt;a href=&quot;#2-CPLD与FPGA的原理：化简电路后级联。&quot; class=&quot;headerlink&quot; title=&quot;2.CPLD与FPGA的原理：化简电路后级联。&quot;&gt;&lt;/a&gt;2.CPLD与FPGA的原理：化简电路后级联。&lt;/h1&gt;
     
     </summary>
     
