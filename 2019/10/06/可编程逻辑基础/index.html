@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://github.com/electricdream11">
-  <title>Archives | The Electric Dream</title>
+  <title>可编程逻辑基础 | The Electric Dream</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="the site is just for study and interest">
-<meta property="og:type" content="website">
-<meta property="og:title" content="The Electric Dream">
-<meta property="og:url" content="https://github.com/electricdream11/archives/index.html">
+  <meta name="description" content="可编程逻辑器件 #1.可编程逻辑器件将电路连线简化。 #2.CPLD与FPGA的原理：化简电路后级联。">
+<meta name="keywords" content="FPGA">
+<meta property="og:type" content="article">
+<meta property="og:title" content="可编程逻辑基础">
+<meta property="og:url" content="https://github.com/electricdream11/2019/10/06/可编程逻辑基础/index.html">
 <meta property="og:site_name" content="The Electric Dream">
-<meta property="og:description" content="the site is just for study and interest">
+<meta property="og:description" content="可编程逻辑器件 #1.可编程逻辑器件将电路连线简化。 #2.CPLD与FPGA的原理：化简电路后级联。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-06T07:44:42.379Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="The Electric Dream">
-<meta name="twitter:description" content="the site is just for study and interest">
+<meta name="twitter:title" content="可编程逻辑基础">
+<meta name="twitter:description" content="可编程逻辑器件 #1.可编程逻辑器件将电路连线简化。 #2.CPLD与FPGA的原理：化简电路后级联。">
   
     <link rel="alternative" href="/atom.xml" title="The Electric Dream" type="application/atom+xml">
   
@@ -157,36 +159,56 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-可编程逻辑基础" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/06/可编程逻辑基础/" class="archive-article-date">
-  	<time datetime="2019-10-06T07:39:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-06</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/06/可编程逻辑基础/">可编程逻辑基础</a>
+    <h1 class="article-title" itemprop="name">
+      可编程逻辑基础
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/10/06/可编程逻辑基础/" class="archive-article-date">
+  	<time datetime="2019-10-06T07:39:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>可编程逻辑器件</p>
+<p>#1.可编程逻辑器件将电路连线简化。</p>
+<p>#2.CPLD与FPGA的原理：化简电路后级联。</p>
+<a id="more"></a> 
+<p>#3.逻辑器件的历史：</p>
+<p>##一、TTL逻辑设计：采用真值表构建模型，利用卡诺图化简后得到逻辑表达式。TTL采用乘积和的模式设计，组成与门和多或门组成。</p>
+<p>##二、PAL可编程阵列逻辑：逻辑门与输出寄存器固定，输入与与门构成乘积项，与乘积项和寄存项构成宏单元。跨线编程依靠浮珊晶体管（FAMOS或FLOTOX），工作方式分别为电擦除和紫光擦除。</p>
+<p>##三、CPLD复杂可编程逻辑器件：利用可编程逻辑阵列的模块（LAB），<br>并且使用了可控乘积项提高效率。可编程互联阵列（PI）采用EPROM等技术编程。IO模块都采用了更加合理的结构。采用JTAG接口实现ISP（系统编程）。提高了可编程的器件的数量。</p>
+<p>#4.从CPLD到FPGA的改善</p>
+<p>##一、FPGA的LAB采用逻辑模块来提供单元，并成阵列式的分布于网格线中。</p>
+<p>##二、加入的查找表（LUT）可以有效地提高逻辑器件的利用率。</p>
+<p>##三、可编程的寄存器可以灵活的适应各种逻辑输出。</p>
+<p>##四、FPGA内依靠寄存器链和LAB的级联实现进位，不需要进位逻辑块。</p>
+<p>##五、高级的FPGA采用ALM（自适应逻辑模块），基于LE并包括专用资源和LUT以提高利用效率。</p>
+<p>##六、FPGA中的IO模块支持各种的标准，有电流驱动能力。可设置IO的开漏等等可以提高效率的模块。主要有输入、输出、使能模块。</p>
+<p>##七、存储器模块，嵌入式乘法器，高速收发器等定制的模块</p>
+<p>##八、FPGA的时钟：特殊的结构控制并向器件中的同步逻辑扇出时钟。自带时钟控制模块可以配置时钟资源。</p>
+<p>##九、SRAM单元技术用于实现互联和LUT功能级进行编程。行列互联结是易失的，上电时才可以编程。SRAM编程单元也需要上电后进行编程。</p>
+<p>#5.ASIC<br>一、Altera ASIC是ASIC，用于测试ASIC系统，可以有效地提高ASIC的开发效率。</p>
+<p>#6.CPLD和FPAG的对比。<br>  CPLD是非易失编程，FPGA是易失的编程设计。<br>  小中型设计            大型设计</p>
+<p>#7.设计流程<br>   设计输入-&gt;功能仿真-&gt;综合仿真-&gt;布局布线-&gt;门级仿真（可选）<br>                                             |<br>                                          PCB布局</p>
+<p>#8.总结：FPGA提高逻辑设计的速度。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -198,7 +220,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -211,262 +233,117 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://github.com/electricdream11/2019/10/06/可编程逻辑基础/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/03/1003_FPGA/" class="archive-article-date">
-  	<time datetime="2019-10-03T12:29:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-03</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/10/03/1003_FPGA/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">1003_FPGA</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/03/1003_FPGA/">1003_FPGA</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">test</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/test//" class="article-tag-list-link color5">test</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    目录，不存在的…
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/03/myaim/" class="archive-article-date">
-  	<time datetime="2019-10-03T08:01:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/03/myaim/">myaim</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">test</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/test//" class="article-tag-list-link color5">test</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/02/myfirstarticle/" class="archive-article-date">
-  	<time datetime="2019-10-02T08:44:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/02/myfirstarticle/">myfirstarticle</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">test</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/test//" class="article-tag-list-link color5">test</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/01/hello-blog/" class="archive-article-date">
-  	<time datetime="2019-10-01T04:29:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/01/hello-blog/">hello blog</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">test</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/test//" class="article-tag-list-link color5">test</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/01/Hello-World/" class="archive-article-date">
-  	<time datetime="2019-10-01T03:08:35.851Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/01/Hello-World/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">test</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/test//" class="article-tag-list-link color5">test</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -489,8 +366,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
