@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/electricdream11/"/>
-  <updated>2019-10-06T13:00:27.048Z</updated>
+  <updated>2019-10-09T12:51:08.089Z</updated>
   <id>https://github.com/electricdream11/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>FPGA组合电路基础</title>
+    <link href="https://github.com/electricdream11/2019/10/09/FPGA%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80/"/>
+    <id>https://github.com/electricdream11/2019/10/09/FPGA组合电路基础/</id>
+    <published>2019-10-09T12:41:20.000Z</published>
+    <updated>2019-10-09T12:51:08.089Z</updated>
+    
+    <content type="html"><![CDATA[<p>FPGA组合电路基础</p><h1 id="1-一般的verilog语法结构"><a href="#1-一般的verilog语法结构" class="headerlink" title="1.一般的verilog语法结构"></a>1.一般的verilog语法结构</h1><pre><code>module name</code></pre><p>   (<br>     Name of io<br>);<br>input   ;<br>output   ;</p><p>assign<br>always<br>initial<br>功能描述<br>函数和任务<br>endmodule</p><h1 id="2-基本的电路的实现"><a href="#2-基本的电路的实现" class="headerlink" title="2.基本的电路的实现"></a>2.基本的电路的实现</h1><p>  一、采用连续赋值语句实现门电路<br>   与：&amp;&amp;    或： ||  非 ！（只能使用这几种组合逻辑实现）<br>  实例：<br>  module yumen(a, b, q);<br>   input a;<br>   input b;<br>   output q;<br>   assign q =a &amp;&amp; b;<br>  endmodule</p><img src="/2019/10/09/FPGA组合电路基础/imag1.png"><p>  二、采用门级元件实现门电路<br>   module yumen(a,b,q);<br>    input a;<br>    input b;<br>    output q;<br>  and (q,a,b);   //还有nand(与非) or(或) nor(或非) not(非)<br>                 //xor(异或) nxor(同或)<br>   endmodule<br> <img src="/2019/10/09/FPGA组合电路基础/imag2.png"></p><p> 三、采用过程赋值语句实现门电路<br>   module yumen(a,b,q);<br>    input a;<br>    input b;<br>    output q;<br>     reg q;</p><p>   always@(*)<br>    q =  a &amp;&amp; b;  //q声明reg表明过程赋值，与always相呼应<br>  endmodule</p> <img src="/2019/10/09/FPGA组合电路基础/imag3.png"><p>//任何过程赋值的左侧变量必须是reg，除此之外的都必须是wire</p><h1 id="3-小提示"><a href="#3-小提示" class="headerlink" title="3.小提示"></a>3.小提示</h1><p>硬件语言描述的作用在于描述，而不是设计，要注意不要在没有实际的电路思路时尝试单纯依靠verilog来实现某种功能，会产生许多疑问。</p><h1 id="4-组合逻辑电路的分析和设计"><a href="#4-组合逻辑电路的分析和设计" class="headerlink" title="4.组合逻辑电路的分析和设计"></a>4.组合逻辑电路的分析和设计</h1><p>  使用真值表和卡诺图得到最简的逻辑，<br>  在考虑了功能冒险（两个变量以上变化且输出稳态值保持不变，主要在板级验证上解决）和逻辑冒险（卡诺图有相切项）后，具体的实现。</p><h1 id="5-组合逻辑电路的应用"><a href="#5-组合逻辑电路的应用" class="headerlink" title="5.组合逻辑电路的应用"></a>5.组合逻辑电路的应用</h1><p> 使用case语句的编码器：<br>  module Digitial_Encoder<br>  (<br>    I,O<br>  );<br>  input  wire [7:0]  I;<br>  output  reg [2:0]  O;<br>  always @(*)<br>   begin<br>   case(I)<br>  8’b0000_0001 : O=3’b000;<br>  8’b0000_0010 : O=3’b001;<br> 8’b0000_0100 : O=3’b010;<br> 8’b0000_1000 : O=3’b011;<br> 8’b0001_0000 : O=3’b100;<br> 8’b0010_0000 : O=3’b101;<br> 8’b0100_0000 : O=3’b110;<br> 8’b1000_0000 : O=3’b111;<br>  default: O =3’b000;<br>  endcase<br>  end<br>endmodule</p><img src="/2019/10/09/FPGA组合电路基础/imag4.png"><p>使用if语句的译码器：<br>module Digital_Prime_Encoder(I,O);<br>input wire [7:0] I;<br>output reg [2:0] O;<br>always@(*)<br>begin<br> if(I[7]==1’b0)   O=3’b000;<br>else if(I[6]==1’b0) O=3’b001;<br>else if(I[5]==1’b0) O=3’b010;<br>else if(I[4]==1’b0) O=3’b011;<br>else if(I[3]==1’b0) O=3’b100;<br>else if(I[2]==1’b0) O=3’b101;<br>else if(I[1]==1’b0) O=3’b110;<br>else if(I[0]==1’b0) O=3’b111;<br>else             O=3’b000;</p><p>end<br>endmodule</p><img src="/2019/10/09/FPGA组合电路基础/imag5.png"><h1 id="6-组合电路小结："><a href="#6-组合电路小结：" class="headerlink" title="6.组合电路小结："></a>6.组合电路小结：</h1><p>在声明模型的架构后，选择输入输出端是根据两种数据类型（reg和wire）来选择的。wire用于连续的赋值，数据是同步改变的（可以理解为敏感源为所有变量的过程赋值）。reg类型的数据是可以等待敏感变量发生赋值的，具有相应的延时效应。这样可以有效地区分过程和连续的进程，以此来防止两种类型的赋值发生在同一变量。功能部分的设计则是根据相应的组合电路的真值表或卡诺图公式得到。</p><h1 id="7-运算符号"><a href="#7-运算符号" class="headerlink" title="7.运算符号"></a>7.运算符号</h1><p>（+、-、*、/、！（逻辑非）、<del>（取反）、&amp;（与）、</del>&amp;（与非）、|（或）、<del>|（或非）、^(异或)、</del>^（同或）、%（取模）、&lt;&lt;(逻辑左移)、&lt;（小于）、&lt;=（小于等于）、&gt;（大于））。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;FPGA组合电路基础&lt;/p&gt;
+&lt;h1 id=&quot;1-一般的verilog语法结构&quot;&gt;&lt;a href=&quot;#1-一般的verilog语法结构&quot; class=&quot;headerlink&quot; title=&quot;1.一般的verilog语法结构&quot;&gt;&lt;/a&gt;1.一般的verilog语法结构&lt;/h1
+      
+    
+    </summary>
+    
+    
+      <category term="FPGA" scheme="https://github.com/electricdream11/categories/FPGA/"/>
+    
+    
+      <category term="FPGA" scheme="https://github.com/electricdream11/tags/FPGA/"/>
+    
+      <category term="组合电路" scheme="https://github.com/electricdream11/tags/%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF/"/>
+    
+  </entry>
   
   <entry>
     <title>verilog语法基础</title>
