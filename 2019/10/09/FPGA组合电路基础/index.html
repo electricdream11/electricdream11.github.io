@@ -8,23 +8,23 @@
   <link rel="dns-prefetch" href="https://github.com/electricdream11">
   <title>FPGA组合电路基础 | The Electric Dream</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="FPGA组合电路基础 1.一般的verilog语法结构module name   (     Name of io);input   ;output   ; assignalwaysinitial功能描述函数和任务endmodule 2.基本的电路的实现  一、采用连续赋值语句实现门电路   与：&amp;amp;&amp;amp;    或： ||  非 ！（只能使用这几种组合逻辑实现）  实例：  modul">
+  <meta name="description" content="FPGA组合电路基础">
 <meta name="keywords" content="FPGA,组合电路">
 <meta property="og:type" content="article">
 <meta property="og:title" content="FPGA组合电路基础">
 <meta property="og:url" content="https://github.com/electricdream11/2019/10/09/FPGA组合电路基础/index.html">
 <meta property="og:site_name" content="The Electric Dream">
-<meta property="og:description" content="FPGA组合电路基础 1.一般的verilog语法结构module name   (     Name of io);input   ;output   ; assignalwaysinitial功能描述函数和任务endmodule 2.基本的电路的实现  一、采用连续赋值语句实现门电路   与：&amp;amp;&amp;amp;    或： ||  非 ！（只能使用这几种组合逻辑实现）  实例：  modul">
+<meta property="og:description" content="FPGA组合电路基础">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://github.com/2019/10/09/FPGA组合电路基础/imag1.png">
 <meta property="og:image" content="https://github.com/2019/10/09/FPGA组合电路基础/imag2.png">
 <meta property="og:image" content="https://github.com/2019/10/09/FPGA组合电路基础/imag3.png">
 <meta property="og:image" content="https://github.com/2019/10/09/FPGA组合电路基础/imag4.png">
 <meta property="og:image" content="https://github.com/2019/10/09/FPGA组合电路基础/imag5.png">
-<meta property="og:updated_time" content="2019-10-09T12:51:08.089Z">
+<meta property="og:updated_time" content="2019-10-09T12:52:28.593Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="FPGA组合电路基础">
-<meta name="twitter:description" content="FPGA组合电路基础 1.一般的verilog语法结构module name   (     Name of io);input   ;output   ; assignalwaysinitial功能描述函数和任务endmodule 2.基本的电路的实现  一、采用连续赋值语句实现门电路   与：&amp;amp;&amp;amp;    或： ||  非 ！（只能使用这几种组合逻辑实现）  实例：  modul">
+<meta name="twitter:description" content="FPGA组合电路基础">
 <meta name="twitter:image" content="https://github.com/2019/10/09/FPGA组合电路基础/imag1.png">
   
     <link rel="alternative" href="/atom.xml" title="The Electric Dream" type="application/atom+xml">
@@ -193,7 +193,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>FPGA组合电路基础</p>
+        <h1 id="FPGA组合电路基础"><a href="#FPGA组合电路基础" class="headerlink" title="FPGA组合电路基础"></a>FPGA组合电路基础</h1><a id="more"></a>
 <h1 id="1-一般的verilog语法结构"><a href="#1-一般的verilog语法结构" class="headerlink" title="1.一般的verilog语法结构"></a>1.一般的verilog语法结构</h1><pre><code>module name</code></pre><p>   (<br>     Name of io<br>);<br>input   ;<br>output   ;</p>
 <p>assign<br>always<br>initial<br>功能描述<br>函数和任务<br>endmodule</p>
 <h1 id="2-基本的电路的实现"><a href="#2-基本的电路的实现" class="headerlink" title="2.基本的电路的实现"></a>2.基本的电路的实现</h1><p>  一、采用连续赋值语句实现门电路<br>   与：&amp;&amp;    或： ||  非 ！（只能使用这几种组合逻辑实现）<br>  实例：<br>  module yumen(a, b, q);<br>   input a;<br>   input b;<br>   output q;<br>   assign q =a &amp;&amp; b;<br>  endmodule</p>
@@ -340,7 +340,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-一般的verilog语法结构"><span class="toc-number">1.</span> <span class="toc-text">1.一般的verilog语法结构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-基本的电路的实现"><span class="toc-number">2.</span> <span class="toc-text">2.基本的电路的实现</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-小提示"><span class="toc-number">3.</span> <span class="toc-text">3.小提示</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-组合逻辑电路的分析和设计"><span class="toc-number">4.</span> <span class="toc-text">4.组合逻辑电路的分析和设计</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-组合逻辑电路的应用"><span class="toc-number">5.</span> <span class="toc-text">5.组合逻辑电路的应用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-组合电路小结："><span class="toc-number">6.</span> <span class="toc-text">6.组合电路小结：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-运算符号"><span class="toc-number">7.</span> <span class="toc-text">7.运算符号</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#FPGA组合电路基础"><span class="toc-number">1.</span> <span class="toc-text">FPGA组合电路基础</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-一般的verilog语法结构"><span class="toc-number">2.</span> <span class="toc-text">1.一般的verilog语法结构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-基本的电路的实现"><span class="toc-number">3.</span> <span class="toc-text">2.基本的电路的实现</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-小提示"><span class="toc-number">4.</span> <span class="toc-text">3.小提示</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-组合逻辑电路的分析和设计"><span class="toc-number">5.</span> <span class="toc-text">4.组合逻辑电路的分析和设计</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-组合逻辑电路的应用"><span class="toc-number">6.</span> <span class="toc-text">5.组合逻辑电路的应用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-组合电路小结："><span class="toc-number">7.</span> <span class="toc-text">6.组合电路小结：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-运算符号"><span class="toc-number">8.</span> <span class="toc-text">7.运算符号</span></a></li></ol>
                     </div>
                 </span>
             </div>
