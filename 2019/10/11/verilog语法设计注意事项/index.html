@@ -6,22 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://github.com/electricdream11">
-  <title>myfirstarticle | The Electric Dream</title>
+  <title>verilog语法设计注意事项 | The Electric Dream</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="测试一下功能。">
-<meta name="keywords" content="test">
+  <meta name="description" content="硬件语法之verilog1.verilog与VHDL的区别 verilog类似c语言，VHDL更为严谨。在学习了verilog后要学习VHDL以提高个人的描述能力。verilog与C语言的区别在于同时执行和顺序执行。在设计verilog时必须要记住设计的对象是电路。">
+<meta name="keywords" content="FPGA,verilog">
 <meta property="og:type" content="article">
-<meta property="og:title" content="myfirstarticle">
-<meta property="og:url" content="https://github.com/electricdream11/2019/10/02/myfirstarticle/index.html">
+<meta property="og:title" content="verilog语法设计注意事项">
+<meta property="og:url" content="https://github.com/electricdream11/2019/10/11/verilog语法设计注意事项/index.html">
 <meta property="og:site_name" content="The Electric Dream">
-<meta property="og:description" content="测试一下功能。">
+<meta property="og:description" content="硬件语法之verilog1.verilog与VHDL的区别 verilog类似c语言，VHDL更为严谨。在学习了verilog后要学习VHDL以提高个人的描述能力。verilog与C语言的区别在于同时执行和顺序执行。在设计verilog时必须要记住设计的对象是电路。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://github.com/2019/10/02/myfirstarticle/test.jpg">
-<meta property="og:updated_time" content="2019-10-04T06:25:06.956Z">
+<meta property="og:image" content="https://github.com/2019/10/11/verilog语法设计注意事项/imag1.png">
+<meta property="og:image" content="https://github.com/2019/10/11/verilog语法设计注意事项/imag2.png">
+<meta property="og:image" content="https://github.com/2019/10/11/verilog语法设计注意事项/imag3.png">
+<meta property="og:updated_time" content="2019-10-11T13:40:29.629Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="myfirstarticle">
-<meta name="twitter:description" content="测试一下功能。">
-<meta name="twitter:image" content="https://github.com/2019/10/02/myfirstarticle/test.jpg">
+<meta name="twitter:title" content="verilog语法设计注意事项">
+<meta name="twitter:description" content="硬件语法之verilog1.verilog与VHDL的区别 verilog类似c语言，VHDL更为严谨。在学习了verilog后要学习VHDL以提高个人的描述能力。verilog与C语言的区别在于同时执行和顺序执行。在设计verilog时必须要记住设计的对象是电路。">
+<meta name="twitter:image" content="https://github.com/2019/10/11/verilog语法设计注意事项/imag1.png">
   
     <link rel="alternative" href="/atom.xml" title="The Electric Dream" type="application/atom+xml">
   
@@ -172,32 +174,50 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-myfirstarticle" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-verilog语法设计注意事项" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      myfirstarticle
+      verilog语法设计注意事项
     </h1>
   
 
         
-        <a href="/2019/10/02/myfirstarticle/" class="archive-article-date">
-  	<time datetime="2019-10-02T08:44:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-02</time>
+        <a href="/2019/10/11/verilog语法设计注意事项/" class="archive-article-date">
+  	<time datetime="2019-10-11T13:35:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-11</time>
 </a>
         
       </header>
       <div align="center" class="post-count">
-      字数：6字 | 预计阅读时长：1分钟
+      字数：1.6k字 | 预计阅读时长：5分钟
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <img src="/2019/10/02/myfirstarticle/test.jpg" title="test">
-
-<p>测试一下功能。</p>
+        <pre><code>硬件语法之verilog</code></pre><h1 id="1-verilog与VHDL的区别"><a href="#1-verilog与VHDL的区别" class="headerlink" title="1.verilog与VHDL的区别"></a>1.verilog与VHDL的区别</h1><p> verilog类似c语言，VHDL更为严谨。在学习了verilog后要学习VHDL以提高个人的描述能力。verilog与C语言的区别在于同时执行和顺序执行。在设计verilog时必须要记住设计的对象是电路。</p>
+<a id="more"></a>
+<h1 id="2-verilog中的逻辑系统"><a href="#2-verilog中的逻辑系统" class="headerlink" title="2.verilog中的逻辑系统"></a>2.verilog中的逻辑系统</h1><p>  verilog中包含 0 ， 1 ，X ， Z，四种逻辑系统，用于描述电路中所有的信号的类型。0和1位常见的高低电平，X为未知电平（一般出现在某些错误纠正中），Z为高阻（悬空）接口。</p>
+<h1 id="3-verilog的数据类型"><a href="#3-verilog的数据类型" class="headerlink" title="3.verilog的数据类型"></a>3.verilog的数据类型</h1><p>  reg类型，过程变量，在always和initial中可以赋值传递。（integer和real也是寄存器类型的一种）；<br>  对应的，wire类型，连续变量，在assign中可以作为被赋值项。（同类型的变量还有 wand和tri）；<br>  还有就是参数数据类型（常量），用于说明所用的常量的物理意义，由语句parameter或localparam声明</p>
+<h1 id="4-verilog中的运算"><a href="#4-verilog中的运算" class="headerlink" title="4. verilog中的运算"></a>4. verilog中的运算</h1><p>  算数运算符（加减乘除）：对应硬件电路中的加（减乘除）法器，暂时还没接触到积分和微分器。<br>  关系运算符（大于等于和小于）：用于对变量间的比较，对应比较器，逻辑等于和逻辑不等于暂时没有接触。<br>  逻辑运算符（与或非及对应的逻辑关系）：对应与或非门，注意取反操作是位操作，对所有位有效。而非逻辑只判断真假。<br>  条件运算符（if—else和switch case和 ： ？）：和电路中的选择器对应<br>  位运算符（&amp;，|，~， ^）： 对应多个与或非门，实现所有位的操作。<br>  移位运算符（ &lt;&lt; , &gt;&gt;）：对应移位寄存器<br>  拼接运算符（，｛｝｛｛｝｝）：对应寄存器的同步组合，｛,｝为前后拼接，｛a｛b｝｝，重复拼接运算符，将b拼接a次；</p>
+<h1 id="5-运算符的优先级"><a href="#5-运算符的优先级" class="headerlink" title="5.运算符的优先级"></a>5.运算符的优先级</h1><p>  基本上和C语言的优先级一样，括号的优先级判断依旧存在。</p>
+<h1 id="6-verilog的可综合的关键字"><a href="#6-verilog的可综合的关键字" class="headerlink" title="6.verilog的可综合的关键字"></a>6.verilog的可综合的关键字</h1><p>  一、module和endmodule：模块开始和结束声明<br>二、input和output和inout：端口输入和输出声明<br>三、wire和reg：数据类型声明<br>四、parameter：常量声明<br>五、always和assign：过程和连续赋值标志<br>六、if else和 case default endcase：条件语句声明语句<br>七、begin end ：多过程赋值语句标志<br>八、posedge和negedge or ：上下边沿触发标志（or可以增加条件）</p>
+<h1 id="7-verilog的基本框架"><a href="#7-verilog的基本框架" class="headerlink" title="7.verilog的基本框架"></a>7.verilog的基本框架</h1><p>  一、模块<br>   构成verilog代码的基本单元，也是对应一个具有完整功能的电路。模块的框架基本上包括输入、输出、功能三大部分。前两个部分作为标准化的接口供其他模块或更高级的模块使用，使设计可以不断地累加直到可以实现预计的功能。<br>二、模块的级别<br>   对于一个比较大的电路设计而言，具有层次的设计是必须的，而verilog中都是以模块来实现的，这使得模块在设计之初就要确定好描述的等级。verilog语法中支持<br>（1）系统级：复杂功能电路<br>（2）算法级：功能电路<br>（3）RTL   ：寄存器电路<br>（4）门级  ：逻辑电路<br>（5）开关级：开关电路<br>三、模块的描述方法<br>一、结构化描述：直接利用电路的自带的结构<br>二、数据流描述：又称寄存器级传输（RTL），直接基于输入输出得到寄存器所需的操作。<br>三、行为级描述：由所需的功能得到输入输出的值然后实现相应的功能。</p>
+<h1 id="8-verilog的模块化设计"><a href="#8-verilog的模块化设计" class="headerlink" title="8.verilog的模块化设计"></a>8.verilog的模块化设计</h1><p>   所谓的模块化设计就是设计分层进行，在顶层模块中声明所需的功能，在次级模块中构建好，在顶层中例化即可，这样可以有效地利用重复的功能模块。例子如下（类似C++类的使用）<br>module Example<br>(<br>input a,<br>input b,<br>output s,<br>output q<br>);<br>Yumen Yumen_U1(<br>  .yumen_a(a),  //模块间的链接语法<br>  .yumen_b(b),<br>  .yumen_q(q)<br>);<br>Huomen Huomen_U2(<br> .huomen_a(a),<br> .huomen_b(b),<br> .huomen_s(s)<br>);<br>endmodule</p>
+<img src="/2019/10/11/verilog语法设计注意事项/imag1.png">
+<p>module Yumen(<br>input yumen_a,<br>input yumen_b,<br>output yumen_q<br>);<br>assign yumen_q = yumen_a &amp;&amp; yumen_b ;<br>endmodule</p>
+<img src="/2019/10/11/verilog语法设计注意事项/imag2.png">
+<p>module Huomen(<br>input huomen_a,<br>input huomen_b,<br>output huomen_s<br>);<br>assign huomen_s = huomen_a || huomen_b ;<br>endmodule</p>
+<img src="/2019/10/11/verilog语法设计注意事项/imag3.png">
+<h1 id="9-reg与wire在设计中的区分"><a href="#9-reg与wire在设计中的区分" class="headerlink" title="9.reg与wire在设计中的区分"></a>9.reg与wire在设计中的区分</h1><p>  reg 为寄存器类型（在2001verilog中显示为varible），只能作为过程量在always等过程语句中被赋值，同理wire只能在assign等连续语句中被赋值。与此同时，输入端的数据也要同步（wire驱动，reg寄存）；</p>
+<h1 id="10-设计中锁存器的产生"><a href="#10-设计中锁存器的产生" class="headerlink" title="10.设计中锁存器的产生"></a>10.设计中锁存器的产生</h1><p>  在设计条件语句时要考虑所有的情况以免由于系统默认未定义的结果保持不变而形成锁存器。</p>
+<h1 id="11-组合电路的反馈环"><a href="#11-组合电路的反馈环" class="headerlink" title="11.组合电路的反馈环"></a>11.组合电路的反馈环</h1><p> 正如RS锁存器的冒险一样，如果设计的逻辑反馈会导致不确定的值存在，就会形成反馈环，这种会导致警告。设计组合电路的输出转接到输入时要考虑这个问题的存在。</p>
+<h1 id="12-阻塞与非阻塞"><a href="#12-阻塞与非阻塞" class="headerlink" title="12.阻塞与非阻塞"></a>12.阻塞与非阻塞</h1><p>  组合电路中按顺序实现功能即为阻塞赋值，而时序电路中并行执行的是非阻塞赋值。</p>
+<h1 id="13-状态机的设计思想"><a href="#13-状态机的设计思想" class="headerlink" title="13.状态机的设计思想"></a>13.状态机的设计思想</h1><p>  所谓的状态机就是基于时序管理事件的一种描述方法。一般来说，状态机包括状态描述变量，结果变量和控制变量。其中的状态变量相对的独立，其他两个变量在状态机中为关键的设计部分。</p>
+<h1 id="14-代码风格"><a href="#14-代码风格" class="headerlink" title="14.代码风格"></a>14.代码风格</h1><p>  一、命名：这是可读性的直接影响因素，好的命名一目了然，差的命名给人以困惑，在团队项目中尤为致命。<br>二、排版：有相对简洁固定的排版可以大幅的提高代码的整洁度，从而让其他的成员能够快速的掌握关键的代码，提高交流效率。<br>三、注释：事实上，标准的硬件代码的注释要达到代码总量的五分之一，良好的注释是团队项目的基石。<br>总之，写的代码必须能够经得起考验，否则就是乱码。</p>
+<h1 id="15-总结"><a href="#15-总结" class="headerlink" title="15.总结"></a>15.总结</h1><p>  verilog语法是借用了C语言的硬件描述语言，在书写和应用是要时刻的考虑硬件的特点，时刻对应到具体的电路，只有这样才不会脱离实际的电路。</p>
 
       
 
@@ -211,7 +231,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">test</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">verilog</a>
         		</li>
       		
 		</ul>
@@ -223,7 +247,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/test//" class="article-tag-list-link color5">test</a>
+        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
         		</li>
       		
 		</ul>
@@ -278,7 +302,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://github.com/electricdream11/2019/10/02/myfirstarticle/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://github.com/electricdream11/2019/10/11/verilog语法设计注意事项/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -292,18 +316,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/10/03/myaim/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          myaim
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/10/01/hello-blog/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">hello blog</div>
+    <a href="/2019/10/10/时序电路基础/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">时序电路基础</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -322,6 +337,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-verilog与VHDL的区别"><span class="toc-number">1.</span> <span class="toc-text">1.verilog与VHDL的区别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-verilog中的逻辑系统"><span class="toc-number">2.</span> <span class="toc-text">2.verilog中的逻辑系统</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-verilog的数据类型"><span class="toc-number">3.</span> <span class="toc-text">3.verilog的数据类型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-verilog中的运算"><span class="toc-number">4.</span> <span class="toc-text">4. verilog中的运算</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-运算符的优先级"><span class="toc-number">5.</span> <span class="toc-text">5.运算符的优先级</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-verilog的可综合的关键字"><span class="toc-number">6.</span> <span class="toc-text">6.verilog的可综合的关键字</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-verilog的基本框架"><span class="toc-number">7.</span> <span class="toc-text">7.verilog的基本框架</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#8-verilog的模块化设计"><span class="toc-number">8.</span> <span class="toc-text">8.verilog的模块化设计</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#9-reg与wire在设计中的区分"><span class="toc-number">9.</span> <span class="toc-text">9.reg与wire在设计中的区分</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#10-设计中锁存器的产生"><span class="toc-number">10.</span> <span class="toc-text">10.设计中锁存器的产生</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#11-组合电路的反馈环"><span class="toc-number">11.</span> <span class="toc-text">11.组合电路的反馈环</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#12-阻塞与非阻塞"><span class="toc-number">12.</span> <span class="toc-text">12.阻塞与非阻塞</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#13-状态机的设计思想"><span class="toc-number">13.</span> <span class="toc-text">13.状态机的设计思想</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#14-代码风格"><span class="toc-number">14.</span> <span class="toc-text">14.代码风格</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#15-总结"><span class="toc-number">15.</span> <span class="toc-text">15.总结</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
