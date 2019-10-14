@@ -6,22 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://github.com/electricdream11">
-  <title>myfirstarticle | The Electric Dream</title>
+  <title>三人表决器 | The Electric Dream</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="测试一下功能。">
-<meta name="keywords" content="test">
+  <meta name="description" content="三人表决器的设计分析 1.学习目标  了解规范的设计流程  熟悉软件部分工具  为接下来的实际设计做准备">
+<meta name="keywords" content="FPGA,example">
 <meta property="og:type" content="article">
-<meta property="og:title" content="myfirstarticle">
-<meta property="og:url" content="https://github.com/electricdream11/2019/10/02/myfirstarticle/index.html">
+<meta property="og:title" content="三人表决器">
+<meta property="og:url" content="https://github.com/electricdream11/2019/10/14/三人表决器/index.html">
 <meta property="og:site_name" content="The Electric Dream">
-<meta property="og:description" content="测试一下功能。">
+<meta property="og:description" content="三人表决器的设计分析 1.学习目标  了解规范的设计流程  熟悉软件部分工具  为接下来的实际设计做准备">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://github.com/2019/10/02/myfirstarticle/test.jpg">
-<meta property="og:updated_time" content="2019-10-04T06:25:06.956Z">
+<meta property="og:image" content="https://github.com/2019/10/14/三人表决器/imag5.png">
+<meta property="og:image" content="https://github.com/2019/10/14/三人表决器/imag6.png">
+<meta property="og:image" content="https://github.com/2019/10/14/三人表决器/imag1.png">
+<meta property="og:image" content="https://github.com/2019/10/14/三人表决器/imag2.png">
+<meta property="og:image" content="https://github.com/2019/10/14/三人表决器/imag3.png">
+<meta property="og:image" content="https://github.com/2019/10/14/三人表决器/imag4.png">
+<meta property="og:updated_time" content="2019-10-14T13:30:45.599Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="myfirstarticle">
-<meta name="twitter:description" content="测试一下功能。">
-<meta name="twitter:image" content="https://github.com/2019/10/02/myfirstarticle/test.jpg">
+<meta name="twitter:title" content="三人表决器">
+<meta name="twitter:description" content="三人表决器的设计分析 1.学习目标  了解规范的设计流程  熟悉软件部分工具  为接下来的实际设计做准备">
+<meta name="twitter:image" content="https://github.com/2019/10/14/三人表决器/imag5.png">
   
     <link rel="alternative" href="/atom.xml" title="The Electric Dream" type="application/atom+xml">
   
@@ -172,32 +177,51 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-myfirstarticle" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-三人表决器" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      myfirstarticle
+      三人表决器
     </h1>
   
 
         
-        <a href="/2019/10/02/myfirstarticle/" class="archive-article-date">
-  	<time datetime="2019-10-02T08:44:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-02</time>
+        <a href="/2019/10/14/三人表决器/" class="archive-article-date">
+  	<time datetime="2019-10-14T13:25:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-14</time>
 </a>
         
       </header>
       <div align="center" class="post-count">
-      字数：6字 | 预计阅读时长：1分钟
+      字数：444字 | 预计阅读时长：2分钟
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <img src="/2019/10/02/myfirstarticle/test.jpg" title="test">
+        <p> 三人表决器的设计分析</p>
+<h1 id="1-学习目标"><a href="#1-学习目标" class="headerlink" title="1.学习目标"></a>1.学习目标</h1><p>  了解规范的设计流程<br>  熟悉软件部分工具<br>  为接下来的实际设计做准备<br>  <a id="more"></a></p>
+<h1 id="2-实验要求"><a href="#2-实验要求" class="headerlink" title="2.实验要求"></a>2.实验要求</h1><p>   采用真值表和最简公式实现三人表决器，并使用分层模块结构书写代码，完成仿真测试。<br>3.实验原理<br>   多人表决器的真值表</p>
+<img src="/2019/10/14/三人表决器/imag5.png">
 
-<p>测试一下功能。</p>
+<p>卡诺图</p>
+<img src="/2019/10/14/三人表决器/imag6.png">
+<p>逻辑式<br>Q=AB+BC+AC;<br>4.verilog代码实现<br>module  m_000( A , B , C , Q1,Q2 );<br>input A;<br>input B;<br>input C;</p>
+<p>output Q1;<br>output Q2;<br>m_000_1 m_U1(<br>.m_1_A(A),<br>.m_1_B(B),<br>.m_1_C(C),<br>.m_1_Q(Q1)<br>);<br>m_000_2 m_U2(<br>.m_2_A(A),<br>.m_2_B(B),<br>.m_2_C(C),<br>.m_2_Q(Q2)<br>);<br>endmodule</p>
+<img src="/2019/10/14/三人表决器/imag1.png">
+<p>module m_000_1(<br>input m_1_A,<br>input m_1_B,<br>input m_1_C,<br>output m_1_Q<br>);<br>assign m_1_Q= (m_1_A || m_1_B) &amp;&amp; (m_1_A || m_1_C ) &amp;&amp; (m_1_B || m_1_C);<br>endmodule</p>
+<img src="/2019/10/14/三人表决器/imag2.png">
+<p>module m_000_2(<br>input m_2_A,<br>input m_2_B,<br>input m_2_C,<br>output reg m_2_Q<br>);<br>wire [2:0]temp;<br>assign temp[0]=m_2_A;<br>assign temp[1]=m_2_B;<br>assign temp[2]=m_2_C;<br>always@(*)begin<br>case(temp)<br>3’b000: m_2_Q = 1’b0;<br>3’b001: m_2_Q = 1’b0;<br>3’b010: m_2_Q = 1’b0;<br>3’b011: m_2_Q = 1’b1;<br>3’b100: m_2_Q = 1’b0;<br>3’b101: m_2_Q = 1’b1;<br>3’b110: m_2_Q = 1’b1;<br>3’b111: m_2_Q = 1’b1; //为了体现真值表的特性不缩写<br>endcase<br>end<br>endmodule</p>
+<img src="/2019/10/14/三人表决器/imag3.png">
+
+<h1 id="5-testbanch的编写"><a href="#5-testbanch的编写" class="headerlink" title="5.testbanch的编写"></a>5.testbanch的编写</h1><p>`timescale 1ns/1ns<br>module m_000_tb;<br>reg A;<br>reg B;<br>reg C;<br>wire Q1;<br>wire Q2;<br>m_000 m_000_tb1(<br>.A(A),<br>.B(B),<br>.C(C),<br>.Q1(Q1),<br>.Q2(Q2)<br>);<br>initial begin<br>A=1’b1;<br>B=1’b1;<br>C=1’b0;</p>
+<p>#200<br>A=1’b0;<br>B=1’b1;<br>C=1’b0;</p>
+<p>#200<br>$stop;<br>end<br>endmodule</p>
+<h1 id="6-实验结果"><a href="#6-实验结果" class="headerlink" title="6.实验结果"></a>6.实验结果</h1><img src="/2019/10/14/三人表决器/imag4.png">
+
+<h1 id="7-结果分析"><a href="#7-结果分析" class="headerlink" title="7.结果分析"></a>7.结果分析</h1><p>  由于电路比较简单，就是验证了一下输出的两种情况。</p>
+<h1 id="8-总结"><a href="#8-总结" class="headerlink" title="8.总结"></a>8.总结</h1><p> verilog在组合电路中的描述主要就是这两种方法，掌握好这两种方法对组合电路的设计具有重要的意义。软件工具的熟悉也可以使设计的效率大幅提高。还有一些基础的语法必须要掌握，在仿真时由于基础的语法耽误时间是比较遗憾的。</p>
 
       
 
@@ -211,7 +235,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">test</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">example</a>
         		</li>
       		
 		</ul>
@@ -223,7 +251,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/test//" class="article-tag-list-link color5">test</a>
+        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
         		</li>
       		
 		</ul>
@@ -278,7 +306,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://github.com/electricdream11/2019/10/02/myfirstarticle/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://github.com/electricdream11/2019/10/14/三人表决器/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -292,18 +320,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/10/03/myaim/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          myaim
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/10/01/hello-blog/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">hello blog</div>
+    <a href="/2019/10/11/verilog语法设计注意事项/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">verilog语法设计注意事项</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -322,6 +341,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-学习目标"><span class="toc-number">1.</span> <span class="toc-text">1.学习目标</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-实验要求"><span class="toc-number">2.</span> <span class="toc-text">2.实验要求</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-testbanch的编写"><span class="toc-number">3.</span> <span class="toc-text">5.testbanch的编写</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-实验结果"><span class="toc-number">4.</span> <span class="toc-text">6.实验结果</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-结果分析"><span class="toc-number">5.</span> <span class="toc-text">7.结果分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#8-总结"><span class="toc-number">6.</span> <span class="toc-text">8.总结</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>

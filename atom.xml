@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/electricdream11/"/>
-  <updated>2019-10-11T13:40:29.629Z</updated>
+  <updated>2019-10-14T13:30:45.599Z</updated>
   <id>https://github.com/electricdream11/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>三人表决器</title>
+    <link href="https://github.com/electricdream11/2019/10/14/%E4%B8%89%E4%BA%BA%E8%A1%A8%E5%86%B3%E5%99%A8/"/>
+    <id>https://github.com/electricdream11/2019/10/14/三人表决器/</id>
+    <published>2019-10-14T13:25:26.000Z</published>
+    <updated>2019-10-14T13:30:45.599Z</updated>
+    
+    <content type="html"><![CDATA[<p> 三人表决器的设计分析</p><h1 id="1-学习目标"><a href="#1-学习目标" class="headerlink" title="1.学习目标"></a>1.学习目标</h1><p>  了解规范的设计流程<br>  熟悉软件部分工具<br>  为接下来的实际设计做准备<br>  <a id="more"></a></p><h1 id="2-实验要求"><a href="#2-实验要求" class="headerlink" title="2.实验要求"></a>2.实验要求</h1><p>   采用真值表和最简公式实现三人表决器，并使用分层模块结构书写代码，完成仿真测试。<br>3.实验原理<br>   多人表决器的真值表</p><img src="/2019/10/14/三人表决器/imag5.png"><p>卡诺图</p><img src="/2019/10/14/三人表决器/imag6.png"><p>逻辑式<br>Q=AB+BC+AC;<br>4.verilog代码实现<br>module  m_000( A , B , C , Q1,Q2 );<br>input A;<br>input B;<br>input C;</p><p>output Q1;<br>output Q2;<br>m_000_1 m_U1(<br>.m_1_A(A),<br>.m_1_B(B),<br>.m_1_C(C),<br>.m_1_Q(Q1)<br>);<br>m_000_2 m_U2(<br>.m_2_A(A),<br>.m_2_B(B),<br>.m_2_C(C),<br>.m_2_Q(Q2)<br>);<br>endmodule</p><img src="/2019/10/14/三人表决器/imag1.png"><p>module m_000_1(<br>input m_1_A,<br>input m_1_B,<br>input m_1_C,<br>output m_1_Q<br>);<br>assign m_1_Q= (m_1_A || m_1_B) &amp;&amp; (m_1_A || m_1_C ) &amp;&amp; (m_1_B || m_1_C);<br>endmodule</p><img src="/2019/10/14/三人表决器/imag2.png"><p>module m_000_2(<br>input m_2_A,<br>input m_2_B,<br>input m_2_C,<br>output reg m_2_Q<br>);<br>wire [2:0]temp;<br>assign temp[0]=m_2_A;<br>assign temp[1]=m_2_B;<br>assign temp[2]=m_2_C;<br>always@(*)begin<br>case(temp)<br>3’b000: m_2_Q = 1’b0;<br>3’b001: m_2_Q = 1’b0;<br>3’b010: m_2_Q = 1’b0;<br>3’b011: m_2_Q = 1’b1;<br>3’b100: m_2_Q = 1’b0;<br>3’b101: m_2_Q = 1’b1;<br>3’b110: m_2_Q = 1’b1;<br>3’b111: m_2_Q = 1’b1; //为了体现真值表的特性不缩写<br>endcase<br>end<br>endmodule</p><img src="/2019/10/14/三人表决器/imag3.png"><h1 id="5-testbanch的编写"><a href="#5-testbanch的编写" class="headerlink" title="5.testbanch的编写"></a>5.testbanch的编写</h1><p>`timescale 1ns/1ns<br>module m_000_tb;<br>reg A;<br>reg B;<br>reg C;<br>wire Q1;<br>wire Q2;<br>m_000 m_000_tb1(<br>.A(A),<br>.B(B),<br>.C(C),<br>.Q1(Q1),<br>.Q2(Q2)<br>);<br>initial begin<br>A=1’b1;<br>B=1’b1;<br>C=1’b0;</p><p>#200<br>A=1’b0;<br>B=1’b1;<br>C=1’b0;</p><p>#200<br>$stop;<br>end<br>endmodule</p><h1 id="6-实验结果"><a href="#6-实验结果" class="headerlink" title="6.实验结果"></a>6.实验结果</h1><img src="/2019/10/14/三人表决器/imag4.png"><h1 id="7-结果分析"><a href="#7-结果分析" class="headerlink" title="7.结果分析"></a>7.结果分析</h1><p>  由于电路比较简单，就是验证了一下输出的两种情况。</p><h1 id="8-总结"><a href="#8-总结" class="headerlink" title="8.总结"></a>8.总结</h1><p> verilog在组合电路中的描述主要就是这两种方法，掌握好这两种方法对组合电路的设计具有重要的意义。软件工具的熟悉也可以使设计的效率大幅提高。还有一些基础的语法必须要掌握，在仿真时由于基础的语法耽误时间是比较遗憾的。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt; 三人表决器的设计分析&lt;/p&gt;
+&lt;h1 id=&quot;1-学习目标&quot;&gt;&lt;a href=&quot;#1-学习目标&quot; class=&quot;headerlink&quot; title=&quot;1.学习目标&quot;&gt;&lt;/a&gt;1.学习目标&lt;/h1&gt;&lt;p&gt;  了解规范的设计流程&lt;br&gt;  熟悉软件部分工具&lt;br&gt;  为接下来的实际设计做准备&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="FPGA" scheme="https://github.com/electricdream11/categories/FPGA/"/>
+    
+    
+      <category term="FPGA" scheme="https://github.com/electricdream11/tags/FPGA/"/>
+    
+      <category term="example" scheme="https://github.com/electricdream11/tags/example/"/>
+    
+  </entry>
   
   <entry>
     <title>verilog语法设计注意事项</title>
