@@ -21,7 +21,7 @@
 <meta property="og:image" content="https://github.com/2019/10/15/计数时钟/imag4.png">
 <meta property="og:image" content="https://github.com/2019/10/15/计数时钟/imag3.png">
 <meta property="og:image" content="https://github.com/2019/10/15/计数时钟/imag5.png">
-<meta property="og:updated_time" content="2019-10-15T13:59:27.078Z">
+<meta property="og:updated_time" content="2019-10-15T14:03:14.318Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计数时钟">
 <meta name="twitter:description" content="数字时钟设计1.实验目标  了解时序电路的verilog的描述方法  掌握时序电路的调试方法  掌握时序电路设计的基本要求">
@@ -206,22 +206,21 @@
 <h1 id="4-状态机"><a href="#4-状态机" class="headerlink" title="4.状态机"></a>4.状态机</h1><img src="/2019/10/15/计数时钟/imag2.png"> 
 
 <h1 id="5-verilog代码实现"><a href="#5-verilog代码实现" class="headerlink" title="5.verilog代码实现"></a>5.verilog代码实现</h1><p> 一、初次尝试</p>
-<p>顶端模型：<br>‘’’<br>module m0001_counter(<br>Clk,<br>Rst_n,<br>Q<br>);<br>input Clk;<br>input Rst_n;<br>output reg [3:0]Q;<br>//状态驱动<br>reg [3:0] state;</p>
-<p>always@(posedge Clk or negedge Rst_n)begin<br>if(!Rst_n)<br>state &lt;= 4’b0;<br>else if(state == 4’b1111)<br>state &lt;=4’b0;<br>else<br>state &lt;= state +1’b1;<br>end<br>//状态控制<br>always@(*)begin<br> Q &lt;= state;<br>end<br>endmodule </p>
-<p>‘’’</p>
+<p>顶端模型：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">module m0001_counter(</span><br><span class="line">Clk,</span><br><span class="line">Rst_n,</span><br><span class="line">Q</span><br><span class="line">);</span><br><span class="line">input Clk;</span><br><span class="line">input Rst_n;</span><br><span class="line">output reg [3:0]Q;</span><br><span class="line">//状态驱动</span><br><span class="line">reg [3:0] state;</span><br><span class="line"></span><br><span class="line">always@(posedge Clk or negedge Rst_n)begin</span><br><span class="line">if(!Rst_n)</span><br><span class="line">state &lt;= 4&apos;b0;</span><br><span class="line">else if(state == 4&apos;b1111)</span><br><span class="line">state &lt;=4&apos;b0;</span><br><span class="line">else</span><br><span class="line">state &lt;= state +1&apos;b1;</span><br><span class="line">end</span><br><span class="line">//状态控制</span><br><span class="line">always@(*)begin</span><br><span class="line"> Q &lt;= state;</span><br><span class="line">end</span><br><span class="line">endmodule</span><br></pre></td></tr></table></figure>
+
 <img src="/2019/10/15/计数时钟/imag4.png">
 
 
-<p>测试文件:<br>‘’’<br>`timescale 1ms/1ms</p>
-<p>`define Clk_p 1000</p>
-<p>module m0001_counter_tb;<br>reg Clk;<br>reg Rst_n;<br>wire [3:0] Q;<br>m0001_counter U1(<br> .Clk(Clk),<br> .Rst_n(Rst_n),<br> .Q(Q)<br>);<br>initial begin<br>Clk=1’b0;<br>Rst_n=1’b1;<br>end<br>always#(`Clk_p/2) Clk=~Clk;<br>initial begin</p>
-<p> #(`Clk_p*10)<br> Rst_n=1’b0;</p>
-<p> #(`Clk_p*10)<br> Rst_n=1’b1;</p>
-<p> #(`Clk_p*100)<br> $stop;<br>end<br>endmodule<br>‘’’<br>测试结果：</p>
+<p>测试文件:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">`timescale 1ms/1ms</span><br><span class="line"></span><br><span class="line">`define Clk_p 1000</span><br><span class="line"></span><br><span class="line">module m0001_counter_tb;</span><br><span class="line">reg Clk;</span><br><span class="line">reg Rst_n;</span><br><span class="line">wire [3:0] Q;</span><br><span class="line">m0001_counter U1(</span><br><span class="line"> .Clk(Clk),</span><br><span class="line"> .Rst_n(Rst_n),</span><br><span class="line"> .Q(Q)</span><br><span class="line">);</span><br><span class="line">initial begin</span><br><span class="line">Clk=1&apos;b0;</span><br><span class="line">Rst_n=1&apos;b1;</span><br><span class="line">end</span><br><span class="line">always#(`Clk_p/2) Clk=~Clk;</span><br><span class="line">initial begin</span><br><span class="line"> #(`Clk_p*10)</span><br><span class="line"> Rst_n=1&apos;b0;</span><br><span class="line"> #(`Clk_p*10)</span><br><span class="line"> Rst_n=1&apos;b1;</span><br><span class="line"> #(`Clk_p*100)</span><br><span class="line"> $stop;</span><br><span class="line">end</span><br><span class="line">endmodule</span><br></pre></td></tr></table></figure>
+
+<p>测试结果：</p>
 <img src="/2019/10/15/计数时钟/imag3.png">
 
-<p>结果分析：在状态机设计是没有分析清楚下一状态和现在的状态的区别，导致设计时只考虑了状态的转化关系而没有明确两个寄存器而导致状态机显示不了。<br>二、更改后的顶端文件<br>‘’’<br>module m0001_counter(<br>Clk,<br>Rst_n,<br>Q<br>);<br>input Clk;<br>input Rst_n;<br>output reg [3:0]Q;<br>reg [3:0] state;<br>reg [3:0] state_next;<br>parameter [3:0]<br>          Min= 4’b0000,<br>          Max=4’b1111;</p>
-<p>//状态<br>always@(posedge Clk or negedge Rst_n)begin<br>if(!Rst_n)<br>state &lt;= Min;<br>else<br>state &lt;= state_next;<br>end<br>//下一状态<br>always@(state)begin<br>if(state == Max)<br>state_next = Min;<br>else<br>state_next =  state + 4’b1;<br>end<br>//控制输出<br>always@(*)<br>begin<br>Q = state;<br>end<br>endmodule<br>‘’’</p>
+<p>结果分析：在状态机设计是没有分析清楚下一状态和现在的状态的区别，导致设计时只考虑了状态的转化关系而没有明确两个寄存器而导致状态机显示不了。<br>二、更改后的顶端文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">module m0001_counter(</span><br><span class="line">Clk,</span><br><span class="line">Rst_n,</span><br><span class="line">Q</span><br><span class="line">);</span><br><span class="line">input Clk;</span><br><span class="line">input Rst_n;</span><br><span class="line">output reg [3:0]Q;</span><br><span class="line">reg [3:0] state;</span><br><span class="line">reg [3:0] state_next;</span><br><span class="line">parameter [3:0]</span><br><span class="line">          Min= 4&apos;b0000,</span><br><span class="line">	      Max=4&apos;b1111;</span><br><span class="line">			</span><br><span class="line">			 </span><br><span class="line">       </span><br><span class="line">//状态</span><br><span class="line">always@(posedge Clk or negedge Rst_n)begin</span><br><span class="line">if(!Rst_n)</span><br><span class="line">state &lt;= Min;</span><br><span class="line">else</span><br><span class="line">state &lt;= state_next;</span><br><span class="line">end</span><br><span class="line">//下一状态</span><br><span class="line">always@(state)begin</span><br><span class="line">if(state == Max)</span><br><span class="line">state_next = Min;</span><br><span class="line">else </span><br><span class="line">state_next =  state + 4&apos;b1;</span><br><span class="line">end</span><br><span class="line">//控制输出</span><br><span class="line">always@(*)</span><br><span class="line">begin</span><br><span class="line">Q = state;</span><br><span class="line">end</span><br><span class="line">endmodule</span><br></pre></td></tr></table></figure>
+
 <img src="/2019/10/15/计数时钟/imag5.png">
 <p>三、改后的说明<br> 由于verilog代码对状态机的读取需要标准的verilog语法，所以以上的代码还是无法显示出状态机的图示来。但上述的写法展示了状态机标准的三段式写法。由于状态过多且计数器可以使用简单逻辑实现，这次就不一一的列举去找出状态机了。</p>
 <h1 id="6-localparam和parameter语法"><a href="#6-localparam和parameter语法" class="headerlink" title="6.localparam和parameter语法"></a>6.localparam和parameter语法</h1><p>  这两个关键词都是用于声明常量的。和C语言中的define的功能基本相同。同样可以将有意义的常量标记出来以改变。</p>
@@ -467,15 +466,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">test</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">FPGA</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">verilog</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">test</a>
               </li>
              
               <li class="article-tag-list-item">
