@@ -6,18 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://github.com/electricdream11">
-  <title>Tag: verilog | The Electric Dream</title>
+  <title>状态机测试 | The Electric Dream</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="the site is just for study and interest">
-<meta property="og:type" content="website">
-<meta property="og:title" content="The Electric Dream">
-<meta property="og:url" content="https://github.com/electricdream11/tags/verilog/index.html">
+  <meta name="description" content="状态机设计1.实验目的  考虑到时序电路中状态机设计思想是一种重要的方法，在许多的时序电路设计中都有应用，在此补上昨天没有构成状态机的遗憾。并且要进一步的掌握状态机的设计思路以便接下来的学习。">
+<meta name="keywords" content="FPGA,example">
+<meta property="og:type" content="article">
+<meta property="og:title" content="状态机测试">
+<meta property="og:url" content="https://github.com/electricdream11/2019/10/16/状态机测试/index.html">
 <meta property="og:site_name" content="The Electric Dream">
-<meta property="og:description" content="the site is just for study and interest">
+<meta property="og:description" content="状态机设计1.实验目的  考虑到时序电路中状态机设计思想是一种重要的方法，在许多的时序电路设计中都有应用，在此补上昨天没有构成状态机的遗憾。并且要进一步的掌握状态机的设计思路以便接下来的学习。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/2019/10/16/状态机测试/imag1.png">
+<meta property="og:image" content="https://github.com/2019/10/16/状态机测试/imag2.png">
+<meta property="og:image" content="https://github.com/2019/10/16/状态机测试/imag3.png">
+<meta property="og:updated_time" content="2019-10-16T15:10:16.089Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="The Electric Dream">
-<meta name="twitter:description" content="the site is just for study and interest">
+<meta name="twitter:title" content="状态机测试">
+<meta name="twitter:description" content="状态机设计1.实验目的  考虑到时序电路中状态机设计思想是一种重要的方法，在许多的时序电路设计中都有应用，在此补上昨天没有构成状态机的遗憾。并且要进一步的掌握状态机的设计思路以便接下来的学习。">
+<meta name="twitter:image" content="https://github.com/2019/10/16/状态机测试/imag1.png">
   
     <link rel="alternative" href="/atom.xml" title="The Electric Dream" type="application/atom+xml">
   
@@ -168,36 +174,50 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-状态机测试" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      状态机测试
+    </h1>
+  
+
+        
+        <a href="/2019/10/16/状态机测试/" class="archive-article-date">
+  	<time datetime="2019-10-16T15:04:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-16</time>
+</a>
+        
+      </header>
+      <div align="center" class="post-count">
+      字数：966字 | 预计阅读时长：3分钟
+      </div>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code>状态机设计</code></pre><h1 id="1-实验目的"><a href="#1-实验目的" class="headerlink" title="1.实验目的"></a>1.实验目的</h1><p>  考虑到时序电路中状态机设计思想是一种重要的方法，在许多的时序电路设计中都有应用，在此补上昨天没有构成状态机的遗憾。并且要进一步的掌握状态机的设计思路以便接下来的学习。<br>  <a id="more"></a></p>
+<h1 id="2-实验原理"><a href="#2-实验原理" class="headerlink" title="2.实验原理"></a>2.实验原理</h1><p>  构建一个四状态的状态机，能够实现以下功能：<br>  S1：组合输出1<br>  S2: 组合输出2<br>  S3：组合输出3<br>  S4:  组合输出4</p>
+<h1 id="3-状态机示意图"><a href="#3-状态机示意图" class="headerlink" title="3.状态机示意图"></a>3.状态机示意图</h1>  <img src="/2019/10/16/状态机测试/imag1.png">
+<h1 id="4-verilog的三段式的代码的实现"><a href="#4-verilog的三段式的代码的实现" class="headerlink" title="4.verilog的三段式的代码的实现"></a>4.verilog的三段式的代码的实现</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">module state_machine(</span><br><span class="line"> Clk, </span><br><span class="line"> Rst_n,</span><br><span class="line"> I1,</span><br><span class="line"> I2,</span><br><span class="line">  Q</span><br><span class="line">);</span><br><span class="line">input Clk;</span><br><span class="line">input Rst_n;</span><br><span class="line">input I1;</span><br><span class="line">input I2;</span><br><span class="line">output reg [1:0] Q;</span><br><span class="line">/////////////////////////////</span><br><span class="line">parameter [1:0] </span><br><span class="line">     S1=2&apos;b00,</span><br><span class="line">	  S2=2&apos;b01,</span><br><span class="line">	  S3=2&apos;b10,</span><br><span class="line">	  S4=2&apos;b11;</span><br><span class="line">reg [1:0] state;</span><br><span class="line">reg [1:0] state_nx;</span><br><span class="line">////////////////////////////////////</span><br><span class="line">//状态机的三段式</span><br><span class="line">//the way to change about state_now </span><br><span class="line">always@(posedge Clk or negedge Rst_n)begin</span><br><span class="line">if(!Rst_n)</span><br><span class="line">state &lt;= S1;</span><br><span class="line">else </span><br><span class="line">state &lt;= state_nx;</span><br><span class="line">end</span><br><span class="line">//the way to change about state_next</span><br><span class="line">always@(state or I1 or I2)begin</span><br><span class="line"> state_nx = 2&apos;bx;</span><br><span class="line"> case(state)</span><br><span class="line"> S1: begin </span><br><span class="line">      if(I1)  state_nx =S2;</span><br><span class="line">		if(I2)  state_nx =S3;</span><br><span class="line">      end</span><br><span class="line"> S2: begin </span><br><span class="line">     if(!I1) state_nx =S3; </span><br><span class="line">	  </span><br><span class="line">	  end</span><br><span class="line"> S3: </span><br><span class="line">     begin if(I2)  </span><br><span class="line">	  state_nx =S4;</span><br><span class="line">	 </span><br><span class="line">	  end</span><br><span class="line"> S4: begin </span><br><span class="line">     if(!I2) state_nx =S1; </span><br><span class="line">	  if(I2 &amp; I1) state_nx =S3;</span><br><span class="line">	  end</span><br><span class="line"> default: state  = S1;</span><br><span class="line"> endcase </span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">always@(posedge Clk or negedge Rst_n)begin</span><br><span class="line">if(!Rst_n)</span><br><span class="line">Q &lt;=2&apos;b00;</span><br><span class="line">else</span><br><span class="line">case(state)</span><br><span class="line">S1: Q &lt;=2&apos;b00;</span><br><span class="line">S2: Q &lt;=2&apos;b01;</span><br><span class="line">S3: Q &lt;=2&apos;b10;</span><br><span class="line">S4: Q &lt;=2&apos;b11;</span><br><span class="line">endcase</span><br><span class="line">end</span><br><span class="line">////////////////////////////////////////////</span><br><span class="line">endmodule</span><br></pre></td></tr></table></figure>
+
+<img src="/2019/10/16/状态机测试/imag2.png">
+<img src="/2019/10/16/状态机测试/imag3.png">
+<h1 id="5-测试脚本的编写"><a href="#5-测试脚本的编写" class="headerlink" title="5.测试脚本的编写"></a>5.测试脚本的编写</h1><p>由于在状态机的编写时花费的时间较多，testbench就不编写了，测试原理也是比较简单，这次的学习主要还是总结状态机的知识点。</p>
+<h1 id="6-状态机的编写规范（三段式）"><a href="#6-状态机的编写规范（三段式）" class="headerlink" title="6.状态机的编写规范（三段式）"></a>6.状态机的编写规范（三段式）</h1><p>  一、一定要明确现状态、下一状态、状态输出/下一状态输出（组合电路输出，如果要加入时序电路，也改为组合电路控制的时序电路，切忌直接加入时序电路使状态机的时序受到影响）。<br>二、下一状态的确定的条件如果只有一个，在状态机中不会有条件判断且该条件不会视为输入使用。<br>三、状态机的条件改变全部列出，所有的状态列出，所有的下一状态列出，满足了这几个条件才能完整的设计完状态机。</p>
+<h1 id="7-verilog语法的补充"><a href="#7-verilog语法的补充" class="headerlink" title="7.verilog语法的补充"></a>7.verilog语法的补充</h1><p>  从这次的实践中发现在组合语句（assign）中可以实现wire的逻辑计算（！）和位操作（~）。但是不能讲reg类型转到wire，也不能讲wire转到reg，只能实现组合电路的功能。<br>  而在always语句中，加入时钟和使能信号标记，可以实现所有的reg变量的操作，也可以实现wire到reg的数据传输。现在感觉always就是对reg的操作（即reg在过程赋值左边，与assign对应）。</p>
+<p>等式左\右    |reg |wire<br>reg      |always    |always<br>wire|    ？    |assign</p>
+<h1 id="8-if语句"><a href="#8-if语句" class="headerlink" title="8.if语句"></a>8.if语句</h1><p>   这次在尝试时序电路时总是有if判断语句发生错误，在后面的验证中发现要想使用if语句必须要时刻的建设好相应的电路模型以防将if的判断的优先级打乱以致错误。</p>
+<h1 id="9-总结"><a href="#9-总结" class="headerlink" title="9.总结"></a>9.总结</h1><p>  这次的学习的教训还是挺大的。在写verilog过程中必须时刻的考虑verilog的描述性，切记以其他的编程语言的设计思路编程而脱离电路的对应性。做好电路的对应性是书写verilog代码的根本所在。以后的描述过程中一定要时刻的想到实际的电路，考虑是时序还是组合，if的优先级，变量的reg和wire的转化，case的完备性。以后可能还会接触新的要求。反正一定要在做完一个模块后就能对应一个电路，做完一个模型就能了解相应的功能。心中有电路，才不会犯基本错误。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/11/verilog语法设计注意事项/" class="archive-article-date">
-  	<time datetime="2019-10-11T13:35:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/11/verilog语法设计注意事项/">verilog语法设计注意事项</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -207,13 +227,13 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">verilog</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">example</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -226,176 +246,126 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://github.com/electricdream11/2019/10/16/状态机测试/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/10/时序电路基础/" class="archive-article-date">
-  	<time datetime="2019-10-10T13:11:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-10</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2019/10/16/状态机测试-1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          状态机测试
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/10/15/计数时钟/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">计数时钟</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/10/时序电路基础/">时序电路基础</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">verilog</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-实验目的"><span class="toc-number">1.</span> <span class="toc-text">1.实验目的</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-实验原理"><span class="toc-number">2.</span> <span class="toc-text">2.实验原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-状态机示意图"><span class="toc-number">3.</span> <span class="toc-text">3.状态机示意图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-verilog的三段式的代码的实现"><span class="toc-number">4.</span> <span class="toc-text">4.verilog的三段式的代码的实现</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-测试脚本的编写"><span class="toc-number">5.</span> <span class="toc-text">5.测试脚本的编写</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-状态机的编写规范（三段式）"><span class="toc-number">6.</span> <span class="toc-text">6.状态机的编写规范（三段式）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-verilog语法的补充"><span class="toc-number">7.</span> <span class="toc-text">7.verilog语法的补充</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#8-if语句"><span class="toc-number">8.</span> <span class="toc-text">8.if语句</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#9-总结"><span class="toc-number">9.</span> <span class="toc-text">9.总结</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/09/FPGA组合电路基础/" class="archive-article-date">
-  	<time datetime="2019-10-09T12:41:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/09/FPGA组合电路基础/">FPGA组合电路基础</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">verilog</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/06/verilog语法基础/" class="archive-article-date">
-  	<time datetime="2019-10-06T12:43:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-06</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/06/verilog语法基础/">verilog语法基础</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">verilog</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -418,9 +388,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

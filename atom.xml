@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/electricdream11/"/>
-  <updated>2019-10-15T14:03:14.318Z</updated>
+  <updated>2019-10-16T15:10:35.896Z</updated>
   <id>https://github.com/electricdream11/</id>
   
   <author>
@@ -15,6 +15,46 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>状态机测试</title>
+    <link href="https://github.com/electricdream11/2019/10/16/%E7%8A%B6%E6%80%81%E6%9C%BA%E6%B5%8B%E8%AF%95-1/"/>
+    <id>https://github.com/electricdream11/2019/10/16/状态机测试-1/</id>
+    <published>2019-10-16T15:10:35.000Z</published>
+    <updated>2019-10-16T15:10:35.896Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>状态机测试</title>
+    <link href="https://github.com/electricdream11/2019/10/16/%E7%8A%B6%E6%80%81%E6%9C%BA%E6%B5%8B%E8%AF%95/"/>
+    <id>https://github.com/electricdream11/2019/10/16/状态机测试/</id>
+    <published>2019-10-16T15:04:07.000Z</published>
+    <updated>2019-10-16T15:10:16.089Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>状态机设计</code></pre><h1 id="1-实验目的"><a href="#1-实验目的" class="headerlink" title="1.实验目的"></a>1.实验目的</h1><p>  考虑到时序电路中状态机设计思想是一种重要的方法，在许多的时序电路设计中都有应用，在此补上昨天没有构成状态机的遗憾。并且要进一步的掌握状态机的设计思路以便接下来的学习。<br>  <a id="more"></a></p><h1 id="2-实验原理"><a href="#2-实验原理" class="headerlink" title="2.实验原理"></a>2.实验原理</h1><p>  构建一个四状态的状态机，能够实现以下功能：<br>  S1：组合输出1<br>  S2: 组合输出2<br>  S3：组合输出3<br>  S4:  组合输出4</p><h1 id="3-状态机示意图"><a href="#3-状态机示意图" class="headerlink" title="3.状态机示意图"></a>3.状态机示意图</h1>  <img src="/2019/10/16/状态机测试/imag1.png"><h1 id="4-verilog的三段式的代码的实现"><a href="#4-verilog的三段式的代码的实现" class="headerlink" title="4.verilog的三段式的代码的实现"></a>4.verilog的三段式的代码的实现</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">module state_machine(</span><br><span class="line"> Clk, </span><br><span class="line"> Rst_n,</span><br><span class="line"> I1,</span><br><span class="line"> I2,</span><br><span class="line">  Q</span><br><span class="line">);</span><br><span class="line">input Clk;</span><br><span class="line">input Rst_n;</span><br><span class="line">input I1;</span><br><span class="line">input I2;</span><br><span class="line">output reg [1:0] Q;</span><br><span class="line">/////////////////////////////</span><br><span class="line">parameter [1:0] </span><br><span class="line">     S1=2&apos;b00,</span><br><span class="line">  S2=2&apos;b01,</span><br><span class="line">  S3=2&apos;b10,</span><br><span class="line">  S4=2&apos;b11;</span><br><span class="line">reg [1:0] state;</span><br><span class="line">reg [1:0] state_nx;</span><br><span class="line">////////////////////////////////////</span><br><span class="line">//状态机的三段式</span><br><span class="line">//the way to change about state_now </span><br><span class="line">always@(posedge Clk or negedge Rst_n)begin</span><br><span class="line">if(!Rst_n)</span><br><span class="line">state &lt;= S1;</span><br><span class="line">else </span><br><span class="line">state &lt;= state_nx;</span><br><span class="line">end</span><br><span class="line">//the way to change about state_next</span><br><span class="line">always@(state or I1 or I2)begin</span><br><span class="line"> state_nx = 2&apos;bx;</span><br><span class="line"> case(state)</span><br><span class="line"> S1: begin </span><br><span class="line">      if(I1)  state_nx =S2;</span><br><span class="line">if(I2)  state_nx =S3;</span><br><span class="line">      end</span><br><span class="line"> S2: begin </span><br><span class="line">     if(!I1) state_nx =S3; </span><br><span class="line">  </span><br><span class="line">  end</span><br><span class="line"> S3: </span><br><span class="line">     begin if(I2)  </span><br><span class="line">  state_nx =S4;</span><br><span class="line"> </span><br><span class="line">  end</span><br><span class="line"> S4: begin </span><br><span class="line">     if(!I2) state_nx =S1; </span><br><span class="line">  if(I2 &amp; I1) state_nx =S3;</span><br><span class="line">  end</span><br><span class="line"> default: state  = S1;</span><br><span class="line"> endcase </span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">always@(posedge Clk or negedge Rst_n)begin</span><br><span class="line">if(!Rst_n)</span><br><span class="line">Q &lt;=2&apos;b00;</span><br><span class="line">else</span><br><span class="line">case(state)</span><br><span class="line">S1: Q &lt;=2&apos;b00;</span><br><span class="line">S2: Q &lt;=2&apos;b01;</span><br><span class="line">S3: Q &lt;=2&apos;b10;</span><br><span class="line">S4: Q &lt;=2&apos;b11;</span><br><span class="line">endcase</span><br><span class="line">end</span><br><span class="line">////////////////////////////////////////////</span><br><span class="line">endmodule</span><br></pre></td></tr></table></figure><img src="/2019/10/16/状态机测试/imag2.png"><img src="/2019/10/16/状态机测试/imag3.png"><h1 id="5-测试脚本的编写"><a href="#5-测试脚本的编写" class="headerlink" title="5.测试脚本的编写"></a>5.测试脚本的编写</h1><p>由于在状态机的编写时花费的时间较多，testbench就不编写了，测试原理也是比较简单，这次的学习主要还是总结状态机的知识点。</p><h1 id="6-状态机的编写规范（三段式）"><a href="#6-状态机的编写规范（三段式）" class="headerlink" title="6.状态机的编写规范（三段式）"></a>6.状态机的编写规范（三段式）</h1><p>  一、一定要明确现状态、下一状态、状态输出/下一状态输出（组合电路输出，如果要加入时序电路，也改为组合电路控制的时序电路，切忌直接加入时序电路使状态机的时序受到影响）。<br>二、下一状态的确定的条件如果只有一个，在状态机中不会有条件判断且该条件不会视为输入使用。<br>三、状态机的条件改变全部列出，所有的状态列出，所有的下一状态列出，满足了这几个条件才能完整的设计完状态机。</p><h1 id="7-verilog语法的补充"><a href="#7-verilog语法的补充" class="headerlink" title="7.verilog语法的补充"></a>7.verilog语法的补充</h1><p>  从这次的实践中发现在组合语句（assign）中可以实现wire的逻辑计算（！）和位操作（~）。但是不能讲reg类型转到wire，也不能讲wire转到reg，只能实现组合电路的功能。<br>  而在always语句中，加入时钟和使能信号标记，可以实现所有的reg变量的操作，也可以实现wire到reg的数据传输。现在感觉always就是对reg的操作（即reg在过程赋值左边，与assign对应）。</p><p>等式左\右    |reg |wire<br>reg      |always    |always<br>wire|    ？    |assign</p><h1 id="8-if语句"><a href="#8-if语句" class="headerlink" title="8.if语句"></a>8.if语句</h1><p>   这次在尝试时序电路时总是有if判断语句发生错误，在后面的验证中发现要想使用if语句必须要时刻的建设好相应的电路模型以防将if的判断的优先级打乱以致错误。</p><h1 id="9-总结"><a href="#9-总结" class="headerlink" title="9.总结"></a>9.总结</h1><p>  这次的学习的教训还是挺大的。在写verilog过程中必须时刻的考虑verilog的描述性，切记以其他的编程语言的设计思路编程而脱离电路的对应性。做好电路的对应性是书写verilog代码的根本所在。以后的描述过程中一定要时刻的想到实际的电路，考虑是时序还是组合，if的优先级，变量的reg和wire的转化，case的完备性。以后可能还会接触新的要求。反正一定要在做完一个模块后就能对应一个电路，做完一个模型就能了解相应的功能。心中有电路，才不会犯基本错误。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code&gt;状态机设计&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&quot;1-实验目的&quot;&gt;&lt;a href=&quot;#1-实验目的&quot; class=&quot;headerlink&quot; title=&quot;1.实验目的&quot;&gt;&lt;/a&gt;1.实验目的&lt;/h1&gt;&lt;p&gt;  考虑到时序电路中状态机设计思想是一种重要的方法，在许多的时序电路设计中都有应用，在此补上昨天没有构成状态机的遗憾。并且要进一步的掌握状态机的设计思路以便接下来的学习。&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="FPGA" scheme="https://github.com/electricdream11/categories/FPGA/"/>
+    
+    
+      <category term="FPGA" scheme="https://github.com/electricdream11/tags/FPGA/"/>
+    
+      <category term="example" scheme="https://github.com/electricdream11/tags/example/"/>
+    
+  </entry>
   
   <entry>
     <title>计数时钟</title>
