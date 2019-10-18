@@ -17,7 +17,7 @@
 <meta property="og:description" content="设计流程">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://github.com/2019/10/18/设计流程/image.png">
-<meta property="og:updated_time" content="2019-10-18T14:30:16.007Z">
+<meta property="og:updated_time" content="2019-10-18T14:34:58.869Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计流程">
 <meta name="twitter:description" content="设计流程">
@@ -200,7 +200,7 @@
 <h1 id="一、设计原理"><a href="#一、设计原理" class="headerlink" title="一、设计原理"></a>一、设计原理</h1><img src="/2019/10/18/设计流程/image.png">
 
 <h1 id="二、Altera-Quartus-的设计步骤"><a href="#二、Altera-Quartus-的设计步骤" class="headerlink" title="二、Altera Quartus 的设计步骤"></a>二、Altera Quartus 的设计步骤</h1><p>1、设计输入（Design Entry）<br>2、综合（Synthesis）<br>3、布局布线（Fitter）<br>4、仿真（Simulation）<br>5、编程和配置（Programming &amp; Configuration）</p>
-<h1 id="三、标准化的设计目录"><a href="#三、标准化的设计目录" class="headerlink" title="三、标准化的设计目录"></a>三、标准化的设计目录</h1><p>  一级目录–project_name：用于存储所有的工程文件，也是根目录。<br>    二级目录<br>       –src   ：源码<br>       –core ：存放集成环境产生的初始化列表<br>       –dev  ：存放综合和布局布线的结果和中间文件，第三方工<br>               具最好将综合和布局布线做成两个目录<br>       –sim  ：仿真文件<br>          三级目录<br>               –funcsim  ：功能仿真文件<br>               –parsim   ：时序仿真文件<br>       –doc  ：设计文档，记录过程</p>
+<h1 id="三、标准化的设计目录"><a href="#三、标准化的设计目录" class="headerlink" title="三、标准化的设计目录"></a>三、标准化的设计目录</h1><p>  一级目录–project_name：用于存储所有的工程文件，也是根目录。<br>    二级目录<br>       –src   ：源码<br>       –core ：存放集成环境产生的初始化列表<br>       –dev  ：存放综合和布局布线的结果和中间文件，第                三方工具最好将综合和布局布线做成两个目录<br>       –sim  ：仿真文件<br>           —- 三级目录<br>               ——funcsim  ：功能仿真文件<br>               ——parsim   ：时序仿真文件<br>       –doc  ：设计文档，记录过程</p>
 <h1 id="四、quartus文件类别"><a href="#四、quartus文件类别" class="headerlink" title="四、quartus文件类别"></a>四、quartus文件类别</h1><p>  HDL文件（verilog和VHDL）（存于src）：写模块的主要输入方式<br>  IP 核的语言也是HDl语言，只不过是封装好的。<br>mif文件（存在core）：用于初始化存储器<br>qsf文件（存在dev）：时序和管脚约束文件<br>vwf,vec,tbl文件（存于sim）:矢量波形，矢量文件，矢量输出三类仿真激励文件。<br>暂时要了解的文件格式就这几种，后续的学习中在逐渐的加入。</p>
 <h1 id="五、总结"><a href="#五、总结" class="headerlink" title="五、总结"></a>五、总结</h1><p>  体验实际的设计流程后发现，作为工程，实际的verilog设计是十分的精细的工作，要考虑的东西很多。一步一步的操作需要十分的耐性。此外，后期的优化是十分的困难的。在一步步的了解了FPGA设计的全部的过程后，学习FPGA变得更加的枯燥。不同于编程的纯逻辑的设计，也不同于电路的计算为主的设计思路，HDL更加的要求全面的知识面。<br>  接下来的学习需要更多的电路知识、设计规范和各种辅助工具的利用。总之，FPGA的学习不是简单的，但在学习后的收获是巨大的。细节处要慢慢的磨砺，大方向处要找更多的知识来支持。</p>
 
