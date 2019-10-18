@@ -6,18 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://github.com/electricdream11">
-  <title>Tag: example | The Electric Dream</title>
+  <title>设计流程 | The Electric Dream</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="the site is just for study and interest">
-<meta property="og:type" content="website">
-<meta property="og:title" content="The Electric Dream">
-<meta property="og:url" content="https://github.com/electricdream11/tags/example/index.html">
+  <meta name="description" content="设计流程">
+<meta name="keywords" content="FPGA,verilog">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计流程">
+<meta property="og:url" content="https://github.com/electricdream11/2019/10/18/设计流程/index.html">
 <meta property="og:site_name" content="The Electric Dream">
-<meta property="og:description" content="the site is just for study and interest">
+<meta property="og:description" content="设计流程">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/2019/10/18/设计流程/image.png">
+<meta property="og:updated_time" content="2019-10-18T14:30:16.007Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="The Electric Dream">
-<meta name="twitter:description" content="the site is just for study and interest">
+<meta name="twitter:title" content="设计流程">
+<meta name="twitter:description" content="设计流程">
+<meta name="twitter:image" content="https://github.com/2019/10/18/设计流程/image.png">
   
     <link rel="alternative" href="/atom.xml" title="The Electric Dream" type="application/atom+xml">
   
@@ -168,36 +172,45 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-设计流程" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      设计流程
+    </h1>
+  
+
+        
+        <a href="/2019/10/18/设计流程/" class="archive-article-date">
+  	<time datetime="2019-10-18T14:25:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-18</time>
+</a>
+        
+      </header>
+      <div align="center" class="post-count">
+      字数：508字 | 预计阅读时长：1分钟
+      </div>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>设计流程</p>
+<a id="more"></a>
+<h1 id="一、设计原理"><a href="#一、设计原理" class="headerlink" title="一、设计原理"></a>一、设计原理</h1><img src="/2019/10/18/设计流程/image.png">
+
+<h1 id="二、Altera-Quartus-的设计步骤"><a href="#二、Altera-Quartus-的设计步骤" class="headerlink" title="二、Altera Quartus 的设计步骤"></a>二、Altera Quartus 的设计步骤</h1><p>1、设计输入（Design Entry）<br>2、综合（Synthesis）<br>3、布局布线（Fitter）<br>4、仿真（Simulation）<br>5、编程和配置（Programming &amp; Configuration）</p>
+<h1 id="三、标准化的设计目录"><a href="#三、标准化的设计目录" class="headerlink" title="三、标准化的设计目录"></a>三、标准化的设计目录</h1><p>  一级目录–project_name：用于存储所有的工程文件，也是根目录。<br>    二级目录<br>       –src   ：源码<br>       –core ：存放集成环境产生的初始化列表<br>       –dev  ：存放综合和布局布线的结果和中间文件，第三方工<br>               具最好将综合和布局布线做成两个目录<br>       –sim  ：仿真文件<br>          三级目录<br>               –funcsim  ：功能仿真文件<br>               –parsim   ：时序仿真文件<br>       –doc  ：设计文档，记录过程</p>
+<h1 id="四、quartus文件类别"><a href="#四、quartus文件类别" class="headerlink" title="四、quartus文件类别"></a>四、quartus文件类别</h1><p>  HDL文件（verilog和VHDL）（存于src）：写模块的主要输入方式<br>  IP 核的语言也是HDl语言，只不过是封装好的。<br>mif文件（存在core）：用于初始化存储器<br>qsf文件（存在dev）：时序和管脚约束文件<br>vwf,vec,tbl文件（存于sim）:矢量波形，矢量文件，矢量输出三类仿真激励文件。<br>暂时要了解的文件格式就这几种，后续的学习中在逐渐的加入。</p>
+<h1 id="五、总结"><a href="#五、总结" class="headerlink" title="五、总结"></a>五、总结</h1><p>  体验实际的设计流程后发现，作为工程，实际的verilog设计是十分的精细的工作，要考虑的东西很多。一步一步的操作需要十分的耐性。此外，后期的优化是十分的困难的。在一步步的了解了FPGA设计的全部的过程后，学习FPGA变得更加的枯燥。不同于编程的纯逻辑的设计，也不同于电路的计算为主的设计思路，HDL更加的要求全面的知识面。<br>  接下来的学习需要更多的电路知识、设计规范和各种辅助工具的利用。总之，FPGA的学习不是简单的，但在学习后的收获是巨大的。细节处要慢慢的磨砺，大方向处要找更多的知识来支持。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/16/状态机测试/" class="archive-article-date">
-  	<time datetime="2019-10-16T15:04:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/16/状态机测试/">状态机测试</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -207,13 +220,13 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">example</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">verilog</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -226,123 +239,117 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://github.com/electricdream11/2019/10/18/设计流程/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/15/计数时钟/" class="archive-article-date">
-  	<time datetime="2019-10-15T13:36:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-15</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/10/16/状态机测试/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">状态机测试</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/15/计数时钟/">计数时钟</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">example</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、设计原理"><span class="toc-number">1.</span> <span class="toc-text">一、设计原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、Altera-Quartus-的设计步骤"><span class="toc-number">2.</span> <span class="toc-text">二、Altera Quartus 的设计步骤</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、标准化的设计目录"><span class="toc-number">3.</span> <span class="toc-text">三、标准化的设计目录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、quartus文件类别"><span class="toc-number">4.</span> <span class="toc-text">四、quartus文件类别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五、总结"><span class="toc-number">5.</span> <span class="toc-text">五、总结</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/14/三人表决器/" class="archive-article-date">
-  	<time datetime="2019-10-14T13:25:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/14/三人表决器/">三人表决器</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">example</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -365,9 +372,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
