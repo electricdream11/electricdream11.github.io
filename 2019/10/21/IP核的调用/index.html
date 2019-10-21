@@ -6,18 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://github.com/electricdream11">
-  <title>Tag: FPGA | The Electric Dream</title>
+  <title>IP核的调用 | The Electric Dream</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="the site is just for study and interest">
-<meta property="og:type" content="website">
-<meta property="og:title" content="The Electric Dream">
-<meta property="og:url" content="https://github.com/electricdream11/tags/FPGA/index.html">
+  <meta name="description" content="IP核的调用1.IP核的定义  一些写好的IP核就是构建好的可调整的模块化的代码。利用IP核可以快速的完成一些成熟的功能。这好像在考试是使用简化的公式一样。虽然这是一个比较速成的方法，但是要适当的使用，毕竟在初学时掌握完备的体系是后续的基础。 2.IP核的使用  在软件上的使用还是相当的简单的，调用相应的工具即可。事实上，仔细的了解IP的写法也是不错的学习方法，尤其是学习IP的结构。IP核是经过仔">
+<meta name="keywords" content="FPGA,example">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IP核的调用">
+<meta property="og:url" content="https://github.com/electricdream11/2019/10/21/IP核的调用/index.html">
 <meta property="og:site_name" content="The Electric Dream">
-<meta property="og:description" content="the site is just for study and interest">
+<meta property="og:description" content="IP核的调用1.IP核的定义  一些写好的IP核就是构建好的可调整的模块化的代码。利用IP核可以快速的完成一些成熟的功能。这好像在考试是使用简化的公式一样。虽然这是一个比较速成的方法，但是要适当的使用，毕竟在初学时掌握完备的体系是后续的基础。 2.IP核的使用  在软件上的使用还是相当的简单的，调用相应的工具即可。事实上，仔细的了解IP的写法也是不错的学习方法，尤其是学习IP的结构。IP核是经过仔">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/2019/10/21/IP核的调用/imag1.png">
+<meta property="og:updated_time" content="2019-10-21T14:19:51.924Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="The Electric Dream">
-<meta name="twitter:description" content="the site is just for study and interest">
+<meta name="twitter:title" content="IP核的调用">
+<meta name="twitter:description" content="IP核的调用1.IP核的定义  一些写好的IP核就是构建好的可调整的模块化的代码。利用IP核可以快速的完成一些成熟的功能。这好像在考试是使用简化的公式一样。虽然这是一个比较速成的方法，但是要适当的使用，毕竟在初学时掌握完备的体系是后续的基础。 2.IP核的使用  在软件上的使用还是相当的简单的，调用相应的工具即可。事实上，仔细的了解IP的写法也是不错的学习方法，尤其是学习IP的结构。IP核是经过仔">
+<meta name="twitter:image" content="https://github.com/2019/10/21/IP核的调用/imag1.png">
   
     <link rel="alternative" href="/atom.xml" title="The Electric Dream" type="application/atom+xml">
   
@@ -168,36 +172,45 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-IP核的调用" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      IP核的调用
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/21/IP核的调用/" class="archive-article-date">
+
+        
+        <a href="/2019/10/21/IP核的调用/" class="archive-article-date">
   	<time datetime="2019-10-21T14:16:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-21</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/21/IP核的调用/">IP核的调用</a>
-    </h1>
-  
+        
+      </header>
+      <div align="center" class="post-count">
+      字数：542字 | 预计阅读时长：2分钟
+      </div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code>IP核的调用</code></pre><h1 id="1-IP核的定义"><a href="#1-IP核的定义" class="headerlink" title="1.IP核的定义"></a>1.IP核的定义</h1><p>  一些写好的IP核就是构建好的可调整的模块化的代码。利用IP核可以快速的完成一些成熟的功能。这好像在考试是使用简化的公式一样。虽然这是一个比较速成的方法，但是要适当的使用，毕竟在初学时掌握完备的体系是后续的基础。</p>
+<h1 id="2-IP核的使用"><a href="#2-IP核的使用" class="headerlink" title="2.IP核的使用"></a>2.IP核的使用</h1><p>  在软件上的使用还是相当的简单的，调用相应的工具即可。事实上，仔细的了解IP的写法也是不错的学习方法，尤其是学习IP的结构。IP核是经过仔细的测试的，在设计上也是相当成熟的。但这是在掌握了所有的知识后在优化阶段的选择。</p>
+<h1 id="3-FIFO的实例"><a href="#3-FIFO的实例" class="headerlink" title="3.FIFO的实例"></a>3.FIFO的实例</h1><p> 一：调用IP核的代码<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">// synopsys translate_off</span><br><span class="line">`timescale 1 ps / 1 ps</span><br><span class="line">// synopsys translate_on</span><br><span class="line">module IP_demo (</span><br><span class="line">	clock,</span><br><span class="line">	data,</span><br><span class="line">	rdreq,</span><br><span class="line">	wrreq,</span><br><span class="line">	empty,</span><br><span class="line">	full,</span><br><span class="line">	q,</span><br><span class="line">	usedw);</span><br><span class="line"></span><br><span class="line">	input	  clock;</span><br><span class="line">	input	[7:0]  data;</span><br><span class="line">	input	  rdreq;</span><br><span class="line">	input	  wrreq;</span><br><span class="line">	output	  empty;</span><br><span class="line">	output	  full;</span><br><span class="line">	output	[7:0]  q;</span><br><span class="line">	output	[7:0]  usedw;</span><br><span class="line"></span><br><span class="line">	wire [7:0] sub_wire0;</span><br><span class="line">	wire  sub_wire1;</span><br><span class="line">	wire  sub_wire2;</span><br><span class="line">	wire [7:0] sub_wire3;</span><br><span class="line">	wire [7:0] usedw = sub_wire0[7:0];</span><br><span class="line">	wire  empty = sub_wire1;</span><br><span class="line">	wire  full = sub_wire2;</span><br><span class="line">	wire [7:0] q = sub_wire3[7:0];</span><br><span class="line"></span><br><span class="line">	scfifo	scfifo_component (</span><br><span class="line">				.clock (clock),</span><br><span class="line">				.data (data),</span><br><span class="line">				.rdreq (rdreq),</span><br><span class="line">				.wrreq (wrreq),</span><br><span class="line">				.usedw (sub_wire0),</span><br><span class="line">				.empty (sub_wire1),</span><br><span class="line">				.full (sub_wire2),</span><br><span class="line">				.q (sub_wire3),</span><br><span class="line">				.aclr (),</span><br><span class="line">				.almost_empty (),</span><br><span class="line">				.almost_full (),</span><br><span class="line">				.sclr ());</span><br><span class="line">	defparam</span><br><span class="line">		scfifo_component.add_ram_output_register = &quot;OFF&quot;,</span><br><span class="line">		scfifo_component.intended_device_family = &quot;Cyclone IV E&quot;,</span><br><span class="line">		scfifo_component.lpm_numwords = 256,</span><br><span class="line">		scfifo_component.lpm_showahead = &quot;OFF&quot;,</span><br><span class="line">		scfifo_component.lpm_type = &quot;scfifo&quot;,</span><br><span class="line">		scfifo_component.lpm_width = 8,</span><br><span class="line">		scfifo_component.lpm_widthu = 8,</span><br><span class="line">		scfifo_component.overflow_checking = &quot;ON&quot;,</span><br><span class="line">		scfifo_component.underflow_checking = &quot;ON&quot;,</span><br><span class="line">		scfifo_component.use_eab = &quot;ON&quot;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">endmodule</span><br></pre></td></tr></table></figure></p>
+<img src="/2019/10/21/IP核的调用/imag1.png">
+<h1 id="4-testbech的模式"><a href="#4-testbech的模式" class="headerlink" title="4.testbech的模式"></a>4.testbech的模式</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">`timescale 1ns/1ns</span><br><span class="line">module IP_demo_tb;</span><br><span class="line">reg clock;</span><br><span class="line">reg rdreq;</span><br><span class="line">reg wrreq;</span><br><span class="line">reg [7:0] data;</span><br><span class="line"></span><br><span class="line">wire empty;</span><br><span class="line">wire full;</span><br><span class="line">wire [7:0] q;</span><br><span class="line">wire [7:0] usedw;</span><br><span class="line">IP_demo M1(</span><br><span class="line">	.clock(clock),</span><br><span class="line">	.data(data),</span><br><span class="line">	.rdreq(rdreq),</span><br><span class="line">	.wrreq(wrreq),</span><br><span class="line">	.empty(empty),</span><br><span class="line">	.full(full),</span><br><span class="line">	.q(q),</span><br><span class="line">	.usedw(usedw)</span><br><span class="line">	);</span><br><span class="line">		</span><br><span class="line">endmodule</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
+<p>具体的测试就不做了，这种成熟的模块学会利用就好。</p>
+<h1 id="5-结果"><a href="#5-结果" class="headerlink" title="5.结果"></a>5.结果</h1><p>  学习IP核的利用作为一个基本的能力，在后面的学习中可以作为辅助的手段以提高设计的层次。但是，归根到底，系统化的知识是必要的，就算自己不会做，但也一定要懂。毕竟初学时过一遍可以有效地降低在大的项目中出现常识性的错误的几率。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -213,7 +226,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -226,490 +239,117 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://github.com/electricdream11/2019/10/21/IP核的调用/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/18/设计流程/" class="archive-article-date">
-  	<time datetime="2019-10-18T14:25:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-18</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/10/18/设计流程/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">设计流程</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/18/设计流程/">设计流程</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">verilog</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-IP核的定义"><span class="toc-number">1.</span> <span class="toc-text">1.IP核的定义</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-IP核的使用"><span class="toc-number">2.</span> <span class="toc-text">2.IP核的使用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-FIFO的实例"><span class="toc-number">3.</span> <span class="toc-text">3.FIFO的实例</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-testbech的模式"><span class="toc-number">4.</span> <span class="toc-text">4.testbech的模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-结果"><span class="toc-number">5.</span> <span class="toc-text">5.结果</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/16/状态机测试/" class="archive-article-date">
-  	<time datetime="2019-10-16T15:04:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/16/状态机测试/">状态机测试</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">example</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/15/计数时钟/" class="archive-article-date">
-  	<time datetime="2019-10-15T13:36:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/15/计数时钟/">计数时钟</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">example</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/14/三人表决器/" class="archive-article-date">
-  	<time datetime="2019-10-14T13:25:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/14/三人表决器/">三人表决器</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">example</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/11/verilog语法设计注意事项/" class="archive-article-date">
-  	<time datetime="2019-10-11T13:35:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/11/verilog语法设计注意事项/">verilog语法设计注意事项</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">verilog</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/10/时序电路基础/" class="archive-article-date">
-  	<time datetime="2019-10-10T13:11:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/10/时序电路基础/">时序电路基础</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">verilog</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/09/FPGA组合电路基础/" class="archive-article-date">
-  	<time datetime="2019-10-09T12:41:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/09/FPGA组合电路基础/">FPGA组合电路基础</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">verilog</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/06/verilog语法基础/" class="archive-article-date">
-  	<time datetime="2019-10-06T12:43:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/06/verilog语法基础/">verilog语法基础</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">verilog</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/06/可编程逻辑基础/" class="archive-article-date">
-  	<time datetime="2019-10-06T07:39:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/06/可编程逻辑基础/">可编程逻辑基础</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -732,9 +372,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
