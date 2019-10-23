@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://github.com/electricdream11">
-  <title>verilog语法基础 | The Electric Dream</title>
+  <title>Altera器件的高级特性 | The Electric Dream</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Verilog语法基础是学习FPGA的开始">
-<meta name="keywords" content="FPGA,verilog">
+  <meta name="description" content="Altera器件的高级特性与应用   高性能、大容量的FPGA正在逐渐成为系统中的核心组成部分，这意味着FPGA逐渐的引入一些专用的电路以提高性能。这也要求设计者掌握这些专用的电路的设计方法。">
+<meta name="keywords" content="FPGA,Altera">
 <meta property="og:type" content="article">
-<meta property="og:title" content="verilog语法基础">
-<meta property="og:url" content="https://github.com/electricdream11/2019/10/06/verilog语法基础/index.html">
+<meta property="og:title" content="Altera器件的高级特性">
+<meta property="og:url" content="https://github.com/electricdream11/2019/10/23/Altera器件的高级特性/index.html">
 <meta property="og:site_name" content="The Electric Dream">
-<meta property="og:description" content="Verilog语法基础是学习FPGA的开始">
+<meta property="og:description" content="Altera器件的高级特性与应用   高性能、大容量的FPGA正在逐渐成为系统中的核心组成部分，这意味着FPGA逐渐的引入一些专用的电路以提高性能。这也要求设计者掌握这些专用的电路的设计方法。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-06T13:00:27.048Z">
+<meta property="og:updated_time" content="2019-10-23T13:35:20.901Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="verilog语法基础">
-<meta name="twitter:description" content="Verilog语法基础是学习FPGA的开始">
+<meta name="twitter:title" content="Altera器件的高级特性">
+<meta name="twitter:description" content="Altera器件的高级特性与应用   高性能、大容量的FPGA正在逐渐成为系统中的核心组成部分，这意味着FPGA逐渐的引入一些专用的电路以提高性能。这也要求设计者掌握这些专用的电路的设计方法。">
   
     <link rel="alternative" href="/atom.xml" title="The Electric Dream" type="application/atom+xml">
   
@@ -170,66 +170,62 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-verilog语法基础" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Altera器件的高级特性" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      verilog语法基础
+      Altera器件的高级特性
     </h1>
   
 
         
-        <a href="/2019/10/06/verilog语法基础/" class="archive-article-date">
-  	<time datetime="2019-10-06T12:43:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-06</time>
+        <a href="/2019/10/23/Altera器件的高级特性/" class="archive-article-date">
+  	<time datetime="2019-10-23T13:28:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-23</time>
 </a>
         
       </header>
       <div align="center" class="post-count">
-      字数：837字 | 预计阅读时长：3分钟
+      字数：2.1k字 | 预计阅读时长：7分钟
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Verilog语法基础是学习FPGA的开始</p>
-<a id="more"></a>
-<h1 id="1-verilog-HDL历史"><a href="#1-verilog-HDL历史" class="headerlink" title="1.verilog HDL历史"></a>1.verilog HDL历史</h1><p>  由OVI标准化，IEEE标准</p>
-<h1 id="2-术语："><a href="#2-术语：" class="headerlink" title="2.术语："></a>2.术语：</h1><p>   HDL：硬件描述语言<br>   RTL：寄存器传送级定义<br>   行为建模：功能确定 || 结构化建模：有对应的硬件电路</p>
-<h1 id="3-综合"><a href="#3-综合" class="headerlink" title="3.综合"></a>3.综合</h1><p>  将verilog代码转化为实际电路的过程</p>
-<h1 id="4-语法规则："><a href="#4-语法规则：" class="headerlink" title="4.语法规则："></a>4.语法规则：</h1><p>  大小写和空白敏感</p>
-<h1 id="5-组成："><a href="#5-组成：" class="headerlink" title="5.组成："></a>5.组成：</h1><p>  端口声明-&gt;数据类型声明-&gt;电路功能-&gt;时序规范</p>
-<h1 id="6-数据类型："><a href="#6-数据类型：" class="headerlink" title="6.数据类型："></a>6.数据类型：</h1><p>  wire 网数据类型（节点）<br>  tri 三态节点<br>  Supply0 和 supply1 常数逻辑值<br>  reg  寄存器数据类型（并不对应物理寄存器，只是类似变量）<br>      只能在进程、任务或功能中赋值reg变量，不能是逻辑门输出和assign输出。</p>
-<h1 id="7-输入输出规则"><a href="#7-输入输出规则" class="headerlink" title="7.输入输出规则"></a>7.输入输出规则</h1><p>Variabletype–input–output–inout<br>net———–Yes—-Yes—–Yes<br>register——No—–Yes—–No</p>
-<h1 id="8-数字"><a href="#8-数字" class="headerlink" title="8.数字"></a>8.数字</h1><p>  <size>’type<num></num></size></p>
-<h1 id="9-位算子"><a href="#9-位算子" class="headerlink" title="9.位算子"></a>9.位算子</h1><p>  ~：每位取反            &amp;：每位与<br>  |：  每位或              ^：异或<br>也有组合缩写算子</p>
-<h1 id="10-算子："><a href="#10-算子：" class="headerlink" title="10.算子："></a>10.算子：</h1><p>  加减乘除取模（%）<br>  相等算子：==，！=，===（条件相等），！==（条件不等，所有的类型）<br>关系算子：</p>
-<blockquote>
-<p> &lt;  =  &gt;=  &lt;=<br>其他算子：包括大部分C语言算子</p>
-</blockquote>
-<h1 id="11-赋值声明："><a href="#11-赋值声明：" class="headerlink" title="11.赋值声明："></a>11.赋值声明：</h1><p>  左手侧（LHS）必须是net类型，右手侧主动的变化</p>
-<h1 id="12-Initial：执行一次模块"><a href="#12-Initial：执行一次模块" class="headerlink" title="12.Initial：执行一次模块"></a>12.Initial：执行一次模块</h1><p>  always：重复执行</p>
-<h1 id="13-进程赋值"><a href="#13-进程赋值" class="headerlink" title="13.进程赋值"></a>13.进程赋值</h1><p>  阻塞按顺序执行，<br>  非阻塞赋值不按顺序执行</p>
-<h1 id="14-组合电路："><a href="#14-组合电路：" class="headerlink" title="14.组合电路："></a>14.组合电路：</h1><p>   对所有事件列表敏感<br>   时序电路：<br>   只对时钟和使能信号敏感</p>
-<h1 id="15-if-else："><a href="#15-if-else：" class="headerlink" title="15.if-else："></a>15.if-else：</h1><p>   使用选择器依次选择条件</p>
-<h1 id="16-case："><a href="#16-case：" class="headerlink" title="16. case："></a>16. case：</h1><p>   多路选择器，不能有交叠重复条件<br>    casez：忽略Z<br>    casex：忽略x和z，不当做逻辑值</p>
-<h1 id="17-Forever："><a href="#17-Forever：" class="headerlink" title="17.Forever："></a>17.Forever：</h1><p>  无限循环，按时间间隔执行</p>
-<h1 id="18-repeat："><a href="#18-repeat：" class="headerlink" title="18.repeat："></a>18.repeat：</h1><p>  有限次数，按次数执行</p>
-<h1 id="19-while："><a href="#19-while：" class="headerlink" title="19.while："></a>19.while：</h1><p>   While的条件是确定的不可更改。</p>
-<h1 id="20-时钟使能和触发器使能"><a href="#20-时钟使能和触发器使能" class="headerlink" title="20. 时钟使能和触发器使能"></a>20. 时钟使能和触发器使能</h1><p>   在敏感列表中申明的信号</p>
-<h1 id="21-函数和任务"><a href="#21-函数和任务" class="headerlink" title="21.函数和任务"></a>21.函数和任务</h1><p>  函数描述了组合功能，任务显示了进程，用于显示这段进程供其他进程。</p>
-<h1 id="22-常用的可综合语法"><a href="#22-常用的可综合语法" class="headerlink" title="22.常用的可综合语法"></a>22.常用的可综合语法</h1><p>常用的RTL语法结构如下：<br>模块声明：module endmodule.<br>端口声明：input，output，inout（inout的用法比较特殊，需要注意）。<br>信号类型：wire，reg，tri等，integer 常用语for语句中（reg，wire是最常用的，一般tri和integer用在测试脚本里）。<br>参数定义：paraneter，define。<br>运算操作符：各种逻辑操作符、移位操作符、算术操作符大多时可综合的（注：===与!==是不可综合的）。<br>比较判断：if else，case（casex，casez）default endcase.<br>连续赋值：assign，问号表达式（？：）。<br>always模块：（敏感表可以为电平、沿信号posedge/negedge；通常和0连用）。<br>Begin end（通俗的说，它就是C语言里的“{}”）。<br>任务定义：task endtask。<br>循环语句：for（用的也比较少，但是在一些特定的设计中使用它会起到事半功倍的效果）。<br>赋值符号：=和&lt;=（阻塞和非阻塞赋值，在具体设计中时很有讲究的）。</p>
-<h1 id="22-实际的例子"><a href="#22-实际的例子" class="headerlink" title="22.实际的例子"></a>22.实际的例子</h1><p>module(<br>       a,<br>         b,</p>
-<pre><code>  c
-);</code></pre><p> input reg a;<br> input wire b;  </p>
-<p> output wire c;<br> assign c &lt;= a&b; //assign 左侧必须是wire类型</p>
-<p>endmodule</p>
-<p>module(<br>       Clk,<br>         Rst_n,</p>
-<pre><code>   cnt
-);</code></pre><p>  input clk;<br>  input Rst_n;</p>
-<p>  output cnt;   //output默认为wire类型，<br>                //  要赋值是需要申明为reg</p>
-<p>  reg cnt;<br>  always@(posedge Clk or negedge Rst_n)<br>  begin<br>  if(!Rst_n)<br>  else<br>  cnt &lt;=Clk;<br>  end<br>endmodule</p>
+        <pre><code>Altera器件的高级特性与应用</code></pre><p>   高性能、大容量的FPGA正在逐渐成为系统中的核心组成部分，这意味着FPGA逐渐的引入一些专用的电路以提高性能。这也要求设计者掌握这些专用的电路的设计方法。<br>   <a id="more"></a></p>
+<h1 id="一、时钟管理"><a href="#一、时钟管理" class="headerlink" title="一、时钟管理"></a>一、时钟管理</h1><p>时钟作为时序的执行者，是一切时序的基石。</p>
+<h2 id="1-时钟问题"><a href="#1-时钟问题" class="headerlink" title="1.时钟问题"></a>1.时钟问题</h2><h3 id="（1）时钟偏斜（Skew）和抖动（Jitter）"><a href="#（1）时钟偏斜（Skew）和抖动（Jitter）" class="headerlink" title="（1）时钟偏斜（Skew）和抖动（Jitter）"></a>（1）时钟偏斜（Skew）和抖动（Jitter）</h3><p>时钟偏斜是指时钟分配系统中到达各个时钟末端的（器件触发器的时钟输入端）时钟相位不一样的现象。主要由时钟源不同步和分配网络不同步引起的。设计时要考虑偏斜的时序影响。<br>时钟抖动是时钟信号实际的触发时间与理想的时间有偏差造成的现象。一般有可确定的和不可确定的两种情形。在抖动达到一定的程度时需要削弱。</p>
+<h3 id="（2）时序余量"><a href="#（2）时序余量" class="headerlink" title="（2）时序余量"></a>（2）时序余量</h3><p>所有的时序延迟必须约束在一个时钟周期内。<br>源触发器的输出延时（MicroTco）、触发器到触发器的走线及逻辑延时（Tlogic）、目的触发器的建立时间（MicroTsu）和保持时间（MicroTh）<br>时钟建立的原则就是MicroTco+Tlogic+MicroTsu小于时钟周期T。<br>在计算同步IO引脚的时序余量时，发送器件的时钟输出延时Tco、单板走线延时Tfight以及接收器的建立时间Tsu和保持时间Th。时钟的设计原则就是Tco+Tfight+Tsu小于时钟周期T。<br>实际的设计过程中，尤其是在高速板中，时钟源的偏斜和抖动也是要考虑在时序余量中的。现在的设计有源同步（数据和相位一起发送）方案和动态相位调整（DPA）电路可以解决问题。<br>CDR（时钟动态恢复）电路逐渐成为高速电路中的高速高带宽系统的互联方案。</p>
+<h3 id="（3）使用全局时钟网络和锁相环改善时钟"><a href="#（3）使用全局时钟网络和锁相环改善时钟" class="headerlink" title="（3）使用全局时钟网络和锁相环改善时钟"></a>（3）使用全局时钟网络和锁相环改善时钟</h3><p>全局时钟网络由芯片中心向四周拓展，保证偏斜很小。此外，采用时钟保护以排除其他信号的影响。<br>！有一些时钟资源为局部时钟信号，不能走芯片的所有地方。<br>在EDA工具中可以设置是否使用全局时钟，也可以设置引脚的时钟类型。<br>PLL（锁相环）可以滤除抖动，提高时钟质量和效率，是比较好的时钟信号选择。</p>
+<h3 id="（4）局部走线"><a href="#（4）局部走线" class="headerlink" title="（4）局部走线"></a>（4）局部走线</h3><p>使用局部走线来实现时钟会有较大的偏斜，一般用于时序约束不是非常严格的电路中。在全局时钟不足时使用。<br>！LCELL（传输门）语句可以实现延时，综合时要将Ignore LCEL Buffers选项关闭以防被忽略。</p>
+<h2 id="2-锁相环的应用"><a href="#2-锁相环的应用" class="headerlink" title="2.锁相环的应用"></a>2.锁相环的应用</h2><h3 id="（1）PLL（锁相环）和DLL（延时锁定环）"><a href="#（1）PLL（锁相环）和DLL（延时锁定环）" class="headerlink" title="（1）PLL（锁相环）和DLL（延时锁定环）"></a>（1）PLL（锁相环）和DLL（延时锁定环）</h3><p>锁相环（PLL）由模拟电路构成，输出时钟由内部自振产生，输入时钟频率受限，所带来的抖动为自身结构产生，对噪声敏感。<br>延时锁定环（DLL）由数字电路实现，时钟输出真实，能及时反映输入时钟。输入频率较宽，但有频率下限。会引入输入时钟的固定抖动，造成时钟抖动积累。对噪声不敏感。</p>
+<h3 id="（2）altera中的PLL"><a href="#（2）altera中的PLL" class="headerlink" title="（2）altera中的PLL"></a>（2）altera中的PLL</h3><p>Stratix主要有EPLL（增强型锁相环）和FPLL（快速锁相环）<br>Cyclone有快速锁相环。<br>具体的问题需要在设计中自行体会，相关的说明在用时查找器件说明。</p>
+<h3 id="（3）PLL电源设计"><a href="#（3）PLL电源设计" class="headerlink" title="（3）PLL电源设计"></a>（3）PLL电源设计</h3><p>数字电源中有较多的噪声，PLL为模拟电路，需要单独的电源。</p>
+<h3 id="（4）工具支持"><a href="#（4）工具支持" class="headerlink" title="（4）工具支持"></a>（4）工具支持</h3><p>使用MegaWiard实现需要的锁相环（PLL）</p>
+<h1 id="二、Arria10器件的高级特性与应用"><a href="#二、Arria10器件的高级特性与应用" class="headerlink" title="二、Arria10器件的高级特性与应用"></a>二、Arria10器件的高级特性与应用</h1><h2 id="1-硬浮点DSP块介绍"><a href="#1-硬浮点DSP块介绍" class="headerlink" title="1.硬浮点DSP块介绍"></a>1.硬浮点DSP块介绍</h2><p>DSP在运算上具有较大的优势，合理的使用DSP可以提高速度。Arria 10中的硬浮点性能可以支持雷达和医疗图像等方面的应用。</p>
+<h2 id="2-Altera-FPGA中浮点DSP实现的演进"><a href="#2-Altera-FPGA中浮点DSP实现的演进" class="headerlink" title="2.Altera FPGA中浮点DSP实现的演进"></a>2.Altera FPGA中浮点DSP实现的演进</h2><p>采用硬浮点可以有效地减少LUT和寄存器的消耗。</p>
+<h2 id="3-硬浮点DSP的优势"><a href="#3-硬浮点DSP的优势" class="headerlink" title="3.硬浮点DSP的优势"></a>3.硬浮点DSP的优势</h2><p>使用浮点计算可以减少定点运算的庞大的资源消耗。<br>可以使用DSP Builder来实现DSP的利用。</p>
+<h2 id="4-Xilinx-Ultrascale-DSP48E2"><a href="#4-Xilinx-Ultrascale-DSP48E2" class="headerlink" title="4.Xilinx Ultrascale DSP48E2"></a>4.Xilinx Ultrascale DSP48E2</h2><p>具体的芯片上的设计资源都要在实际的实际中查找应用。</p>
+<h1 id="三、片外高速存储器"><a href="#三、片外高速存储器" class="headerlink" title="三、片外高速存储器"></a>三、片外高速存储器</h1><p>与片外的高速存储器的连用是提高设计功能的有效方法。</p>
+<h2 id="1-外部存储接口方案的关键特性"><a href="#1-外部存储接口方案的关键特性" class="headerlink" title="1.外部存储接口方案的关键特性"></a>1.外部存储接口方案的关键特性</h2><p>Arria 10 新的存储接口方案在控制器和控制器到PHY方面做了预先的时序收敛。<br>（1）外部存储接口硬核化<br>（2）IO列与内部逻辑混合<br>（3）单个Nios II 硬核标准IO列里面的所有存储接口<br>（4）IO列由IObank组成。每个IObank包含一个专有的整数PLL（IO_PLL）,一个硬的存储器和一个DLL<br>（5）PHY时钟树比上一代器件变短了并且只跨一个IObank<br>（6）如果需要跨多个IObank，那么就要求用多个PLL</p>
+<h2 id="2-支持的存储标准"><a href="#2-支持的存储标准" class="headerlink" title="2.支持的存储标准"></a>2.支持的存储标准</h2><p>不同的FPGA硬核、软核和HPS都有相应支持标准，需要使用时查找就好。</p>
+<h2 id="3-存储接口宽度"><a href="#3-存储接口宽度" class="headerlink" title="3.存储接口宽度"></a>3.存储接口宽度</h2><p>不一样的接口宽度对应不同的IO bank数来配合。</p>
+<h2 id="4-IO管脚"><a href="#4-IO管脚" class="headerlink" title="4.IO管脚"></a>4.IO管脚</h2><p>每一个IO bank都带有外部存储接口电路，并且IO bank 里面的控制器只能驱动同一个 IO bank 里面的地址/命令线，同时可以驱动IObank的数据线。没有使用的IO口可以当普通IO口使用。</p>
+<h2 id="5-外部存储接口IP支持类型"><a href="#5-外部存储接口IP支持类型" class="headerlink" title="5.外部存储接口IP支持类型"></a>5.外部存储接口IP支持类型</h2><p>A10的IP支持的类型也是需要确定存储颗粒标准。</p>
+<h2 id="6-Arria10外部存储接口类型"><a href="#6-Arria10外部存储接口类型" class="headerlink" title="6.Arria10外部存储接口类型"></a>6.Arria10外部存储接口类型</h2><p>A10的外部存储接口框架有比较独特的结构，具体的就不写了，在芯片应用时细看。现在还在初学阶段，具体的功能在实践中实例。</p>
+<h1 id="四、Hybird-Memory-Cube"><a href="#四、Hybird-Memory-Cube" class="headerlink" title="四、Hybird Memory Cube"></a>四、Hybird Memory Cube</h1><p>高速的处理能力要求高速的存储器件。</p>
+<h2 id="1-存储带宽面临的挑战"><a href="#1-存储带宽面临的挑战" class="headerlink" title="1.存储带宽面临的挑战"></a>1.存储带宽面临的挑战</h2><p>存储墙的限制使电子系统遇到了瓶颈。</p>
+<h2 id="2-HMC的优势"><a href="#2-HMC的优势" class="headerlink" title="2.HMC的优势"></a>2.HMC的优势</h2><p>HMC的先进的工艺为高速性能提供了支持，具体的设计参数需要设计时去查。</p>
+<h2 id="3-Altera-HMC-交互操作平台"><a href="#3-Altera-HMC-交互操作平台" class="headerlink" title="3.Altera HMC 交互操作平台"></a>3.Altera HMC 交互操作平台</h2><p>Altera和HMC打造的操作平台，可以提供硬件的支持。</p>
+<h2 id="4-Altera-HMC路标"><a href="#4-Altera-HMC路标" class="headerlink" title="4.Altera HMC路标"></a>4.Altera HMC路标</h2><p>A10 后可以支持HMC接口。</p>
+<h2 id="5-网络系统的应用实例"><a href="#5-网络系统的应用实例" class="headerlink" title="5.网络系统的应用实例"></a>5.网络系统的应用实例</h2><p>HMC可以有效地提高速度。具体的分析就做了。</p>
+<h1 id="五、Altera-JESD204B-Megacore"><a href="#五、Altera-JESD204B-Megacore" class="headerlink" title="五、Altera JESD204B Megacore"></a>五、Altera JESD204B Megacore</h1><p>具体的高速串行接口</p>
+<h2 id="1-基本介绍"><a href="#1-基本介绍" class="headerlink" title="1.基本介绍"></a>1.基本介绍</h2><p>该IP包含MAC（介质层）和PHY（物理层），可以提供高速传输的保障。具体的选择在IP手册中查找。配置也在其中选择。</p>
+<h2 id="2-功能描述"><a href="#2-功能描述" class="headerlink" title="2.功能描述"></a>2.功能描述</h2><p>MAC中主要为DLL模块，PHY中主要有PCS和PMA模块。具体的性能还是在具体使用时体会。</p>
+<h2 id="3-Debug指导"><a href="#3-Debug指导" class="headerlink" title="3.Debug指导"></a>3.Debug指导</h2><p>在设计过程中调试时再具体的处理，主要是要考虑高速电路的各种问题。</p>
+<h1 id="六、高速串行收发器"><a href="#六、高速串行收发器" class="headerlink" title="六、高速串行收发器"></a>六、高速串行收发器</h1><p>这部分主要包含了高速串发器的主要的参数和设计注意事项。在实践中具体的学习，单纯的阅读时没有太大的意义。结合实际的操作才是了解这类结构的根本的手段。以下是设计的具体的流程，具体的在实际操作中查找训练。<br>1.Arria 10 Transceiver概述<br>2.Transceiver设计流程<br>3.PLL和时钟网络<br>4.复位Transceiver通道<br>5.重配接口和动态重配<br>6.校准</p>
+<h1 id="七、小结"><a href="#七、小结" class="headerlink" title="七、小结"></a>七、小结</h1><p>高速是电路性能标准之一，设计高速电路的能力是一个设计者的基本能力，这也是电子工程师进阶的必经之路。学好如何设计高速电路需要大量的实践，认真的学习后对接下来的提升具有重要的意义。这次的学习主要是为接下来学习高速电路打下基础。</p>
 
       
 
@@ -247,7 +243,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">verilog</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Altera</a>
         		</li>
       		
 		</ul>
@@ -314,7 +310,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://github.com/electricdream11/2019/10/06/verilog语法基础/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://github.com/electricdream11/2019/10/23/Altera器件的高级特性/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -328,18 +324,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/10/09/FPGA组合电路基础/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          FPGA组合电路基础
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/10/06/可编程逻辑基础/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">可编程逻辑基础</div>
+    <a href="/2019/10/22/可编程逻辑设计指导原则/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">可编程逻辑设计指导原则</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -366,7 +353,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-verilog-HDL历史"><span class="toc-number">1.</span> <span class="toc-text">1.verilog HDL历史</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-术语："><span class="toc-number">2.</span> <span class="toc-text">2.术语：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-综合"><span class="toc-number">3.</span> <span class="toc-text">3.综合</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-语法规则："><span class="toc-number">4.</span> <span class="toc-text">4.语法规则：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-组成："><span class="toc-number">5.</span> <span class="toc-text">5.组成：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-数据类型："><span class="toc-number">6.</span> <span class="toc-text">6.数据类型：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-输入输出规则"><span class="toc-number">7.</span> <span class="toc-text">7.输入输出规则</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#8-数字"><span class="toc-number">8.</span> <span class="toc-text">8.数字</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#9-位算子"><span class="toc-number">9.</span> <span class="toc-text">9.位算子</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#10-算子："><span class="toc-number">10.</span> <span class="toc-text">10.算子：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#11-赋值声明："><span class="toc-number">11.</span> <span class="toc-text">11.赋值声明：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#12-Initial：执行一次模块"><span class="toc-number">12.</span> <span class="toc-text">12.Initial：执行一次模块</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#13-进程赋值"><span class="toc-number">13.</span> <span class="toc-text">13.进程赋值</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#14-组合电路："><span class="toc-number">14.</span> <span class="toc-text">14.组合电路：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#15-if-else："><span class="toc-number">15.</span> <span class="toc-text">15.if-else：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#16-case："><span class="toc-number">16.</span> <span class="toc-text">16. case：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#17-Forever："><span class="toc-number">17.</span> <span class="toc-text">17.Forever：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#18-repeat："><span class="toc-number">18.</span> <span class="toc-text">18.repeat：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#19-while："><span class="toc-number">19.</span> <span class="toc-text">19.while：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#20-时钟使能和触发器使能"><span class="toc-number">20.</span> <span class="toc-text">20. 时钟使能和触发器使能</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#21-函数和任务"><span class="toc-number">21.</span> <span class="toc-text">21.函数和任务</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#22-常用的可综合语法"><span class="toc-number">22.</span> <span class="toc-text">22.常用的可综合语法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#22-实际的例子"><span class="toc-number">23.</span> <span class="toc-text">22.实际的例子</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、时钟管理"><span class="toc-number">1.</span> <span class="toc-text">一、时钟管理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-时钟问题"><span class="toc-number">1.1.</span> <span class="toc-text">1.时钟问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（1）时钟偏斜（Skew）和抖动（Jitter）"><span class="toc-number">1.1.1.</span> <span class="toc-text">（1）时钟偏斜（Skew）和抖动（Jitter）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（2）时序余量"><span class="toc-number">1.1.2.</span> <span class="toc-text">（2）时序余量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（3）使用全局时钟网络和锁相环改善时钟"><span class="toc-number">1.1.3.</span> <span class="toc-text">（3）使用全局时钟网络和锁相环改善时钟</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（4）局部走线"><span class="toc-number">1.1.4.</span> <span class="toc-text">（4）局部走线</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-锁相环的应用"><span class="toc-number">1.2.</span> <span class="toc-text">2.锁相环的应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（1）PLL（锁相环）和DLL（延时锁定环）"><span class="toc-number">1.2.1.</span> <span class="toc-text">（1）PLL（锁相环）和DLL（延时锁定环）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（2）altera中的PLL"><span class="toc-number">1.2.2.</span> <span class="toc-text">（2）altera中的PLL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（3）PLL电源设计"><span class="toc-number">1.2.3.</span> <span class="toc-text">（3）PLL电源设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（4）工具支持"><span class="toc-number">1.2.4.</span> <span class="toc-text">（4）工具支持</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、Arria10器件的高级特性与应用"><span class="toc-number">2.</span> <span class="toc-text">二、Arria10器件的高级特性与应用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-硬浮点DSP块介绍"><span class="toc-number">2.1.</span> <span class="toc-text">1.硬浮点DSP块介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Altera-FPGA中浮点DSP实现的演进"><span class="toc-number">2.2.</span> <span class="toc-text">2.Altera FPGA中浮点DSP实现的演进</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-硬浮点DSP的优势"><span class="toc-number">2.3.</span> <span class="toc-text">3.硬浮点DSP的优势</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Xilinx-Ultrascale-DSP48E2"><span class="toc-number">2.4.</span> <span class="toc-text">4.Xilinx Ultrascale DSP48E2</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、片外高速存储器"><span class="toc-number">3.</span> <span class="toc-text">三、片外高速存储器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-外部存储接口方案的关键特性"><span class="toc-number">3.1.</span> <span class="toc-text">1.外部存储接口方案的关键特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-支持的存储标准"><span class="toc-number">3.2.</span> <span class="toc-text">2.支持的存储标准</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-存储接口宽度"><span class="toc-number">3.3.</span> <span class="toc-text">3.存储接口宽度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-IO管脚"><span class="toc-number">3.4.</span> <span class="toc-text">4.IO管脚</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-外部存储接口IP支持类型"><span class="toc-number">3.5.</span> <span class="toc-text">5.外部存储接口IP支持类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-Arria10外部存储接口类型"><span class="toc-number">3.6.</span> <span class="toc-text">6.Arria10外部存储接口类型</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、Hybird-Memory-Cube"><span class="toc-number">4.</span> <span class="toc-text">四、Hybird Memory Cube</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-存储带宽面临的挑战"><span class="toc-number">4.1.</span> <span class="toc-text">1.存储带宽面临的挑战</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-HMC的优势"><span class="toc-number">4.2.</span> <span class="toc-text">2.HMC的优势</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Altera-HMC-交互操作平台"><span class="toc-number">4.3.</span> <span class="toc-text">3.Altera HMC 交互操作平台</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Altera-HMC路标"><span class="toc-number">4.4.</span> <span class="toc-text">4.Altera HMC路标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-网络系统的应用实例"><span class="toc-number">4.5.</span> <span class="toc-text">5.网络系统的应用实例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五、Altera-JESD204B-Megacore"><span class="toc-number">5.</span> <span class="toc-text">五、Altera JESD204B Megacore</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-基本介绍"><span class="toc-number">5.1.</span> <span class="toc-text">1.基本介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-功能描述"><span class="toc-number">5.2.</span> <span class="toc-text">2.功能描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Debug指导"><span class="toc-number">5.3.</span> <span class="toc-text">3.Debug指导</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六、高速串行收发器"><span class="toc-number">6.</span> <span class="toc-text">六、高速串行收发器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#七、小结"><span class="toc-number">7.</span> <span class="toc-text">七、小结</span></a></li></ol>
                     </div>
                 </span>
             </div>

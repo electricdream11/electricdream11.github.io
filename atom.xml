@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/electricdream11/"/>
-  <updated>2019-10-22T15:30:00.508Z</updated>
+  <updated>2019-10-23T13:35:20.901Z</updated>
   <id>https://github.com/electricdream11/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Altera器件的高级特性</title>
+    <link href="https://github.com/electricdream11/2019/10/23/Altera%E5%99%A8%E4%BB%B6%E7%9A%84%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7/"/>
+    <id>https://github.com/electricdream11/2019/10/23/Altera器件的高级特性/</id>
+    <published>2019-10-23T13:28:55.000Z</published>
+    <updated>2019-10-23T13:35:20.901Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>Altera器件的高级特性与应用</code></pre><p>   高性能、大容量的FPGA正在逐渐成为系统中的核心组成部分，这意味着FPGA逐渐的引入一些专用的电路以提高性能。这也要求设计者掌握这些专用的电路的设计方法。<br>   <a id="more"></a></p><h1 id="一、时钟管理"><a href="#一、时钟管理" class="headerlink" title="一、时钟管理"></a>一、时钟管理</h1><p>时钟作为时序的执行者，是一切时序的基石。</p><h2 id="1-时钟问题"><a href="#1-时钟问题" class="headerlink" title="1.时钟问题"></a>1.时钟问题</h2><h3 id="（1）时钟偏斜（Skew）和抖动（Jitter）"><a href="#（1）时钟偏斜（Skew）和抖动（Jitter）" class="headerlink" title="（1）时钟偏斜（Skew）和抖动（Jitter）"></a>（1）时钟偏斜（Skew）和抖动（Jitter）</h3><p>时钟偏斜是指时钟分配系统中到达各个时钟末端的（器件触发器的时钟输入端）时钟相位不一样的现象。主要由时钟源不同步和分配网络不同步引起的。设计时要考虑偏斜的时序影响。<br>时钟抖动是时钟信号实际的触发时间与理想的时间有偏差造成的现象。一般有可确定的和不可确定的两种情形。在抖动达到一定的程度时需要削弱。</p><h3 id="（2）时序余量"><a href="#（2）时序余量" class="headerlink" title="（2）时序余量"></a>（2）时序余量</h3><p>所有的时序延迟必须约束在一个时钟周期内。<br>源触发器的输出延时（MicroTco）、触发器到触发器的走线及逻辑延时（Tlogic）、目的触发器的建立时间（MicroTsu）和保持时间（MicroTh）<br>时钟建立的原则就是MicroTco+Tlogic+MicroTsu小于时钟周期T。<br>在计算同步IO引脚的时序余量时，发送器件的时钟输出延时Tco、单板走线延时Tfight以及接收器的建立时间Tsu和保持时间Th。时钟的设计原则就是Tco+Tfight+Tsu小于时钟周期T。<br>实际的设计过程中，尤其是在高速板中，时钟源的偏斜和抖动也是要考虑在时序余量中的。现在的设计有源同步（数据和相位一起发送）方案和动态相位调整（DPA）电路可以解决问题。<br>CDR（时钟动态恢复）电路逐渐成为高速电路中的高速高带宽系统的互联方案。</p><h3 id="（3）使用全局时钟网络和锁相环改善时钟"><a href="#（3）使用全局时钟网络和锁相环改善时钟" class="headerlink" title="（3）使用全局时钟网络和锁相环改善时钟"></a>（3）使用全局时钟网络和锁相环改善时钟</h3><p>全局时钟网络由芯片中心向四周拓展，保证偏斜很小。此外，采用时钟保护以排除其他信号的影响。<br>！有一些时钟资源为局部时钟信号，不能走芯片的所有地方。<br>在EDA工具中可以设置是否使用全局时钟，也可以设置引脚的时钟类型。<br>PLL（锁相环）可以滤除抖动，提高时钟质量和效率，是比较好的时钟信号选择。</p><h3 id="（4）局部走线"><a href="#（4）局部走线" class="headerlink" title="（4）局部走线"></a>（4）局部走线</h3><p>使用局部走线来实现时钟会有较大的偏斜，一般用于时序约束不是非常严格的电路中。在全局时钟不足时使用。<br>！LCELL（传输门）语句可以实现延时，综合时要将Ignore LCEL Buffers选项关闭以防被忽略。</p><h2 id="2-锁相环的应用"><a href="#2-锁相环的应用" class="headerlink" title="2.锁相环的应用"></a>2.锁相环的应用</h2><h3 id="（1）PLL（锁相环）和DLL（延时锁定环）"><a href="#（1）PLL（锁相环）和DLL（延时锁定环）" class="headerlink" title="（1）PLL（锁相环）和DLL（延时锁定环）"></a>（1）PLL（锁相环）和DLL（延时锁定环）</h3><p>锁相环（PLL）由模拟电路构成，输出时钟由内部自振产生，输入时钟频率受限，所带来的抖动为自身结构产生，对噪声敏感。<br>延时锁定环（DLL）由数字电路实现，时钟输出真实，能及时反映输入时钟。输入频率较宽，但有频率下限。会引入输入时钟的固定抖动，造成时钟抖动积累。对噪声不敏感。</p><h3 id="（2）altera中的PLL"><a href="#（2）altera中的PLL" class="headerlink" title="（2）altera中的PLL"></a>（2）altera中的PLL</h3><p>Stratix主要有EPLL（增强型锁相环）和FPLL（快速锁相环）<br>Cyclone有快速锁相环。<br>具体的问题需要在设计中自行体会，相关的说明在用时查找器件说明。</p><h3 id="（3）PLL电源设计"><a href="#（3）PLL电源设计" class="headerlink" title="（3）PLL电源设计"></a>（3）PLL电源设计</h3><p>数字电源中有较多的噪声，PLL为模拟电路，需要单独的电源。</p><h3 id="（4）工具支持"><a href="#（4）工具支持" class="headerlink" title="（4）工具支持"></a>（4）工具支持</h3><p>使用MegaWiard实现需要的锁相环（PLL）</p><h1 id="二、Arria10器件的高级特性与应用"><a href="#二、Arria10器件的高级特性与应用" class="headerlink" title="二、Arria10器件的高级特性与应用"></a>二、Arria10器件的高级特性与应用</h1><h2 id="1-硬浮点DSP块介绍"><a href="#1-硬浮点DSP块介绍" class="headerlink" title="1.硬浮点DSP块介绍"></a>1.硬浮点DSP块介绍</h2><p>DSP在运算上具有较大的优势，合理的使用DSP可以提高速度。Arria 10中的硬浮点性能可以支持雷达和医疗图像等方面的应用。</p><h2 id="2-Altera-FPGA中浮点DSP实现的演进"><a href="#2-Altera-FPGA中浮点DSP实现的演进" class="headerlink" title="2.Altera FPGA中浮点DSP实现的演进"></a>2.Altera FPGA中浮点DSP实现的演进</h2><p>采用硬浮点可以有效地减少LUT和寄存器的消耗。</p><h2 id="3-硬浮点DSP的优势"><a href="#3-硬浮点DSP的优势" class="headerlink" title="3.硬浮点DSP的优势"></a>3.硬浮点DSP的优势</h2><p>使用浮点计算可以减少定点运算的庞大的资源消耗。<br>可以使用DSP Builder来实现DSP的利用。</p><h2 id="4-Xilinx-Ultrascale-DSP48E2"><a href="#4-Xilinx-Ultrascale-DSP48E2" class="headerlink" title="4.Xilinx Ultrascale DSP48E2"></a>4.Xilinx Ultrascale DSP48E2</h2><p>具体的芯片上的设计资源都要在实际的实际中查找应用。</p><h1 id="三、片外高速存储器"><a href="#三、片外高速存储器" class="headerlink" title="三、片外高速存储器"></a>三、片外高速存储器</h1><p>与片外的高速存储器的连用是提高设计功能的有效方法。</p><h2 id="1-外部存储接口方案的关键特性"><a href="#1-外部存储接口方案的关键特性" class="headerlink" title="1.外部存储接口方案的关键特性"></a>1.外部存储接口方案的关键特性</h2><p>Arria 10 新的存储接口方案在控制器和控制器到PHY方面做了预先的时序收敛。<br>（1）外部存储接口硬核化<br>（2）IO列与内部逻辑混合<br>（3）单个Nios II 硬核标准IO列里面的所有存储接口<br>（4）IO列由IObank组成。每个IObank包含一个专有的整数PLL（IO_PLL）,一个硬的存储器和一个DLL<br>（5）PHY时钟树比上一代器件变短了并且只跨一个IObank<br>（6）如果需要跨多个IObank，那么就要求用多个PLL</p><h2 id="2-支持的存储标准"><a href="#2-支持的存储标准" class="headerlink" title="2.支持的存储标准"></a>2.支持的存储标准</h2><p>不同的FPGA硬核、软核和HPS都有相应支持标准，需要使用时查找就好。</p><h2 id="3-存储接口宽度"><a href="#3-存储接口宽度" class="headerlink" title="3.存储接口宽度"></a>3.存储接口宽度</h2><p>不一样的接口宽度对应不同的IO bank数来配合。</p><h2 id="4-IO管脚"><a href="#4-IO管脚" class="headerlink" title="4.IO管脚"></a>4.IO管脚</h2><p>每一个IO bank都带有外部存储接口电路，并且IO bank 里面的控制器只能驱动同一个 IO bank 里面的地址/命令线，同时可以驱动IObank的数据线。没有使用的IO口可以当普通IO口使用。</p><h2 id="5-外部存储接口IP支持类型"><a href="#5-外部存储接口IP支持类型" class="headerlink" title="5.外部存储接口IP支持类型"></a>5.外部存储接口IP支持类型</h2><p>A10的IP支持的类型也是需要确定存储颗粒标准。</p><h2 id="6-Arria10外部存储接口类型"><a href="#6-Arria10外部存储接口类型" class="headerlink" title="6.Arria10外部存储接口类型"></a>6.Arria10外部存储接口类型</h2><p>A10的外部存储接口框架有比较独特的结构，具体的就不写了，在芯片应用时细看。现在还在初学阶段，具体的功能在实践中实例。</p><h1 id="四、Hybird-Memory-Cube"><a href="#四、Hybird-Memory-Cube" class="headerlink" title="四、Hybird Memory Cube"></a>四、Hybird Memory Cube</h1><p>高速的处理能力要求高速的存储器件。</p><h2 id="1-存储带宽面临的挑战"><a href="#1-存储带宽面临的挑战" class="headerlink" title="1.存储带宽面临的挑战"></a>1.存储带宽面临的挑战</h2><p>存储墙的限制使电子系统遇到了瓶颈。</p><h2 id="2-HMC的优势"><a href="#2-HMC的优势" class="headerlink" title="2.HMC的优势"></a>2.HMC的优势</h2><p>HMC的先进的工艺为高速性能提供了支持，具体的设计参数需要设计时去查。</p><h2 id="3-Altera-HMC-交互操作平台"><a href="#3-Altera-HMC-交互操作平台" class="headerlink" title="3.Altera HMC 交互操作平台"></a>3.Altera HMC 交互操作平台</h2><p>Altera和HMC打造的操作平台，可以提供硬件的支持。</p><h2 id="4-Altera-HMC路标"><a href="#4-Altera-HMC路标" class="headerlink" title="4.Altera HMC路标"></a>4.Altera HMC路标</h2><p>A10 后可以支持HMC接口。</p><h2 id="5-网络系统的应用实例"><a href="#5-网络系统的应用实例" class="headerlink" title="5.网络系统的应用实例"></a>5.网络系统的应用实例</h2><p>HMC可以有效地提高速度。具体的分析就做了。</p><h1 id="五、Altera-JESD204B-Megacore"><a href="#五、Altera-JESD204B-Megacore" class="headerlink" title="五、Altera JESD204B Megacore"></a>五、Altera JESD204B Megacore</h1><p>具体的高速串行接口</p><h2 id="1-基本介绍"><a href="#1-基本介绍" class="headerlink" title="1.基本介绍"></a>1.基本介绍</h2><p>该IP包含MAC（介质层）和PHY（物理层），可以提供高速传输的保障。具体的选择在IP手册中查找。配置也在其中选择。</p><h2 id="2-功能描述"><a href="#2-功能描述" class="headerlink" title="2.功能描述"></a>2.功能描述</h2><p>MAC中主要为DLL模块，PHY中主要有PCS和PMA模块。具体的性能还是在具体使用时体会。</p><h2 id="3-Debug指导"><a href="#3-Debug指导" class="headerlink" title="3.Debug指导"></a>3.Debug指导</h2><p>在设计过程中调试时再具体的处理，主要是要考虑高速电路的各种问题。</p><h1 id="六、高速串行收发器"><a href="#六、高速串行收发器" class="headerlink" title="六、高速串行收发器"></a>六、高速串行收发器</h1><p>这部分主要包含了高速串发器的主要的参数和设计注意事项。在实践中具体的学习，单纯的阅读时没有太大的意义。结合实际的操作才是了解这类结构的根本的手段。以下是设计的具体的流程，具体的在实际操作中查找训练。<br>1.Arria 10 Transceiver概述<br>2.Transceiver设计流程<br>3.PLL和时钟网络<br>4.复位Transceiver通道<br>5.重配接口和动态重配<br>6.校准</p><h1 id="七、小结"><a href="#七、小结" class="headerlink" title="七、小结"></a>七、小结</h1><p>高速是电路性能标准之一，设计高速电路的能力是一个设计者的基本能力，这也是电子工程师进阶的必经之路。学好如何设计高速电路需要大量的实践，认真的学习后对接下来的提升具有重要的意义。这次的学习主要是为接下来学习高速电路打下基础。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code&gt;Altera器件的高级特性与应用&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;   高性能、大容量的FPGA正在逐渐成为系统中的核心组成部分，这意味着FPGA逐渐的引入一些专用的电路以提高性能。这也要求设计者掌握这些专用的电路的设计方法。&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="FPGA" scheme="https://github.com/electricdream11/categories/FPGA/"/>
+    
+    
+      <category term="FPGA" scheme="https://github.com/electricdream11/tags/FPGA/"/>
+    
+      <category term="Altera" scheme="https://github.com/electricdream11/tags/Altera/"/>
+    
+  </entry>
   
   <entry>
     <title>可编程逻辑设计指导原则</title>
