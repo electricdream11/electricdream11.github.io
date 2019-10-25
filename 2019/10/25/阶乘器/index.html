@@ -6,18 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://github.com/electricdream11">
-  <title>Archives | The Electric Dream</title>
+  <title>阶乘器 | The Electric Dream</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="the site is just for study and interest">
-<meta property="og:type" content="website">
-<meta property="og:title" content="The Electric Dream">
-<meta property="og:url" content="https://github.com/electricdream11/archives/index.html">
+  <meta name="description" content="基于CPLD的运算器设计一、目标以相对简单的CPLD芯片为模板，深入的了解可编程逻辑器件的设计原则、设计思想、代码风格、时钟管理、IO接口设计等基本的知识，掌握根据官网的英文资料提炼所需的信息的能力，熟悉设计的流程。">
+<meta name="keywords" content="FPGA,example">
+<meta property="og:type" content="article">
+<meta property="og:title" content="阶乘器">
+<meta property="og:url" content="https://github.com/electricdream11/2019/10/25/阶乘器/index.html">
 <meta property="og:site_name" content="The Electric Dream">
-<meta property="og:description" content="the site is just for study and interest">
+<meta property="og:description" content="基于CPLD的运算器设计一、目标以相对简单的CPLD芯片为模板，深入的了解可编程逻辑器件的设计原则、设计思想、代码风格、时钟管理、IO接口设计等基本的知识，掌握根据官网的英文资料提炼所需的信息的能力，熟悉设计的流程。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/2019/10/25/阶乘器/imag1.png">
+<meta property="og:image" content="https://github.com/2019/10/25/阶乘器/imag2.png">
+<meta property="og:updated_time" content="2019-10-25T14:11:28.514Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="The Electric Dream">
-<meta name="twitter:description" content="the site is just for study and interest">
+<meta name="twitter:title" content="阶乘器">
+<meta name="twitter:description" content="基于CPLD的运算器设计一、目标以相对简单的CPLD芯片为模板，深入的了解可编程逻辑器件的设计原则、设计思想、代码风格、时钟管理、IO接口设计等基本的知识，掌握根据官网的英文资料提炼所需的信息的能力，熟悉设计的流程。">
+<meta name="twitter:image" content="https://github.com/2019/10/25/阶乘器/imag1.png">
   
     <link rel="alternative" href="/atom.xml" title="The Electric Dream" type="application/atom+xml">
   
@@ -168,36 +173,65 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-阶乘器" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      阶乘器
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/25/阶乘器/" class="archive-article-date">
+
+        
+        <a href="/2019/10/25/阶乘器/" class="archive-article-date">
   	<time datetime="2019-10-25T14:06:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-25</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/25/阶乘器/">阶乘器</a>
-    </h1>
-  
+        
+      </header>
+      <div align="center" class="post-count">
+      字数：1.1k字 | 预计阅读时长：4分钟
+      </div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code>基于CPLD的运算器设计</code></pre><h1 id="一、目标"><a href="#一、目标" class="headerlink" title="一、目标"></a>一、目标</h1><p>以相对简单的CPLD芯片为模板，深入的了解可编程逻辑器件的设计原则、设计思想、代码风格、时钟管理、IO接口设计等基本的知识，掌握根据官网的英文资料提炼所需的信息的能力，熟悉设计的流程。</p>
+<a id="more"></a>
+<h1 id="二、功能实现"><a href="#二、功能实现" class="headerlink" title="二、功能实现"></a>二、功能实现</h1><h2 id="1-初步的构想"><a href="#1-初步的构想" class="headerlink" title="1.初步的构想"></a>1.初步的构想</h2><p>使用组合逻辑电路制作一个阶乘器来表现速度的参数性能，根据资源的消耗量来衡量面积，最后做出优化。由于CPLD的时钟资源不多，就尽量空出多的时序余量。所以，不会考虑用速度换面积，只需要做到用面积换速度。</p>
+<h2 id="2-系统功能定义和逻辑功能划分"><a href="#2-系统功能定义和逻辑功能划分" class="headerlink" title="2.系统功能定义和逻辑功能划分"></a>2.系统功能定义和逻辑功能划分</h2><p>系统功能：阶乘器要实现对10（初步考虑为这么大，逻辑硬件运算的资源消耗较大）以内的非零自然数实现阶乘。数学表达式是<code>a！=a*(a-1)*……*1。</code><br>逻辑功能：这次就是考虑速度与面积的转化，不会涉及其他的逻辑控制，这部分就先省略。</p>
+<h2 id="3-设计的初步预算"><a href="#3-设计的初步预算" class="headerlink" title="3.设计的初步预算"></a>3.设计的初步预算</h2><p>时钟频率：暂时采用系统默认的时钟，采用低速设计，在优化时提速。<br>时钟结构：采用全局时钟。<br>可能的关键路径：乘法器可能比较拥挤。</p>
+<h2 id="4-芯片选型："><a href="#4-芯片选型：" class="headerlink" title="4.芯片选型："></a>4.芯片选型：</h2><p>family ：MAX II<br>Name：EPM240F100C4<br>Core Voltage：3.3V<br>LEs：240<br>UFM blocks：1</p>
+<h2 id="5-逻辑模块的划分及接口的定义"><a href="#5-逻辑模块的划分及接口的定义" class="headerlink" title="5.逻辑模块的划分及接口的定义"></a>5.逻辑模块的划分及接口的定义</h2><p>（1）如果使用纯组合电路实现的话需要10-1个乘法器级联，只需要一个模块即可。<br>（2）如果只使用一个乘法器完成操作，则需要使用10-1次的循环结构来实现，也只需要一个模型。<br>考虑到硬件的资源有限，使用第二种方法更容易实现。<br>顶层模块topmodule：4位输入和23位输出；<br>子模块mod1：实现阶乘操作                                                                          </p>
+<h2 id="6-子模块的设计流程"><a href="#6-子模块的设计流程" class="headerlink" title="6.子模块的设计流程"></a>6.子模块的设计流程</h2><p>简单的循环体：<br>（1）循环初始化：可以选择从1乘到A或从A乘到1，从条件判断的简易程度看，选择从1乘到A会更好，即初始值为1；<br>（3）循环操作：调用乘法器将待输出值B_out与A_temp相乘。<br>（4）循环终止条件：A_temp&gt;=A<br>代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">module mod1(</span><br><span class="line">input [3:0] A_in,</span><br><span class="line">input Clk,</span><br><span class="line">input Rst_n,</span><br><span class="line"></span><br><span class="line">output reg [23:0] A_out</span><br><span class="line">);</span><br><span class="line">reg [3:0] A_copy;</span><br><span class="line">reg [3:0] A_temp;</span><br><span class="line">always@(*)</span><br><span class="line">A_copy &lt;=A_in;</span><br><span class="line">always@(posedge Clk or negedge Rst_n )begin</span><br><span class="line">if(!Rst_n)begin</span><br><span class="line">A_temp &lt;=1&apos;b1;</span><br><span class="line">A_out &lt;= 1&apos;b1;</span><br><span class="line">end</span><br><span class="line">else if(A_temp &gt; A_copy)</span><br><span class="line">A_out &lt;= A_out;</span><br><span class="line">else  begin</span><br><span class="line">A_out &lt;= A_out * A_temp;</span><br><span class="line">A_temp &lt;= A_temp +1&apos;b1;</span><br><span class="line">end</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">endmodule</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
+<h2 id="7-模块合并测试"><a href="#7-模块合并测试" class="headerlink" title="7.模块合并测试"></a>7.模块合并测试</h2><p>合并：只有一个模块，直接连接接口即可，注意wire型变量连接为驱动。<br>测试：<br>查看生成的RTL视图</p>
+<img src="/2019/10/25/阶乘器/imag1.png">
+<p>资源报告：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Flow Status	Successful - Fri Oct 25 20:20:15 2019</span><br><span class="line">Quartus II 64-Bit Version	11.0 Build 208 07/03/2011 SP 1 SJ Full Version</span><br><span class="line">Revision Name	maxII</span><br><span class="line">Top-level Entity Name	maxII</span><br><span class="line">Family	MAX II</span><br><span class="line">Device	EPM240F100C4</span><br><span class="line">Timing Models	Final</span><br><span class="line">Total logic elements	127</span><br><span class="line">Total pins	30</span><br><span class="line">Total virtual pins	0</span><br><span class="line">UFM blocks	0 / 1 ( 0 % )</span><br></pre></td></tr></table></figure>
+
+<h2 id="8-仿真"><a href="#8-仿真" class="headerlink" title="8.仿真"></a>8.仿真</h2><p>测试脚本：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">`timescale 1ns/1ns</span><br><span class="line">`define clk_p 5</span><br><span class="line">module maxII_tb;</span><br><span class="line">reg [3:0] A_in;</span><br><span class="line">reg Clk;</span><br><span class="line">reg Rst_n;</span><br><span class="line">wire [23:0] A_out;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">maxII Ut1(</span><br><span class="line">.A_in(A_in),</span><br><span class="line">.Clk(Clk),</span><br><span class="line">.Rst_n(Rst_n),</span><br><span class="line"></span><br><span class="line">.A_out(A_out)</span><br><span class="line">);</span><br><span class="line">initial begin</span><br><span class="line">Clk   =1&apos;b0;</span><br><span class="line">Rst_n =1&apos;b0;</span><br><span class="line">A_in  =4&apos;b1111;</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">always#(`clk_p/2) Clk = ~Clk;</span><br><span class="line"></span><br><span class="line">initial begin</span><br><span class="line">#(`clk_p*10)</span><br><span class="line">Rst_n = 1&apos;b1;</span><br><span class="line">#(`clk_p*30)</span><br><span class="line">$stop;</span><br><span class="line"></span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">endmodule</span><br></pre></td></tr></table></figure>
+
+<p>测试结果：</p>
+<img src="/2019/10/25/阶乘器/imag2.png">
+
+
+<h1 id="三、后仿真实现"><a href="#三、后仿真实现" class="headerlink" title="三、后仿真实现"></a>三、后仿真实现</h1><h2 id="1-说明"><a href="#1-说明" class="headerlink" title="1.说明"></a>1.说明</h2><p>后仿真是将设计的硬件电路加入到实际的器件中的测试，需要更多考虑。做好后仿真时实现实际的生产的关键一步。</p>
+<h2 id="2-后仿真约束"><a href="#2-后仿真约束" class="headerlink" title="2.后仿真约束"></a>2.后仿真约束</h2><p>这部分暂时还没有掌握，具体的尝试就不展示了。暂时就先做功能仿真。</p>
+<h2 id="3-结果"><a href="#3-结果" class="headerlink" title="3.结果"></a>3.结果</h2><p>略</p>
+<h1 id="四、优化"><a href="#四、优化" class="headerlink" title="四、优化"></a>四、优化</h1><p>由前面的设计思路可以知道，使用一个乘法器是面积最小的方案，所耗费的时间也是最长的。<br>初步的优化方案是将从一端开始乘变成从两端开始乘以提高速度。具体的设计可能没有时间做了，现在先感受一下。</p>
+<h1 id="五、结果"><a href="#五、结果" class="headerlink" title="五、结果"></a>五、结果</h1><p>略</p>
+<h1 id="六、总结"><a href="#六、总结" class="headerlink" title="六、总结"></a>六、总结</h1><p>这次的学习经历了两天，大概的巩固了一下FPGA设计三部分的第一部分的大体内容，了解了一下第二阶段的流程。接下来准备好第二阶段的基础知识，为下一段的学习准备好。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -213,7 +247,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -226,497 +260,116 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://github.com/electricdream11/2019/10/25/阶乘器/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/23/Altera器件的高级特性/" class="archive-article-date">
-  	<time datetime="2019-10-23T13:28:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-23</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/10/23/Altera器件的高级特性/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Altera器件的高级特性</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/23/Altera器件的高级特性/">Altera器件的高级特性</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Altera</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、目标"><span class="toc-number">1.</span> <span class="toc-text">一、目标</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、功能实现"><span class="toc-number">2.</span> <span class="toc-text">二、功能实现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-初步的构想"><span class="toc-number">2.1.</span> <span class="toc-text">1.初步的构想</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-系统功能定义和逻辑功能划分"><span class="toc-number">2.2.</span> <span class="toc-text">2.系统功能定义和逻辑功能划分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-设计的初步预算"><span class="toc-number">2.3.</span> <span class="toc-text">3.设计的初步预算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-芯片选型："><span class="toc-number">2.4.</span> <span class="toc-text">4.芯片选型：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-逻辑模块的划分及接口的定义"><span class="toc-number">2.5.</span> <span class="toc-text">5.逻辑模块的划分及接口的定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-子模块的设计流程"><span class="toc-number">2.6.</span> <span class="toc-text">6.子模块的设计流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-模块合并测试"><span class="toc-number">2.7.</span> <span class="toc-text">7.模块合并测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-仿真"><span class="toc-number">2.8.</span> <span class="toc-text">8.仿真</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、后仿真实现"><span class="toc-number">3.</span> <span class="toc-text">三、后仿真实现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-说明"><span class="toc-number">3.1.</span> <span class="toc-text">1.说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-后仿真约束"><span class="toc-number">3.2.</span> <span class="toc-text">2.后仿真约束</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-结果"><span class="toc-number">3.3.</span> <span class="toc-text">3.结果</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、优化"><span class="toc-number">4.</span> <span class="toc-text">四、优化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五、结果"><span class="toc-number">5.</span> <span class="toc-text">五、结果</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六、总结"><span class="toc-number">6.</span> <span class="toc-text">六、总结</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/22/可编程逻辑设计指导原则/" class="archive-article-date">
-  	<time datetime="2019-10-22T15:20:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/22/可编程逻辑设计指导原则/">可编程逻辑设计指导原则</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Altera</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/21/IP核的调用/" class="archive-article-date">
-  	<time datetime="2019-10-21T14:16:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/21/IP核的调用/">IP核的调用</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">example</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/18/设计流程/" class="archive-article-date">
-  	<time datetime="2019-10-18T14:25:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/18/设计流程/">设计流程</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">verilog</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/16/状态机测试/" class="archive-article-date">
-  	<time datetime="2019-10-16T15:04:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/16/状态机测试/">状态机测试</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">example</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/15/计数时钟/" class="archive-article-date">
-  	<time datetime="2019-10-15T13:36:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/15/计数时钟/">计数时钟</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">example</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/14/三人表决器/" class="archive-article-date">
-  	<time datetime="2019-10-14T13:25:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/14/三人表决器/">三人表决器</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">example</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/11/verilog语法设计注意事项/" class="archive-article-date">
-  	<time datetime="2019-10-11T13:35:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/11/verilog语法设计注意事项/">verilog语法设计注意事项</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">verilog</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/10/时序电路基础/" class="archive-article-date">
-  	<time datetime="2019-10-10T13:11:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/10/时序电路基础/">时序电路基础</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">verilog</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
   
 
 
@@ -740,8 +393,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
