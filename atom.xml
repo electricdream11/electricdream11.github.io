@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/electricdream11/"/>
-  <updated>2019-10-27T11:44:49.678Z</updated>
+  <updated>2019-10-27T14:30:11.333Z</updated>
   <id>https://github.com/electricdream11/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>流水灯功能设计</title>
+    <link href="https://github.com/electricdream11/2019/10/27/%E6%B5%81%E6%B0%B4%E7%81%AF%E5%8A%9F%E8%83%BD%E8%AE%BE%E8%AE%A1/"/>
+    <id>https://github.com/electricdream11/2019/10/27/流水灯功能设计/</id>
+    <published>2019-10-27T14:26:37.000Z</published>
+    <updated>2019-10-27T14:30:11.333Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>流水灯的设计</code></pre><h1 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a>一、实验目的</h1><p>实现基本的组合逻辑还是比较简单的，主要是学习一下计时器的设计。</p><a id="more"></a><h1 id="二、实验原理"><a href="#二、实验原理" class="headerlink" title="二、实验原理"></a>二、实验原理</h1><p>经典的流水灯的设计，具体就不说明了。主要是按键控制，时钟定时，流水灯显示。</p><h1 id="三、实验操作"><a href="#三、实验操作" class="headerlink" title="三、实验操作"></a>三、实验操作</h1><h2 id="1、系统设计"><a href="#1、系统设计" class="headerlink" title="1、系统设计"></a>1、系统设计</h2><p>经典的结构，由于是已经设计好的功能，就不用自己设计了。</p><h2 id="2、电路设计与输入"><a href="#2、电路设计与输入" class="headerlink" title="2、电路设计与输入"></a>2、电路设计与输入</h2><p>（1）verilog代码的编写</p><p>module LED_key(<br>input [3:0] key,<br>input Rst_n,<br>input Clk,</p><p>output reg [3:0] led<br>);</p><p>reg [23:0] cnt;<br>reg [1:0] state_led;<br>//time counter for every 0.2s change </p><p>always@(posedge Clk or negedge Rst_n)begin<br>    if(!Rst_n)<br>    cnt &lt;= 1’b0;<br>    else if(cnt == 24’d1000_0000)<br>    cnt &lt;=1’b0;<br>    else<br>    cnt &lt;= cnt +1’b1;<br>end<br>//state counter<br>always@(posedge Clk or negedge Rst_n)begin<br>    if(!Rst_n)<br>    state_led &lt;= 2’b0;<br>    else if(cnt == 24’d1000_0000)<br>    state_led &lt;= state_led+1’b1;<br>    else if(state_led == 2’b11)  // not need<br>    state_led &lt;=2’b0;<br>end<br>//key in and led out<br>always@(posedge Clk or negedge Rst_n)begin<br>    if(!Rst_n)<br>    led &lt;=4’b0000;<br>    else if(key[0] == 1’b0)<br>    //form1:from right to left<br>            case(state_led)<br>            2’b00: led &lt;=4’b0001;<br>            2’b01: led &lt;=4’b0010;<br>            2’b10: led &lt;=4’b0100;<br>            2’b11: led &lt;=4’b1000;<br>            endcase<br>    //form2:from left to right<br>    else if(key[1] == 1’b0)<br>            case(state_led)<br>            2’b00: led &lt;=4’b1000;<br>            2’b01: led &lt;=4’b0100;<br>            2’b10: led &lt;=4’b0010;<br>            2’b11: led &lt;=4’b0001;<br>            endcase<br>    //form3: not used<br>    else    if(key[2] == 1’b0)<br>            led &lt;= 4’b1111;<br>    //form4:<br>    else    if(key[3] == 1’b0)<br>            led &lt;= 4’b0000;<br>end</p><p>endmodule<br>（2）RTL视图</p><img src="/2019/10/27/流水灯功能设计/imag1.png"><h2 id="3、后续操作"><a href="#3、后续操作" class="headerlink" title="3、后续操作"></a>3、后续操作</h2><p>后面的时序约束，时序仿真，综合等工作暂时不做，只是先考虑功能设计。</p><h1 id="四、实验结果"><a href="#四、实验结果" class="headerlink" title="四、实验结果"></a>四、实验结果</h1><p>通过了前仿真，功能基本上满足要求。</p><h1 id="五、总结"><a href="#五、总结" class="headerlink" title="五、总结"></a>五、总结</h1><p>在设计细节上：wire类型作为条件判断时要分位进行，reg类型才能使用数值比较进行条件判断。对应电路上也好理解。wire类型类似于电路的总线，是没有总的值的存储的，reg类型才有存储。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code&gt;流水灯的设计&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&quot;一、实验目的&quot;&gt;&lt;a href=&quot;#一、实验目的&quot; class=&quot;headerlink&quot; title=&quot;一、实验目的&quot;&gt;&lt;/a&gt;一、实验目的&lt;/h1&gt;&lt;p&gt;实现基本的组合逻辑还是比较简单的，主要是学习一下计时器的设计。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="FPGA" scheme="https://github.com/electricdream11/categories/FPGA/"/>
+    
+    
+      <category term="FPGA" scheme="https://github.com/electricdream11/tags/FPGA/"/>
+    
+      <category term="example" scheme="https://github.com/electricdream11/tags/example/"/>
+    
+  </entry>
   
   <entry>
     <title>quartus常用辅助设计工具</title>

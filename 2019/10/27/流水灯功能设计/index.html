@@ -6,22 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://github.com/electricdream11">
-  <title>可编程逻辑基础 | The Electric Dream</title>
+  <title>流水灯功能设计 | The Electric Dream</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="可编程逻辑器件 1.可编程逻辑器件将电路连线简化。2.CPLD与FPGA的原理：化简电路后级联。">
-<meta name="keywords" content="FPGA">
+  <meta name="description" content="流水灯的设计一、实验目的实现基本的组合逻辑还是比较简单的，主要是学习一下计时器的设计。">
+<meta name="keywords" content="FPGA,example">
 <meta property="og:type" content="article">
-<meta property="og:title" content="可编程逻辑基础">
-<meta property="og:url" content="https://github.com/electricdream11/2019/10/06/可编程逻辑基础/index.html">
+<meta property="og:title" content="流水灯功能设计">
+<meta property="og:url" content="https://github.com/electricdream11/2019/10/27/流水灯功能设计/index.html">
 <meta property="og:site_name" content="The Electric Dream">
-<meta property="og:description" content="可编程逻辑器件 1.可编程逻辑器件将电路连线简化。2.CPLD与FPGA的原理：化简电路后级联。">
+<meta property="og:description" content="流水灯的设计一、实验目的实现基本的组合逻辑还是比较简单的，主要是学习一下计时器的设计。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://github.com/2019/10/06/可编程逻辑基础/PLD_basic.png">
-<meta property="og:updated_time" content="2019-10-06T11:08:07.194Z">
+<meta property="og:image" content="https://github.com/2019/10/27/流水灯功能设计/imag1.png">
+<meta property="og:updated_time" content="2019-10-27T14:30:11.333Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="可编程逻辑基础">
-<meta name="twitter:description" content="可编程逻辑器件 1.可编程逻辑器件将电路连线简化。2.CPLD与FPGA的原理：化简电路后级联。">
-<meta name="twitter:image" content="https://github.com/2019/10/06/可编程逻辑基础/PLD_basic.png">
+<meta name="twitter:title" content="流水灯功能设计">
+<meta name="twitter:description" content="流水灯的设计一、实验目的实现基本的组合逻辑还是比较简单的，主要是学习一下计时器的设计。">
+<meta name="twitter:image" content="https://github.com/2019/10/27/流水灯功能设计/imag1.png">
   
     <link rel="alternative" href="/atom.xml" title="The Electric Dream" type="application/atom+xml">
   
@@ -172,42 +172,72 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-可编程逻辑基础" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-流水灯功能设计" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      可编程逻辑基础
+      流水灯功能设计
     </h1>
   
 
         
-        <a href="/2019/10/06/可编程逻辑基础/" class="archive-article-date">
-  	<time datetime="2019-10-06T07:39:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-06</time>
+        <a href="/2019/10/27/流水灯功能设计/" class="archive-article-date">
+  	<time datetime="2019-10-27T14:26:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-27</time>
 </a>
         
       </header>
       <div align="center" class="post-count">
-      字数：661字 | 预计阅读时长：2分钟
+      字数：476字 | 预计阅读时长：2分钟
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>可编程逻辑器件</p>
-<h1 id="1-可编程逻辑器件将电路连线简化。"><a href="#1-可编程逻辑器件将电路连线简化。" class="headerlink" title="1.可编程逻辑器件将电路连线简化。"></a>1.可编程逻辑器件将电路连线简化。</h1><h1 id="2-CPLD与FPGA的原理：化简电路后级联。"><a href="#2-CPLD与FPGA的原理：化简电路后级联。" class="headerlink" title="2.CPLD与FPGA的原理：化简电路后级联。"></a>2.CPLD与FPGA的原理：化简电路后级联。</h1><a id="more"></a> 
-<h1 id="3-逻辑器件的历史："><a href="#3-逻辑器件的历史：" class="headerlink" title="3.逻辑器件的历史："></a>3.逻辑器件的历史：</h1><p>一、TTL逻辑设计：<br>采用真值表构建模型，利用卡诺图化简后得到逻辑表达式。TTL采用乘积和的模式设计，组成与门和多或门组成。<br>二、PAL可编程阵列逻辑：<br>逻辑门与输出寄存器固定，输入与与门构成乘积项，与乘积项和寄存项构成宏单元。跨线编程依靠浮珊晶体管（FAMOS或FLOTOX），工作方式分别为电擦除和紫光擦除。<br>三、CPLD复杂可编程逻辑器件：<br>利用可编程逻辑阵列的模块（LAB），<br>并且使用了可控乘积项提高效率。可编程互联阵列（PI）采用EPROM等技术编程。IO模块都采用了更加合理的结构。采用JTAG接口实现ISP（系统编程）。提高了可编程的器件的数量。</p>
-<h1 id="4-从CPLD到FPGA的改善"><a href="#4-从CPLD到FPGA的改善" class="headerlink" title="4.从CPLD到FPGA的改善"></a>4.从CPLD到FPGA的改善</h1><p>一、FPGA的LAB采用逻辑模块来提供单元，并成阵列式的分布于网格线中。<br>二、加入的查找表（LUT）可以有效地提高逻辑器件的利用率。<br>三、可编程的寄存器可以灵活的适应各种逻辑输出。<br>四、FPGA内依靠寄存器链和LAB的级联实现进位，不需要进位逻辑块。<br>五、高级的FPGA采用ALM（自适应逻辑模块），基于LE并包括专用资源和LUT以提高利用效率。<br>六、FPGA中的IO模块支持各种的标准，有电流驱动能力。可设置IO的开漏等等可以提高效率的模块。主要有输入、输出、使能模块。<br>七、存储器模块，嵌入式乘法器，高速收发器等定制的模块<br>八、FPGA的时钟：特殊的结构控制并向器件中的同步逻辑扇出时钟。自带时钟控制模块可以配置时钟资源。<br>九、SRAM单元技术用于实现互联和LUT功能级进行编程。行列互联结是易失的，上电时才可以编程。SRAM编程单元也需要上电后进行编程。</p>
-<h1 id="5-ASIC"><a href="#5-ASIC" class="headerlink" title="5.ASIC"></a>5.ASIC</h1><p>一、Altera ASIC是ASIC，用于测试ASIC系统，可以有效地提高ASIC的开发效率。</p>
-<h1 id="6-CPLD和FPAG的对比。"><a href="#6-CPLD和FPAG的对比。" class="headerlink" title="6.CPLD和FPAG的对比。"></a>6.CPLD和FPAG的对比。</h1><p>  CPLD是非易失编程，FPGA是易失的编程设计。<br>  小中型设计            大型设计</p>
-<h1 id="7-设计流程"><a href="#7-设计流程" class="headerlink" title="7.设计流程"></a>7.设计流程</h1><p>   设计输入-&gt;功能仿真-&gt;综合仿真-&gt;布局布线-&gt;门级仿真（可选）<br>                                             |<br>                                          PCB布局</p>
-<h1 id="8-总结："><a href="#8-总结：" class="headerlink" title="8.总结："></a>8.总结：</h1><p>FPGA提高逻辑设计的速度。</p>
-<img src="/2019/10/06/可编程逻辑基础/PLD_basic.png"> 
-
+        <pre><code>流水灯的设计</code></pre><h1 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a>一、实验目的</h1><p>实现基本的组合逻辑还是比较简单的，主要是学习一下计时器的设计。</p>
+<a id="more"></a>
+<h1 id="二、实验原理"><a href="#二、实验原理" class="headerlink" title="二、实验原理"></a>二、实验原理</h1><p>经典的流水灯的设计，具体就不说明了。主要是按键控制，时钟定时，流水灯显示。</p>
+<h1 id="三、实验操作"><a href="#三、实验操作" class="headerlink" title="三、实验操作"></a>三、实验操作</h1><h2 id="1、系统设计"><a href="#1、系统设计" class="headerlink" title="1、系统设计"></a>1、系统设计</h2><p>经典的结构，由于是已经设计好的功能，就不用自己设计了。</p>
+<h2 id="2、电路设计与输入"><a href="#2、电路设计与输入" class="headerlink" title="2、电路设计与输入"></a>2、电路设计与输入</h2><p>（1）verilog代码的编写</p>
+<p>module LED_key(<br>input [3:0] key,<br>input Rst_n,<br>input Clk,</p>
+<p>output reg [3:0] led<br>);</p>
+<p>reg [23:0] cnt;<br>reg [1:0] state_led;<br>//time counter for every 0.2s change </p>
+<p>always@(posedge Clk or negedge Rst_n)begin<br>    if(!Rst_n)<br>    cnt &lt;= 1’b0;<br>    else if(cnt == 24’d1000_0000)<br>    cnt &lt;=1’b0;<br>    else<br>    cnt &lt;= cnt +1’b1;<br>end<br>//state counter<br>always@(posedge Clk or negedge Rst_n)begin<br>    if(!Rst_n)<br>    state_led &lt;= 2’b0;<br>    else if(cnt == 24’d1000_0000)<br>    state_led &lt;= state_led+1’b1;<br>    else if(state_led == 2’b11)  // not need<br>    state_led &lt;=2’b0;<br>end<br>//key in and led out<br>always@(posedge Clk or negedge Rst_n)begin<br>    if(!Rst_n)<br>    led &lt;=4’b0000;<br>    else if(key[0] == 1’b0)<br>    //form1:from right to left<br>            case(state_led)<br>            2’b00: led &lt;=4’b0001;<br>            2’b01: led &lt;=4’b0010;<br>            2’b10: led &lt;=4’b0100;<br>            2’b11: led &lt;=4’b1000;<br>            endcase<br>    //form2:from left to right<br>    else if(key[1] == 1’b0)<br>            case(state_led)<br>            2’b00: led &lt;=4’b1000;<br>            2’b01: led &lt;=4’b0100;<br>            2’b10: led &lt;=4’b0010;<br>            2’b11: led &lt;=4’b0001;<br>            endcase<br>    //form3: not used<br>    else    if(key[2] == 1’b0)<br>            led &lt;= 4’b1111;<br>    //form4:<br>    else    if(key[3] == 1’b0)<br>            led &lt;= 4’b0000;<br>end</p>
+<p>endmodule<br>（2）RTL视图</p>
+<img src="/2019/10/27/流水灯功能设计/imag1.png">
+<h2 id="3、后续操作"><a href="#3、后续操作" class="headerlink" title="3、后续操作"></a>3、后续操作</h2><p>后面的时序约束，时序仿真，综合等工作暂时不做，只是先考虑功能设计。</p>
+<h1 id="四、实验结果"><a href="#四、实验结果" class="headerlink" title="四、实验结果"></a>四、实验结果</h1><p>通过了前仿真，功能基本上满足要求。</p>
+<h1 id="五、总结"><a href="#五、总结" class="headerlink" title="五、总结"></a>五、总结</h1><p>在设计细节上：wire类型作为条件判断时要分位进行，reg类型才能使用数值比较进行条件判断。对应电路上也好理解。wire类型类似于电路的总线，是没有总的值的存储的，reg类型才有存储。</p>
 
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/WeChat.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -219,6 +249,10 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">example</a>
         		</li>
       		
 		</ul>
@@ -285,7 +319,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://github.com/electricdream11/2019/10/06/可编程逻辑基础/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://github.com/electricdream11/2019/10/27/流水灯功能设计/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -299,18 +333,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/10/06/verilog语法基础/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          verilog语法基础
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/10/03/1003_FPGA/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">1003_FPGA</div>
+    <a href="/2019/10/27/quartus常用辅助设计工具/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">quartus常用辅助设计工具</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -337,7 +362,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-可编程逻辑器件将电路连线简化。"><span class="toc-number">1.</span> <span class="toc-text">1.可编程逻辑器件将电路连线简化。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-CPLD与FPGA的原理：化简电路后级联。"><span class="toc-number">2.</span> <span class="toc-text">2.CPLD与FPGA的原理：化简电路后级联。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-逻辑器件的历史："><span class="toc-number">3.</span> <span class="toc-text">3.逻辑器件的历史：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-从CPLD到FPGA的改善"><span class="toc-number">4.</span> <span class="toc-text">4.从CPLD到FPGA的改善</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-ASIC"><span class="toc-number">5.</span> <span class="toc-text">5.ASIC</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-CPLD和FPAG的对比。"><span class="toc-number">6.</span> <span class="toc-text">6.CPLD和FPAG的对比。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-设计流程"><span class="toc-number">7.</span> <span class="toc-text">7.设计流程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#8-总结："><span class="toc-number">8.</span> <span class="toc-text">8.总结：</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、实验目的"><span class="toc-number">1.</span> <span class="toc-text">一、实验目的</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、实验原理"><span class="toc-number">2.</span> <span class="toc-text">二、实验原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、实验操作"><span class="toc-number">3.</span> <span class="toc-text">三、实验操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、系统设计"><span class="toc-number">3.1.</span> <span class="toc-text">1、系统设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、电路设计与输入"><span class="toc-number">3.2.</span> <span class="toc-text">2、电路设计与输入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、后续操作"><span class="toc-number">3.3.</span> <span class="toc-text">3、后续操作</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、实验结果"><span class="toc-number">4.</span> <span class="toc-text">四、实验结果</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五、总结"><span class="toc-number">5.</span> <span class="toc-text">五、总结</span></a></li></ol>
                     </div>
                 </span>
             </div>
