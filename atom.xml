@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/electricdream11/"/>
-  <updated>2019-10-27T14:30:11.333Z</updated>
+  <updated>2019-10-28T10:16:34.660Z</updated>
   <id>https://github.com/electricdream11/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>时序约束与时序分析基础</title>
+    <link href="https://github.com/electricdream11/2019/10/28/%E6%97%B6%E5%BA%8F%E7%BA%A6%E6%9D%9F%E4%B8%8E%E6%97%B6%E5%BA%8F%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80/"/>
+    <id>https://github.com/electricdream11/2019/10/28/时序约束与时序分析基础/</id>
+    <published>2019-10-28T10:11:49.000Z</published>
+    <updated>2019-10-28T10:16:34.660Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>时序约束与时序分析</code></pre><h1 id="一、时序约束与时序分析基础"><a href="#一、时序约束与时序分析基础" class="headerlink" title="一、时序约束与时序分析基础"></a>一、时序约束与时序分析基础</h1><h2 id="1-时序约束的说明"><a href="#1-时序约束的说明" class="headerlink" title="1.时序约束的说明"></a>1.时序约束的说明</h2><p>设计中常用的约束（Assignment or Constraints）主要有时序约束、区域约束和位置约束。还有一些不常见的约束。<br>时序约束的主要的作用是提高设计的工作频率和获得正确的时序分析报告。<br>时序约束的方式有静态约束（STA）和动态时序约束，区别在于STA只关注时序性能，不考虑其他逻辑因素。</p><a id="more"></a><h2 id="2-周期与最高频率"><a href="#2-周期与最高频率" class="headerlink" title="2.周期与最高频率"></a>2.周期与最高频率</h2><p>（1）最小时钟周期t_CLK=Microt_CO + t_LOGIC + t_NET +Microt_su - t_CLK-SKEW; 其中右式的物理含义依次是“寄存器固有的时钟输出延时”、“同步元件之间的组合逻辑延迟”、“网线延迟”、“寄存器固有的时钟建立时间”、“时钟偏斜”。具体的含义在以后的学习中会有介绍。<br>（2）最高频率f_max<br>f_max=1/t_CLK;是衡量运行速度的关键参数。</p><h2 id="3-利用Quarteus-II工具分析设计"><a href="#3-利用Quarteus-II工具分析设计" class="headerlink" title="3.利用Quarteus II工具分析设计"></a>3.利用Quarteus II工具分析设计</h2><p>在时序分析报告中可以查看f_max。也可以查看每个路径的f_max以便分类设计约束。<br>在编译过程中的info中也可以找到延时的大小和路径。<br>还有一些其他视图下的观察方法就不一一介绍了。</p><h2 id="4-时钟建立时间"><a href="#4-时钟建立时间" class="headerlink" title="4.时钟建立时间"></a>4.时钟建立时间</h2><p>时钟建立时间（Clock Setup Time）常用t_su表示，代表时钟到达前，数据和使能信号已经准备好的最小时间间隔。<br>t_su = Data Delay - Clock Delay + Microt_su;<br>即时钟建立时间等于数据延迟加上寄存器延时减掉时钟延迟。</p><h2 id="5-时钟保持时间t-H-Clock-Hold-Time"><a href="#5-时钟保持时间t-H-Clock-Hold-Time" class="headerlink" title="5.时钟保持时间t_H(Clock Hold Time)"></a>5.时钟保持时间t_H(Clock Hold Time)</h2><p>t_H= Clock Delay -Data Delay + Microt_H;<br>即时钟保持时间等于时钟延迟加上寄存器保持时间减掉数据延时</p><h2 id="6-时钟输出延时t-CO-Clock-to-output-Time"><a href="#6-时钟输出延时t-CO-Clock-to-output-Time" class="headerlink" title="6.时钟输出延时t_CO(Clock to output Time)"></a>6.时钟输出延时t_CO(Clock to output Time)</h2><p>t_TO=Clock Delay + Data Delay + Microt_CO<br>其中Microt_CO为寄存器相应时钟有效沿将数据送到输出口的延时。</p><h2 id="7-引脚到引脚的延时t-PD-Pin-to-Pin-Delay"><a href="#7-引脚到引脚的延时t-PD-Pin-to-Pin-Delay" class="headerlink" title="7.引脚到引脚的延时t_PD(Pin to Pin Delay)"></a>7.引脚到引脚的延时t_PD(Pin to Pin Delay)</h2><p>CPLD的布线矩阵长度固定，t_PD可以标志CPLD的速度等级</p><h2 id="8-Slack（是否满足时序的称谓）"><a href="#8-Slack（是否满足时序的称谓）" class="headerlink" title="8.Slack（是否满足时序的称谓）"></a>8.Slack（是否满足时序的称谓）</h2><p>Slack为正，则时序余量充足；Slack为负，时序余量不足。<br>其中保持时间Slack（Hold Time Slack）用于衡量数据稳定采样的最小保持时间是否满足。</p><h2 id="9-时钟偏斜（Clock-Skew）"><a href="#9-时钟偏斜（Clock-Skew）" class="headerlink" title="9.时钟偏斜（Clock Skew）"></a>9.时钟偏斜（Clock Skew）</h2><p>由于不同路径的不同延时长度导致的时钟沿偏差。</p><h2 id="10-quartus-II-中的优化工具"><a href="#10-quartus-II-中的优化工具" class="headerlink" title="10.quartus II 中的优化工具"></a>10.quartus II 中的优化工具</h2><p>使用Timing Analyzer Tool可以指定分析某条路径上的时序延时。</p><h1 id="二、设置时序约束的常用方法"><a href="#二、设置时序约束的常用方法" class="headerlink" title="二、设置时序约束的常用方法"></a>二、设置时序约束的常用方法</h1><h2 id="1-说明"><a href="#1-说明" class="headerlink" title="1.说明"></a>1.说明</h2><p>总的设计方法有三种：<br>（1）【assignments】/【Timing Settings】<br>（2）【assignments】/【Wizards】/【Timing Wizard】<br>（3）【assignments】/【Assignment Editor】<br>当然，也可以对总的约束文件QSF修改来实现。</p><h2 id="2-指定全局时序约束"><a href="#2-指定全局时序约束" class="headerlink" title="2.指定全局时序约束"></a>2.指定全局时序约束</h2><h3 id="（1）时序驱动的编译（TDC）"><a href="#（1）时序驱动的编译（TDC）" class="headerlink" title="（1）时序驱动的编译（TDC）"></a>（1）时序驱动的编译（TDC）</h3><p>在Fitter Setting 中设置为时序驱动的编译<br>具体的优化内容包括时序、保持时间、IO单元寄存器的放置。<br>也可以设置优化所有的路径或其他路径，具体的自己体会。</p><h3 id="（2）全局时钟设置"><a href="#（2）全局时钟设置" class="headerlink" title="（2）全局时钟设置"></a>（2）全局时钟设置</h3><p>全局时钟可以实现所有时钟信号同频，是比较理想的时钟源。<br>在【Assignments】/【Timing Settings】中即可设置全局时钟。</p><h3 id="（3）全局的IO时序设置"><a href="#（3）全局的IO时序设置" class="headerlink" title="（3）全局的IO时序设置"></a>（3）全局的IO时序设置</h3><p>在【Assignments】/【Timing Settings】可以设置全局IO时序</p><h3 id="（4）时序分析和报告选项"><a href="#（4）时序分析和报告选项" class="headerlink" title="（4）时序分析和报告选项"></a>（4）时序分析和报告选项</h3><p>在时序分析约束界面可以选择报告的路径数和时序要求。</p><h3 id="（5）时序向导（Timing-Wizard）"><a href="#（5）时序向导（Timing-Wizard）" class="headerlink" title="（5）时序向导（Timing Wizard）"></a>（5）时序向导（Timing Wizard）</h3><p>在【Assignments】/【Wizards】/【Timing Wizard】即可依次进行以上的选项。</p><h2 id="3-指定个别的时钟约束"><a href="#3-指定个别的时钟约束" class="headerlink" title="3.指定个别的时钟约束"></a>3.指定个别的时钟约束</h2><h3 id="（1）工具"><a href="#（1）工具" class="headerlink" title="（1）工具"></a>（1）工具</h3><p>使用【Assignment Editor】对individual（单个）实现时序约束</p><h3 id="（2）指定个别时钟要求"><a href="#（2）指定个别时钟要求" class="headerlink" title="（2）指定个别时钟要求"></a>（2）指定个别时钟要求</h3><p>Altera中的时钟有独立时钟（absolute clock）和衍生时钟（derived clock）。前者独立于其他时钟，后者为某个absolute clock衍生出的时钟，说明相位差、分频或倍频比等参数。<br>创建衍生时钟只需在独立时钟的基础上修改即可。</p><h3 id="（3）个别时序约束"><a href="#（3）个别时序约束" class="headerlink" title="（3）个别时序约束"></a>（3）个别时序约束</h3><p>具体的设计方法有两种：在创建时对应物理节点或在【assignment editor】中根据所需的参数进行设计。具体要考虑的参数比较多，就不深入的分析，在用到时再逐个分析。</p><h3 id="（4）时序约束的种类"><a href="#（4）时序约束的种类" class="headerlink" title="（4）时序约束的种类"></a>（4）时序约束的种类</h3><p>主要有单点、点到点、通配符和时序分组这几种方式。<br>·单点（Single-Point）<br>对某个点的约束将影响所有和这个点有关的路径<br>形式为to Y<br>·点到点（Point to Point）<br>只对两点之间的路径有效。<br>形式为from X to Y<br>·通配符 （Wildcard）<br>使用<code>*</code>和<code>?</code>来代替多个字符，可以理解为简写的同类约束。<br>形式为 From X to Y？<br>·时序组（Time Group）<br>划分组实现区域的全局约束。</p><h3 id="（5）在quartus中增加时序约束"><a href="#（5）在quartus中增加时序约束" class="headerlink" title="（5）在quartus中增加时序约束"></a>（5）在quartus中增加时序约束</h3><p>具体的方法前面已经介绍了，注意一下实际操作时选择好约束方式。</p><h1 id="三、高级时序分析"><a href="#三、高级时序分析" class="headerlink" title="三、高级时序分析"></a>三、高级时序分析</h1><p>这部分的内容在掌握了基本的时序约束后再回过头来学，现在学会比较吃力。</p><h1 id="四、最小化时序分析"><a href="#四、最小化时序分析" class="headerlink" title="四、最小化时序分析"></a>四、最小化时序分析</h1><p>这也是有了一定的基础后再学会比较好。</p><h1 id="五、使用Tcl工具进行高级时序分析"><a href="#五、使用Tcl工具进行高级时序分析" class="headerlink" title="五、使用Tcl工具进行高级时序分析"></a>五、使用Tcl工具进行高级时序分析</h1><p>这部分的学习也要留到后面，但可以先行阅读。</p><h1 id="六、总结"><a href="#六、总结" class="headerlink" title="六、总结"></a>六、总结</h1><p>这次的学习主要是为实际设计中的后仿真储备知识，认真的了解时序的知识可以为高速电路的设计开个好头。这次只是学习了基本的时序约束的原理和方法。实际的操作还是需要在实践中熟练。具体的问题还是要到实践中找。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code&gt;时序约束与时序分析&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&quot;一、时序约束与时序分析基础&quot;&gt;&lt;a href=&quot;#一、时序约束与时序分析基础&quot; class=&quot;headerlink&quot; title=&quot;一、时序约束与时序分析基础&quot;&gt;&lt;/a&gt;一、时序约束与时序分析基础&lt;/h1&gt;&lt;h2 id=&quot;1-时序约束的说明&quot;&gt;&lt;a href=&quot;#1-时序约束的说明&quot; class=&quot;headerlink&quot; title=&quot;1.时序约束的说明&quot;&gt;&lt;/a&gt;1.时序约束的说明&lt;/h2&gt;&lt;p&gt;设计中常用的约束（Assignment or Constraints）主要有时序约束、区域约束和位置约束。还有一些不常见的约束。&lt;br&gt;时序约束的主要的作用是提高设计的工作频率和获得正确的时序分析报告。&lt;br&gt;时序约束的方式有静态约束（STA）和动态时序约束，区别在于STA只关注时序性能，不考虑其他逻辑因素。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="FPGA" scheme="https://github.com/electricdream11/categories/FPGA/"/>
+    
+    
+      <category term="FPGA" scheme="https://github.com/electricdream11/tags/FPGA/"/>
+    
+      <category term="Altera" scheme="https://github.com/electricdream11/tags/Altera/"/>
+    
+  </entry>
   
   <entry>
     <title>流水灯功能设计</title>

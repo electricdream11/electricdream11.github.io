@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://github.com/electricdream11">
-  <title>Category: test | The Electric Dream</title>
+  <title>时序约束与时序分析基础 | The Electric Dream</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="the site is just for study and interest">
-<meta property="og:type" content="website">
-<meta property="og:title" content="The Electric Dream">
-<meta property="og:url" content="https://github.com/electricdream11/categories/test/index.html">
+  <meta name="description" content="时序约束与时序分析一、时序约束与时序分析基础1.时序约束的说明设计中常用的约束（Assignment or Constraints）主要有时序约束、区域约束和位置约束。还有一些不常见的约束。时序约束的主要的作用是提高设计的工作频率和获得正确的时序分析报告。时序约束的方式有静态约束（STA）和动态时序约束，区别在于STA只关注时序性能，不考虑其他逻辑因素。">
+<meta name="keywords" content="FPGA,Altera">
+<meta property="og:type" content="article">
+<meta property="og:title" content="时序约束与时序分析基础">
+<meta property="og:url" content="https://github.com/electricdream11/2019/10/28/时序约束与时序分析基础/index.html">
 <meta property="og:site_name" content="The Electric Dream">
-<meta property="og:description" content="the site is just for study and interest">
+<meta property="og:description" content="时序约束与时序分析一、时序约束与时序分析基础1.时序约束的说明设计中常用的约束（Assignment or Constraints）主要有时序约束、区域约束和位置约束。还有一些不常见的约束。时序约束的主要的作用是提高设计的工作频率和获得正确的时序分析报告。时序约束的方式有静态约束（STA）和动态时序约束，区别在于STA只关注时序性能，不考虑其他逻辑因素。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-28T10:16:34.660Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="The Electric Dream">
-<meta name="twitter:description" content="the site is just for study and interest">
+<meta name="twitter:title" content="时序约束与时序分析基础">
+<meta name="twitter:description" content="时序约束与时序分析一、时序约束与时序分析基础1.时序约束的说明设计中常用的约束（Assignment or Constraints）主要有时序约束、区域约束和位置约束。还有一些不常见的约束。时序约束的主要的作用是提高设计的工作频率和获得正确的时序分析报告。时序约束的方式有静态约束（STA）和动态时序约束，区别在于STA只关注时序性能，不考虑其他逻辑因素。">
   
     <link rel="alternative" href="/atom.xml" title="The Electric Dream" type="application/atom+xml">
   
@@ -168,267 +170,202 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-时序约束与时序分析基础" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      时序约束与时序分析基础
+    </h1>
+  
+
+        
+        <a href="/2019/10/28/时序约束与时序分析基础/" class="archive-article-date">
+  	<time datetime="2019-10-28T10:11:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-28</time>
+</a>
+        
+      </header>
+      <div align="center" class="post-count">
+      字数：1.5k字 | 预计阅读时长：5分钟
+      </div>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code>时序约束与时序分析</code></pre><h1 id="一、时序约束与时序分析基础"><a href="#一、时序约束与时序分析基础" class="headerlink" title="一、时序约束与时序分析基础"></a>一、时序约束与时序分析基础</h1><h2 id="1-时序约束的说明"><a href="#1-时序约束的说明" class="headerlink" title="1.时序约束的说明"></a>1.时序约束的说明</h2><p>设计中常用的约束（Assignment or Constraints）主要有时序约束、区域约束和位置约束。还有一些不常见的约束。<br>时序约束的主要的作用是提高设计的工作频率和获得正确的时序分析报告。<br>时序约束的方式有静态约束（STA）和动态时序约束，区别在于STA只关注时序性能，不考虑其他逻辑因素。</p>
+<a id="more"></a>
+<h2 id="2-周期与最高频率"><a href="#2-周期与最高频率" class="headerlink" title="2.周期与最高频率"></a>2.周期与最高频率</h2><p>（1）最小时钟周期t_CLK=Microt_CO + t_LOGIC + t_NET +Microt_su - t_CLK-SKEW; 其中右式的物理含义依次是“寄存器固有的时钟输出延时”、“同步元件之间的组合逻辑延迟”、“网线延迟”、“寄存器固有的时钟建立时间”、“时钟偏斜”。具体的含义在以后的学习中会有介绍。<br>（2）最高频率f_max<br>f_max=1/t_CLK;是衡量运行速度的关键参数。</p>
+<h2 id="3-利用Quarteus-II工具分析设计"><a href="#3-利用Quarteus-II工具分析设计" class="headerlink" title="3.利用Quarteus II工具分析设计"></a>3.利用Quarteus II工具分析设计</h2><p>在时序分析报告中可以查看f_max。也可以查看每个路径的f_max以便分类设计约束。<br>在编译过程中的info中也可以找到延时的大小和路径。<br>还有一些其他视图下的观察方法就不一一介绍了。</p>
+<h2 id="4-时钟建立时间"><a href="#4-时钟建立时间" class="headerlink" title="4.时钟建立时间"></a>4.时钟建立时间</h2><p>时钟建立时间（Clock Setup Time）常用t_su表示，代表时钟到达前，数据和使能信号已经准备好的最小时间间隔。<br>t_su = Data Delay - Clock Delay + Microt_su;<br>即时钟建立时间等于数据延迟加上寄存器延时减掉时钟延迟。</p>
+<h2 id="5-时钟保持时间t-H-Clock-Hold-Time"><a href="#5-时钟保持时间t-H-Clock-Hold-Time" class="headerlink" title="5.时钟保持时间t_H(Clock Hold Time)"></a>5.时钟保持时间t_H(Clock Hold Time)</h2><p>t_H= Clock Delay -Data Delay + Microt_H;<br>即时钟保持时间等于时钟延迟加上寄存器保持时间减掉数据延时</p>
+<h2 id="6-时钟输出延时t-CO-Clock-to-output-Time"><a href="#6-时钟输出延时t-CO-Clock-to-output-Time" class="headerlink" title="6.时钟输出延时t_CO(Clock to output Time)"></a>6.时钟输出延时t_CO(Clock to output Time)</h2><p>t_TO=Clock Delay + Data Delay + Microt_CO<br>其中Microt_CO为寄存器相应时钟有效沿将数据送到输出口的延时。</p>
+<h2 id="7-引脚到引脚的延时t-PD-Pin-to-Pin-Delay"><a href="#7-引脚到引脚的延时t-PD-Pin-to-Pin-Delay" class="headerlink" title="7.引脚到引脚的延时t_PD(Pin to Pin Delay)"></a>7.引脚到引脚的延时t_PD(Pin to Pin Delay)</h2><p>CPLD的布线矩阵长度固定，t_PD可以标志CPLD的速度等级</p>
+<h2 id="8-Slack（是否满足时序的称谓）"><a href="#8-Slack（是否满足时序的称谓）" class="headerlink" title="8.Slack（是否满足时序的称谓）"></a>8.Slack（是否满足时序的称谓）</h2><p>Slack为正，则时序余量充足；Slack为负，时序余量不足。<br>其中保持时间Slack（Hold Time Slack）用于衡量数据稳定采样的最小保持时间是否满足。</p>
+<h2 id="9-时钟偏斜（Clock-Skew）"><a href="#9-时钟偏斜（Clock-Skew）" class="headerlink" title="9.时钟偏斜（Clock Skew）"></a>9.时钟偏斜（Clock Skew）</h2><p>由于不同路径的不同延时长度导致的时钟沿偏差。</p>
+<h2 id="10-quartus-II-中的优化工具"><a href="#10-quartus-II-中的优化工具" class="headerlink" title="10.quartus II 中的优化工具"></a>10.quartus II 中的优化工具</h2><p>使用Timing Analyzer Tool可以指定分析某条路径上的时序延时。</p>
+<h1 id="二、设置时序约束的常用方法"><a href="#二、设置时序约束的常用方法" class="headerlink" title="二、设置时序约束的常用方法"></a>二、设置时序约束的常用方法</h1><h2 id="1-说明"><a href="#1-说明" class="headerlink" title="1.说明"></a>1.说明</h2><p>总的设计方法有三种：<br>（1）【assignments】/【Timing Settings】<br>（2）【assignments】/【Wizards】/【Timing Wizard】<br>（3）【assignments】/【Assignment Editor】<br>当然，也可以对总的约束文件QSF修改来实现。</p>
+<h2 id="2-指定全局时序约束"><a href="#2-指定全局时序约束" class="headerlink" title="2.指定全局时序约束"></a>2.指定全局时序约束</h2><h3 id="（1）时序驱动的编译（TDC）"><a href="#（1）时序驱动的编译（TDC）" class="headerlink" title="（1）时序驱动的编译（TDC）"></a>（1）时序驱动的编译（TDC）</h3><p>在Fitter Setting 中设置为时序驱动的编译<br>具体的优化内容包括时序、保持时间、IO单元寄存器的放置。<br>也可以设置优化所有的路径或其他路径，具体的自己体会。</p>
+<h3 id="（2）全局时钟设置"><a href="#（2）全局时钟设置" class="headerlink" title="（2）全局时钟设置"></a>（2）全局时钟设置</h3><p>全局时钟可以实现所有时钟信号同频，是比较理想的时钟源。<br>在【Assignments】/【Timing Settings】中即可设置全局时钟。</p>
+<h3 id="（3）全局的IO时序设置"><a href="#（3）全局的IO时序设置" class="headerlink" title="（3）全局的IO时序设置"></a>（3）全局的IO时序设置</h3><p>在【Assignments】/【Timing Settings】可以设置全局IO时序</p>
+<h3 id="（4）时序分析和报告选项"><a href="#（4）时序分析和报告选项" class="headerlink" title="（4）时序分析和报告选项"></a>（4）时序分析和报告选项</h3><p>在时序分析约束界面可以选择报告的路径数和时序要求。</p>
+<h3 id="（5）时序向导（Timing-Wizard）"><a href="#（5）时序向导（Timing-Wizard）" class="headerlink" title="（5）时序向导（Timing Wizard）"></a>（5）时序向导（Timing Wizard）</h3><p>在【Assignments】/【Wizards】/【Timing Wizard】即可依次进行以上的选项。</p>
+<h2 id="3-指定个别的时钟约束"><a href="#3-指定个别的时钟约束" class="headerlink" title="3.指定个别的时钟约束"></a>3.指定个别的时钟约束</h2><h3 id="（1）工具"><a href="#（1）工具" class="headerlink" title="（1）工具"></a>（1）工具</h3><p>使用【Assignment Editor】对individual（单个）实现时序约束</p>
+<h3 id="（2）指定个别时钟要求"><a href="#（2）指定个别时钟要求" class="headerlink" title="（2）指定个别时钟要求"></a>（2）指定个别时钟要求</h3><p>Altera中的时钟有独立时钟（absolute clock）和衍生时钟（derived clock）。前者独立于其他时钟，后者为某个absolute clock衍生出的时钟，说明相位差、分频或倍频比等参数。<br>创建衍生时钟只需在独立时钟的基础上修改即可。</p>
+<h3 id="（3）个别时序约束"><a href="#（3）个别时序约束" class="headerlink" title="（3）个别时序约束"></a>（3）个别时序约束</h3><p>具体的设计方法有两种：在创建时对应物理节点或在【assignment editor】中根据所需的参数进行设计。具体要考虑的参数比较多，就不深入的分析，在用到时再逐个分析。</p>
+<h3 id="（4）时序约束的种类"><a href="#（4）时序约束的种类" class="headerlink" title="（4）时序约束的种类"></a>（4）时序约束的种类</h3><p>主要有单点、点到点、通配符和时序分组这几种方式。<br>·单点（Single-Point）<br>对某个点的约束将影响所有和这个点有关的路径<br>形式为to Y<br>·点到点（Point to Point）<br>只对两点之间的路径有效。<br>形式为from X to Y<br>·通配符 （Wildcard）<br>使用<code>*</code>和<code>?</code>来代替多个字符，可以理解为简写的同类约束。<br>形式为 From X to Y？<br>·时序组（Time Group）<br>划分组实现区域的全局约束。</p>
+<h3 id="（5）在quartus中增加时序约束"><a href="#（5）在quartus中增加时序约束" class="headerlink" title="（5）在quartus中增加时序约束"></a>（5）在quartus中增加时序约束</h3><p>具体的方法前面已经介绍了，注意一下实际操作时选择好约束方式。</p>
+<h1 id="三、高级时序分析"><a href="#三、高级时序分析" class="headerlink" title="三、高级时序分析"></a>三、高级时序分析</h1><p>这部分的内容在掌握了基本的时序约束后再回过头来学，现在学会比较吃力。</p>
+<h1 id="四、最小化时序分析"><a href="#四、最小化时序分析" class="headerlink" title="四、最小化时序分析"></a>四、最小化时序分析</h1><p>这也是有了一定的基础后再学会比较好。</p>
+<h1 id="五、使用Tcl工具进行高级时序分析"><a href="#五、使用Tcl工具进行高级时序分析" class="headerlink" title="五、使用Tcl工具进行高级时序分析"></a>五、使用Tcl工具进行高级时序分析</h1><p>这部分的学习也要留到后面，但可以先行阅读。</p>
+<h1 id="六、总结"><a href="#六、总结" class="headerlink" title="六、总结"></a>六、总结</h1><p>这次的学习主要是为实际设计中的后仿真储备知识，认真的了解时序的知识可以为高速电路的设计开个好头。这次只是学习了基本的时序约束的原理和方法。实际的操作还是需要在实践中熟练。具体的问题还是要到实践中找。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/03/1003_FPGA/" class="archive-article-date">
-  	<time datetime="2019-10-03T12:29:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/03/1003_FPGA/">1003_FPGA</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">test</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Altera</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/test//" class="article-tag-list-link color5">test</a>
+        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://github.com/electricdream11/2019/10/28/时序约束与时序分析基础/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/03/myaim/" class="archive-article-date">
-  	<time datetime="2019-10-03T08:01:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-03</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/10/27/流水灯功能设计/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">流水灯功能设计</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/03/myaim/">myaim</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">test</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/test//" class="article-tag-list-link color5">test</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、时序约束与时序分析基础"><span class="toc-number">1.</span> <span class="toc-text">一、时序约束与时序分析基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-时序约束的说明"><span class="toc-number">1.1.</span> <span class="toc-text">1.时序约束的说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-周期与最高频率"><span class="toc-number">1.2.</span> <span class="toc-text">2.周期与最高频率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-利用Quarteus-II工具分析设计"><span class="toc-number">1.3.</span> <span class="toc-text">3.利用Quarteus II工具分析设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-时钟建立时间"><span class="toc-number">1.4.</span> <span class="toc-text">4.时钟建立时间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-时钟保持时间t-H-Clock-Hold-Time"><span class="toc-number">1.5.</span> <span class="toc-text">5.时钟保持时间t_H(Clock Hold Time)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-时钟输出延时t-CO-Clock-to-output-Time"><span class="toc-number">1.6.</span> <span class="toc-text">6.时钟输出延时t_CO(Clock to output Time)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-引脚到引脚的延时t-PD-Pin-to-Pin-Delay"><span class="toc-number">1.7.</span> <span class="toc-text">7.引脚到引脚的延时t_PD(Pin to Pin Delay)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-Slack（是否满足时序的称谓）"><span class="toc-number">1.8.</span> <span class="toc-text">8.Slack（是否满足时序的称谓）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-时钟偏斜（Clock-Skew）"><span class="toc-number">1.9.</span> <span class="toc-text">9.时钟偏斜（Clock Skew）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-quartus-II-中的优化工具"><span class="toc-number">1.10.</span> <span class="toc-text">10.quartus II 中的优化工具</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、设置时序约束的常用方法"><span class="toc-number">2.</span> <span class="toc-text">二、设置时序约束的常用方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-说明"><span class="toc-number">2.1.</span> <span class="toc-text">1.说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-指定全局时序约束"><span class="toc-number">2.2.</span> <span class="toc-text">2.指定全局时序约束</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（1）时序驱动的编译（TDC）"><span class="toc-number">2.2.1.</span> <span class="toc-text">（1）时序驱动的编译（TDC）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（2）全局时钟设置"><span class="toc-number">2.2.2.</span> <span class="toc-text">（2）全局时钟设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（3）全局的IO时序设置"><span class="toc-number">2.2.3.</span> <span class="toc-text">（3）全局的IO时序设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（4）时序分析和报告选项"><span class="toc-number">2.2.4.</span> <span class="toc-text">（4）时序分析和报告选项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（5）时序向导（Timing-Wizard）"><span class="toc-number">2.2.5.</span> <span class="toc-text">（5）时序向导（Timing Wizard）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-指定个别的时钟约束"><span class="toc-number">2.3.</span> <span class="toc-text">3.指定个别的时钟约束</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（1）工具"><span class="toc-number">2.3.1.</span> <span class="toc-text">（1）工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（2）指定个别时钟要求"><span class="toc-number">2.3.2.</span> <span class="toc-text">（2）指定个别时钟要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（3）个别时序约束"><span class="toc-number">2.3.3.</span> <span class="toc-text">（3）个别时序约束</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（4）时序约束的种类"><span class="toc-number">2.3.4.</span> <span class="toc-text">（4）时序约束的种类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（5）在quartus中增加时序约束"><span class="toc-number">2.3.5.</span> <span class="toc-text">（5）在quartus中增加时序约束</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、高级时序分析"><span class="toc-number">3.</span> <span class="toc-text">三、高级时序分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、最小化时序分析"><span class="toc-number">4.</span> <span class="toc-text">四、最小化时序分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五、使用Tcl工具进行高级时序分析"><span class="toc-number">5.</span> <span class="toc-text">五、使用Tcl工具进行高级时序分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六、总结"><span class="toc-number">6.</span> <span class="toc-text">六、总结</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/02/myfirstarticle/" class="archive-article-date">
-  	<time datetime="2019-10-02T08:44:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/02/myfirstarticle/">myfirstarticle</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">test</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/test//" class="article-tag-list-link color5">test</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/01/hello-blog/" class="archive-article-date">
-  	<time datetime="2019-10-01T04:29:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/01/hello-blog/">hello blog</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">test</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/test//" class="article-tag-list-link color5">test</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/01/Hello-World/" class="archive-article-date">
-  	<time datetime="2019-10-01T03:08:35.851Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/01/Hello-World/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">test</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/test//" class="article-tag-list-link color5">test</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -451,10 +388,10 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",
