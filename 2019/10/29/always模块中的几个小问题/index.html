@@ -6,18 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://github.com/electricdream11">
-  <title>Category: FPGA | The Electric Dream</title>
+  <title>always模块中的几个小问题 | The Electric Dream</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="the site is just for study and interest">
-<meta property="og:type" content="website">
-<meta property="og:title" content="The Electric Dream">
-<meta property="og:url" content="https://github.com/electricdream11/categories/FPGA/page/2/index.html">
+  <meta name="description" content="关于always模块的几个语法问题1、问题描述always模块中的逻辑设计和高级语言十分的类似，可以依次的执行。但是，作为初学者，往往会忽略always块中的并行电路特性而导致错误。所有，了解always块的综合原理是必要的。">
+<meta name="keywords" content="FPGA,verilog">
+<meta property="og:type" content="article">
+<meta property="og:title" content="always模块中的几个小问题">
+<meta property="og:url" content="https://github.com/electricdream11/2019/10/29/always模块中的几个小问题/index.html">
 <meta property="og:site_name" content="The Electric Dream">
-<meta property="og:description" content="the site is just for study and interest">
+<meta property="og:description" content="关于always模块的几个语法问题1、问题描述always模块中的逻辑设计和高级语言十分的类似，可以依次的执行。但是，作为初学者，往往会忽略always块中的并行电路特性而导致错误。所有，了解always块的综合原理是必要的。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/2019/10/29/always模块中的几个小问题/imag1.png">
+<meta property="og:image" content="https://github.com/2019/10/29/always模块中的几个小问题/imag2.png">
+<meta property="og:image" content="https://github.com/2019/10/29/always模块中的几个小问题/imag3.png">
+<meta property="og:updated_time" content="2019-10-29T14:59:52.525Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="The Electric Dream">
-<meta name="twitter:description" content="the site is just for study and interest">
+<meta name="twitter:title" content="always模块中的几个小问题">
+<meta name="twitter:description" content="关于always模块的几个语法问题1、问题描述always模块中的逻辑设计和高级语言十分的类似，可以依次的执行。但是，作为初学者，往往会忽略always块中的并行电路特性而导致错误。所有，了解always块的综合原理是必要的。">
+<meta name="twitter:image" content="https://github.com/2019/10/29/always模块中的几个小问题/imag1.png">
   
     <link rel="alternative" href="/atom.xml" title="The Electric Dream" type="application/atom+xml">
   
@@ -168,195 +174,87 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-always模块中的几个小问题" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      always模块中的几个小问题
+    </h1>
+  
+
+        
+        <a href="/2019/10/29/always模块中的几个小问题/" class="archive-article-date">
+  	<time datetime="2019-10-29T14:53:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-29</time>
+</a>
+        
+      </header>
+      <div align="center" class="post-count">
+      字数：1.1k字 | 预计阅读时长：5分钟
+      </div>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code>关于always模块的几个语法问题</code></pre><h1 id="1、问题描述"><a href="#1、问题描述" class="headerlink" title="1、问题描述"></a>1、问题描述</h1><p>always模块中的逻辑设计和高级语言十分的类似，可以依次的执行。但是，作为初学者，往往会忽略always块中的并行电路特性而导致错误。所有，了解always块的综合原理是必要的。</p>
+<a id="more"></a>
+<h1 id="2、always块的综合原理"><a href="#2、always块的综合原理" class="headerlink" title="2、always块的综合原理"></a>2、always块的综合原理</h1><p>（1）verilog代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">module max(</span><br><span class="line">input Clk,</span><br><span class="line">input Rst_n,</span><br><span class="line">input a_in,</span><br><span class="line"></span><br><span class="line">output reg a_out</span><br><span class="line">);</span><br><span class="line">reg a_sign ;</span><br><span class="line">always@(posedge Clk or negedge Rst_n)begin</span><br><span class="line">	if(!Rst_n)</span><br><span class="line">	a_out &lt;= 1&apos;b0;</span><br><span class="line">	else if(a_in == 1&apos;b0)</span><br><span class="line">	a_out &lt;= 1&apos;b1;</span><br><span class="line">	else if(a_in == 1&apos;b1)</span><br><span class="line">	a_sign &lt;= 1&apos;b0;</span><br><span class="line">   else if(a_in == 1&apos;b0)</span><br><span class="line">	a_sign &lt;= 1&apos;b1;</span><br><span class="line">	else if(a_sign == 1&apos;b0)</span><br><span class="line">	a_out &lt;=1&apos;b0;</span><br><span class="line">	else</span><br><span class="line">	a_out &lt;=1&apos;b1;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">end</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">endmodule</span><br></pre></td></tr></table></figure>
+
+<p>（2）电路模型</p>
+<img src="/2019/10/29/always模块中的几个小问题/imag1.png">
+<p>这是一个简单的alway优先级模块。<br>可以看出在中间数据a_sign没有综合为寄存器。<br>（3）将中间reg类型变量a_sign展宽。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">module max(</span><br><span class="line">input Clk,</span><br><span class="line">input Rst_n,</span><br><span class="line">input a_in,</span><br><span class="line"></span><br><span class="line">output reg a_out</span><br><span class="line">);</span><br><span class="line">reg [2:0] a_sign ;</span><br><span class="line">always@(posedge Clk or negedge Rst_n)begin</span><br><span class="line">	if(!Rst_n)</span><br><span class="line">	a_out &lt;= 1&apos;b0;</span><br><span class="line">	else if(a_in == 1&apos;b0)</span><br><span class="line">	a_out &lt;= 1&apos;b1;</span><br><span class="line">	else if(a_in == 1&apos;b1)</span><br><span class="line">	a_sign &lt;= 2&apos;b00;</span><br><span class="line">   else if(a_in == 1&apos;b0)</span><br><span class="line">	a_sign &lt;= 2&apos;b10;</span><br><span class="line">	else if(a_sign == 2&apos;b10)</span><br><span class="line">	a_out &lt;=1&apos;b0;</span><br><span class="line">	else</span><br><span class="line">	a_out &lt;=1&apos;b1;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">end</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">endmodule</span><br></pre></td></tr></table></figure>
+
+<img src="/2019/10/29/always模块中的几个小问题/imag2.png">
+<img src="/2019/10/29/always模块中的几个小问题/imag3.png">
+
+<p>可以看到a_sign被综合为状态机的状态量了。换言之，always模块对具有判断性质的reg型变量的处理方法就是转化为状态机来实现顺序的执行。<br>（4）对比一下case的执行方式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">module max(</span><br><span class="line">input Clk,</span><br><span class="line">input Rst_n,</span><br><span class="line">input a_in,</span><br><span class="line"></span><br><span class="line">output reg a_out</span><br><span class="line">);</span><br><span class="line">reg [2:0] a_sign ;</span><br><span class="line">always@(posedge Clk or negedge Rst_n)begin</span><br><span class="line">	if(!Rst_n)</span><br><span class="line">	a_out &lt;= 1&apos;b0;</span><br><span class="line">	else if(a_in == 1&apos;b0)</span><br><span class="line">	a_out &lt;= 1&apos;b1;</span><br><span class="line">	else if(a_in == 1&apos;b1)</span><br><span class="line">	a_sign &lt;= 2&apos;b00;</span><br><span class="line">   else if(a_in == 1&apos;b0)</span><br><span class="line">	a_sign &lt;= 2&apos;b10;</span><br><span class="line">/*</span><br><span class="line">	else if(a_sign == 2&apos;b10)</span><br><span class="line">	a_out &lt;=1&apos;b0;</span><br><span class="line">	else</span><br><span class="line">	a_out &lt;=1&apos;b1;</span><br><span class="line">*/</span><br><span class="line">   else </span><br><span class="line">	  begin</span><br><span class="line">		case(a_sign)</span><br><span class="line">		2&apos;b10   :  a_out &lt;=1&apos;b0; </span><br><span class="line">		2&apos;b11   :  a_out &lt;=1&apos;b1;</span><br><span class="line">		default :  a_out &lt;=1&apos;b1;</span><br><span class="line">		endcase</span><br><span class="line">	  end</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">endmodule</span><br></pre></td></tr></table></figure>
+
+<p>实际的结果和前面的ifelse的执行方式是一样的。换言之对于中间变量一旦被作为条件变量使用，执行的方式就会转化为状态机，这时ifelse和case语句是等价的。<br>（5）条件变量的约束<br>条件变量被优先级约束了，即不能在其他的模块进行赋值操作（优先级不允许）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">module max(</span><br><span class="line">input Clk,</span><br><span class="line">input Rst_n,</span><br><span class="line">input a_in,</span><br><span class="line"></span><br><span class="line">output reg a_out</span><br><span class="line">);</span><br><span class="line">reg [2:0] a_sign ;</span><br><span class="line">always@(posedge Clk or negedge Rst_n)begin</span><br><span class="line">	if(!Rst_n)</span><br><span class="line">	a_sign &lt;= 1&apos;b1;</span><br><span class="line"></span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">always@(posedge Clk or negedge Rst_n)begin</span><br><span class="line">	if(!Rst_n)</span><br><span class="line">	a_out &lt;= 1&apos;b0;</span><br><span class="line">	else if(a_in == 1&apos;b0)</span><br><span class="line">	a_out &lt;= 1&apos;b1;</span><br><span class="line">	else if(a_in == 1&apos;b1)</span><br><span class="line">	a_sign &lt;= 2&apos;b00;</span><br><span class="line">   else if(a_in == 1&apos;b0)</span><br><span class="line">	a_sign &lt;= 2&apos;b10;</span><br><span class="line">/*</span><br><span class="line">	else if(a_sign == 2&apos;b10)</span><br><span class="line">	a_out &lt;=1&apos;b0;</span><br><span class="line">	else</span><br><span class="line">	a_out &lt;=1&apos;b1;</span><br><span class="line">*/</span><br><span class="line">   else </span><br><span class="line">	  begin</span><br><span class="line">		case(a_sign)</span><br><span class="line">		2&apos;b10   :  a_out &lt;=1&apos;b0; </span><br><span class="line">		2&apos;b11   :  a_out &lt;=1&apos;b1;</span><br><span class="line">		default :  a_out &lt;=1&apos;b1;</span><br><span class="line">		endcase</span><br><span class="line">	  end</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">endmodule</span><br></pre></td></tr></table></figure>
+
+<p>结果如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Error (10028): Can&apos;t resolve multiple constant drivers for net &quot;a_sign.000&quot; at max.v(15)</span><br><span class="line">Error (10029): Constant driver at max.v(9)</span><br><span class="line">Error (10028): Can&apos;t resolve multiple constant drivers for net &quot;a_sign.001&quot; at max.v(15)</span><br><span class="line">Error (10028): Can&apos;t resolve multiple constant drivers for net &quot;a_sign.010&quot; at max.v(15)</span><br><span class="line">Error (10028): Can&apos;t resolve multiple constant drivers for net &quot;a_sign.011&quot; at max.v(15)</span><br><span class="line">Error (12153): Can&apos;t elaborate top-level user hierarchy</span><br><span class="line">Error: Quartus Prime Analysis &amp; Elaboration was unsuccessful. 6 errors, 1 warning</span><br><span class="line">	Error: Peak virtual memory: 4716 megabytes</span><br><span class="line">	Error: Processing ended: Tue Oct 29 22:04:18 2019</span><br><span class="line">	Error: Elapsed time: 00:00:22</span><br><span class="line">	Error: Total CPU time (on all processors): 00:00:51</span><br></pre></td></tr></table></figure>
+
+<p>从结果可以看到这种对条件变量的赋值是不符合优先级的要求的。<br>（6）always模块间的要求<br>保证模块间的唯一性的功能，不能有重复功能代码，这也是不能按照逻辑语言的设计思路的一个方面。<br>模块中与输入输出构成不了路径的变量将不被综合。<br>（7）always中的基本设计思想<br>always模块中的设计思想就是构建一条路径，使输入能够控制输出。所有不能够达到这一目的的路径都将忽略。这是基于逻辑的自动优化。</p>
+<h1 id="3、总结"><a href="#3、总结" class="headerlink" title="3、总结"></a>3、总结</h1><p>使用always模块时要注意优先级和唯一性。即执行的顺序是并行还是顺序。变量是否具有唯一性则代表是否受单一控制。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/WeChat.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/16/状态机测试/" class="archive-article-date">
-  	<time datetime="2019-10-16T15:04:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/16/状态机测试/">状态机测试</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">example</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/15/计数时钟/" class="archive-article-date">
-  	<time datetime="2019-10-15T13:36:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/15/计数时钟/">计数时钟</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">example</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/14/三人表决器/" class="archive-article-date">
-  	<time datetime="2019-10-14T13:25:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/14/三人表决器/">三人表决器</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">example</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/11/verilog语法设计注意事项/" class="archive-article-date">
-  	<time datetime="2019-10-11T13:35:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/11/verilog语法设计注意事项/">verilog语法设计注意事项</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -372,7 +270,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -385,228 +283,116 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://github.com/electricdream11/2019/10/29/always模块中的几个小问题/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/10/时序电路基础/" class="archive-article-date">
-  	<time datetime="2019-10-10T13:11:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-10</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/10/29/按键消抖/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">按键消抖</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/10/时序电路基础/">时序电路基础</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">verilog</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1、问题描述"><span class="toc-number">1.</span> <span class="toc-text">1、问题描述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2、always块的综合原理"><span class="toc-number">2.</span> <span class="toc-text">2、always块的综合原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3、总结"><span class="toc-number">3.</span> <span class="toc-text">3、总结</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/09/FPGA组合电路基础/" class="archive-article-date">
-  	<time datetime="2019-10-09T12:41:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/09/FPGA组合电路基础/">FPGA组合电路基础</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">verilog</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/06/verilog语法基础/" class="archive-article-date">
-  	<time datetime="2019-10-06T12:43:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/06/verilog语法基础/">verilog语法基础</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">verilog</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/06/可编程逻辑基础/" class="archive-article-date">
-  	<time datetime="2019-10-06T07:39:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/06/可编程逻辑基础/">可编程逻辑基础</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/categories/FPGA/">&laquo; Prev</a><a class="page-number" href="/categories/FPGA/">1</a><span class="page-number current">2</span>
-    </nav>
+  
+
+  
+
   
 
 
@@ -630,10 +416,10 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",
