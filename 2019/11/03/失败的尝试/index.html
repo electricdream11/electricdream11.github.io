@@ -19,7 +19,7 @@
 <meta property="og:image" content="https://github.com/2019/11/03/失败的尝试/imag1.png">
 <meta property="og:image" content="https://github.com/2019/11/03/失败的尝试/imag2.png">
 <meta property="og:image" content="https://github.com/2019/11/03/失败的尝试/imag3.png">
-<meta property="og:updated_time" content="2019-11-03T13:09:08.683Z">
+<meta property="og:updated_time" content="2019-11-03T14:03:11.269Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="失败的尝试">
 <meta name="twitter:description" content="复杂状态机的设计 一、实验目的为了进一步的了解状态机的设计流程，掌握实际的设计规范，能够自由的使用状态机来完成基本的电路设计，特地设计一个比较困难的状态机模型来实践。">
@@ -204,9 +204,9 @@
 <h1 id="三、实验操作"><a href="#三、实验操作" class="headerlink" title="三、实验操作"></a>三、实验操作</h1><p>注：这里的操作包括所有的设计流程，如功能的确定。</p>
 <h2 id="1-系统功能的定义与划分"><a href="#1-系统功能的定义与划分" class="headerlink" title="1.系统功能的定义与划分"></a>1.系统功能的定义与划分</h2><p>（1）四个按键输入：a_key 、 b_key 、 c_key 、 d_key ；<br>实际分布：</p>
 <img src="/2019/11/03/失败的尝试/imag1.png">
-<p>（2）数码管输出：[2:0] bit_c  [7:0] numb_c ;<br>（3）蜂鸣器输出:   beep_en;<br>（4）LED输出  ：  led_en;<br>（5）具体功能<br> |状态    |按键操作        |效果  |<br> |state0：主显示界面    |c_key      |-&gt;state1|<br> |     |a_key        |    显示闹钟时间  |<br> |       |b_key       |    显示计时器时间  |<br> |    |d_key       |    显示计时器时间  |<br> |       |全按           |亮灯      |</p>
-<p>state1：计时界面    |c_key    |-&gt;state2<br>    |a_key    |重置计时<br>    |b_key    |开始计时<br>    |d_key    |暂定计时<br>    |全按    |亮灯</p>
-<p>state2：定时界面    |c_key    |-&gt;state3<br>    |a_key    |开启/关闭闹钟<br>    |b_key    |增加时间<br>    |d_key    |切换设置位<br>    |全按    |亮灯<br>state3：对时界面|    c_key    |-&gt;state0<br>    |a_key    |重置时钟时间<br>    |b_key    |增加时间<br>    |d_key    |切换设置位<br>    |全按    |亮灯<br>！对于复杂设计，从输出向输入推导会更轻松。</p>
+<p>（2）数码管输出：[2:0] bit_c  [7:0] numb_c ;<br>（3）蜂鸣器输出:   beep_en;<br>（4）LED输出  ：  led_en;<br>（5）具体功能<br> |状态                |按键操作        |效果        |<br> |state0：主显示界面    |c_key              |-&gt;state1    |<br> |                     |a_key            |显示闹钟时间 |<br> |                        |b_key           |显示计时器间 |<br> |                     |d_key           |显示计时器间 |<br> |                        |全按           |亮灯            |</p>
+<p>state1：计时界面    |c_key    |-&gt;state2<br>                |a_key    |重置计时<br>                |b_key    |开始计时<br>                |d_key    |暂定计时<br>                |全按       |亮灯</p>
+<p>state2：定时界面    |c_key    |-&gt;state3<br>                |a_key    |开启/关闭闹钟<br>                |b_key    |增加时间<br>                |d_key    |切换设置位<br>                |全按   |亮灯<br>state3：对时界面    |c_key    |-&gt;state0<br>                |a_key    |重置时钟时间<br>                |b_key    |增加时间<br>                |d_key    |切换设置位<br>                |全按      |亮灯<br>！对于复杂设计，从输出向输入推导会更轻松。</p>
 <h2 id="2-设计规模的初步预算"><a href="#2-设计规模的初步预算" class="headerlink" title="2.设计规模的初步预算"></a>2.设计规模的初步预算</h2><p>（1）4输入；<br>（2）3+8输出（显示数码管），1输出（蜂鸣器），1输出（LED灯）；</p>
 <h2 id="3-芯片选型"><a href="#3-芯片选型" class="headerlink" title="3.芯片选型"></a>3.芯片选型</h2><p>MAXII</p>
 <h2 id="4-逻辑模块划分和模块间接口定义（顶层模块设计）"><a href="#4-逻辑模块划分和模块间接口定义（顶层模块设计）" class="headerlink" title="4.逻辑模块划分和模块间接口定义（顶层模块设计）"></a>4.逻辑模块划分和模块间接口定义（顶层模块设计）</h2><p>按照输入输出构建顶层模块时，只考虑已知功能即可。<br>模型示意：</p>
