@@ -8,21 +8,21 @@
   <link rel="dns-prefetch" href="https://github.com/electricdream11">
   <title>失败的尝试 | The Electric Dream</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="复杂状态机的设计 一、实验目的为了进一步的了解状态机的设计流程，掌握实际的设计规范，能够自由的使用状态机来完成基本的电路设计，特地设计一个比较困难的状态机模型来实践。 二、实验原理运用状态机的思想完成电子表的所有功能，包括菜单、正常计时、调整时间、设置闹钟、发光等功能。输入为四个按键，输出有数码管、蜂鸣器、led灯等外设。具体的功能参考电子表的功能设计。 三、实验操作注：这里的操作包括所有的设计流">
+  <meta name="description" content="复杂状态机的设计 一、实验目的为了进一步的了解状态机的设计流程，掌握实际的设计规范，能够自由的使用状态机来完成基本的电路设计，特地设计一个比较困难的状态机模型来实践。">
 <meta name="keywords" content="FPGA,example">
 <meta property="og:type" content="article">
 <meta property="og:title" content="失败的尝试">
 <meta property="og:url" content="https://github.com/electricdream11/2019/11/03/失败的尝试/index.html">
 <meta property="og:site_name" content="The Electric Dream">
-<meta property="og:description" content="复杂状态机的设计 一、实验目的为了进一步的了解状态机的设计流程，掌握实际的设计规范，能够自由的使用状态机来完成基本的电路设计，特地设计一个比较困难的状态机模型来实践。 二、实验原理运用状态机的思想完成电子表的所有功能，包括菜单、正常计时、调整时间、设置闹钟、发光等功能。输入为四个按键，输出有数码管、蜂鸣器、led灯等外设。具体的功能参考电子表的功能设计。 三、实验操作注：这里的操作包括所有的设计流">
+<meta property="og:description" content="复杂状态机的设计 一、实验目的为了进一步的了解状态机的设计流程，掌握实际的设计规范，能够自由的使用状态机来完成基本的电路设计，特地设计一个比较困难的状态机模型来实践。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://github.com/2019/11/03/失败的尝试/imag1.png">
 <meta property="og:image" content="https://github.com/2019/11/03/失败的尝试/imag2.png">
 <meta property="og:image" content="https://github.com/2019/11/03/失败的尝试/imag3.png">
-<meta property="og:updated_time" content="2019-11-03T12:51:47.117Z">
+<meta property="og:updated_time" content="2019-11-03T13:09:08.683Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="失败的尝试">
-<meta name="twitter:description" content="复杂状态机的设计 一、实验目的为了进一步的了解状态机的设计流程，掌握实际的设计规范，能够自由的使用状态机来完成基本的电路设计，特地设计一个比较困难的状态机模型来实践。 二、实验原理运用状态机的思想完成电子表的所有功能，包括菜单、正常计时、调整时间、设置闹钟、发光等功能。输入为四个按键，输出有数码管、蜂鸣器、led灯等外设。具体的功能参考电子表的功能设计。 三、实验操作注：这里的操作包括所有的设计流">
+<meta name="twitter:description" content="复杂状态机的设计 一、实验目的为了进一步的了解状态机的设计流程，掌握实际的设计规范，能够自由的使用状态机来完成基本的电路设计，特地设计一个比较困难的状态机模型来实践。">
 <meta name="twitter:image" content="https://github.com/2019/11/03/失败的尝试/imag1.png">
   
     <link rel="alternative" href="/atom.xml" title="The Electric Dream" type="application/atom+xml">
@@ -199,6 +199,7 @@
       
         <p>复杂状态机的设计</p>
 <h1 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a>一、实验目的</h1><p>为了进一步的了解状态机的设计流程，掌握实际的设计规范，能够自由的使用状态机来完成基本的电路设计，特地设计一个比较困难的状态机模型来实践。</p>
+<a id="more"></a>
 <h1 id="二、实验原理"><a href="#二、实验原理" class="headerlink" title="二、实验原理"></a>二、实验原理</h1><p>运用状态机的思想完成电子表的所有功能，包括菜单、正常计时、调整时间、设置闹钟、发光等功能。输入为四个按键，输出有数码管、蜂鸣器、led灯等外设。具体的功能参考电子表的功能设计。</p>
 <h1 id="三、实验操作"><a href="#三、实验操作" class="headerlink" title="三、实验操作"></a>三、实验操作</h1><p>注：这里的操作包括所有的设计流程，如功能的确定。</p>
 <h2 id="1-系统功能的定义与划分"><a href="#1-系统功能的定义与划分" class="headerlink" title="1.系统功能的定义与划分"></a>1.系统功能的定义与划分</h2><p>（1）四个按键输入：a_key 、 b_key 、 c_key 、 d_key ；<br>实际分布：</p>
@@ -472,11 +473,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">verilog</a>
+                <a href="javascript:void(0)" class="js-tag color3">example</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">example</a>
+                <a href="javascript:void(0)" class="js-tag color3">verilog</a>
               </li>
             
             <div class="clearfix"></div>
