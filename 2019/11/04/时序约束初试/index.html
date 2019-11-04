@@ -6,20 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://github.com/electricdream11">
-  <title>1003_FPGA | The Electric Dream</title>
+  <title>时序约束初试 | The Electric Dream</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="FPGA是这个博客的主要的内容，认真的学习好相应的内容是解决这个问题的关键。不定时的上传一些学习过程可以有效地解决资源不足的问题。">
-<meta name="keywords" content="test">
+  <meta name="description" content="设计约束一、管脚分配将输入输出信号指定到器件的某个管脚，主要是用于实际的连接。">
+<meta name="keywords" content="FPGA,example">
 <meta property="og:type" content="article">
-<meta property="og:title" content="1003_FPGA">
-<meta property="og:url" content="https://github.com/electricdream11/2019/10/03/1003_FPGA/index.html">
+<meta property="og:title" content="时序约束初试">
+<meta property="og:url" content="https://github.com/electricdream11/2019/11/04/时序约束初试/index.html">
 <meta property="og:site_name" content="The Electric Dream">
-<meta property="og:description" content="FPGA是这个博客的主要的内容，认真的学习好相应的内容是解决这个问题的关键。不定时的上传一些学习过程可以有效地解决资源不足的问题。">
+<meta property="og:description" content="设计约束一、管脚分配将输入输出信号指定到器件的某个管脚，主要是用于实际的连接。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-04T06:24:24.227Z">
+<meta property="og:image" content="https://github.com/2019/11/04/时序约束初试/imag1.png">
+<meta property="og:image" content="https://github.com/2019/11/04/时序约束初试/imag2.png">
+<meta property="og:updated_time" content="2019-11-04T13:51:40.606Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="1003_FPGA">
-<meta name="twitter:description" content="FPGA是这个博客的主要的内容，认真的学习好相应的内容是解决这个问题的关键。不定时的上传一些学习过程可以有效地解决资源不足的问题。">
+<meta name="twitter:title" content="时序约束初试">
+<meta name="twitter:description" content="设计约束一、管脚分配将输入输出信号指定到器件的某个管脚，主要是用于实际的连接。">
+<meta name="twitter:image" content="https://github.com/2019/11/04/时序约束初试/imag1.png">
   
     <link rel="alternative" href="/atom.xml" title="The Electric Dream" type="application/atom+xml">
   
@@ -170,33 +173,67 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-1003_FPGA" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-时序约束初试" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      1003_FPGA
+      时序约束初试
     </h1>
   
 
         
-        <a href="/2019/10/03/1003_FPGA/" class="archive-article-date">
-  	<time datetime="2019-10-03T12:29:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-03</time>
+        <a href="/2019/11/04/时序约束初试/" class="archive-article-date">
+  	<time datetime="2019-11-04T13:49:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-04</time>
 </a>
         
       </header>
       <div align="center" class="post-count">
-      字数：59字 | 预计阅读时长：1分钟
+      字数：268字 | 预计阅读时长：1分钟
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>FPGA是这个博客的主要的内容，认真的学习好相应的内容是解决这个问题的关键。不定时的上传一些学习过程可以有效地解决资源不足的问题。</p>
+        <pre><code>设计约束</code></pre><h1 id="一、管脚分配"><a href="#一、管脚分配" class="headerlink" title="一、管脚分配"></a>一、管脚分配</h1><p>将输入输出信号指定到器件的某个管脚，主要是用于实际的连接。</p>
+<a id="more"></a>
+<h1 id="二、时序约束"><a href="#二、时序约束" class="headerlink" title="二、时序约束"></a>二、时序约束</h1><p>生成的qsf文件是所有约束的显示，所有的设置都可以在这里直接修改。还有一些比较方便的约束工具。</p>
+<h1 id="三、实际案例"><a href="#三、实际案例" class="headerlink" title="三、实际案例"></a>三、实际案例</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">module fit_time(</span><br><span class="line">	input Clk,</span><br><span class="line">	input Rst_n,</span><br><span class="line">	</span><br><span class="line">	output reg beep</span><br><span class="line">);</span><br><span class="line">reg state;</span><br><span class="line">always@(posedge Clk or negedge Rst_n)</span><br><span class="line">	begin</span><br><span class="line">		if(!Rst_n)</span><br><span class="line">		beep &lt;= 1&apos;b0;</span><br><span class="line">		else if(state==1&apos;b1)</span><br><span class="line">		beep &lt;= ~beep;</span><br><span class="line">		else </span><br><span class="line">		beep &lt;= 1&apos;b1;</span><br><span class="line">	</span><br><span class="line">	end</span><br><span class="line">always@(posedge Clk or negedge Rst_n)</span><br><span class="line">	begin</span><br><span class="line">		if(!Rst_n)</span><br><span class="line">		state &lt;=1&apos;b0;</span><br><span class="line">		else </span><br><span class="line">		state &lt;=1&apos;b1;</span><br><span class="line">	end</span><br><span class="line">endmodule</span><br></pre></td></tr></table></figure>
+
+<img src="/2019/11/04/时序约束初试/imag1.png">
+<img src="/2019/11/04/时序约束初试/imag2.png">
+
+<h1 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h1><p>基础的时序约束是比较简单的，但在实际的设计中，这个问题是比较难解决的。需要了解许多种类的时序约束的类型，在实际的学习中来具体化。时序分析是比较重要的部分，需要花费时间来消化。最好能够找到时间来学习一下系统的时序约束知识。至少基本的时序约束术语要了解。</p>
 
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/WeChat.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -207,7 +244,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">test</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">example</a>
         		</li>
       		
 		</ul>
@@ -219,7 +260,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/test//" class="article-tag-list-link color5">test</a>
+        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
         		</li>
       		
 		</ul>
@@ -274,7 +315,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://github.com/electricdream11/2019/10/03/1003_FPGA/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://github.com/electricdream11/2019/11/04/时序约束初试/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -288,18 +329,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/10/06/可编程逻辑基础/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          可编程逻辑基础
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/10/03/myaim/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">myaim</div>
+    <a href="/2019/11/03/失败的尝试/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">失败的尝试</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -318,6 +350,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、管脚分配"><span class="toc-number">1.</span> <span class="toc-text">一、管脚分配</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、时序约束"><span class="toc-number">2.</span> <span class="toc-text">二、时序约束</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、实际案例"><span class="toc-number">3.</span> <span class="toc-text">三、实际案例</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、总结"><span class="toc-number">4.</span> <span class="toc-text">四、总结</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
