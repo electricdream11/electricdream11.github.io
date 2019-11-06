@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://github.com/electricdream11">
-  <title>Category: FPGA | The Electric Dream</title>
+  <title>标准化模块设计 | The Electric Dream</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="the site is just for study and interest">
-<meta property="og:type" content="website">
-<meta property="og:title" content="The Electric Dream">
-<meta property="og:url" content="https://github.com/electricdream11/categories/FPGA/page/2/index.html">
+  <meta name="description" content="标准化模块设计一、学习目的在掌握了基本的设计方法和操作后，提升的方法无非就是在规模和速度上下功夫。规模需要实际的需求驱动，而速度则是设计的自我追求。更快的设计速度可以提高个人的思考能力和处理复杂模型的能力。而想要提高设计速度，根本的方法还是考虑全面，有章可循。为此，认真的做好每一个标准的模块的设计记录是加速的第一要务。将常见的模块类型加以总结以便以后的利用。">
+<meta name="keywords" content="FPGA,example">
+<meta property="og:type" content="article">
+<meta property="og:title" content="标准化模块设计">
+<meta property="og:url" content="https://github.com/electricdream11/2019/11/06/标准化模块设计/index.html">
 <meta property="og:site_name" content="The Electric Dream">
-<meta property="og:description" content="the site is just for study and interest">
+<meta property="og:description" content="标准化模块设计一、学习目的在掌握了基本的设计方法和操作后，提升的方法无非就是在规模和速度上下功夫。规模需要实际的需求驱动，而速度则是设计的自我追求。更快的设计速度可以提高个人的思考能力和处理复杂模型的能力。而想要提高设计速度，根本的方法还是考虑全面，有章可循。为此，认真的做好每一个标准的模块的设计记录是加速的第一要务。将常见的模块类型加以总结以便以后的利用。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-11-06T13:01:37.925Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="The Electric Dream">
-<meta name="twitter:description" content="the site is just for study and interest">
+<meta name="twitter:title" content="标准化模块设计">
+<meta name="twitter:description" content="标准化模块设计一、学习目的在掌握了基本的设计方法和操作后，提升的方法无非就是在规模和速度上下功夫。规模需要实际的需求驱动，而速度则是设计的自我追求。更快的设计速度可以提高个人的思考能力和处理复杂模型的能力。而想要提高设计速度，根本的方法还是考虑全面，有章可循。为此，认真的做好每一个标准的模块的设计记录是加速的第一要务。将常见的模块类型加以总结以便以后的利用。">
   
     <link rel="alternative" href="/atom.xml" title="The Electric Dream" type="application/atom+xml">
   
@@ -168,89 +170,61 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-标准化模块设计" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      标准化模块设计
+    </h1>
+  
+
+        
+        <a href="/2019/11/06/标准化模块设计/" class="archive-article-date">
+  	<time datetime="2019-11-06T12:58:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-06</time>
+</a>
+        
+      </header>
+      <div align="center" class="post-count">
+      字数：1.4k字 | 预计阅读时长：6分钟
+      </div>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code>标准化模块设计</code></pre><h1 id="一、学习目的"><a href="#一、学习目的" class="headerlink" title="一、学习目的"></a>一、学习目的</h1><p>在掌握了基本的设计方法和操作后，提升的方法无非就是在规模和速度上下功夫。规模需要实际的需求驱动，而速度则是设计的自我追求。更快的设计速度可以提高个人的思考能力和处理复杂模型的能力。而想要提高设计速度，根本的方法还是考虑全面，有章可循。为此，认真的做好每一个标准的模块的设计记录是加速的第一要务。将常见的模块类型加以总结以便以后的利用。</p>
+<a id="more"></a>
+<h1 id="二、实验原理"><a href="#二、实验原理" class="headerlink" title="二、实验原理"></a>二、实验原理</h1><p>在设计模块过程中，首先考虑的是输入和输出，而输出是模块的必要条件。至少要有一个输出，这也意味着所有的模块都可以由单输出的模块复合而成。而在设计过程中，输出的多少是实际情况决定的，对其进行分类的意义不大，顶多是功能定义是更加方便，不能提高设计速度。而输入作为输出的控制源，对输入的有效分类可以减少设计过程中出现的输入模糊和输入补充这样的额外工作。还有一个决定设计速度的是控制链的明确。控制链的长短直接决定了设计的难易程度（即always模块的赋值数量，不考虑组合电路的影响）。为了提高实际的设计速度，应当对这两个方面进行分类优化。</p>
+<h1 id="三、实验操作"><a href="#三、实验操作" class="headerlink" title="三、实验操作"></a>三、实验操作</h1><h2 id="1-系统功能的定义与划分"><a href="#1-系统功能的定义与划分" class="headerlink" title="1.系统功能的定义与划分"></a>1.系统功能的定义与划分</h2><p>（1）系统功能的定义<br>构建2个模块，依次为0控制输入X级输出、1控制输入X级输出（之所以为X级是为了在设计时不断地优化）<br>（2）功能划分<br>按照两个模块的输入输出划分即可</p>
+<h2 id="2-设计规模的初步预算"><a href="#2-设计规模的初步预算" class="headerlink" title="2.设计规模的初步预算"></a>2.设计规模的初步预算</h2><p>两个子模块，每个子模块预计6个always模块</p>
+<h2 id="3-芯片选型"><a href="#3-芯片选型" class="headerlink" title="3.芯片选型"></a>3.芯片选型</h2><p>MAX II</p>
+<h2 id="4-逻辑模块划分和模块间接口定义（顶层模块设计）"><a href="#4-逻辑模块划分和模块间接口定义（顶层模块设计）" class="headerlink" title="4.逻辑模块划分和模块间接口定义（顶层模块设计）"></a>4.逻辑模块划分和模块间接口定义（顶层模块设计）</h2><p>实际代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">//for getting better design experience</span><br><span class="line">//it needs some standard modules</span><br><span class="line">//just about some usual RTL </span><br><span class="line">`timescale 1ns/1ns</span><br><span class="line"></span><br><span class="line">module standard_m(</span><br><span class="line">	input Clk,</span><br><span class="line">	input Rst_n,</span><br><span class="line">	input key_a,</span><br><span class="line">	</span><br><span class="line">	output q</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">wire q1;</span><br><span class="line">wire q2;</span><br><span class="line">assign q = (q1 &amp;&amp; q2) ||  q2;</span><br><span class="line"></span><br><span class="line">I0LX U1(</span><br><span class="line">	.Clk( Clk),</span><br><span class="line">	.Rst_n(Rst_n),</span><br><span class="line">	</span><br><span class="line">	.q1(q1)</span><br><span class="line"></span><br><span class="line">);</span><br><span class="line">I1LX U2(</span><br><span class="line"></span><br><span class="line">	.Clk(Clk),</span><br><span class="line">	.Rst_n(Rst_n),</span><br><span class="line">	</span><br><span class="line">	.key_a(key_a),</span><br><span class="line">	</span><br><span class="line">	.q2(q2)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">endmodule</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-子模块设计"><a href="#5-子模块设计" class="headerlink" title="5.子模块设计"></a>5.子模块设计</h2><p>模块1</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line">module I0LX(</span><br><span class="line">	input Clk,</span><br><span class="line">	input Rst_n,</span><br><span class="line">	</span><br><span class="line">	output reg q1</span><br><span class="line"></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">//zero user input mean it just controled by </span><br><span class="line">//its own module, usually by time.</span><br><span class="line">//so now it is to muticounter key</span><br><span class="line">reg [3:0] t1_cnt;</span><br><span class="line">reg [3:0] t2_cnt;</span><br><span class="line">reg [3:0] t3_cnt;</span><br><span class="line">reg [3:0] t4_cnt;</span><br><span class="line">reg [3:0] t5_cnt;</span><br><span class="line">//every bit to counter</span><br><span class="line">parameter t1 = 4&apos;d10,</span><br><span class="line">			 t2 = 4&apos;d10,</span><br><span class="line">			 t3 = 4&apos;d10,</span><br><span class="line">			 t4 = 4&apos;d10,</span><br><span class="line">			 t5 = 4&apos;d10;</span><br><span class="line">always@(posedge Clk or negedge Rst_n)</span><br><span class="line">	begin</span><br><span class="line">		if(!Rst_n)</span><br><span class="line">			q1 &lt;= 1&apos;b0;  // no effect</span><br><span class="line">		else if(t5_cnt &gt;= t5-1&apos;b1 )</span><br><span class="line">			q1 &lt;= ~q1;</span><br><span class="line">		else</span><br><span class="line">		;            // for other output situation</span><br><span class="line">		</span><br><span class="line">	end</span><br><span class="line">always@(posedge Clk or negedge Rst_n)</span><br><span class="line">	begin</span><br><span class="line">		if(!Rst_n)</span><br><span class="line">			t1_cnt &lt;= 1&apos;b0;</span><br><span class="line">		else if( t1_cnt &gt;= t1)</span><br><span class="line">			t1_cnt &lt;= 1&apos;b0;</span><br><span class="line">		else </span><br><span class="line">			t1_cnt &lt;= t1_cnt + 1&apos;b1;		</span><br><span class="line">	end	</span><br><span class="line">always@(posedge Clk or negedge Rst_n)</span><br><span class="line">	begin</span><br><span class="line">		if(!Rst_n)</span><br><span class="line">			t2_cnt &lt;= 1&apos;b0;</span><br><span class="line">		else if( t2_cnt &gt;= t2)</span><br><span class="line">			t2_cnt &lt;= 1&apos;b0;</span><br><span class="line">		else if( t1_cnt == t1)</span><br><span class="line">			t2_cnt &lt;= t2_cnt + 1&apos;b1;</span><br><span class="line">		else </span><br><span class="line">			 ;		</span><br><span class="line">	end	</span><br><span class="line">always@(posedge Clk or negedge Rst_n)</span><br><span class="line">	begin</span><br><span class="line">		if(!Rst_n)</span><br><span class="line">			t3_cnt &lt;= 1&apos;b0;</span><br><span class="line">		else if( t3_cnt &gt;= t3)</span><br><span class="line">			t3_cnt &lt;= 1&apos;b0;</span><br><span class="line">		else if( t2_cnt == t2)</span><br><span class="line">			t3_cnt &lt;= t3_cnt + 1&apos;b1;</span><br><span class="line">		else</span><br><span class="line">			;</span><br><span class="line">	end</span><br><span class="line">always@(posedge Clk or negedge Rst_n)</span><br><span class="line">	begin</span><br><span class="line">		if(!Rst_n)</span><br><span class="line">			t4_cnt &lt;= 1&apos;b0;</span><br><span class="line">		else if( t4_cnt &gt;= t4)</span><br><span class="line">			t4_cnt &lt;= 1&apos;b0;</span><br><span class="line">		else if( t3_cnt == t3)</span><br><span class="line">			t4_cnt &lt;= t4_cnt + 1&apos;b1;</span><br><span class="line">		else</span><br><span class="line">			;</span><br><span class="line">	end</span><br><span class="line">always@(posedge Clk or negedge Rst_n)</span><br><span class="line">	begin</span><br><span class="line">		if(!Rst_n)</span><br><span class="line">			t5_cnt &lt;= 1&apos;b0;</span><br><span class="line">		else if( t5_cnt &gt;= t5-1&apos;b1)</span><br><span class="line">			t5_cnt &lt;= 1&apos;b0;</span><br><span class="line">		else if( t4_cnt == t4)</span><br><span class="line">			t5_cnt &lt;= t5_cnt + 1&apos;b1;</span><br><span class="line">		else</span><br><span class="line">			;</span><br><span class="line">	end</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">endmodule</span><br></pre></td></tr></table></figure>
+
+<h2 id="模块2"><a href="#模块2" class="headerlink" title="模块2"></a>模块2</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">module I1LX(</span><br><span class="line">	input Clk,</span><br><span class="line">	input Rst_n,</span><br><span class="line">	</span><br><span class="line">	input key_a,</span><br><span class="line">	</span><br><span class="line">	output reg q2</span><br><span class="line"></span><br><span class="line">);</span><br><span class="line">//one key input is always to set switch,</span><br><span class="line">//and it needs analyse , it is about </span><br><span class="line">// key time</span><br><span class="line">reg key_a_cnt1;</span><br><span class="line">reg key_a_cnt2;</span><br><span class="line">reg [3:0] key_t;</span><br><span class="line"></span><br><span class="line">always@(posedge Clk or negedge Rst_n)</span><br><span class="line">	begin</span><br><span class="line">		if(!Rst_n)</span><br><span class="line">			q2 &lt;=  1&apos;b0;</span><br><span class="line">		else if(key_a_cnt1)</span><br><span class="line">			q2 &lt;= 1&apos;b1;</span><br><span class="line">		else if(key_a_cnt2)</span><br><span class="line">			q2 &lt;= ~q2 ;</span><br><span class="line">		else</span><br><span class="line">			;</span><br><span class="line">	end</span><br><span class="line">always@(posedge Clk or negedge Rst_n)</span><br><span class="line">	begin</span><br><span class="line">		if(!Rst_n)</span><br><span class="line">			key_a_cnt1 &lt;= 1&apos;b0;</span><br><span class="line">		else if(key_a)</span><br><span class="line">			key_a_cnt1 &lt;= 1&apos;b1;</span><br><span class="line">		else </span><br><span class="line">		   key_a_cnt1 &lt;= 1&apos;b0;		</span><br><span class="line">	end</span><br><span class="line">always@(posedge Clk or negedge Rst_n)</span><br><span class="line">	begin</span><br><span class="line">		if(!Rst_n)</span><br><span class="line">			key_a_cnt2 &lt;= 1&apos;b0;</span><br><span class="line">		else if(key_a_cnt1)</span><br><span class="line">			key_a_cnt2 &lt;= 1&apos;b1;</span><br><span class="line">		else if(key_t &gt;= 4&apos;d10)</span><br><span class="line">			key_a_cnt2 &lt;= 1&apos;b0;</span><br><span class="line">	</span><br><span class="line">	end</span><br><span class="line">always@(posedge Clk or negedge Rst_n)</span><br><span class="line">	begin</span><br><span class="line">		if(!Rst_n)</span><br><span class="line">			key_t &lt;=4&apos;b0;</span><br><span class="line">		else if(key_a_cnt2)</span><br><span class="line">			key_t &lt;= key_t +1&apos;b1;</span><br><span class="line">		else if(!key_a_cnt2)</span><br><span class="line">			key_t &lt;= 1&apos;b0;</span><br><span class="line">		else </span><br><span class="line">			;</span><br><span class="line">	end</span><br><span class="line">endmodule</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-功能仿真"><a href="#6-功能仿真" class="headerlink" title="6.功能仿真"></a>6.功能仿真</h2><p>模块1测试代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">`timescale 1ns/1ns</span><br><span class="line">`define Clk_period 20 //simulation to 50 Mhz</span><br><span class="line">module I0LX_tb;</span><br><span class="line">reg Clk  =1&apos;b0;</span><br><span class="line">reg Rst_n=1&apos;b0;</span><br><span class="line">wire q1;</span><br><span class="line"></span><br><span class="line">I0LX U1_tb(</span><br><span class="line">	.Clk(Clk),</span><br><span class="line">	.Rst_n(Rst_n),</span><br><span class="line">	</span><br><span class="line">	.q1(q1)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">always#(`Clk_period) </span><br><span class="line">  Clk=~Clk;</span><br><span class="line">initial </span><br><span class="line">	begin</span><br><span class="line">		#(`Clk_period*10)</span><br><span class="line">		Rst_n = 1&apos;b1;</span><br><span class="line">		#(`Clk_period*100000000)</span><br><span class="line">		$stop;	</span><br><span class="line">	end</span><br><span class="line">endmodule</span><br></pre></td></tr></table></figure>
+
+<h2 id="7-管脚分配"><a href="#7-管脚分配" class="headerlink" title="7.管脚分配"></a>7.管脚分配</h2><p>略</p>
+<h2 id="8-时序约束"><a href="#8-时序约束" class="headerlink" title="8.时序约束"></a>8.时序约束</h2><p>略</p>
+<h2 id="9-时序仿真"><a href="#9-时序仿真" class="headerlink" title="9.时序仿真"></a>9.时序仿真</h2><p>略</p>
+<h2 id="10-综合网表"><a href="#10-综合网表" class="headerlink" title="10.综合网表"></a>10.综合网表</h2><p>略</p>
+<h2 id="11-板级调试"><a href="#11-板级调试" class="headerlink" title="11.板级调试"></a>11.板级调试</h2><p>略</p>
+<h1 id="四、实验结果"><a href="#四、实验结果" class="headerlink" title="四、实验结果"></a>四、实验结果</h1><p>时钟上升沿和实时判断的区别导致了时钟计时偏差，解决方法还没找到，这需要实际的设计经历来强化。时序构建和时序约束是数字电路中的重点。</p>
+<h1 id="五、实验优化"><a href="#五、实验优化" class="headerlink" title="五、实验优化"></a>五、实验优化</h1><h1 id="六、总结"><a href="#六、总结" class="headerlink" title="六、总结"></a>六、总结</h1><p>这次主要是对一些常见的简易模块的常用框架熟悉，最后还是要落实到实际的模块的设计。使用自己熟悉的模块架构可以有效地提高设计的稳定性和速度。这是个积累的过程，是不可避免的。此外，开始接触一些其他人的标准模块也是不错的手段。总之，在适应了小规模的verilog设计后，要逐步的接触中等规模的设计，以训练速度和大面积设计的能力。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/22/可编程逻辑设计指导原则/" class="archive-article-date">
-  	<time datetime="2019-10-22T15:20:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/22/可编程逻辑设计指导原则/">可编程逻辑设计指导原则</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Altera</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/21/IP核的调用/" class="archive-article-date">
-  	<time datetime="2019-10-21T14:16:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/21/IP核的调用/">IP核的调用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -266,7 +240,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -279,444 +253,116 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://github.com/electricdream11/2019/11/06/标准化模块设计/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/18/设计流程/" class="archive-article-date">
-  	<time datetime="2019-10-18T14:25:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-18</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/11/04/时序约束初试/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">时序约束初试</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/18/设计流程/">设计流程</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">verilog</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、学习目的"><span class="toc-number">1.</span> <span class="toc-text">一、学习目的</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、实验原理"><span class="toc-number">2.</span> <span class="toc-text">二、实验原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、实验操作"><span class="toc-number">3.</span> <span class="toc-text">三、实验操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-系统功能的定义与划分"><span class="toc-number">3.1.</span> <span class="toc-text">1.系统功能的定义与划分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-设计规模的初步预算"><span class="toc-number">3.2.</span> <span class="toc-text">2.设计规模的初步预算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-芯片选型"><span class="toc-number">3.3.</span> <span class="toc-text">3.芯片选型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-逻辑模块划分和模块间接口定义（顶层模块设计）"><span class="toc-number">3.4.</span> <span class="toc-text">4.逻辑模块划分和模块间接口定义（顶层模块设计）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-子模块设计"><span class="toc-number">3.5.</span> <span class="toc-text">5.子模块设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模块2"><span class="toc-number">3.6.</span> <span class="toc-text">模块2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-功能仿真"><span class="toc-number">3.7.</span> <span class="toc-text">6.功能仿真</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-管脚分配"><span class="toc-number">3.8.</span> <span class="toc-text">7.管脚分配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-时序约束"><span class="toc-number">3.9.</span> <span class="toc-text">8.时序约束</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-时序仿真"><span class="toc-number">3.10.</span> <span class="toc-text">9.时序仿真</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-综合网表"><span class="toc-number">3.11.</span> <span class="toc-text">10.综合网表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-板级调试"><span class="toc-number">3.12.</span> <span class="toc-text">11.板级调试</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、实验结果"><span class="toc-number">4.</span> <span class="toc-text">四、实验结果</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五、实验优化"><span class="toc-number">5.</span> <span class="toc-text">五、实验优化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六、总结"><span class="toc-number">6.</span> <span class="toc-text">六、总结</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/16/状态机测试/" class="archive-article-date">
-  	<time datetime="2019-10-16T15:04:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/16/状态机测试/">状态机测试</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">example</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/15/计数时钟/" class="archive-article-date">
-  	<time datetime="2019-10-15T13:36:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/15/计数时钟/">计数时钟</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">example</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/14/三人表决器/" class="archive-article-date">
-  	<time datetime="2019-10-14T13:25:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/14/三人表决器/">三人表决器</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">example</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/11/verilog语法设计注意事项/" class="archive-article-date">
-  	<time datetime="2019-10-11T13:35:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/11/verilog语法设计注意事项/">verilog语法设计注意事项</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">verilog</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/10/时序电路基础/" class="archive-article-date">
-  	<time datetime="2019-10-10T13:11:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/10/时序电路基础/">时序电路基础</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">verilog</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/09/FPGA组合电路基础/" class="archive-article-date">
-  	<time datetime="2019-10-09T12:41:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/09/FPGA组合电路基础/">FPGA组合电路基础</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">verilog</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/06/verilog语法基础/" class="archive-article-date">
-  	<time datetime="2019-10-06T12:43:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/06/verilog语法基础/">verilog语法基础</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">verilog</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/categories/FPGA/">&laquo; Prev</a><a class="page-number" href="/categories/FPGA/">1</a><span class="page-number current">2</span><a class="page-number" href="/categories/FPGA/page/3/">3</a><a class="extend next" rel="next" href="/categories/FPGA/page/3/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
   
 
 
@@ -740,10 +386,10 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",
