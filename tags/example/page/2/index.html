@@ -6,20 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://github.com/electricdream11">
-  <title>quartus常用辅助设计工具 | The Electric Dream</title>
+  <title>Tag: example | The Electric Dream</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="quartus常用的辅助设计工具一、说明Quartus中有许多的辅助设计工具可以实现设计流程中许多的功能，可以极大的减轻设计的复杂程度和时间周期。掌握好这些工具，是准备进入更好的层次的设计的关键方法。">
-<meta name="keywords" content="FPGA,Altera">
-<meta property="og:type" content="article">
-<meta property="og:title" content="quartus常用辅助设计工具">
-<meta property="og:url" content="https://github.com/electricdream11/2019/10/27/quartus常用辅助设计工具/index.html">
+  <meta name="description" content="the site is just for study and interest">
+<meta property="og:type" content="website">
+<meta property="og:title" content="The Electric Dream">
+<meta property="og:url" content="https://github.com/electricdream11/tags/example/page/2/index.html">
 <meta property="og:site_name" content="The Electric Dream">
-<meta property="og:description" content="quartus常用的辅助设计工具一、说明Quartus中有许多的辅助设计工具可以实现设计流程中许多的功能，可以极大的减轻设计的复杂程度和时间周期。掌握好这些工具，是准备进入更好的层次的设计的关键方法。">
+<meta property="og:description" content="the site is just for study and interest">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-27T11:44:49.678Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="quartus常用辅助设计工具">
-<meta name="twitter:description" content="quartus常用的辅助设计工具一、说明Quartus中有许多的辅助设计工具可以实现设计流程中许多的功能，可以极大的减轻设计的复杂程度和时间周期。掌握好这些工具，是准备进入更好的层次的设计的关键方法。">
+<meta name="twitter:title" content="The Electric Dream">
+<meta name="twitter:description" content="the site is just for study and interest">
   
     <link rel="alternative" href="/atom.xml" title="The Electric Dream" type="application/atom+xml">
   
@@ -170,67 +168,36 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-quartus常用辅助设计工具" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      quartus常用辅助设计工具
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/10/14/三人表决器/" class="archive-article-date">
+  	<time datetime="2019-10-14T13:25:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-14</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/10/14/三人表决器/">三人表决器</a>
     </h1>
   
 
-        
-        <a href="/2019/10/27/quartus常用辅助设计工具/" class="archive-article-date">
-  	<time datetime="2019-10-27T11:39:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-27</time>
-</a>
-        
-      </header>
-      <div align="center" class="post-count">
-      字数：1.3k字 | 预计阅读时长：4分钟
-      </div>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <pre><code>quartus常用的辅助设计工具</code></pre><h1 id="一、说明"><a href="#一、说明" class="headerlink" title="一、说明"></a>一、说明</h1><p>Quartus中有许多的辅助设计工具可以实现设计流程中许多的功能，可以极大的减轻设计的复杂程度和时间周期。掌握好这些工具，是准备进入更好的层次的设计的关键方法。</p>
-<a id="more"></a>
-<h1 id="二、IO分配验证"><a href="#二、IO分配验证" class="headerlink" title="二、IO分配验证"></a>二、IO分配验证</h1><h2 id="1-IO分配验证"><a href="#1-IO分配验证" class="headerlink" title="1.IO分配验证"></a>1.IO分配验证</h2><p>使用【start IO Assignment Analysis】可以检测IO分配的合法性</p>
-<h2 id="2-IO分配验证流程"><a href="#2-IO分配验证流程" class="headerlink" title="2.IO分配验证流程"></a>2.IO分配验证流程</h2><p>分为有设计文件和无设计文件，主要考虑IO引脚是否符合设计规则。具体的设计规则在使用规范中有。<br>（1）无设计文件的IO分配验证设计流程<br>只是基于qpf文件检测<br>（2）有部分或全部设计文件的IO分配设计流程<br>综合了qdf和其他设计文件的检测</p>
-<h2 id="3-用于IO验证的输入"><a href="#3-用于IO验证的输入" class="headerlink" title="3.用于IO验证的输入"></a>3.用于IO验证的输入</h2><p>所有的输入都是在QSF文件中。</p>
-<h2 id="4-运行IO分配验证"><a href="#4-运行IO分配验证" class="headerlink" title="4.运行IO分配验证"></a>4.运行IO分配验证</h2><p>在启动验证命令后即可得到验证的结果。可以根据结果做出合理的调整。</p>
-<h1 id="三、功率分析"><a href="#三、功率分析" class="headerlink" title="三、功率分析"></a>三、功率分析</h1><h2 id="1-说明"><a href="#1-说明" class="headerlink" title="1.说明"></a>1.说明</h2><p>大规模的设计中功率是具体性能的重要参数。</p>
-<h2 id="2-Excel-based功率计数器"><a href="#2-Excel-based功率计数器" class="headerlink" title="2.Excel-based功率计数器"></a>2.Excel-based功率计数器</h2><p>用户自己输入参数实现功率的计算，可以在设计完成之前进行。其准确性取决于输入的参数。</p>
-<h2 id="3-Simlation-based功率估算"><a href="#3-Simlation-based功率估算" class="headerlink" title="3.Simlation-based功率估算"></a>3.Simlation-based功率估算</h2><p>用户需要提供vwf矢量波形文件或功率输入文件pwf，并且要执行时序仿真。</p>
-<h1 id="四、RTL阅读器"><a href="#四、RTL阅读器" class="headerlink" title="四、RTL阅读器"></a>四、RTL阅读器</h1><p>这个工具在功能仿真时已经用过许多次了。RTL寄存器传输级的展示工具，可以直观的将自己的设计具体到寄存器级的电路中去。</p>
-<h1 id="五、SignalProbe及SignalTapII逻辑分析器"><a href="#五、SignalProbe及SignalTapII逻辑分析器" class="headerlink" title="五、SignalProbe及SignalTapII逻辑分析器"></a>五、SignalProbe及SignalTapII逻辑分析器</h1><h2 id="1-signalProbe"><a href="#1-signalProbe" class="headerlink" title="1.signalProbe"></a>1.signalProbe</h2><p>（1）添加参数<br>在设置管脚中打开signalprobe的选项后即可将其添加到输入参数。<br>（2）编译及配置<br>编译时可以自动的布线signalprobe信号。（在设置中可以选择）</p>
-<h2 id="2-SignalTapII"><a href="#2-SignalTapII" class="headerlink" title="2.SignalTapII"></a>2.SignalTapII</h2><p>（1）用户界面<br>在tools中可以打开<br>（2）分析仪的使用<br>创建STP文件即可实现所有的设置，具体的操作在实际设计中熟悉。<br>（3）优缺点<br>不占用管脚，不占用PCB，不破坏信号的完整性，价格便宜；<br>使用了剩余的RAM块来实现，会包含在整个的工程中。</p>
-<h1 id="六、时序收敛平面布局规划器（timing-closure-floorplan）"><a href="#六、时序收敛平面布局规划器（timing-closure-floorplan）" class="headerlink" title="六、时序收敛平面布局规划器（timing closure floorplan）"></a>六、时序收敛平面布局规划器（timing closure floorplan）</h1><h2 id="1-用户界面"><a href="#1-用户界面" class="headerlink" title="1.用户界面"></a>1.用户界面</h2><p>在assignment中启动可以查看</p>
-<h2 id="2-查看资源分配"><a href="#2-查看资源分配" class="headerlink" title="2.查看资源分配"></a>2.查看资源分配</h2><p>在view中可以查看实际的视图。</p>
-<h2 id="3-logiclock区域连接"><a href="#3-logiclock区域连接" class="headerlink" title="3.logiclock区域连接"></a>3.logiclock区域连接</h2><p>可以具体的查看两个logiclock间的连接数。</p>
-<h2 id="4-Timing-Closure-Floorplan的关键路径"><a href="#4-Timing-Closure-Floorplan的关键路径" class="headerlink" title="4.Timing Closure Floorplan的关键路径"></a>4.Timing Closure Floorplan的关键路径</h2><p>也是在view中打开选项即可</p>
-<h2 id="5-物理延时估计"><a href="#5-物理延时估计" class="headerlink" title="5.物理延时估计"></a>5.物理延时估计</h2><p>在LAB中view即可找到相应的视图观察与其他模块的延时。</p>
-<h2 id="6-布线阻塞"><a href="#6-布线阻塞" class="headerlink" title="6.布线阻塞"></a>6.布线阻塞</h2><p>设置布线阻塞的标准后在视图中即可查看。</p>
-<h2 id="7-设计优化"><a href="#7-设计优化" class="headerlink" title="7.设计优化"></a>7.设计优化</h2><p>可以较好的控制时序</p>
-<h1 id="七、Chip-Editor底层编辑器"><a href="#七、Chip-Editor底层编辑器" class="headerlink" title="七、Chip Editor底层编辑器"></a>七、Chip Editor底层编辑器</h1><h2 id="1-功能简介"><a href="#1-功能简介" class="headerlink" title="1.功能简介"></a>1.功能简介</h2><p>查看布线资源、LE配置、IO单元配置、PLL配置等门级功能</p>
-<h2 id="2-设计流程"><a href="#2-设计流程" class="headerlink" title="2.设计流程"></a>2.设计流程</h2><p>可以直接对输出的文件进行修改，可以缩短设计的周期。但是只能处理小的错误。</p>
-<h2 id="3-整体视图"><a href="#3-整体视图" class="headerlink" title="3.整体视图"></a>3.整体视图</h2><p>在tools中即可打开查看，为分层视图。</p>
-<h2 id="4-资源特性编辑器"><a href="#4-资源特性编辑器" class="headerlink" title="4.资源特性编辑器"></a>4.资源特性编辑器</h2><p>可以修改最小的逻辑单元LE，是深入到了FPGA内部结构的操作方法。<br>（1）逻辑单元的特性<br>LE有正常和算数两种工作模式，显示为LUT方程。通过修改LUT方程可以实现对整体的逻辑功能的修改。也可以修改LUT真值表来实现。<br>（3）具体的修改规则<br>LUT方程、输入反相、编辑连接、增加或删除寄存器、在LE中使用反馈路径、更改LE的模式。</p>
-<h2 id="5-Chip-Editor的一般应用"><a href="#5-Chip-Editor的一般应用" class="headerlink" title="5.Chip Editor的一般应用"></a>5.Chip Editor的一般应用</h2><p>（1）门级寄存器重定时<br>（2）内部信号到输出管脚的布线<br>（3）调整PLL的相移<br>（4）快速修正设计缺陷</p>
-<h1 id="八、工程更改管理（ECO）"><a href="#八、工程更改管理（ECO）" class="headerlink" title="八、工程更改管理（ECO）"></a>八、工程更改管理（ECO）</h1><h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a>1.简介</h2><p>（1）可以将已经做好的设计优化保存<br>（2）编译时间的缩短，可以在已经编译的文件上编译<br>（3）可以在ECO影响区域做设计，以减少验证时间<br>（4）文档，可以在更改时留下记录以方便其他人员修改应用。</p>
-<h2 id="2-应用范围"><a href="#2-应用范围" class="headerlink" title="2.应用范围"></a>2.应用范围</h2><p>HDL阶段和网表阶段</p>
-<h2 id="3-操作"><a href="#3-操作" class="headerlink" title="3.操作"></a>3.操作</h2><p>在chip editor 中找到修改单元后修改保存后运行ECO布局</p>
-<h2 id="4-使用Change-Manager-查看和管理更改"><a href="#4-使用Change-Manager-查看和管理更改" class="headerlink" title="4.使用Change Manager 查看和管理更改"></a>4.使用Change Manager 查看和管理更改</h2><p>在运行ECO布局操作后会有操作记录，可以用于随时的删除或应用。</p>
-<h2 id="5-ECO验证"><a href="#5-ECO验证" class="headerlink" title="5.ECO验证"></a>5.ECO验证</h2><p>在quartus 4.0后续的版本中不在需要全编译，只要单独运行Assembler或是EDA Netlist Writer即可生成新的配置文件。</p>
-<h1 id="九、总结"><a href="#九、总结" class="headerlink" title="九、总结"></a>九、总结</h1><p>常用的辅助设计工具熟悉一遍，具体的使用还是要在具体的是实践中去做。工欲善其事必先利其器，尽可能熟悉这些工具可以减轻实际的操作的压力。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -240,13 +207,13 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Altera</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">example</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -259,125 +226,20 @@
 	</div>
 
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://github.com/electricdream11/2019/10/27/quartus常用辅助设计工具/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2019/10/27/流水灯功能设计/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          流水灯功能设计
-        
-      </div>
-    </a>
   
   
-    <a href="/2019/10/25/阶乘器/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">阶乘器</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、说明"><span class="toc-number">1.</span> <span class="toc-text">一、说明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、IO分配验证"><span class="toc-number">2.</span> <span class="toc-text">二、IO分配验证</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-IO分配验证"><span class="toc-number">2.1.</span> <span class="toc-text">1.IO分配验证</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-IO分配验证流程"><span class="toc-number">2.2.</span> <span class="toc-text">2.IO分配验证流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-用于IO验证的输入"><span class="toc-number">2.3.</span> <span class="toc-text">3.用于IO验证的输入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-运行IO分配验证"><span class="toc-number">2.4.</span> <span class="toc-text">4.运行IO分配验证</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、功率分析"><span class="toc-number">3.</span> <span class="toc-text">三、功率分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-说明"><span class="toc-number">3.1.</span> <span class="toc-text">1.说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Excel-based功率计数器"><span class="toc-number">3.2.</span> <span class="toc-text">2.Excel-based功率计数器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Simlation-based功率估算"><span class="toc-number">3.3.</span> <span class="toc-text">3.Simlation-based功率估算</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、RTL阅读器"><span class="toc-number">4.</span> <span class="toc-text">四、RTL阅读器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五、SignalProbe及SignalTapII逻辑分析器"><span class="toc-number">5.</span> <span class="toc-text">五、SignalProbe及SignalTapII逻辑分析器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-signalProbe"><span class="toc-number">5.1.</span> <span class="toc-text">1.signalProbe</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-SignalTapII"><span class="toc-number">5.2.</span> <span class="toc-text">2.SignalTapII</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六、时序收敛平面布局规划器（timing-closure-floorplan）"><span class="toc-number">6.</span> <span class="toc-text">六、时序收敛平面布局规划器（timing closure floorplan）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-用户界面"><span class="toc-number">6.1.</span> <span class="toc-text">1.用户界面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-查看资源分配"><span class="toc-number">6.2.</span> <span class="toc-text">2.查看资源分配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-logiclock区域连接"><span class="toc-number">6.3.</span> <span class="toc-text">3.logiclock区域连接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Timing-Closure-Floorplan的关键路径"><span class="toc-number">6.4.</span> <span class="toc-text">4.Timing Closure Floorplan的关键路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-物理延时估计"><span class="toc-number">6.5.</span> <span class="toc-text">5.物理延时估计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-布线阻塞"><span class="toc-number">6.6.</span> <span class="toc-text">6.布线阻塞</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-设计优化"><span class="toc-number">6.7.</span> <span class="toc-text">7.设计优化</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#七、Chip-Editor底层编辑器"><span class="toc-number">7.</span> <span class="toc-text">七、Chip Editor底层编辑器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-功能简介"><span class="toc-number">7.1.</span> <span class="toc-text">1.功能简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-设计流程"><span class="toc-number">7.2.</span> <span class="toc-text">2.设计流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-整体视图"><span class="toc-number">7.3.</span> <span class="toc-text">3.整体视图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-资源特性编辑器"><span class="toc-number">7.4.</span> <span class="toc-text">4.资源特性编辑器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Chip-Editor的一般应用"><span class="toc-number">7.5.</span> <span class="toc-text">5.Chip Editor的一般应用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#八、工程更改管理（ECO）"><span class="toc-number">8.</span> <span class="toc-text">八、工程更改管理（ECO）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-简介"><span class="toc-number">8.1.</span> <span class="toc-text">1.简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-应用范围"><span class="toc-number">8.2.</span> <span class="toc-text">2.应用范围</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-操作"><span class="toc-number">8.3.</span> <span class="toc-text">3.操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-使用Change-Manager-查看和管理更改"><span class="toc-number">8.4.</span> <span class="toc-text">4.使用Change Manager 查看和管理更改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-ECO验证"><span class="toc-number">8.5.</span> <span class="toc-text">5.ECO验证</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#九、总结"><span class="toc-number">9.</span> <span class="toc-text">九、总结</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
+    
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/tags/example/">&laquo; Prev</a><a class="page-number" href="/tags/example/">1</a><span class="page-number current">2</span>
+    </nav>
   
 
 
@@ -401,9 +263,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
