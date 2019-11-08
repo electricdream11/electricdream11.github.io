@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://github.com/2019/11/08/always块的级联设计/imag1.png">
 <meta property="og:image" content="https://github.com/2019/11/08/always块的级联设计/imag2.png">
-<meta property="og:updated_time" content="2019-11-08T13:43:59.398Z">
+<meta property="og:updated_time" content="2019-11-08T13:47:44.549Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="always块的级联设计">
 <meta name="twitter:description" content="always块间的连接设计一、学习目标在学习过程中发现，always模块的功能除了优先级的概念与一般逻辑有所区别，其他的还是相似度比较高的。更多的区别在于always模块间的逻辑构建。always块之间的逻辑更多的是来自硬件电路的特性，而不是标准的语言逻辑。换言之，在设计always块时只需根据优先级实现相应的功能设计（不包括其他层次的考虑），而在模块间的逻辑设计时必须转化为电路设计逻辑，即组合与">
@@ -212,7 +212,7 @@
 <h2 id="5、约束条件"><a href="#5、约束条件" class="headerlink" title="5、约束条件"></a>5、约束条件</h2><p>略</p>
 <h2 id="6、时序仿真"><a href="#6、时序仿真" class="headerlink" title="6、时序仿真"></a>6、时序仿真</h2><p>略</p>
 <h2 id="7、时序优化"><a href="#7、时序优化" class="headerlink" title="7、时序优化"></a>7、时序优化</h2><p>略</p>
-<h2 id="四、实验总结"><a href="#四、实验总结" class="headerlink" title="四、实验总结"></a>四、实验总结</h2><p>在always语句中的ifelse语句的使用要有明确的时序概念。if中的判断语句对应该时钟沿的前的状态，后面的执行语句代表时钟沿后的状态量。其中if else连续结构代表优先选择权（个人理解为找到符合条件的执行语句执行，而不是符合条件的执行后在去找下一个符合条件的，每个if else结构在一次触发中只会执行一条语句）。这要求在描述时必须由小到大的排列优先级排列以免某些执行语句成为死项（不可能执行到的项），而且这不会语法报错，会浪费时间来排查功能错误。<br>所以，在always中使用优先级赋值时，要先确定每个执行语句的优先级的合理性。<br>这段时间可能都不会做时序约束的部分了。目前主要的任务还是将verilog语法的描述原理逐渐的理解和深入，以达到描述时能够对应相应的硬件电路。</p>
+<h1 id="四、实验总结"><a href="#四、实验总结" class="headerlink" title="四、实验总结"></a>四、实验总结</h1><p>在always语句中的ifelse语句的使用要有明确的时序概念。if中的判断语句对应该时钟沿的前的状态，后面的执行语句代表时钟沿后的状态量。其中if else连续结构代表优先选择权（个人理解为找到符合条件的执行语句执行，而不是符合条件的执行后在去找下一个符合条件的，每个if else结构在一次触发中只会执行一条语句）。这要求在描述时必须由小到大的排列优先级排列以免某些执行语句成为死项（不可能执行到的项），而且这不会语法报错，会浪费时间来排查功能错误。<br>所以，在always中使用优先级赋值时，要先确定每个执行语句的优先级的合理性。<br>这段时间可能都不会做时序约束的部分了。目前主要的任务还是将verilog语法的描述原理逐渐的理解和深入，以达到描述时能够对应相应的硬件电路。</p>
 
       
 
@@ -340,7 +340,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、学习目标"><span class="toc-number">1.</span> <span class="toc-text">一、学习目标</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、实验原理"><span class="toc-number">2.</span> <span class="toc-text">二、实验原理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、功能设计"><span class="toc-number">2.1.</span> <span class="toc-text">1、功能设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、功能实现"><span class="toc-number">2.2.</span> <span class="toc-text">2、功能实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、功能仿真"><span class="toc-number">2.3.</span> <span class="toc-text">3、功能仿真</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、功能优化"><span class="toc-number">2.4.</span> <span class="toc-text">4、功能优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5、约束条件"><span class="toc-number">2.5.</span> <span class="toc-text">5、约束条件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6、时序仿真"><span class="toc-number">2.6.</span> <span class="toc-text">6、时序仿真</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7、时序优化"><span class="toc-number">2.7.</span> <span class="toc-text">7、时序优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、实验总结"><span class="toc-number">2.8.</span> <span class="toc-text">四、实验总结</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、学习目标"><span class="toc-number">1.</span> <span class="toc-text">一、学习目标</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、实验原理"><span class="toc-number">2.</span> <span class="toc-text">二、实验原理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、功能设计"><span class="toc-number">2.1.</span> <span class="toc-text">1、功能设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、功能实现"><span class="toc-number">2.2.</span> <span class="toc-text">2、功能实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、功能仿真"><span class="toc-number">2.3.</span> <span class="toc-text">3、功能仿真</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、功能优化"><span class="toc-number">2.4.</span> <span class="toc-text">4、功能优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5、约束条件"><span class="toc-number">2.5.</span> <span class="toc-text">5、约束条件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6、时序仿真"><span class="toc-number">2.6.</span> <span class="toc-text">6、时序仿真</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7、时序优化"><span class="toc-number">2.7.</span> <span class="toc-text">7、时序优化</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、实验总结"><span class="toc-number">3.</span> <span class="toc-text">四、实验总结</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -460,15 +460,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">verilog</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">example</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Altera</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">verilog</a>
               </li>
             
             <div class="clearfix"></div>
