@@ -6,18 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://github.com/electricdream11">
-  <title>Tag: Altera | The Electric Dream</title>
+  <title>数据传输中的时序分析 | The Electric Dream</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="the site is just for study and interest">
-<meta property="og:type" content="website">
-<meta property="og:title" content="The Electric Dream">
-<meta property="og:url" content="https://github.com/electricdream11/tags/Altera/index.html">
+  <meta name="description" content="数据传输中的时序约束一、背景知识1.FPGA的基本原理（1）FPGA可以使用JTAG、AS、PS等方式实现现场可编程的功能。基本层次为门，基本的实现结构为门阵列。（2）FPGA的三要素可编程逻辑块、内部互联线（PIC）、输出输入块。可编程逻辑功能块：查找表、D触发器、进位链···可编程输入输出块：输出寄存器、输入寄存器、输入延时链、输出延时链、上拉电阻···可编程内部互联资源：连接线、可控的连线开">
+<meta name="keywords" content="FPGA,example">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据传输中的时序分析">
+<meta property="og:url" content="https://github.com/electricdream11/2019/11/10/数据传输中的时序分析/index.html">
 <meta property="og:site_name" content="The Electric Dream">
-<meta property="og:description" content="the site is just for study and interest">
+<meta property="og:description" content="数据传输中的时序约束一、背景知识1.FPGA的基本原理（1）FPGA可以使用JTAG、AS、PS等方式实现现场可编程的功能。基本层次为门，基本的实现结构为门阵列。（2）FPGA的三要素可编程逻辑块、内部互联线（PIC）、输出输入块。可编程逻辑功能块：查找表、D触发器、进位链···可编程输入输出块：输出寄存器、输入寄存器、输入延时链、输出延时链、上拉电阻···可编程内部互联资源：连接线、可控的连线开">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/2019/11/10/数据传输中的时序分析/imag_001.png">
+<meta property="og:image" content="https://github.com/2019/11/10/数据传输中的时序分析/imag_002.png">
+<meta property="og:updated_time" content="2019-11-10T13:32:53.233Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="The Electric Dream">
-<meta name="twitter:description" content="the site is just for study and interest">
+<meta name="twitter:title" content="数据传输中的时序分析">
+<meta name="twitter:description" content="数据传输中的时序约束一、背景知识1.FPGA的基本原理（1）FPGA可以使用JTAG、AS、PS等方式实现现场可编程的功能。基本层次为门，基本的实现结构为门阵列。（2）FPGA的三要素可编程逻辑块、内部互联线（PIC）、输出输入块。可编程逻辑功能块：查找表、D触发器、进位链···可编程输入输出块：输出寄存器、输入寄存器、输入延时链、输出延时链、上拉电阻···可编程内部互联资源：连接线、可控的连线开">
+<meta name="twitter:image" content="https://github.com/2019/11/10/数据传输中的时序分析/imag_001.png">
   
     <link rel="alternative" href="/atom.xml" title="The Electric Dream" type="application/atom+xml">
   
@@ -168,36 +173,48 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-数据传输中的时序分析" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      数据传输中的时序分析
+    </h1>
+  
+
+        
+        <a href="/2019/11/10/数据传输中的时序分析/" class="archive-article-date">
+  	<time datetime="2019-11-10T13:27:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-10</time>
+</a>
+        
+      </header>
+      <div align="center" class="post-count">
+      字数：521字 | 预计阅读时长：1分钟
+      </div>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code>数据传输中的时序约束</code></pre><h1 id="一、背景知识"><a href="#一、背景知识" class="headerlink" title="一、背景知识"></a>一、背景知识</h1><h2 id="1-FPGA的基本原理"><a href="#1-FPGA的基本原理" class="headerlink" title="1.FPGA的基本原理"></a>1.FPGA的基本原理</h2><p>（1）FPGA可以使用JTAG、AS、PS等方式实现现场可编程的功能。基本层次为门，基本的实现结构为门阵列。<br>（2）FPGA的三要素<br>可编程逻辑块、内部互联线（PIC）、输出输入块。<br>可编程逻辑功能块：查找表、D触发器、进位链···<br>可编程输入输出块：输出寄存器、输入寄存器、输入延时链、输出延时链、上拉电阻···<br>可编程内部互联资源：连接线、可控的连线开关、局部高速通道···</p>
+<a id="more"></a>
+<h2 id="2-FPGA的时序"><a href="#2-FPGA的时序" class="headerlink" title="2.FPGA的时序"></a>2.FPGA的时序</h2><p>（1）时序的意义<br>将使用的资源合理分配以提高某些数据间的速度以满足实际要求。<br>（2）FPGA的拓展资源<br>存储器、数字时钟管理单元、算数运算单元、高速IO、特殊功能模块、微处理器···<br>（3）FPGA时序分析和时序约束<br>时序分析的目的就是验证整个系统是否可以合理寄存数据，<br>数据和时钟传输路径由EDA软件布局布线实现的。<br>时序约束的目的就是设置时序目标和协助EDA分析时序路径。</p>
+<h1 id="二、时序分析的基本模型"><a href="#二、时序分析的基本模型" class="headerlink" title="二、时序分析的基本模型"></a>二、时序分析的基本模型</h1><p>1.代码模型：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">module max(</span><br><span class="line">	input Clk,</span><br><span class="line">	</span><br><span class="line">	input a,</span><br><span class="line">	input b,</span><br><span class="line">	</span><br><span class="line">	output reg c</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">reg a_reg;</span><br><span class="line">reg b_reg;</span><br><span class="line"></span><br><span class="line">wire c_wire;</span><br><span class="line"></span><br><span class="line">always@(posedge Clk)</span><br><span class="line">	begin</span><br><span class="line">		a_reg &lt;= a;</span><br><span class="line">		b_reg &lt;= b;</span><br><span class="line">	end</span><br><span class="line"></span><br><span class="line">assign  c_wire = a_reg &amp;&amp; b_reg;</span><br><span class="line"></span><br><span class="line">always@(posedge Clk)</span><br><span class="line">	c &lt;= c_wire;</span><br><span class="line"></span><br><span class="line">endmodule</span><br></pre></td></tr></table></figure>
+
+<img src="/2019/11/10/数据传输中的时序分析/imag_001.png">
+<p>寄存器传输模型及数据传输路径。<br>2.实际的时序波形逻辑模型<br>！个人感觉数据的时序约束就是保证在一个时钟周期内输入数据与输出数据不矛盾。</p>
+<img src="/2019/11/10/数据传输中的时序分析/imag_002.png">
+<p>3.实际仿真波形模型<br>需要增加时序约束，稍后再学习。</p>
+<h1 id="三、总结"><a href="#三、总结" class="headerlink" title="三、总结"></a>三、总结</h1><p>大概的了解了数据传输过程中需要的时序条件，为时序分析和时序约束打下了基础。接下来的学习会通过具体的实例来接触时序分析的操作和具体原理。</p>
+<h2 id="toc"><a href="#toc" class="headerlink" title="toc:"></a>toc:</h2>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/28/时序约束与时序分析基础/" class="archive-article-date">
-  	<time datetime="2019-10-28T10:11:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/28/时序约束与时序分析基础/">时序约束与时序分析基础</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -207,13 +224,13 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Altera</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">example</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -226,176 +243,117 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://github.com/electricdream11/2019/11/10/数据传输中的时序分析/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/27/quartus常用辅助设计工具/" class="archive-article-date">
-  	<time datetime="2019-10-27T11:39:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-27</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/11/08/always块的级联设计/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">always块的级联设计</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/27/quartus常用辅助设计工具/">quartus常用辅助设计工具</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Altera</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、背景知识"><span class="toc-number">1.</span> <span class="toc-text">一、背景知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-FPGA的基本原理"><span class="toc-number">1.1.</span> <span class="toc-text">1.FPGA的基本原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-FPGA的时序"><span class="toc-number">1.2.</span> <span class="toc-text">2.FPGA的时序</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、时序分析的基本模型"><span class="toc-number">2.</span> <span class="toc-text">二、时序分析的基本模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、总结"><span class="toc-number">3.</span> <span class="toc-text">三、总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#toc"><span class="toc-number">3.1.</span> <span class="toc-text">toc:</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/23/Altera器件的高级特性/" class="archive-article-date">
-  	<time datetime="2019-10-23T13:28:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/23/Altera器件的高级特性/">Altera器件的高级特性</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Altera</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/22/可编程逻辑设计指导原则/" class="archive-article-date">
-  	<time datetime="2019-10-22T15:20:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-22</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/22/可编程逻辑设计指导原则/">可编程逻辑设计指导原则</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Altera</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -418,9 +376,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

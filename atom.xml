@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/electricdream11/"/>
-  <updated>2019-11-08T13:47:44.549Z</updated>
+  <updated>2019-11-10T13:32:53.233Z</updated>
   <id>https://github.com/electricdream11/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数据传输中的时序分析</title>
+    <link href="https://github.com/electricdream11/2019/11/10/%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93%E4%B8%AD%E7%9A%84%E6%97%B6%E5%BA%8F%E5%88%86%E6%9E%90/"/>
+    <id>https://github.com/electricdream11/2019/11/10/数据传输中的时序分析/</id>
+    <published>2019-11-10T13:27:04.000Z</published>
+    <updated>2019-11-10T13:32:53.233Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>数据传输中的时序约束</code></pre><h1 id="一、背景知识"><a href="#一、背景知识" class="headerlink" title="一、背景知识"></a>一、背景知识</h1><h2 id="1-FPGA的基本原理"><a href="#1-FPGA的基本原理" class="headerlink" title="1.FPGA的基本原理"></a>1.FPGA的基本原理</h2><p>（1）FPGA可以使用JTAG、AS、PS等方式实现现场可编程的功能。基本层次为门，基本的实现结构为门阵列。<br>（2）FPGA的三要素<br>可编程逻辑块、内部互联线（PIC）、输出输入块。<br>可编程逻辑功能块：查找表、D触发器、进位链···<br>可编程输入输出块：输出寄存器、输入寄存器、输入延时链、输出延时链、上拉电阻···<br>可编程内部互联资源：连接线、可控的连线开关、局部高速通道···</p><a id="more"></a><h2 id="2-FPGA的时序"><a href="#2-FPGA的时序" class="headerlink" title="2.FPGA的时序"></a>2.FPGA的时序</h2><p>（1）时序的意义<br>将使用的资源合理分配以提高某些数据间的速度以满足实际要求。<br>（2）FPGA的拓展资源<br>存储器、数字时钟管理单元、算数运算单元、高速IO、特殊功能模块、微处理器···<br>（3）FPGA时序分析和时序约束<br>时序分析的目的就是验证整个系统是否可以合理寄存数据，<br>数据和时钟传输路径由EDA软件布局布线实现的。<br>时序约束的目的就是设置时序目标和协助EDA分析时序路径。</p><h1 id="二、时序分析的基本模型"><a href="#二、时序分析的基本模型" class="headerlink" title="二、时序分析的基本模型"></a>二、时序分析的基本模型</h1><p>1.代码模型：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">module max(</span><br><span class="line">input Clk,</span><br><span class="line"></span><br><span class="line">input a,</span><br><span class="line">input b,</span><br><span class="line"></span><br><span class="line">output reg c</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">reg a_reg;</span><br><span class="line">reg b_reg;</span><br><span class="line"></span><br><span class="line">wire c_wire;</span><br><span class="line"></span><br><span class="line">always@(posedge Clk)</span><br><span class="line">begin</span><br><span class="line">a_reg &lt;= a;</span><br><span class="line">b_reg &lt;= b;</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">assign  c_wire = a_reg &amp;&amp; b_reg;</span><br><span class="line"></span><br><span class="line">always@(posedge Clk)</span><br><span class="line">c &lt;= c_wire;</span><br><span class="line"></span><br><span class="line">endmodule</span><br></pre></td></tr></table></figure><img src="/2019/11/10/数据传输中的时序分析/imag_001.png"><p>寄存器传输模型及数据传输路径。<br>2.实际的时序波形逻辑模型<br>！个人感觉数据的时序约束就是保证在一个时钟周期内输入数据与输出数据不矛盾。</p><img src="/2019/11/10/数据传输中的时序分析/imag_002.png"><p>3.实际仿真波形模型<br>需要增加时序约束，稍后再学习。</p><h1 id="三、总结"><a href="#三、总结" class="headerlink" title="三、总结"></a>三、总结</h1><p>大概的了解了数据传输过程中需要的时序条件，为时序分析和时序约束打下了基础。接下来的学习会通过具体的实例来接触时序分析的操作和具体原理。</p><h2 id="toc"><a href="#toc" class="headerlink" title="toc:"></a>toc:</h2>]]></content>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code&gt;数据传输中的时序约束&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&quot;一、背景知识&quot;&gt;&lt;a href=&quot;#一、背景知识&quot; class=&quot;headerlink&quot; title=&quot;一、背景知识&quot;&gt;&lt;/a&gt;一、背景知识&lt;/h1&gt;&lt;h2 id=&quot;1-FPGA的基本原理&quot;&gt;&lt;a href=&quot;#1-FPGA的基本原理&quot; class=&quot;headerlink&quot; title=&quot;1.FPGA的基本原理&quot;&gt;&lt;/a&gt;1.FPGA的基本原理&lt;/h2&gt;&lt;p&gt;（1）FPGA可以使用JTAG、AS、PS等方式实现现场可编程的功能。基本层次为门，基本的实现结构为门阵列。&lt;br&gt;（2）FPGA的三要素&lt;br&gt;可编程逻辑块、内部互联线（PIC）、输出输入块。&lt;br&gt;可编程逻辑功能块：查找表、D触发器、进位链···&lt;br&gt;可编程输入输出块：输出寄存器、输入寄存器、输入延时链、输出延时链、上拉电阻···&lt;br&gt;可编程内部互联资源：连接线、可控的连线开关、局部高速通道···&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="FPGA" scheme="https://github.com/electricdream11/categories/FPGA/"/>
+    
+    
+      <category term="FPGA" scheme="https://github.com/electricdream11/tags/FPGA/"/>
+    
+      <category term="example" scheme="https://github.com/electricdream11/tags/example/"/>
+    
+  </entry>
   
   <entry>
     <title>always块的级联设计</title>
