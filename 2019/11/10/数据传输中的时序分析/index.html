@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://github.com/2019/11/10/数据传输中的时序分析/imag_001.png">
 <meta property="og:image" content="https://github.com/2019/11/10/数据传输中的时序分析/imag_002.png">
-<meta property="og:updated_time" content="2019-11-10T13:32:53.233Z">
+<meta property="og:updated_time" content="2019-11-10T13:36:37.956Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据传输中的时序分析">
 <meta name="twitter:description" content="数据传输中的时序约束一、背景知识1.FPGA的基本原理（1）FPGA可以使用JTAG、AS、PS等方式实现现场可编程的功能。基本层次为门，基本的实现结构为门阵列。（2）FPGA的三要素可编程逻辑块、内部互联线（PIC）、输出输入块。可编程逻辑功能块：查找表、D触发器、进位链···可编程输入输出块：输出寄存器、输入寄存器、输入延时链、输出延时链、上拉电阻···可编程内部互联资源：连接线、可控的连线开">
@@ -72,8 +72,8 @@
 			</ul>
 		</nav>
                                 <nav>
-                                总文章数 28
-                                总字数 <span class="post-count">25.4k</span>
+                                总文章数 29
+                                总字数 <span class="post-count">25.8k</span>
                                 </nav>
 		<nav class="header-smart-menu">
     		
@@ -191,7 +191,7 @@
         
       </header>
       <div align="center" class="post-count">
-      字数：521字 | 预计阅读时长：1分钟
+      字数：520字 | 预计阅读时长：1分钟
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -207,7 +207,7 @@
 <img src="/2019/11/10/数据传输中的时序分析/imag_002.png">
 <p>3.实际仿真波形模型<br>需要增加时序约束，稍后再学习。</p>
 <h1 id="三、总结"><a href="#三、总结" class="headerlink" title="三、总结"></a>三、总结</h1><p>大概的了解了数据传输过程中需要的时序条件，为时序分析和时序约束打下了基础。接下来的学习会通过具体的实例来接触时序分析的操作和具体原理。</p>
-<h2 id="toc"><a href="#toc" class="headerlink" title="toc:"></a>toc:</h2>
+
       
 
       
@@ -305,6 +305,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2019/11/11/二进制计数器时钟约束/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          二进制计数器时钟约束
+        
+      </div>
+    </a>
+  
   
     <a href="/2019/11/08/always块的级联设计/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">always块的级联设计</div>
@@ -334,7 +343,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、背景知识"><span class="toc-number">1.</span> <span class="toc-text">一、背景知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-FPGA的基本原理"><span class="toc-number">1.1.</span> <span class="toc-text">1.FPGA的基本原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-FPGA的时序"><span class="toc-number">1.2.</span> <span class="toc-text">2.FPGA的时序</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、时序分析的基本模型"><span class="toc-number">2.</span> <span class="toc-text">二、时序分析的基本模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、总结"><span class="toc-number">3.</span> <span class="toc-text">三、总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#toc"><span class="toc-number">3.1.</span> <span class="toc-text">toc:</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、背景知识"><span class="toc-number">1.</span> <span class="toc-text">一、背景知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-FPGA的基本原理"><span class="toc-number">1.1.</span> <span class="toc-text">1.FPGA的基本原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-FPGA的时序"><span class="toc-number">1.2.</span> <span class="toc-text">2.FPGA的时序</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、时序分析的基本模型"><span class="toc-number">2.</span> <span class="toc-text">二、时序分析的基本模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、总结"><span class="toc-number">3.</span> <span class="toc-text">三、总结</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -454,15 +463,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">example</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Altera</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">verilog</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">example</a>
               </li>
             
             <div class="clearfix"></div>

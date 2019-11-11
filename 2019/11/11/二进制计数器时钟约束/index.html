@@ -6,18 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://github.com/electricdream11">
-  <title>Archives | The Electric Dream</title>
+  <title>二进制计数器时钟约束 | The Electric Dream</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="the site is just for study and interest">
-<meta property="og:type" content="website">
-<meta property="og:title" content="The Electric Dream">
-<meta property="og:url" content="https://github.com/electricdream11/archives/page/2/index.html">
+  <meta name="description" content="二进制计数器一、学习目标在简单的计数模型中实现时序分析和时序约束。">
+<meta name="keywords" content="FPGA,example">
+<meta property="og:type" content="article">
+<meta property="og:title" content="二进制计数器时钟约束">
+<meta property="og:url" content="https://github.com/electricdream11/2019/11/11/二进制计数器时钟约束/index.html">
 <meta property="og:site_name" content="The Electric Dream">
-<meta property="og:description" content="the site is just for study and interest">
+<meta property="og:description" content="二进制计数器一、学习目标在简单的计数模型中实现时序分析和时序约束。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/2019/11/11/二进制计数器时钟约束/imag_001.png">
+<meta property="og:image" content="https://github.com/2019/11/11/二进制计数器时钟约束/imag_002.png">
+<meta property="og:image" content="https://github.com/2019/11/11/二进制计数器时钟约束/imag_003.png">
+<meta property="og:updated_time" content="2019-11-11T14:15:17.806Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="The Electric Dream">
-<meta name="twitter:description" content="the site is just for study and interest">
+<meta name="twitter:title" content="二进制计数器时钟约束">
+<meta name="twitter:description" content="二进制计数器一、学习目标在简单的计数模型中实现时序分析和时序约束。">
+<meta name="twitter:image" content="https://github.com/2019/11/11/二进制计数器时钟约束/imag_001.png">
   
     <link rel="alternative" href="/atom.xml" title="The Electric Dream" type="application/atom+xml">
   
@@ -168,36 +174,51 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-二进制计数器时钟约束" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      二进制计数器时钟约束
+    </h1>
+  
+
+        
+        <a href="/2019/11/11/二进制计数器时钟约束/" class="archive-article-date">
+  	<time datetime="2019-11-11T14:12:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-11</time>
+</a>
+        
+      </header>
+      <div align="center" class="post-count">
+      字数：431字 | 预计阅读时长：1分钟
+      </div>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code>二进制计数器</code></pre><h1 id="一、学习目标"><a href="#一、学习目标" class="headerlink" title="一、学习目标"></a>一、学习目标</h1><p>在简单的计数模型中实现时序分析和时序约束。</p>
+<a id="more"></a>
+<h1 id="二、实验原理"><a href="#二、实验原理" class="headerlink" title="二、实验原理"></a>二、实验原理</h1><p>根据数据传输模型中的时序约束要求，将原始的模型约束到最大的时序功能。</p>
+<h1 id="三、实验操作"><a href="#三、实验操作" class="headerlink" title="三、实验操作"></a>三、实验操作</h1><h2 id="1-构建功能电路"><a href="#1-构建功能电路" class="headerlink" title="1.构建功能电路"></a>1.构建功能电路</h2><p>（1）功能划分<br>有一个计数器和高低电平的标志位。<br>（2）代码书写</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">module max(</span><br><span class="line">	input Clk,</span><br><span class="line">	input Rst_n,</span><br><span class="line">	</span><br><span class="line">	output reg q</span><br><span class="line"></span><br><span class="line">);</span><br><span class="line">reg [24:0] cou_cnt;</span><br><span class="line">always@(posedge Clk or negedge Rst_n)</span><br><span class="line">	begin</span><br><span class="line">		if(!Rst_n)</span><br><span class="line">			cou_cnt &lt;= 25&apos;d0;</span><br><span class="line">		else if(cou_cnt == 25&apos;d24_999_999)</span><br><span class="line">			cou_cnt &lt;= 25&apos;d0;</span><br><span class="line">		else </span><br><span class="line">			cou_cnt &lt;= cou_cnt + 1&apos;b1;</span><br><span class="line">	end</span><br><span class="line">always@(posedge Clk or negedge Rst_n)</span><br><span class="line">	begin</span><br><span class="line">		if(!Rst_n)</span><br><span class="line">			q &lt;= 1&apos;b0;</span><br><span class="line">		else if(cou_cnt &lt;= 25&apos;d24_999_999)</span><br><span class="line">			q &lt;= ~q;</span><br><span class="line">		else</span><br><span class="line">			q &lt;= q;</span><br><span class="line">	end</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">endmodule</span><br></pre></td></tr></table></figure>
+
+<img src="/2019/11/11/二进制计数器时钟约束/imag_001.png">
+<p>（3）功能仿真<br>功能较简单，不做仿真。</p>
+<h2 id="2-时序分析"><a href="#2-时序分析" class="headerlink" title="2.时序分析"></a>2.时序分析</h2><p>（1）时序报告<br>在全编译后会出现所有的信息报告，其中包括时序报告，这也是初步的时序基础，是后面的工作的前提。</p>
+<img src="/2019/11/11/二进制计数器时钟约束/imag_002.png">
+<p>（2）时钟的频率设置<br>通过时钟约束将时钟频率告诉软件，用于综合。<br>约束过程，使用Timing Analysis快速实现。<br>·创建时钟频率约束的代号：为布局布线和仿真提供参考。</p>
+<img src="/2019/11/11/二进制计数器时钟约束/imag_003.png">
+<p>·刷新时钟频率约束：时钟代号要一致。<br>·其他的操作以后再慢慢熟悉。<br>（3）实际约束<br>根据实际的需求构建每一路径的时序要求。这需要实际的设计经验，以后再去做。今天就先做时钟约束。</p>
+<h1 id="四、总结反思"><a href="#四、总结反思" class="headerlink" title="四、总结反思"></a>四、总结反思</h1><p>在实际的约束工具中进行时序约束是在设计中的基本操作，需要不断地练习和理解以达到融汇贯通的效果。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/27/流水灯功能设计/" class="archive-article-date">
-  	<time datetime="2019-10-27T14:26:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/27/流水灯功能设计/">流水灯功能设计</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -213,7 +234,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -226,497 +247,116 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://github.com/electricdream11/2019/11/11/二进制计数器时钟约束/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/27/quartus常用辅助设计工具/" class="archive-article-date">
-  	<time datetime="2019-10-27T11:39:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-27</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/11/10/数据传输中的时序分析/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">数据传输中的时序分析</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/27/quartus常用辅助设计工具/">quartus常用辅助设计工具</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Altera</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、学习目标"><span class="toc-number">1.</span> <span class="toc-text">一、学习目标</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、实验原理"><span class="toc-number">2.</span> <span class="toc-text">二、实验原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、实验操作"><span class="toc-number">3.</span> <span class="toc-text">三、实验操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-构建功能电路"><span class="toc-number">3.1.</span> <span class="toc-text">1.构建功能电路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-时序分析"><span class="toc-number">3.2.</span> <span class="toc-text">2.时序分析</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、总结反思"><span class="toc-number">4.</span> <span class="toc-text">四、总结反思</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/25/阶乘器/" class="archive-article-date">
-  	<time datetime="2019-10-25T14:06:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/25/阶乘器/">阶乘器</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">example</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/23/Altera器件的高级特性/" class="archive-article-date">
-  	<time datetime="2019-10-23T13:28:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/23/Altera器件的高级特性/">Altera器件的高级特性</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Altera</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/22/可编程逻辑设计指导原则/" class="archive-article-date">
-  	<time datetime="2019-10-22T15:20:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/22/可编程逻辑设计指导原则/">可编程逻辑设计指导原则</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Altera</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/21/IP核的调用/" class="archive-article-date">
-  	<time datetime="2019-10-21T14:16:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/21/IP核的调用/">IP核的调用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">example</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/18/设计流程/" class="archive-article-date">
-  	<time datetime="2019-10-18T14:25:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/18/设计流程/">设计流程</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">verilog</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/16/状态机测试/" class="archive-article-date">
-  	<time datetime="2019-10-16T15:04:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/16/状态机测试/">状态机测试</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">example</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/15/计数时钟/" class="archive-article-date">
-  	<time datetime="2019-10-15T13:36:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/15/计数时钟/">计数时钟</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">example</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/14/三人表决器/" class="archive-article-date">
-  	<time datetime="2019-10-14T13:25:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/14/三人表决器/">三人表决器</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">example</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/3/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
   
 
 
@@ -740,8 +380,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
