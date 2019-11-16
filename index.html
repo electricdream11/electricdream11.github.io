@@ -67,8 +67,8 @@
 			</ul>
 		</nav>
                                 <nav>
-                                总文章数 33
-                                总字数 <span class="post-count">29.8k</span>
+                                总文章数 34
+                                总字数 <span class="post-count">30.6k</span>
                                 </nav>
 		<nav class="header-smart-menu">
     		
@@ -169,6 +169,110 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-多时钟时序测试（失败）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/16/多时钟时序测试（失败）/">多时钟时序测试（失败）</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/16/多时钟时序测试（失败）/" class="archive-article-date">
+  	<time datetime="2019-11-16T13:18:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-16</time>
+</a>
+        
+      </header>
+      <div align="center" class="post-count">
+      字数：796字 | 预计阅读时长：3分钟
+      </div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code>多时钟设计原理</code></pre><h1 id="一、背景知识"><a href="#一、背景知识" class="headerlink" title="一、背景知识"></a>一、背景知识</h1><p>在掌握了利用PLL产生多时钟后，使用多时钟设计并利用其提高设计的速度是当下的重要目的。所谓的多时钟设计就是根据不同的速度要求制定不同的实现方法。为了更好的掌握这种层次的设计，需要具体的去体验这个问题。</p>
+<h1 id="二、实验目的"><a href="#二、实验目的" class="headerlink" title="二、实验目的"></a>二、实验目的</h1><p>实现多时钟设计的基本优化。为了加强这个方面的能力，解决在时序中主要的问题，可以尝试对不同时钟下的设计。</p>
+<h1 id="三、实验原理"><a href="#三、实验原理" class="headerlink" title="三、实验原理"></a>三、实验原理</h1><p>构建一条基础的数据传输链，利用PLL产生的时钟实现高速传输，并且实现时序约束。数据传输链这次会复杂一点，以体现多时钟的优势。</p>
+<h1 id="四、实验操作"><a href="#四、实验操作" class="headerlink" title="四、实验操作"></a>四、实验操作</h1><h2 id="1、功能设计"><a href="#1、功能设计" class="headerlink" title="1、功能设计"></a>1、功能设计</h2><p>（1）功能定义<br>一条50M的数据传输链，在时序充足的地方引入100M的时钟加速。对比得到多时钟设计的优势。并且对时序余量设计的初步的把握。当下的感觉是对实际的问题的解决没有明确的概念。具体的方法还是要在具有实际功能的设计中理解。相应的技巧的阅读也要跟上。知识跟不上会导致设计脱离实践的速度。<br>（2）代码实现<br>！下一次还是回归简单的芯片，可以减少设计时的编译时间。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">module top(</span><br><span class="line">	input Clk_50M,</span><br><span class="line">	input Rst_n,</span><br><span class="line">	input [1:0] Data_in,</span><br><span class="line">	</span><br><span class="line">	output reg [1:0] Data_out,</span><br><span class="line">	output reg [1:0] Data_out_fast,</span><br><span class="line">	output wire Clk_100M,</span><br><span class="line">	output wire locked</span><br><span class="line"></span><br><span class="line">);</span><br><span class="line">wire Rst;</span><br><span class="line"></span><br><span class="line">wire Clk1;</span><br><span class="line">wire Clk2;</span><br><span class="line"></span><br><span class="line">assign Rst = ~Rst_n;</span><br><span class="line">assign Clk_100M = Clk2;</span><br><span class="line"></span><br><span class="line">PLL PLL_clock_U1(</span><br><span class="line">		.refclk(Clk_50M),   //  refclk.clk</span><br><span class="line">		.rst(Rst),      //   reset.reset</span><br><span class="line">		</span><br><span class="line">		.outclk_0(Clk1), // outclk0.clk</span><br><span class="line">		.outclk_1(Clk2), // outclk1.clk</span><br><span class="line">		.locked(locked)    //  locked.export</span><br><span class="line"></span><br><span class="line">		);</span><br><span class="line"></span><br><span class="line">always@(posedge Clk1 or negedge Rst_n)</span><br><span class="line">	begin</span><br><span class="line">		if(!Rst_n)</span><br><span class="line">			Data_out &lt;= 2&apos;b00;</span><br><span class="line">		else if(locked)</span><br><span class="line">			begin</span><br><span class="line">			Data_out &lt;= Data_out;</span><br><span class="line">			Data_out &lt;= Data_in + 1&apos;b1;</span><br><span class="line">			end</span><br><span class="line">		else </span><br><span class="line">			;</span><br><span class="line">					</span><br><span class="line">	end</span><br><span class="line">always@(posedge Clk2 or negedge Rst_n)</span><br><span class="line">	begin</span><br><span class="line">		if(!Rst_n)</span><br><span class="line">			Data_out_fast &lt;= 2&apos;b00;</span><br><span class="line">		else if(locked)</span><br><span class="line">			begin</span><br><span class="line">			Data_out_fast &lt;= Data_out_fast;</span><br><span class="line">			Data_out_fast &lt;= Data_in + 1&apos;b1;	</span><br><span class="line">			end</span><br><span class="line">		else</span><br><span class="line">			;</span><br><span class="line">					</span><br><span class="line">	end	</span><br><span class="line"></span><br><span class="line">endmodule</span><br></pre></td></tr></table></figure>
+
+<p>（3）功能仿真</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">`timescale 1ns/1ns</span><br><span class="line">`define Clk_period 20</span><br><span class="line"></span><br><span class="line">module top_tb;</span><br><span class="line">reg Clk_50M=1&apos;b0;</span><br><span class="line">reg Rst_n=1&apos;b0;</span><br><span class="line">reg [1:0] Data_in=1&apos;b0;</span><br><span class="line">	</span><br><span class="line">wire [1:0] Data_out;</span><br><span class="line">wire [1:0] Data_out_fast;</span><br><span class="line">wire Clk_100M;</span><br><span class="line">wire locked;</span><br><span class="line"></span><br><span class="line">top top_tb_U1(</span><br><span class="line">	.Clk_50M(Clk_50M),</span><br><span class="line">	.Rst_n(Rst_n),</span><br><span class="line">	.Data_in(Data_in),</span><br><span class="line">	</span><br><span class="line">	.Data_out(Data_out),</span><br><span class="line">	.Data_out_fast(Data_out_fast),</span><br><span class="line">	.Clk_100M(Clk_100M),</span><br><span class="line">	.locked(locked)</span><br><span class="line"></span><br><span class="line">);</span><br><span class="line">always #(`Clk_period/2) Clk_50M = ~Clk_50M;</span><br><span class="line"></span><br><span class="line">initial</span><br><span class="line">	begin</span><br><span class="line">		#(`Clk_period)</span><br><span class="line">		Rst_n = 1&apos;b0;</span><br><span class="line">		#(`Clk_period)</span><br><span class="line">		Rst_n = 1&apos;b1;</span><br><span class="line">		#(`Clk_period)</span><br><span class="line">		#(`Clk_period)</span><br><span class="line">		#(`Clk_period*10)</span><br><span class="line">		$stop;</span><br><span class="line">	end</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">endmodule</span><br></pre></td></tr></table></figure>
+
+<h2 id="2、时序设计"><a href="#2、时序设计" class="headerlink" title="2、时序设计"></a>2、时序设计</h2><p>（1）时钟约束<br>由于使用了PLL时钟单元，所有的时钟约束都已经自动的载入了，而没有使用衍生时钟，所以这部分的工作已经完成。<br>（2）路径约束<br>（3）接口约束<br>（4）时序仿真<br>!仿真工具有点问题，好像不支持PLL的时序仿真，这需要更新软件，这部分先暂时等一下理论的学习。</p>
+<h2 id="3、综合设计"><a href="#3、综合设计" class="headerlink" title="3、综合设计"></a>3、综合设计</h2><p>（1）IO约束<br>（2）布局布线<br>（3）综合网表</p>
+<h1 id="五、实验结果"><a href="#五、实验结果" class="headerlink" title="五、实验结果"></a>五、实验结果</h1><p>由于EDA工具被迫中止。</p>
+<h1 id="六、反思总结"><a href="#六、反思总结" class="headerlink" title="六、反思总结"></a>六、反思总结</h1><p>这段时间的时间以复习为主，相应的理论知识还没有跟上。相应的软件的更新也没有准备好。尽快处理好这些问题，保证时间上能够完成学习要求。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">example</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/16/多时钟时序测试（失败）/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-PLL时钟管理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -998,98 +1102,6 @@
 
 
   
-    <article id="post-时序约束初试" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/04/时序约束初试/">时序约束初试</a>
-    </h1>
-  
-
-        
-        <a href="/2019/11/04/时序约束初试/" class="archive-article-date">
-  	<time datetime="2019-11-04T13:49:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-04</time>
-</a>
-        
-      </header>
-      <div align="center" class="post-count">
-      字数：268字 | 预计阅读时长：1分钟
-      </div>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <pre><code>设计约束</code></pre><h1 id="一、管脚分配"><a href="#一、管脚分配" class="headerlink" title="一、管脚分配"></a>一、管脚分配</h1><p>将输入输出信号指定到器件的某个管脚，主要是用于实际的连接。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">example</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/04/时序约束初试/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1195,7 +1207,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">example</a>
+                <a href="javascript:void(0)" class="js-tag color2">Altera</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1203,7 +1215,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Altera</a>
+                <a href="javascript:void(0)" class="js-tag color3">example</a>
               </li>
             
             <div class="clearfix"></div>
