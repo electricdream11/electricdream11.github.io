@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://github.com/electricdream11">
   <title>多时钟时序测试（失败） | The Electric Dream</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="多时钟设计原理一、背景知识在掌握了利用PLL产生多时钟后，使用多时钟设计并利用其提高设计的速度是当下的重要目的。所谓的多时钟设计就是根据不同的速度要求制定不同的实现方法。为了更好的掌握这种层次的设计，需要具体的去体验这个问题。 二、实验目的实现多时钟设计的基本优化。为了加强这个方面的能力，解决在时序中主要的问题，可以尝试对不同时钟下的设计。 三、实验原理构建一条基础的数据传输链，利用PLL产生的时">
+  <meta name="description" content="多时钟设计原理一、背景知识在掌握了利用PLL产生多时钟后，使用多时钟设计并利用其提高设计的速度是当下的重要目的。所谓的多时钟设计就是根据不同的速度要求制定不同的实现方法。为了更好的掌握这种层次的设计，需要具体的去体验这个问题。">
 <meta name="keywords" content="FPGA,example">
 <meta property="og:type" content="article">
 <meta property="og:title" content="多时钟时序测试（失败）">
 <meta property="og:url" content="https://github.com/electricdream11/2019/11/16/多时钟时序测试（失败）/index.html">
 <meta property="og:site_name" content="The Electric Dream">
-<meta property="og:description" content="多时钟设计原理一、背景知识在掌握了利用PLL产生多时钟后，使用多时钟设计并利用其提高设计的速度是当下的重要目的。所谓的多时钟设计就是根据不同的速度要求制定不同的实现方法。为了更好的掌握这种层次的设计，需要具体的去体验这个问题。 二、实验目的实现多时钟设计的基本优化。为了加强这个方面的能力，解决在时序中主要的问题，可以尝试对不同时钟下的设计。 三、实验原理构建一条基础的数据传输链，利用PLL产生的时">
+<meta property="og:description" content="多时钟设计原理一、背景知识在掌握了利用PLL产生多时钟后，使用多时钟设计并利用其提高设计的速度是当下的重要目的。所谓的多时钟设计就是根据不同的速度要求制定不同的实现方法。为了更好的掌握这种层次的设计，需要具体的去体验这个问题。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-16T13:19:55.425Z">
+<meta property="og:updated_time" content="2019-11-18T12:59:56.503Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="多时钟时序测试（失败）">
-<meta name="twitter:description" content="多时钟设计原理一、背景知识在掌握了利用PLL产生多时钟后，使用多时钟设计并利用其提高设计的速度是当下的重要目的。所谓的多时钟设计就是根据不同的速度要求制定不同的实现方法。为了更好的掌握这种层次的设计，需要具体的去体验这个问题。 二、实验目的实现多时钟设计的基本优化。为了加强这个方面的能力，解决在时序中主要的问题，可以尝试对不同时钟下的设计。 三、实验原理构建一条基础的数据传输链，利用PLL产生的时">
+<meta name="twitter:description" content="多时钟设计原理一、背景知识在掌握了利用PLL产生多时钟后，使用多时钟设计并利用其提高设计的速度是当下的重要目的。所谓的多时钟设计就是根据不同的速度要求制定不同的实现方法。为了更好的掌握这种层次的设计，需要具体的去体验这个问题。">
   
     <link rel="alternative" href="/atom.xml" title="The Electric Dream" type="application/atom+xml">
   
@@ -194,6 +194,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <pre><code>多时钟设计原理</code></pre><h1 id="一、背景知识"><a href="#一、背景知识" class="headerlink" title="一、背景知识"></a>一、背景知识</h1><p>在掌握了利用PLL产生多时钟后，使用多时钟设计并利用其提高设计的速度是当下的重要目的。所谓的多时钟设计就是根据不同的速度要求制定不同的实现方法。为了更好的掌握这种层次的设计，需要具体的去体验这个问题。</p>
+<a id="more"></a>
 <h1 id="二、实验目的"><a href="#二、实验目的" class="headerlink" title="二、实验目的"></a>二、实验目的</h1><p>实现多时钟设计的基本优化。为了加强这个方面的能力，解决在时序中主要的问题，可以尝试对不同时钟下的设计。</p>
 <h1 id="三、实验原理"><a href="#三、实验原理" class="headerlink" title="三、实验原理"></a>三、实验原理</h1><p>构建一条基础的数据传输链，利用PLL产生的时钟实现高速传输，并且实现时序约束。数据传输链这次会复杂一点，以体现多时钟的优势。</p>
 <h1 id="四、实验操作"><a href="#四、实验操作" class="headerlink" title="四、实验操作"></a>四、实验操作</h1><h2 id="1、功能设计"><a href="#1、功能设计" class="headerlink" title="1、功能设计"></a>1、功能设计</h2><p>（1）功能定义<br>一条50M的数据传输链，在时序充足的地方引入100M的时钟加速。对比得到多时钟设计的优势。并且对时序余量设计的初步的把握。当下的感觉是对实际的问题的解决没有明确的概念。具体的方法还是要在具有实际功能的设计中理解。相应的技巧的阅读也要跟上。知识跟不上会导致设计脱离实践的速度。<br>（2）代码实现<br>！下一次还是回归简单的芯片，可以减少设计时的编译时间。</p>
@@ -462,11 +463,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Altera</a>
+                <a href="javascript:void(0)" class="js-tag color3">example</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">example</a>
+                <a href="javascript:void(0)" class="js-tag color2">Altera</a>
               </li>
              
               <li class="article-tag-list-item">
