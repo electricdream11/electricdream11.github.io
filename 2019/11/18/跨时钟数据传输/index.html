@@ -6,20 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://github.com/electricdream11">
-  <title>1003_FPGA | The Electric Dream</title>
+  <title>跨时钟数据传输 | The Electric Dream</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="FPGA是这个博客的主要的内容，认真的学习好相应的内容是解决这个问题的关键。不定时的上传一些学习过程可以有效地解决资源不足的问题。">
-<meta name="keywords" content="test">
+  <meta name="description" content="跨时钟数据传输一、学习背景在学习了如何产生多时钟频率后，自然而然的就要考虑如何将其引入到实际的设计中去。跨时钟设计中最简单的就是同相异频的数据传输模型，这也是跨时钟中最简单并且实用的模型。与此同时，学习这个模型也可以为异频异相的传输打下基础。">
+<meta name="keywords" content="FPGA,example">
 <meta property="og:type" content="article">
-<meta property="og:title" content="1003_FPGA">
-<meta property="og:url" content="https://github.com/electricdream11/2019/10/03/1003_FPGA/index.html">
+<meta property="og:title" content="跨时钟数据传输">
+<meta property="og:url" content="https://github.com/electricdream11/2019/11/18/跨时钟数据传输/index.html">
 <meta property="og:site_name" content="The Electric Dream">
-<meta property="og:description" content="FPGA是这个博客的主要的内容，认真的学习好相应的内容是解决这个问题的关键。不定时的上传一些学习过程可以有效地解决资源不足的问题。">
+<meta property="og:description" content="跨时钟数据传输一、学习背景在学习了如何产生多时钟频率后，自然而然的就要考虑如何将其引入到实际的设计中去。跨时钟设计中最简单的就是同相异频的数据传输模型，这也是跨时钟中最简单并且实用的模型。与此同时，学习这个模型也可以为异频异相的传输打下基础。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-04T06:24:24.227Z">
+<meta property="og:image" content="https://github.com/2019/11/18/跨时钟数据传输/imag_001.png">
+<meta property="og:image" content="https://github.com/2019/11/18/跨时钟数据传输/imag_002.png">
+<meta property="og:updated_time" content="2019-11-18T12:56:32.253Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="1003_FPGA">
-<meta name="twitter:description" content="FPGA是这个博客的主要的内容，认真的学习好相应的内容是解决这个问题的关键。不定时的上传一些学习过程可以有效地解决资源不足的问题。">
+<meta name="twitter:title" content="跨时钟数据传输">
+<meta name="twitter:description" content="跨时钟数据传输一、学习背景在学习了如何产生多时钟频率后，自然而然的就要考虑如何将其引入到实际的设计中去。跨时钟设计中最简单的就是同相异频的数据传输模型，这也是跨时钟中最简单并且实用的模型。与此同时，学习这个模型也可以为异频异相的传输打下基础。">
+<meta name="twitter:image" content="https://github.com/2019/11/18/跨时钟数据传输/imag_001.png">
   
     <link rel="alternative" href="/atom.xml" title="The Electric Dream" type="application/atom+xml">
   
@@ -170,30 +173,46 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-1003_FPGA" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-跨时钟数据传输" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      1003_FPGA
+      跨时钟数据传输
     </h1>
   
 
         
-        <a href="/2019/10/03/1003_FPGA/" class="archive-article-date">
-  	<time datetime="2019-10-03T12:29:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-03</time>
+        <a href="/2019/11/18/跨时钟数据传输/" class="archive-article-date">
+  	<time datetime="2019-11-18T12:52:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-18</time>
 </a>
         
       </header>
       <div align="center" class="post-count">
-      字数：59字 | 预计阅读时长：1分钟
+      字数：1k字 | 预计阅读时长：4分钟
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>FPGA是这个博客的主要的内容，认真的学习好相应的内容是解决这个问题的关键。不定时的上传一些学习过程可以有效地解决资源不足的问题。</p>
+        <pre><code>跨时钟数据传输</code></pre><h1 id="一、学习背景"><a href="#一、学习背景" class="headerlink" title="一、学习背景"></a>一、学习背景</h1><p>在学习了如何产生多时钟频率后，自然而然的就要考虑如何将其引入到实际的设计中去。跨时钟设计中最简单的就是同相异频的数据传输模型，这也是跨时钟中最简单并且实用的模型。与此同时，学习这个模型也可以为异频异相的传输打下基础。</p>
+<a id="more"></a>
+<h1 id="二、实验目的"><a href="#二、实验目的" class="headerlink" title="二、实验目的"></a>二、实验目的</h1><p>掌握好数据跨时钟传输模型，并借此以提高数据的传输的灵活性。数据跨时钟是在同步时钟后的又一个难点，具体的了解这个模型对时序的理解也是重要的途径。</p>
+<h1 id="三、实验原理"><a href="#三、实验原理" class="headerlink" title="三、实验原理"></a>三、实验原理</h1><p>使用PLL锁相环得到两个不同频率时钟，分别驱动两个部分。在两个部分的连接处使用不同的方法以提高数据传输的准确性。根据数据传输的时序模型来了解实际的数据传输设置，包括高频到低频和低频到高频的两种模型。</p>
+<h1 id="四、实验操作"><a href="#四、实验操作" class="headerlink" title="四、实验操作"></a>四、实验操作</h1><h2 id="1、功能设计"><a href="#1、功能设计" class="headerlink" title="1、功能设计"></a>1、功能设计</h2><p>（1）功能定义<br>使用PLL实现两个时钟的输出，构建两个数据传输路径，一个由高频到低频，一个反之。还有一个全局的复位信号和时钟复位信号。输出则是根据实际的需求来使用的。<br>（2）代码实现</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">module top(</span><br><span class="line">	input Clk,</span><br><span class="line">	input Rst_n,</span><br><span class="line">	input [1:0] data_in,</span><br><span class="line">	</span><br><span class="line">	output locked,</span><br><span class="line">	output  Clk_50M,</span><br><span class="line">	output  Clk_100M,</span><br><span class="line">	output reg [1:0] data_out1,</span><br><span class="line">	output reg [1:0] data_out2,</span><br><span class="line">	output reg [1:0] data_out1_temp,</span><br><span class="line">   output reg [1:0] data_out2_temp</span><br><span class="line">);</span><br><span class="line">reg Rst_clk;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> PLL PLL_U1(</span><br><span class="line">	.areset(Rst_clk),</span><br><span class="line">	.inclk0(Clk),</span><br><span class="line">	.c0(Clk_50M),</span><br><span class="line">	.c1(Clk_100M),</span><br><span class="line">	.locked(locked)</span><br><span class="line">);</span><br><span class="line">always@(posedge Clk or negedge Rst_n)</span><br><span class="line">	begin</span><br><span class="line">		if(!Rst_n)</span><br><span class="line">			Rst_clk &lt;= 1&apos;b1;</span><br><span class="line">		else</span><br><span class="line">			Rst_clk &lt;= 1&apos;b0;</span><br><span class="line">	end</span><br><span class="line">	</span><br><span class="line">always@(posedge Clk_50M or negedge Rst_n)</span><br><span class="line">	begin</span><br><span class="line">		if(!Rst_n)</span><br><span class="line">			data_out1_temp &lt;= 2&apos;b0;</span><br><span class="line">		else	if(locked)</span><br><span class="line">			data_out1_temp &lt;= data_in;			</span><br><span class="line">	end</span><br><span class="line">always@(posedge Clk_100M or negedge Rst_n)</span><br><span class="line">	begin</span><br><span class="line">		if(!Rst_n)</span><br><span class="line">			data_out1 &lt;= 2&apos;b0;</span><br><span class="line">		else if(locked)</span><br><span class="line">			data_out1 &lt;= data_out1_temp;</span><br><span class="line">	end</span><br><span class="line">always@(posedge Clk_100M or negedge Rst_n)</span><br><span class="line">	begin</span><br><span class="line">		if(!Rst_n)</span><br><span class="line">			data_out2_temp &lt;= 2&apos;b0;</span><br><span class="line">		else	if(locked)</span><br><span class="line">			data_out2_temp &lt;= data_in;</span><br><span class="line">	end</span><br><span class="line">always@(posedge Clk_50M or negedge Rst_n)</span><br><span class="line">	begin</span><br><span class="line">		if(!Rst_n)</span><br><span class="line">			data_out2 &lt;= 2&apos;b0;</span><br><span class="line">		else if(locked)</span><br><span class="line">			data_out2 &lt;= data_out2_temp;</span><br><span class="line">	end</span><br><span class="line"></span><br><span class="line">endmodule</span><br></pre></td></tr></table></figure>
+
+<img src="/2019/11/18/跨时钟数据传输/imag_001.png">
+<p>（3）功能仿真</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">`timescale 1ns/1ns</span><br><span class="line">`define Clk_period 20</span><br><span class="line"></span><br><span class="line">module top_tb;</span><br><span class="line"></span><br><span class="line">reg Clk=1&apos;b0;</span><br><span class="line">reg Rst_n=1&apos;b0;</span><br><span class="line">reg [1:0] data_in=2&apos;b0;</span><br><span class="line">	</span><br><span class="line">wire locked;</span><br><span class="line">wire  Clk_50M;</span><br><span class="line">wire  Clk_100M;</span><br><span class="line">wire  [1:0] data_out1;</span><br><span class="line">wire  [1:0] data_out2;</span><br><span class="line">wire  [1:0] data_out1_temp;</span><br><span class="line">wire  [1:0] data_out2_temp;</span><br><span class="line">top top_tb_U1(</span><br><span class="line">	.Clk(Clk),</span><br><span class="line">	.Rst_n(Rst_n),</span><br><span class="line">	.data_in(data_in),</span><br><span class="line">	</span><br><span class="line">	.locked(locked),</span><br><span class="line">	. Clk_50M(Clk_50M),</span><br><span class="line">	. Clk_100M(Clk_100M),</span><br><span class="line">	.data_out1(data_out1),</span><br><span class="line">	.data_out2(data_out2),</span><br><span class="line">	.data_out1_temp(data_out1_temp),</span><br><span class="line">	.data_out2_temp(data_out2_temp)</span><br><span class="line">	</span><br><span class="line">);</span><br><span class="line">always #(`Clk_period) Clk = ~ Clk;</span><br><span class="line"></span><br><span class="line">initial </span><br><span class="line">	begin</span><br><span class="line">		#(`Clk_period)</span><br><span class="line">		Rst_n = 1&apos;b0;</span><br><span class="line">		#(`Clk_period)</span><br><span class="line">		data_in = 2&apos;b01;</span><br><span class="line">		#(`Clk_period)</span><br><span class="line">		Rst_n = 1&apos;b1;</span><br><span class="line">		#(`Clk_period*10)</span><br><span class="line">		data_in = 2&apos;b10;</span><br><span class="line">		#(`Clk_period*10)</span><br><span class="line">		data_in = 2&apos;b11;</span><br><span class="line">		#(`Clk_period*10)</span><br><span class="line">		data_in = 2&apos;b00;</span><br><span class="line">		#(`Clk_period*10)</span><br><span class="line">		$stop;</span><br><span class="line">	end</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">endmodule</span><br></pre></td></tr></table></figure>
+
+<img src="/2019/11/18/跨时钟数据传输/imag_002.png">
+<p>（4）功能分析<br>从理想的功能仿真可以看到，先传到50M频的寄存器再到100M频的寄存器的数据传输要比先到100M频的寄存器再到50M频的数据传输要快一个100M时钟周期。即假设在前一个寄存器的数据同步变化，后一个寄存器在各自时钟周期后变化。</p>
+<h2 id="2、时序设计"><a href="#2、时序设计" class="headerlink" title="2、时序设计"></a>2、时序设计</h2><p>（1）时钟约束<br>时钟约束依旧已经在IP核中自动设置完成。<br>（2）接口约束<br>这部分的约束好像没有解决，时序约束部分还有些没有理解的部分。可以考虑先用时序分析来解决，后仿真在后面学习完了在进行。<br>（3）路径约束<br>（4）时序仿真<br>（5）时序分析</p>
+<h2 id="3、布局布线"><a href="#3、布局布线" class="headerlink" title="3、布局布线"></a>3、布局布线</h2><p>略</p>
+<h1 id="五、实验结果"><a href="#五、实验结果" class="headerlink" title="五、实验结果"></a>五、实验结果</h1><p>现在发现时序约束还有比较多的工具还没有了解到，导致实验的结果没有满足实际的设计的思路。接下来的要对这部分的知识补充一下。这次最好能够将所有的后仿真的文件和概念都分析清楚。每次都烂尾的感觉真不好。</p>
+<h1 id="六、反思总结"><a href="#六、反思总结" class="headerlink" title="六、反思总结"></a>六、反思总结</h1><p>EDA工具的了解要深刻，不能知识选择性的使用，否则在使用是可能会出现设置错误从而耽误时间。这两天的时序分析就是最好的例子。而且，有可能的化尽可能的选择多种方式进行，以减少相应的时间的耽误。</p>
 
       
 
@@ -207,7 +226,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">test</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">example</a>
         		</li>
       		
 		</ul>
@@ -219,7 +242,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/test//" class="article-tag-list-link color5">test</a>
+        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
         		</li>
       		
 		</ul>
@@ -274,7 +297,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://github.com/electricdream11/2019/10/03/1003_FPGA/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://github.com/electricdream11/2019/11/18/跨时钟数据传输/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -288,18 +311,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/10/06/可编程逻辑基础/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          可编程逻辑基础
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/10/03/myaim/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">myaim</div>
+    <a href="/2019/11/16/多时钟时序测试（失败）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">多时钟时序测试（失败）</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -318,6 +332,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、学习背景"><span class="toc-number">1.</span> <span class="toc-text">一、学习背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、实验目的"><span class="toc-number">2.</span> <span class="toc-text">二、实验目的</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、实验原理"><span class="toc-number">3.</span> <span class="toc-text">三、实验原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、实验操作"><span class="toc-number">4.</span> <span class="toc-text">四、实验操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、功能设计"><span class="toc-number">4.1.</span> <span class="toc-text">1、功能设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、时序设计"><span class="toc-number">4.2.</span> <span class="toc-text">2、时序设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、布局布线"><span class="toc-number">4.3.</span> <span class="toc-text">3、布局布线</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五、实验结果"><span class="toc-number">5.</span> <span class="toc-text">五、实验结果</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六、反思总结"><span class="toc-number">6.</span> <span class="toc-text">六、反思总结</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
