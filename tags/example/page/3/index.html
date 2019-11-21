@@ -6,20 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://github.com/electricdream11">
-  <title>可编程逻辑设计指导原则 | The Electric Dream</title>
+  <title>Tag: example | The Electric Dream</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="可编程逻辑设计指导原则学习指导原则可以在设计过程中少走很多弯路。">
-<meta name="keywords" content="FPGA,Altera">
-<meta property="og:type" content="article">
-<meta property="og:title" content="可编程逻辑设计指导原则">
-<meta property="og:url" content="https://github.com/electricdream11/2019/10/22/可编程逻辑设计指导原则/index.html">
+  <meta name="description" content="the site is just for study and interest">
+<meta property="og:type" content="website">
+<meta property="og:title" content="The Electric Dream">
+<meta property="og:url" content="https://github.com/electricdream11/tags/example/page/3/index.html">
 <meta property="og:site_name" content="The Electric Dream">
-<meta property="og:description" content="可编程逻辑设计指导原则学习指导原则可以在设计过程中少走很多弯路。">
+<meta property="og:description" content="the site is just for study and interest">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-22T15:30:00.508Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="可编程逻辑设计指导原则">
-<meta name="twitter:description" content="可编程逻辑设计指导原则学习指导原则可以在设计过程中少走很多弯路。">
+<meta name="twitter:title" content="The Electric Dream">
+<meta name="twitter:description" content="the site is just for study and interest">
   
     <link rel="alternative" href="/atom.xml" title="The Electric Dream" type="application/atom+xml">
   
@@ -170,67 +168,36 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-可编程逻辑设计指导原则" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      可编程逻辑设计指导原则
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/10/14/三人表决器/" class="archive-article-date">
+  	<time datetime="2019-10-14T13:25:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-14</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/10/14/三人表决器/">三人表决器</a>
     </h1>
   
 
-        
-        <a href="/2019/10/22/可编程逻辑设计指导原则/" class="archive-article-date">
-  	<time datetime="2019-10-22T15:20:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-22</time>
-</a>
-        
-      </header>
-      <div align="center" class="post-count">
-      字数：2.5k字 | 预计阅读时长：8分钟
-      </div>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <pre><code>可编程逻辑设计指导原则</code></pre><p>学习指导原则可以在设计过程中少走很多弯路。</p>
-<a id="more"></a>
-<h1 id="1-基本设计原则"><a href="#1-基本设计原则" class="headerlink" title="1.基本设计原则"></a>1.基本设计原则</h1><h2 id="一、面积和速度（设计质量评价的最终标准）的平衡与互换原则"><a href="#一、面积和速度（设计质量评价的最终标准）的平衡与互换原则" class="headerlink" title="一、面积和速度（设计质量评价的最终标准）的平衡与互换原则"></a>一、面积和速度（设计质量评价的最终标准）的平衡与互换原则</h2><p>   “面积”（area）:逻辑资源的数量（对FPGA为FF【触发器】和LUT【查找表】）<br>   “速度”（speed) :芯片稳定运行时的最高频率｛与时钟周期等众多的时序特征量密切相关｝<br>    ！一般优先考虑速度<br>   面积与速度的转化：加大并行量可以提高工作的频率，拉长流水线可以减小面积；</p>
-<h2 id="二、硬件原则"><a href="#二、硬件原则" class="headerlink" title="二、硬件原则"></a>二、硬件原则</h2><p>   使用硬件描述语言时要时刻注意电路的对应。不同于c语言的关注于语言逻辑，HDL的描述追求的是准确的表达设计，而不是直接的设计。在书写代码时要时刻考虑到建模的对应性。<br>   verilog对系统行为的描述分为“sysytem”（系统级）、“Algorithm”（算法级）、“RTL”（寄存器传输级）、“logic”（逻辑级）和“gate”（门级）。RTL级后的级别都需要考虑电路的特性。<br>  如ifcase结构在verilog中带有优先级的描述，而case则没有优先级。C中则单纯的是选择语句。<br>  总之，考虑verilog的模型对应是十分重要的设计原则。</p>
-<h2 id="三、系统原则"><a href="#三、系统原则" class="headerlink" title="三、系统原则"></a>三、系统原则</h2><p>   在有了一个需要实现的硬件系统时，系统层次的原则就是设计的起点。<br>   一般来说，实时性要求高、频率快的功能模块需要使用FPGA/CPLD实现。FPGA的触发器资源丰富，CPLD组合逻辑资源丰富。<br>  系统资源的考虑因素：<br>（1）存储器资源的使用<br>     RAM和ROM所用的数量确定了所选的器件。<br>（2）硬核的使用<br>     使用处理核可以提高设计的性能，但要考虑内嵌的处理模块与真正的处理模块的功能的区别。<br>（3）串行收发器的使用<br>     SERDES（串行收发器），完成高速的串行信号收发。可以有效地解决高速系统中数据传输的瓶颈。<br>（4）其他结构的使用<br>     选择IO：功耗，传输距离，抗干扰性和EMI<br>     选择布线资源和时钟资源：速度等级（设计速度由电路的整体结构和代码风格决定）<br>（5）拓展<br>     模块化设计是大型复杂系统的推荐的设计方法。</p>
-<h2 id="四、同步设计原则"><a href="#四、同步设计原则" class="headerlink" title="四、同步设计原则"></a>四、同步设计原则</h2><p>  同步的时序的设计可以有效地解决大规模设计过程中的统一性的问题。可以有效地减少设计的工作量。<br>  同步设计中数据采样必须遵从的原则<br>（1）在有效时钟沿到达前，数据的输入至少已经稳定了采样寄存器的Setup时间（setup原则）<br>（2）在有效时钟沿到达后，数据输入至少还将稳定保持采样寄存器的Hold时间之久（hold原则）</p>
-<h1 id="2-常用设计思想与技巧"><a href="#2-常用设计思想与技巧" class="headerlink" title="2.常用设计思想与技巧"></a>2.常用设计思想与技巧</h1><h2 id="一、乒乓操作"><a href="#一、乒乓操作" class="headerlink" title="一、乒乓操作"></a>一、乒乓操作</h2><p>  采用输入数据选择和输出数据选择两个模块来实现数据的流水线式的算法，可以完成数据的无缝缓冲和处理。可以实现低频模块来处理高频数据。（典型的面积换速度）</p>
-<h2 id="二、串并转换"><a href="#二、串并转换" class="headerlink" title="二、串并转换"></a>二、串并转换</h2><p>   串行结构占速度，并行结构占面积。两者的合理的利用可以达到设计的目标。</p>
-<h2 id="三、流水线操作"><a href="#三、流水线操作" class="headerlink" title="三、流水线操作"></a>三、流水线操作</h2><p>   处理流程和顺序操作的设计思想，是常用的设计手段。如果某个设计的处理流程可以分为若干的步骤，且整个的数据处理是单流向的，没有反馈和迭代，则可以考虑流水线操作。<br>四、异步时钟域的数据处理<br>      处理好异步时钟是提高设计的稳定性的重要的手段。<br>（1）两类异步时钟域同步的表现形式<br>     有同频异相问题和异频问题两种形式。<br>（2）两种不推荐的异步时钟域的操作方法<br>     buffer组合逻辑延时线调整采样（组合逻辑产生的延迟不稳定，会使可维护性和继承性变差）<br>     盲目使用时钟正负边沿调整（双边沿的时钟约束并不可靠，这是专用的高速电路中的做法，而FPGA并不具备这样的条件）<br>（3）异步时钟域数据同步的常用方法<br>       i：同频异相：<br>       用后级时钟对前级数据采样两次，有效地减少亚稳态，可以解决对错误不敏感的单元。<br>       可靠的方法是使用DPRAM，FIFO或寄存器buffer完成异步数据的转换。<br>       ii：异频问题：使用DPRAM或FIFO将数据缓存转化。<br>    （4）亚稳态<br>       异步信号转化时不稳定的信号传输产生的干扰。       </p>
-<h1 id="3-Altera推荐的coding-style"><a href="#3-Altera推荐的coding-style" class="headerlink" title="3.Altera推荐的coding style"></a>3.Altera推荐的coding style</h1><p>   在设计规模的不断地提高的背景下，代码的可移植性变得越来越重要。良好的代码规范可以达到一劳永逸的奇效。<br>   此外，EDA工具虽然可以辅助设计者的代码的实现和优化，但设计者本身的良好代码风格可以事半功倍的达到效果。</p>
-<h2 id="（1）代码风格的含义"><a href="#（1）代码风格的含义" class="headerlink" title="（1）代码风格的含义"></a>（1）代码风格的含义</h2><p>   一般性Coding style 和针对综合工具、实现工具、器件类型的coding style。</p>
-<h2 id="（2）结构层次化编码"><a href="#（2）结构层次化编码" class="headerlink" title="（2）结构层次化编码"></a>（2）结构层次化编码</h2><p>   模块化编码是模块化设计思想的一种体现。一般设计为三到五层就行，不能太深。顶层模块最好只是调用其他的模块，不用于实现复杂的逻辑功能。所有的IO信号都在顶层模块中完成。子模块不宜直接连接，以提高可读性。</p>
-<h2 id="（3）模块划分的技巧"><a href="#（3）模块划分的技巧" class="headerlink" title="（3）模块划分的技巧"></a>（3）模块划分的技巧</h2>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">*同步时序设计的子模块的输出使用寄存器（方便时序约束）</span><br><span class="line">【寄存器分割同步时序模块】</span><br><span class="line">*相关逻辑和可复用逻辑划分到同一个模块（方便EDA优化）</span><br><span class="line">【呼应系统原则】</span><br><span class="line">*不同优化目标分开，可以将综合器设置为层次化的优化，提高优化策略。</span><br><span class="line">*松约束逻辑归到一块，指定约束以提高效率</span><br><span class="line">*存储逻辑独立划分模块，可以提高综合和仿真的效率</span><br><span class="line">*模块规模的控制，模块越大越有利于资源共享，但要考虑综合器和仿真器的压力。</span><br></pre></td></tr></table></figure>
-
-<h2 id="（4）组合逻辑的注意事项"><a href="#（4）组合逻辑的注意事项" class="headerlink" title="（4）组合逻辑的注意事项"></a>（4）组合逻辑的注意事项</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">*避免组合逻辑反馈环路（Combinational Loops）</span><br><span class="line">*替换延迟链（Delay Chains），可以考虑倍频电路使用</span><br><span class="line">*替换异步脉冲产生单元（pulse Generator），产生的信号不稳定</span><br><span class="line">*避免锁存器（Latch），产生的毛刺会影响稳定性。方法主要是考虑完备性</span><br></pre></td></tr></table></figure>
-
-<h2 id="（5）时钟设计的注意事项"><a href="#（5）时钟设计的注意事项" class="headerlink" title="（5）时钟设计的注意事项"></a>（5）时钟设计的注意事项</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">*时钟设计方法主要是使用主频和变频信号来控制，其他的变通的方法是在现有的资源不足时使用的。</span><br><span class="line">*PLL资源可以有效地对时钟的频率调整。</span><br><span class="line">*时钟布线资源，可以补充主频不足的缺陷</span><br><span class="line">*Ripple Counter（行波计数器）异步时序逻辑，能不用就不用</span><br><span class="line">*时钟选择，需要其他的时钟时最好使用Clock MUX来切换，没有的话也要保证切换不会影响功能（切换会有短暂的错误）</span><br><span class="line">*门控时钟（gate clock），可以减小功耗，但易产生毛刺，不推荐使用。</span><br><span class="line">*时钟同步使能端（Synchronous Clock Enable）可以直接有逻辑电路控制，可以简单的完成一些复杂功能。</span><br></pre></td></tr></table></figure>
-
-<h2 id="（6）全局异步复位资源"><a href="#（6）全局异步复位资源" class="headerlink" title="（6）全局异步复位资源"></a>（6）全局异步复位资源</h2><p>   可以全局配置复位资源，可以简化设计。</p>
-<h2 id="（7）判断case和if-case的优先级"><a href="#（7）判断case和if-case的优先级" class="headerlink" title="（7）判断case和if case的优先级"></a>（7）判断case和if case的优先级</h2><p>   case是平行，if是优先级。但if也能写出平行的结构。随着综合工具的发展，其已经可以自动去除不必要的优先级树去掉。</p>
-<h2 id="（8）使用Pipelining技术优化时序"><a href="#（8）使用Pipelining技术优化时序" class="headerlink" title="（8）使用Pipelining技术优化时序"></a>（8）使用Pipelining技术优化时序</h2><p>   本质上是长组合逻辑的寄存器的调整以达到提高效率的目的，但不能增加级数。</p>
-<h2 id="（9）模块复用和Resource-Sharing"><a href="#（9）模块复用和Resource-Sharing" class="headerlink" title="（9）模块复用和Resource Sharing"></a>（9）模块复用和Resource Sharing</h2><p> 对复杂模块的复用可以大幅的减少资源的使用量</p>
-<h2 id="（10）逻辑复制"><a href="#（10）逻辑复制" class="headerlink" title="（10）逻辑复制"></a>（10）逻辑复制</h2><p>   对速度占用过多时可以复制信号以提高速度，牺牲面积。</p>
-<h2 id="（11）香农拓展运算"><a href="#（11）香农拓展运算" class="headerlink" title="（11）香农拓展运算"></a>（11）香农拓展运算</h2><p>   卡诺化简的反向运算，相当于逻辑复制，目的也是提高速度。</p>
-<h2 id="（12）信号敏感表"><a href="#（12）信号敏感表" class="headerlink" title="（12）信号敏感表"></a>（12）信号敏感表</h2><p>   将敏感信号全部列出以检查是否有逻辑疏忽。</p>
-<h2 id="（13）状态机设计的一般原则"><a href="#（13）状态机设计的一般原则" class="headerlink" title="（13）状态机设计的一般原则"></a>（13）状态机设计的一般原则</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">*选择编码方式：gray-code使用较少的触发器，one-hot反之。所以CPLD多用gray-code，而one-hot多用于FPGA。</span><br><span class="line">*设计方法：状态转移和状态的操作、判断、等写到一个模块；状态转移单独成块。两种方法中一般选择后者。</span><br><span class="line">*初始化状态和默认状态，保持状态机的健壮性</span><br><span class="line">*默认输出，也是保持稳定性。</span><br><span class="line">*输出逻辑复用，可减少资源的用量，且不易冲突。</span><br></pre></td></tr></table></figure>
-
-<h2 id="（14）Altera-Megafunction资源的使用"><a href="#（14）Altera-Megafunction资源的使用" class="headerlink" title="（14）Altera Megafunction资源的使用"></a>（14）Altera Megafunction资源的使用</h2><p>   IP核是稳定的模块，可以提高设计效率和稳定性，就是会增加成本。</p>
-<h2 id="（15）三态信号的设计"><a href="#（15）三态信号的设计" class="headerlink" title="（15）三态信号的设计"></a>（15）三态信号的设计</h2><p>   在顶层中将双向端口定义位三态，且禁止其他的模块有此类定义（除非顶层中直接驱动双向端口），禁止赋值高阻Z。</p>
-<h2 id="（16）加法树的设计"><a href="#（16）加法树的设计" class="headerlink" title="（16）加法树的设计"></a>（16）加法树的设计</h2><p>   基于ALM的可变输入的LUT（查找表），可以设计出合理的加法书以提高查找的效率。查找的数量越少，资源利用率越高。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -240,13 +207,13 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Altera</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">example</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -259,125 +226,20 @@
 	</div>
 
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://github.com/electricdream11/2019/10/22/可编程逻辑设计指导原则/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2019/10/23/Altera器件的高级特性/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Altera器件的高级特性
-        
-      </div>
-    </a>
   
   
-    <a href="/2019/10/21/IP核的调用/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">IP核的调用</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-基本设计原则"><span class="toc-number">1.</span> <span class="toc-text">1.基本设计原则</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、面积和速度（设计质量评价的最终标准）的平衡与互换原则"><span class="toc-number">1.1.</span> <span class="toc-text">一、面积和速度（设计质量评价的最终标准）的平衡与互换原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、硬件原则"><span class="toc-number">1.2.</span> <span class="toc-text">二、硬件原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、系统原则"><span class="toc-number">1.3.</span> <span class="toc-text">三、系统原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、同步设计原则"><span class="toc-number">1.4.</span> <span class="toc-text">四、同步设计原则</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-常用设计思想与技巧"><span class="toc-number">2.</span> <span class="toc-text">2.常用设计思想与技巧</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、乒乓操作"><span class="toc-number">2.1.</span> <span class="toc-text">一、乒乓操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、串并转换"><span class="toc-number">2.2.</span> <span class="toc-text">二、串并转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、流水线操作"><span class="toc-number">2.3.</span> <span class="toc-text">三、流水线操作</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-Altera推荐的coding-style"><span class="toc-number">3.</span> <span class="toc-text">3.Altera推荐的coding style</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#（1）代码风格的含义"><span class="toc-number">3.1.</span> <span class="toc-text">（1）代码风格的含义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（2）结构层次化编码"><span class="toc-number">3.2.</span> <span class="toc-text">（2）结构层次化编码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（3）模块划分的技巧"><span class="toc-number">3.3.</span> <span class="toc-text">（3）模块划分的技巧</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（4）组合逻辑的注意事项"><span class="toc-number">3.4.</span> <span class="toc-text">（4）组合逻辑的注意事项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（5）时钟设计的注意事项"><span class="toc-number">3.5.</span> <span class="toc-text">（5）时钟设计的注意事项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（6）全局异步复位资源"><span class="toc-number">3.6.</span> <span class="toc-text">（6）全局异步复位资源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（7）判断case和if-case的优先级"><span class="toc-number">3.7.</span> <span class="toc-text">（7）判断case和if case的优先级</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（8）使用Pipelining技术优化时序"><span class="toc-number">3.8.</span> <span class="toc-text">（8）使用Pipelining技术优化时序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（9）模块复用和Resource-Sharing"><span class="toc-number">3.9.</span> <span class="toc-text">（9）模块复用和Resource Sharing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（10）逻辑复制"><span class="toc-number">3.10.</span> <span class="toc-text">（10）逻辑复制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（11）香农拓展运算"><span class="toc-number">3.11.</span> <span class="toc-text">（11）香农拓展运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（12）信号敏感表"><span class="toc-number">3.12.</span> <span class="toc-text">（12）信号敏感表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（13）状态机设计的一般原则"><span class="toc-number">3.13.</span> <span class="toc-text">（13）状态机设计的一般原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（14）Altera-Megafunction资源的使用"><span class="toc-number">3.14.</span> <span class="toc-text">（14）Altera Megafunction资源的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（15）三态信号的设计"><span class="toc-number">3.15.</span> <span class="toc-text">（15）三态信号的设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（16）加法树的设计"><span class="toc-number">3.16.</span> <span class="toc-text">（16）加法树的设计</span></a></li></ol></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
+    
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/tags/example/page/2/">&laquo; Prev</a><a class="page-number" href="/tags/example/">1</a><a class="page-number" href="/tags/example/page/2/">2</a><span class="page-number current">3</span>
+    </nav>
   
 
 
@@ -401,9 +263,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
