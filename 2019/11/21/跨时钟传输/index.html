@@ -19,7 +19,7 @@
 <meta property="og:image" content="https://github.com/2019/11/21/跨时钟传输/imag_001.png">
 <meta property="og:image" content="https://github.com/2019/11/21/跨时钟传输/imag_002.png">
 <meta property="og:image" content="https://github.com/2019/11/21/跨时钟传输/imag_003.png">
-<meta property="og:updated_time" content="2019-11-21T14:33:22.266Z">
+<meta property="og:updated_time" content="2019-11-21T14:36:22.389Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="跨时钟传输">
 <meta name="twitter:description" content="跨时钟传输模型一、说明在学习使用IP核后本想逐渐的使用IP核来提高设计的水平，奈何IP核不能做时序仿真，需要权限，所以以后再学习理论性的概念时最好不要使用IP核，除非只是基于功能的仿真。">
@@ -210,7 +210,8 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">`timescale 1ns/1ns</span><br><span class="line">`define Clk_p1 20</span><br><span class="line">`define Clk_p2 10</span><br><span class="line"></span><br><span class="line">module max_top_tb;</span><br><span class="line"></span><br><span class="line">//	input Clk_50M,</span><br><span class="line">//	input Clk_100M,</span><br><span class="line">//	input Rst_n,</span><br><span class="line">//	input data_s,</span><br><span class="line">	</span><br><span class="line">//	output reg data_a,</span><br><span class="line">//	output reg data_b</span><br><span class="line"></span><br><span class="line">reg Clk_50M=1&apos;b0;</span><br><span class="line">reg Clk_100M=1&apos;b0;</span><br><span class="line">reg Rst_n=1&apos;b0;</span><br><span class="line">reg data_s=1&apos;b0;</span><br><span class="line"></span><br><span class="line">wire data_a;</span><br><span class="line">wire data_b;</span><br><span class="line"></span><br><span class="line">max_top max_top_U1(</span><br><span class="line">	.Clk_50M(Clk_50M),</span><br><span class="line">	.Clk_100M(Clk_100M),</span><br><span class="line">	.Rst_n(Rst_n),</span><br><span class="line">	.data_s(data_s),</span><br><span class="line">	</span><br><span class="line">	.data_a(data_a),</span><br><span class="line">	.data_b(data_b)</span><br><span class="line"></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">always #(`Clk_p1/2) Clk_50M = ~Clk_50M ; </span><br><span class="line">always #(`Clk_p2/2) Clk_100M = ~Clk_100M;</span><br><span class="line"></span><br><span class="line">initial</span><br><span class="line">	begin</span><br><span class="line">		#(`Clk_p1*10)</span><br><span class="line">		Rst_n = 1&apos;b1;</span><br><span class="line">	   #(`Clk_p1*10)</span><br><span class="line">		data_s = 1&apos;b1;</span><br><span class="line">		#(`Clk_p1*10)</span><br><span class="line">		data_s = 1&apos;b0;</span><br><span class="line">		#(`Clk_p1*10)</span><br><span class="line">		data_s = 1&apos;b1;</span><br><span class="line">		#(`Clk_p1*10)</span><br><span class="line">		$stop;</span><br><span class="line">	end</span><br><span class="line"></span><br><span class="line">endmodule</span><br></pre></td></tr></table></figure>
 
 <img src="/2019/11/21/跨时钟传输/imag_003.png">
-<h1 id="四、管脚分配与连接"><a href="#四、管脚分配与连接" class="headerlink" title="四、管脚分配与连接"></a>四、管脚分配与连接</h1><p>不用板级验证，可以直接跳过。<br>五、时序分析与优化<br>1、时钟约束<br>只能约束一个时钟，多个时钟约束的分析还没熟悉<br>2、时序分析<br>还能用，前面的一个部分有一点错误，所以没有找到。</p>
+<h1 id="四、管脚分配与连接"><a href="#四、管脚分配与连接" class="headerlink" title="四、管脚分配与连接"></a>四、管脚分配与连接</h1><p>不用板级验证，可以直接跳过。</p>
+<h1 id="五、时序分析与优化"><a href="#五、时序分析与优化" class="headerlink" title="五、时序分析与优化"></a>五、时序分析与优化</h1><p>1、时钟约束<br>只能约束一个时钟，多个时钟约束的分析还没熟悉<br>2、时序分析<br>还能用，前面的一个部分有一点错误，所以没有找到。</p>
 <h1 id="六、反思总结"><a href="#六、反思总结" class="headerlink" title="六、反思总结"></a>六、反思总结</h1><p>这部分的学习还是得先掌握时钟域的分配。</p>
 
       
@@ -357,6 +358,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、说明"><span class="toc-number">1.</span> <span class="toc-text">一、说明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、跨时钟数据传输"><span class="toc-number">2.</span> <span class="toc-text">二、跨时钟数据传输</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、功能实现"><span class="toc-number">3.</span> <span class="toc-text">三、功能实现</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、管脚分配与连接"><span class="toc-number">4.</span> <span class="toc-text">四、管脚分配与连接</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五、时序分析与优化"><span class="toc-number">5.</span> <span class="toc-text">五、时序分析与优化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六、反思总结"><span class="toc-number">6.</span> <span class="toc-text">六、反思总结</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
