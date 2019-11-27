@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/electricdream11/"/>
-  <updated>2019-11-23T13:05:13.049Z</updated>
+  <updated>2019-11-27T13:44:27.478Z</updated>
   <id>https://github.com/electricdream11/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>学习转型</title>
+    <link href="https://github.com/electricdream11/2019/11/27/%E5%AD%A6%E4%B9%A0%E8%BD%AC%E5%9E%8B/"/>
+    <id>https://github.com/electricdream11/2019/11/27/学习转型/</id>
+    <published>2019-11-27T13:40:37.000Z</published>
+    <updated>2019-11-27T13:44:27.478Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>最近的学习方向</code></pre><p>FPGA的学习暂时告一段落，接下来的学习是对PCB内容的学习。正好结合实际的电子实习工艺，将PCB的内容掌握一部分。为接下来对FPGA的器件级的设计打下基础。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;pre&gt;&lt;code&gt;最近的学习方向&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;FPGA的学习暂时告一段落，接下来的学习是对PCB内容的学习。正好结合实际的电子实习工艺，将PCB的内容掌握一部分。为接下来对FPGA的器件级的设计打下基础。&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+      <category term="-dream" scheme="https://github.com/electricdream11/categories/dream/"/>
+    
+    
+      <category term="dream" scheme="https://github.com/electricdream11/tags/dream/"/>
+    
+  </entry>
   
   <entry>
     <title>小型系统设计之数字时钟</title>
