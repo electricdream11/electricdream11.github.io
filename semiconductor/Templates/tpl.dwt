@@ -13,7 +13,7 @@
 <body>
 <table width="904" height="682" border="1">
   <tr>
-    <td width="137" height="633"><img src="/imags/imag_source.gif" width="137" height="800" alt="导航" /></td>
+    <td width="137" height="633" valign="top"><img src="/imags/back/timg.gif" width="133" height="30%" alt="back" /></td>
     <td width="751" valign="top"><table width="100%" border="1">
       <!-- TemplateBeginEditable name="main" -->
       <tr>
