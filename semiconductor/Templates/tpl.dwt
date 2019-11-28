@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>无标题文档</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+<link href="/style/style1.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<table width="904" height="682" border="1">
+  <tr>
+    <td width="137" height="633"><img src="/imags/imag_source.gif" width="137" height="800" alt="导航" /></td>
+    <td width="751" valign="top"><table width="100%" border="1">
+      <!-- TemplateBeginEditable name="main" -->
+      <tr>
+        <td colspan="2">semiconductor</td>
+      </tr>
+      <tr>
+        <td width="82%" height="792" valign="top">&nbsp;</td>
+        <td width="18%" valign="top"><p><a href="device">半导体器件</a></p>
+          <p><a href="artificial_circuit">模拟电路</a></p></td>
+      </tr>
+      <!-- TemplateEndEditable -->
+    </table></td>
+  </tr>
+  <tr>
+    <td height="41" colspan="2" style="text-align: center">纯属个人兴趣</td>
+  </tr>
+</table>
+</body>
+</html>
