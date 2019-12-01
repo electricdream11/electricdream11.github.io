@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/electricdream11/"/>
-  <updated>2019-11-29T13:50:56.290Z</updated>
+  <updated>2019-12-01T14:32:25.088Z</updated>
   <id>https://github.com/electricdream11/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>初识AD的工程</title>
+    <link href="https://github.com/electricdream11/2019/12/01/%E5%88%9D%E8%AF%86AD%E7%9A%84%E5%B7%A5%E7%A8%8B/"/>
+    <id>https://github.com/electricdream11/2019/12/01/初识AD的工程/</id>
+    <published>2019-12-01T14:26:04.000Z</published>
+    <updated>2019-12-01T14:32:25.088Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>初识AD的工程</code></pre><h1 id="一、了解AD界面"><a href="#一、了解AD界面" class="headerlink" title="一、了解AD界面"></a>一、了解AD界面</h1><p>和大部分的软件一样，AD的设计界面也是以Windows界面的构成。无非是多了一些特有的功能界面，这些在设计时都可以慢慢了解。</p><a id="more"></a><h1 id="二、建立AD工程"><a href="#二、建立AD工程" class="headerlink" title="二、建立AD工程"></a>二、建立AD工程</h1><p>直接上图会更直接。</p><img src="/2019/12/01/初识AD的工程/imag_001.png"><h1 id="三、初步建立PCB原理"><a href="#三、初步建立PCB原理" class="headerlink" title="三、初步建立PCB原理"></a>三、初步建立PCB原理</h1><p>原理图和仿真的原理图类似，直接使用元件库就可以了。实际的原理图实际需要设计的主体知识。</p><img src="/2019/12/01/初识AD的工程/imag_002.png">]]></content>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code&gt;初识AD的工程&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&quot;一、了解AD界面&quot;&gt;&lt;a href=&quot;#一、了解AD界面&quot; class=&quot;headerlink&quot; title=&quot;一、了解AD界面&quot;&gt;&lt;/a&gt;一、了解AD界面&lt;/h1&gt;&lt;p&gt;和大部分的软件一样，AD的设计界面也是以Windows界面的构成。无非是多了一些特有的功能界面，这些在设计时都可以慢慢了解。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="PCB" scheme="https://github.com/electricdream11/categories/PCB/"/>
+    
+    
+      <category term="PCB" scheme="https://github.com/electricdream11/tags/PCB/"/>
+    
+      <category term="AD" scheme="https://github.com/electricdream11/tags/AD/"/>
+    
+  </entry>
   
   <entry>
     <title>新的起点之模拟电路</title>
@@ -35,9 +60,9 @@
       <category term="AC" scheme="https://github.com/electricdream11/categories/AC/"/>
     
     
-      <category term="artificial_circuit" scheme="https://github.com/electricdream11/tags/artificial-circuit/"/>
-    
       <category term="PCB" scheme="https://github.com/electricdream11/tags/PCB/"/>
+    
+      <category term="artificial_circuit" scheme="https://github.com/electricdream11/tags/artificial-circuit/"/>
     
   </entry>
   
