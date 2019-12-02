@@ -15,7 +15,7 @@
     <td height="137" colspan="2" align="center" bgcolor="#999999" style="font-weight: bold; font-size: 36px; font-style: italic; color: #0FF;">半导体器件</td>
   </tr>
   <tr>
-    <td width="14%" height="599" valign="top"><p>目录：</p>
+    <td width="14%" height="599" valign="top" bgcolor="#CCFF66"><p>目录：</p>
     <p>第一节--<a href="../device_first.html">半导体基础</a></p>
     <p>第二节--<a href="../device_second.html">二极管</a></p>
     <p>第三节--<a href="../device_third.html">晶体管</a></p>
