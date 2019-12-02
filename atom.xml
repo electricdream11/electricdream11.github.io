@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/electricdream11/"/>
-  <updated>2019-12-01T14:32:25.088Z</updated>
+  <updated>2019-12-02T14:25:33.188Z</updated>
   <id>https://github.com/electricdream11/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>原理图设计过程</title>
+    <link href="https://github.com/electricdream11/2019/12/02/%E5%8E%9F%E7%90%86%E5%9B%BE%E8%AE%BE%E8%AE%A1%E8%BF%87%E7%A8%8B/"/>
+    <id>https://github.com/electricdream11/2019/12/02/原理图设计过程/</id>
+    <published>2019-12-02T14:23:02.000Z</published>
+    <updated>2019-12-02T14:25:33.188Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>AD的原理图设计</code></pre><h1 id="一、原理图的规范"><a href="#一、原理图的规范" class="headerlink" title="一、原理图的规范"></a>一、原理图的规范</h1><p>原理图的设计和其他的电路原理图设计类似，需要一定的规范来使工程明确。具体的操作要在实际的设计中不断地总结，现在大概的了解一下过程即可。</p><a id="more"></a><h1 id="二、原理图的内容"><a href="#二、原理图的内容" class="headerlink" title="二、原理图的内容"></a>二、原理图的内容</h1><p>直接上图，具体的问题都在图中有所显示。教程源自B站的PCB教程。</p><img src="/2019/12/02/原理图设计过程/imag_001.png"><h1 id="三、原理图的作用"><a href="#三、原理图的作用" class="headerlink" title="三、原理图的作用"></a>三、原理图的作用</h1><p>设计好原理图可以展现设计的原理，为接下来的具体的布线提供参考。</p><h1 id="四、说明"><a href="#四、说明" class="headerlink" title="四、说明"></a>四、说明</h1><p>最近的分析都是简短的，主要是考虑到学习的时间的余量。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code&gt;AD的原理图设计&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&quot;一、原理图的规范&quot;&gt;&lt;a href=&quot;#一、原理图的规范&quot; class=&quot;headerlink&quot; title=&quot;一、原理图的规范&quot;&gt;&lt;/a&gt;一、原理图的规范&lt;/h1&gt;&lt;p&gt;原理图的设计和其他的电路原理图设计类似，需要一定的规范来使工程明确。具体的操作要在实际的设计中不断地总结，现在大概的了解一下过程即可。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="PCB" scheme="https://github.com/electricdream11/categories/PCB/"/>
+    
+    
+      <category term="PCB" scheme="https://github.com/electricdream11/tags/PCB/"/>
+    
+      <category term="AD" scheme="https://github.com/electricdream11/tags/AD/"/>
+    
+  </entry>
   
   <entry>
     <title>初识AD的工程</title>
