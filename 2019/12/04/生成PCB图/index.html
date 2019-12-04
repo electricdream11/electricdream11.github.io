@@ -6,24 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://github.com/electricdream11">
-  <title>二进制计数器时钟约束 | The Electric Dream</title>
+  <title>生成PCB图 | The Electric Dream</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="二进制计数器一、学习目标在简单的计数模型中实现时序分析和时序约束。">
-<meta name="keywords" content="FPGA,example">
+  <meta name="description" content="生成PCB板1、实验目的根据上一次的原理图生成PCB的设计图，主要还是软件的操作。没有具体的理论性的知识，主要适应一下，准备面对复杂的原理图的设计。">
+<meta name="keywords" content="PCB,AD">
 <meta property="og:type" content="article">
-<meta property="og:title" content="二进制计数器时钟约束">
-<meta property="og:url" content="https://github.com/electricdream11/2019/11/11/二进制计数器时钟约束/index.html">
+<meta property="og:title" content="生成PCB图">
+<meta property="og:url" content="https://github.com/electricdream11/2019/12/04/生成PCB图/index.html">
 <meta property="og:site_name" content="The Electric Dream">
-<meta property="og:description" content="二进制计数器一、学习目标在简单的计数模型中实现时序分析和时序约束。">
+<meta property="og:description" content="生成PCB板1、实验目的根据上一次的原理图生成PCB的设计图，主要还是软件的操作。没有具体的理论性的知识，主要适应一下，准备面对复杂的原理图的设计。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://github.com/2019/11/11/二进制计数器时钟约束/imag_001.png">
-<meta property="og:image" content="https://github.com/2019/11/11/二进制计数器时钟约束/imag_002.png">
-<meta property="og:image" content="https://github.com/2019/11/11/二进制计数器时钟约束/imag_003.png">
-<meta property="og:updated_time" content="2019-11-11T14:15:17.806Z">
+<meta property="og:image" content="https://github.com/2019/12/04/生成PCB图/imag_002.png">
+<meta property="og:image" content="https://github.com/2019/12/04/生成PCB图/imag_003.png">
+<meta property="og:updated_time" content="2019-12-04T14:04:44.349Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="二进制计数器时钟约束">
-<meta name="twitter:description" content="二进制计数器一、学习目标在简单的计数模型中实现时序分析和时序约束。">
-<meta name="twitter:image" content="https://github.com/2019/11/11/二进制计数器时钟约束/imag_001.png">
+<meta name="twitter:title" content="生成PCB图">
+<meta name="twitter:description" content="生成PCB板1、实验目的根据上一次的原理图生成PCB的设计图，主要还是软件的操作。没有具体的理论性的知识，主要适应一下，准备面对复杂的原理图的设计。">
+<meta name="twitter:image" content="https://github.com/2019/12/04/生成PCB图/imag_002.png">
   
     <link rel="alternative" href="/atom.xml" title="The Electric Dream" type="application/atom+xml">
   
@@ -180,43 +179,36 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-二进制计数器时钟约束" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-生成PCB图" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      二进制计数器时钟约束
+      生成PCB图
     </h1>
   
 
         
-        <a href="/2019/11/11/二进制计数器时钟约束/" class="archive-article-date">
-  	<time datetime="2019-11-11T14:12:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-11</time>
+        <a href="/2019/12/04/生成PCB图/" class="archive-article-date">
+  	<time datetime="2019-12-04T14:02:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-04</time>
 </a>
         
       </header>
       <div align="center" class="post-count">
-      字数：431字 | 预计阅读时长：1分钟
+      字数：208字 | 预计阅读时长：1分钟
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <pre><code>二进制计数器</code></pre><h1 id="一、学习目标"><a href="#一、学习目标" class="headerlink" title="一、学习目标"></a>一、学习目标</h1><p>在简单的计数模型中实现时序分析和时序约束。</p>
+        <pre><code>生成PCB板</code></pre><h1 id="1、实验目的"><a href="#1、实验目的" class="headerlink" title="1、实验目的"></a>1、实验目的</h1><p>根据上一次的原理图生成PCB的设计图，主要还是软件的操作。没有具体的理论性的知识，主要适应一下，准备面对复杂的原理图的设计。</p>
 <a id="more"></a>
-<h1 id="二、实验原理"><a href="#二、实验原理" class="headerlink" title="二、实验原理"></a>二、实验原理</h1><p>根据数据传输模型中的时序约束要求，将原始的模型约束到最大的时序功能。</p>
-<h1 id="三、实验操作"><a href="#三、实验操作" class="headerlink" title="三、实验操作"></a>三、实验操作</h1><h2 id="1-构建功能电路"><a href="#1-构建功能电路" class="headerlink" title="1.构建功能电路"></a>1.构建功能电路</h2><p>（1）功能划分<br>有一个计数器和高低电平的标志位。<br>（2）代码书写</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">module max(</span><br><span class="line">	input Clk,</span><br><span class="line">	input Rst_n,</span><br><span class="line">	</span><br><span class="line">	output reg q</span><br><span class="line"></span><br><span class="line">);</span><br><span class="line">reg [24:0] cou_cnt;</span><br><span class="line">always@(posedge Clk or negedge Rst_n)</span><br><span class="line">	begin</span><br><span class="line">		if(!Rst_n)</span><br><span class="line">			cou_cnt &lt;= 25&apos;d0;</span><br><span class="line">		else if(cou_cnt == 25&apos;d24_999_999)</span><br><span class="line">			cou_cnt &lt;= 25&apos;d0;</span><br><span class="line">		else </span><br><span class="line">			cou_cnt &lt;= cou_cnt + 1&apos;b1;</span><br><span class="line">	end</span><br><span class="line">always@(posedge Clk or negedge Rst_n)</span><br><span class="line">	begin</span><br><span class="line">		if(!Rst_n)</span><br><span class="line">			q &lt;= 1&apos;b0;</span><br><span class="line">		else if(cou_cnt &lt;= 25&apos;d24_999_999)</span><br><span class="line">			q &lt;= ~q;</span><br><span class="line">		else</span><br><span class="line">			q &lt;= q;</span><br><span class="line">	end</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">endmodule</span><br></pre></td></tr></table></figure>
-
-<img src="/2019/11/11/二进制计数器时钟约束/imag_001.png">
-<p>（3）功能仿真<br>功能较简单，不做仿真。</p>
-<h2 id="2-时序分析"><a href="#2-时序分析" class="headerlink" title="2.时序分析"></a>2.时序分析</h2><p>（1）时序报告<br>在全编译后会出现所有的信息报告，其中包括时序报告，这也是初步的时序基础，是后面的工作的前提。</p>
-<img src="/2019/11/11/二进制计数器时钟约束/imag_002.png">
-<p>（2）时钟的频率设置<br>通过时钟约束将时钟频率告诉软件，用于综合。<br>约束过程，使用Timing Analysis快速实现。<br>·创建时钟频率约束的代号：为布局布线和仿真提供参考。</p>
-<img src="/2019/11/11/二进制计数器时钟约束/imag_003.png">
-<p>·刷新时钟频率约束：时钟代号要一致。<br>·其他的操作以后再慢慢熟悉。<br>（3）实际约束<br>根据实际的需求构建每一路径的时序要求。这需要实际的设计经验，以后再去做。今天就先做时钟约束。</p>
-<h1 id="四、总结反思"><a href="#四、总结反思" class="headerlink" title="四、总结反思"></a>四、总结反思</h1><p>在实际的约束工具中进行时序约束是在设计中的基本操作，需要不断地练习和理解以达到融汇贯通的效果。</p>
+<h1 id="2、实验过程"><a href="#2、实验过程" class="headerlink" title="2、实验过程"></a>2、实验过程</h1><p>具体的操作还是比较简单，就是在原理图中使用封装管理器查看封装，再使用自动更新到PCB功能映射到PCB图，后面就是一些调整器件的位置的工作，对应于实际的电路板就行。当然，有一些具体的实际的规则要求，这是后面的知识。</p>
+<h1 id="3、实验结果"><a href="#3、实验结果" class="headerlink" title="3、实验结果"></a>3、实验结果</h1><p>展示报告和图形样品。</p>
+<img src="/2019/12/04/生成PCB图/imag_002.png">
+<img src="/2019/12/04/生成PCB图/imag_003.png">
+<h1 id="4、总结"><a href="#4、总结" class="headerlink" title="4、总结"></a>4、总结</h1><p>现在还是简单的软件操作层次的学习，后面会涉及PCB的具体的设计规范。</p>
 
       
 
@@ -230,11 +222,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PCB</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">example</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">AD</a>
         		</li>
       		
 		</ul>
@@ -246,7 +238,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/FPGA//" class="article-tag-list-link color5">FPGA</a>
+        			<a href="/categories/PCB//" class="article-tag-list-link color4">PCB</a>
         		</li>
       		
 		</ul>
@@ -301,7 +293,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://github.com/electricdream11/2019/11/11/二进制计数器时钟约束/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://github.com/electricdream11/2019/12/04/生成PCB图/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -315,18 +307,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/11/12/时序约束中的路径约束/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          时序约束中的路径约束
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/11/10/数据传输中的时序分析/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">数据传输中的时序分析</div>
+    <a href="/2019/12/02/原理图设计过程/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">原理图设计过程</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -353,7 +336,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、学习目标"><span class="toc-number">1.</span> <span class="toc-text">一、学习目标</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、实验原理"><span class="toc-number">2.</span> <span class="toc-text">二、实验原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、实验操作"><span class="toc-number">3.</span> <span class="toc-text">三、实验操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-构建功能电路"><span class="toc-number">3.1.</span> <span class="toc-text">1.构建功能电路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-时序分析"><span class="toc-number">3.2.</span> <span class="toc-text">2.时序分析</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、总结反思"><span class="toc-number">4.</span> <span class="toc-text">四、总结反思</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1、实验目的"><span class="toc-number">1.</span> <span class="toc-text">1、实验目的</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2、实验过程"><span class="toc-number">2.</span> <span class="toc-text">2、实验过程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3、实验结果"><span class="toc-number">3.</span> <span class="toc-text">3、实验结果</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4、总结"><span class="toc-number">4.</span> <span class="toc-text">4、总结</span></a></li></ol>
                     </div>
                 </span>
             </div>

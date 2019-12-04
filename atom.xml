@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/electricdream11/"/>
-  <updated>2019-12-02T14:25:33.188Z</updated>
+  <updated>2019-12-04T14:04:44.349Z</updated>
   <id>https://github.com/electricdream11/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>生成PCB图</title>
+    <link href="https://github.com/electricdream11/2019/12/04/%E7%94%9F%E6%88%90PCB%E5%9B%BE/"/>
+    <id>https://github.com/electricdream11/2019/12/04/生成PCB图/</id>
+    <published>2019-12-04T14:02:32.000Z</published>
+    <updated>2019-12-04T14:04:44.349Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>生成PCB板</code></pre><h1 id="1、实验目的"><a href="#1、实验目的" class="headerlink" title="1、实验目的"></a>1、实验目的</h1><p>根据上一次的原理图生成PCB的设计图，主要还是软件的操作。没有具体的理论性的知识，主要适应一下，准备面对复杂的原理图的设计。</p><a id="more"></a><h1 id="2、实验过程"><a href="#2、实验过程" class="headerlink" title="2、实验过程"></a>2、实验过程</h1><p>具体的操作还是比较简单，就是在原理图中使用封装管理器查看封装，再使用自动更新到PCB功能映射到PCB图，后面就是一些调整器件的位置的工作，对应于实际的电路板就行。当然，有一些具体的实际的规则要求，这是后面的知识。</p><h1 id="3、实验结果"><a href="#3、实验结果" class="headerlink" title="3、实验结果"></a>3、实验结果</h1><p>展示报告和图形样品。</p><img src="/2019/12/04/生成PCB图/imag_002.png"><img src="/2019/12/04/生成PCB图/imag_003.png"><h1 id="4、总结"><a href="#4、总结" class="headerlink" title="4、总结"></a>4、总结</h1><p>现在还是简单的软件操作层次的学习，后面会涉及PCB的具体的设计规范。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code&gt;生成PCB板&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&quot;1、实验目的&quot;&gt;&lt;a href=&quot;#1、实验目的&quot; class=&quot;headerlink&quot; title=&quot;1、实验目的&quot;&gt;&lt;/a&gt;1、实验目的&lt;/h1&gt;&lt;p&gt;根据上一次的原理图生成PCB的设计图，主要还是软件的操作。没有具体的理论性的知识，主要适应一下，准备面对复杂的原理图的设计。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="PCB" scheme="https://github.com/electricdream11/categories/PCB/"/>
+    
+    
+      <category term="PCB" scheme="https://github.com/electricdream11/tags/PCB/"/>
+    
+      <category term="AD" scheme="https://github.com/electricdream11/tags/AD/"/>
+    
+  </entry>
   
   <entry>
     <title>原理图设计过程</title>
