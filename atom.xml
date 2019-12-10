@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/electricdream11/"/>
-  <updated>2019-12-04T14:04:44.349Z</updated>
+  <updated>2019-12-10T13:58:30.201Z</updated>
   <id>https://github.com/electricdream11/</id>
   
   <author>
@@ -15,6 +15,47 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>通知之理论知识模块</title>
+    <link href="https://github.com/electricdream11/2019/12/10/%E9%80%9A%E7%9F%A5%E4%B9%8B%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86%E6%A8%A1%E5%9D%97-1/"/>
+    <id>https://github.com/electricdream11/2019/12/10/通知之理论知识模块-1/</id>
+    <published>2019-12-10T13:58:30.000Z</published>
+    <updated>2019-12-10T13:58:30.201Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>通知之理论知识模块</title>
+    <link href="https://github.com/electricdream11/2019/12/10/%E9%80%9A%E7%9F%A5%E4%B9%8B%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86%E6%A8%A1%E5%9D%97/"/>
+    <id>https://github.com/electricdream11/2019/12/10/通知之理论知识模块/</id>
+    <published>2019-12-10T13:53:49.000Z</published>
+    <updated>2019-12-10T13:58:18.646Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>关于理论模块的建立</code></pre><p>在通过一段时间的摸索后，利用DW可以建立理论知识的记录模块用于补充博客文章的复用性的问题。博客文章用于记录每天的学习，而使用其他的网站模块可以有效的将一些系统的知识记录以便以后的使用。具体的使用方法可以使用左侧的菜单中的下面的选项。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;pre&gt;&lt;code&gt;关于理论模块的建立&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;在通过一段时间的摸索后，利用DW可以建立理论知识的记录模块用于补充博客文章的复用性的问题。博客文章用于记录每天的学习，而使用其他的网站模块可以有效的将一些系统的知识记录以便以后的使用。具体的使用方法可以使用左
+      
+    
+    </summary>
+    
+    
+      <category term="note" scheme="https://github.com/electricdream11/categories/note/"/>
+    
+    
+      <category term="note" scheme="https://github.com/electricdream11/tags/note/"/>
+    
+  </entry>
   
   <entry>
     <title>生成PCB图</title>
