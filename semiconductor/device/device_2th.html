@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/tpl_device.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>device</title>
+<!-- InstanceEndEditable -->
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+</head>
+
+<body>
+<table width="100%%" height="744" border="1">
+  <tr>
+    <td height="137" colspan="2" align="center" bgcolor="#999999" style="font-weight: bold; font-size: 36px; font-style: italic; color: #0FF;">半导体器件</td>
+  </tr>
+  <tr>
+    <td width="14%" height="599" valign="top" bgcolor="#CCFF66"><p>目录：</p>
+    <p>第一节--<a href="device_1th.html">半导体基础</a></p>
+    <p>第二节--<a href="device_2th.html">二极管</a></p>
+    <p>第三节--<a href="device_3th.html">晶体管</a></p>
+    <p>第四节--<a href="device_4th.html">MOS电容</a></p>
+    <p>第五节--<a href="device_5th.html">MOS管</a></p>
+    <p>第六节--<a href="device_6th.html">纳米器件</a></p>
+    <p>第七节--<a href="device_7th.html">结型场效应管</a></p>
+    <p>返回页：</p>
+    <p><a href="../index.html">电子科学与技术</a></p>
+    <p><a href="device.html">半导体器件首页</a></p></td>
+    <!-- InstanceBeginEditable name="work" -->
+    <td width="86%" valign="top"><p>PN结及二极管</p>
+      <p>1、PN结的能带图</p>
+      <p><img src="../imags/imag_001_device_2.png" alt="back" width="780" height="832" /></p>
+      <p>2、基于能带图的计算</p>
+      <p>ψfp就是P区的电势差， ψfn就是N区的电势差。从能带相对于本征能级的位置可以看到</p>
+      <p>ψfp&gt;0,ψfn&lt;0.（就是用本征能级对应的费米能级）</p>
+      <p>由泊松方程一阶积分即可得到电场的表达式；</p>
+      <p>由泊松方程二阶积分得到电势表达式；</p>
+      <p>其中由Em的边界条件得到了xp和xn的关系；</p>
+      <p>所以可以用Vbi和掺杂浓度表示耗尽区的宽度。</p>
+      <p><img src="../imags/imag_002_device_2.png" alt="back" width="693" height="918" /></p>
+      <p>3、结果说明</p>
+      <p>这次主要考虑到第一次使用能带图，就将能带图和电场和耗尽区的宽度推导一下，</p>
+      <p>以后就不会去做这个方面的工作。以后就不会做这种工作了，这次将其作为范例一下</p>
+      <p>讲完。</p>
+      <p>4、流程说明<br />
+      </p>
+      <p>从上面的推导过程中可以看出：</p>
+      <p>能带图实际上就是电子的势能分布，以本征能级为基准，构建出电势的分布。结合</p>
+      <p>电荷的分布即可完整的得到实际的分布模型。</p>
+      <p>5、结电容</p>
+      <p>结电容等于介电常数除以耗尽区的宽度。</p>
+      <p>6、直流特性</p>
+      <p>根据载流子的输运方程可知，要想得到电流首先得得到载流子的分布，这里引入了准中</p>
+      <p>性区连续性方程和耗尽区的边界的电子浓度得到了IV方程。后面可以根据长短的PN结得</p>
+      <p>到实际的近似方程。有点类似于载流子的输运方程。但在实际的PN结模型中，使用e指数代</p>
+      <p>替即可。</p>
+      <p>必记公式：</p>
+      <p><img src="../imags/imag_003_device_2.png" alt="back" width="722" height="952" /></p>
+      <p>￥大注入就是准中性区少子太多导致准中性区需要形成自建电场来平衡</p>
+      <p>￥串联电阻就是在电流过大时电阻成为主要影响因素<br />
+      </p>
+      <p>7、 小信号特性</p>
+      <p>根据连续性方程和小信号特性可以得到准确的表达式，但在实际IDE运算过程中只需记住</p>
+      <p>等效的小信号电路即可。<br />
+        <img src="../imags/imag_004_device_2.png" alt="back" width="461" height="325" /><br />
+      </p>
+      <p>8、电荷存储及开关特性</p>
+      <p>由于结电容的存在，电荷会在电容上积累。转向反向偏置时会有一个电荷释放时间，这使得</p>
+      <p>在电压反向后电流会有延时改变。</p>
+      <p><img src="../imags/imag_005_device_2.png" alt="back" width="736" height="722" /></p>
+      <p>9、PN结的击穿特性<br />
+      </p>
+      <p>击穿，即反向截止特性由于某些原因被破坏。</p>
+      <p>齐纳击穿：当电子和空穴的碰撞电离对的数目等于1时，PN结击穿。</p>
+      <p>穿通击穿：当PN结在空间电荷区不再拓展（由于某些器件的特殊结构）导致最大电压</p>
+      <p>低于电荷区可以展宽时的电压就击穿的击穿形式。</p>
+      <p><img src="../imags/imag_006_device_2.png" alt="back" width="717" height="298" /></p>
+      <p>10、异质PN结</p>
+      <p>异质结的能带图就是将带宽展宽（一般是P）而后得到的PN结，具体的作用在后面的晶体管中</p>
+      <p>有具体的应用，这里就不多说。<br />
+      </p>
+      <p>11、温敏特性</p>
+    <p>半导体的电学性质与温度息息相关，某些特定的半导体PN结可以对温度极度的敏感</p></td>
+    <!-- InstanceEndEditable -->
+  </tr>
+</table>
+</body>
+<!-- InstanceEnd --></html>
