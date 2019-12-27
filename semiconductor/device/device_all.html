@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/tpl_device.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>device</title>
+<!-- InstanceEndEditable -->
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+</head>
+
+<body>
+<table width="100%%" height="744" border="1">
+  <tr>
+    <td height="137" colspan="2" align="center" bgcolor="#999999" style="font-weight: bold; font-size: 36px; font-style: italic; color: #0FF;">半导体器件</td>
+  </tr>
+  <tr>
+    <td width="14%" height="599" valign="top" bgcolor="#CCFF66"><p>目录：</p>
+    <p>第一节--<a href="device_1th.html">半导体基础</a></p>
+    <p>第二节--<a href="device_2th.html">二极管</a></p>
+    <p>第三节--<a href="device_3th.html">晶体管</a></p>
+    <p>第四节--<a href="device_4th.html">MOS电容</a></p>
+    <p>第五节--<a href="device_5th.html">MOS管</a></p>
+    <p>第六节--<a href="device_6th.html">纳米器件</a></p>
+    <p>第七节--<a href="device_7th.html">结型场效应管</a></p>
+    <p>返回页：</p>
+    <p><a href="../index.html">电子科学与技术</a></p>
+    <p><a href="device.html">半导体器件首页</a></p></td>
+    <!-- InstanceBeginEditable name="work" -->
+    <td width="86%" valign="top"><h1>半导体器件物理模型总览</h1>
+      <p><a name="point1" id="point1"></a></p>
+    <h2>1、物理公式基础</h2>
+    <p>（1）带差（能带与能带间的差值）等于对应kTln（带掺杂/本征掺杂）。</p>
+    <p style="color: #00F">！输入公式实在太慢了，对于物理量使用中文简写更快。</p>
+    <p style="color: #000">（2）电势：带差/q=两点间的电势差</p>
+    <p style="color: #000">（3）泊松方程：</p>
+    <p style="color: #000">电势的二阶导= -电荷量/相对介电常数cs（这里也是为了速记）。 </p>
+    <p style="color: #000">电场强度= -电势的一阶导。</p>
+    <p style="color: #000">（4）电流密度方程</p>
+    <p style="color: #000">电子扩散电流密度= q*Dn*n'&nbsp;&nbsp;&nbsp; 漂移电流密度=q*un*n*E</p>
+    <p style="color: #000">空穴扩散电流密度=&nbsp;-q*Dp*p'&nbsp;漂移电流密度= q*up*p*E</p>
+    <p style="color: #000">空穴的扩散电流有-号的原因是扩散向低电势移动</p>
+    <p style="color: #000">（5）电流连续性方程</p>
+    <p style="color: #000">电子连续性方程：(其他的求导均为对x方向）</p>
+    <p style="color: #000">n'(t)=Dn*n''+un*E*n'+un*n*E'+G-/\n/tn</p>
+    <p style="color: #000">p'(t)=Dp*p''-up*E*p'-up*p*E'+G-/\p/tp</p>
+    <p style="color: #000">中间的三项可以用电流密度的求导代替为一般方程。</p>
+    <p style="color: #000">连续性方程的简化：</p>
+    <p style="color: #000">稳态：n'(t)=0</p>
+    <p style="color: #000">无梯度或者无扩散：n'=0&nbsp;，n''=0</p>
+    <p style="color: #000">无漂移或者无电场：un=0</p>
+    <p style="color: #000">无外界作用：&nbsp; G=0</p>
+    <p style="color: #000">常见的判断语句：稳态，注入，外加电场</p>
+    <p style="color: #000"><a name="point2" id="point2"></a></p>
+    <h2 style="color: #000">2、二极管的电压模型</h2>
+    <p style="color: #000">（1）二极管的电荷分布：</p>
+    <p style="color: #000">突变结：有冶金结 ；缓变结：没有明确的边界；</p>
+    <p style="color: #000">线性缓变结：线性缓变 ； 单边突变结：一边的浓度极大。</p>
+    <p style="color: #000">（2）PN结的电势的能带判断：以本征能级为基准，低于其的为正电势，高于其的为负电势，电势正方向为P-&gt;N方向。也好理解，高于其的为电子，低于其的为空穴，电势由空穴指向电子。注意与空间电荷区中的耗尽区的电场方向区别，他们之间有一个负号。</p>
+    <p style="color: #000">（3）PN结电场的判断：电势取反求导即可。</p>
+    <p style="color: #000">（4）PN结电势的介电常数判断：利用泊松方程：电势的二阶导=-电荷量/cs&nbsp; 可以得到：-电势的一阶导=q*Nd*xn/cs=q*Na*xp/cs=Em</p>
+    <p style="color: #000">而Vbi（内建电势）=0.5*Em*W 则 ：W=[2cs*(Na+Nd)*Vbi/(Na*Nd*q)]^0.5</p>
+    <p style="color: #000">自然也可以根据w=xn+xp得到xn和xp的值，但是在不考虑横向工程时不会计算该值。</p>
+    <p style="color: #F00">小结：在知道PN结的掺杂浓度时可以利用能带关系转化为电势值，利用电势可以结合掺杂浓度转化为空间耗尽区的宽度，也可以利用xn和xp的关系得到具体的横向数据。换言之，横向工程的值是受掺杂浓度控制的。</p>
+    <p style="color: #000">（5）PN结的偏压Vf的引入：Vf为外加电压，正向时会导致耗尽区电场减小，电势降低，即与Vbi对w的作用相反。反向时则相同。对电流的影响在分析电流时说明。</p>
+    <p style="color: #000">（6）PN结电容：</p>
+    <p style="color: #000">SCR宽度随着电压发生变化，而电荷量与宽度成正比，则等效为Vf控制Q，而Q'(Vf)=Cj（电容），所以PN结具有电容特性，称之为势垒电容（耗尽区电容）。</p>
+    <p style="color: #000">Cj=Q'(Vf)=cs/w(过程忽略，上式中取N区一侧的电荷量求导即可）</p>
+    <p style="color: #000">结果表明势垒电容为平板电容，只不过板间宽度w与外加电压有关。电容为Vf控制电容。</p>
+    <p style="color: #000">Cj^-2=2*(Vbi-Vf)*(Na+Nd)/(q*cs*Na*Nd),可以用于测量内建电势，但是掺杂要均匀、平面结近似；</p>
+    <p style="color: #000"><a name="point3" id="point3"></a></p>
+    <h2 style="color: #000">二极管的电流模型</h2>
+    <p style="color: #000">（1）理想电流PN结（这部分是区分实际PN结的条件，在实际电流模型中会有逐个介绍）</p>
+    <p style="color: #000">Vf全在耗尽区，耗尽区以外无电压，无漂移；（简化电压计算）</p>
+    <p style="color: #000">忽略中性区的体电阻和接触电阻；（简化电压计算）</p>
+    <p style="color: #000">准中性区均匀掺杂；（简化电荷分布计算）</p>
+    <p style="color: #000">空间电荷区无复合和产生电流；（简化连续性方程）</p>
+    <p style="color: #000">小注入；（简化少子对多子的影响）</p>
+    <p style="color: #000">非简并；（电势控制有效）</p>
+    <p style="color: #000">（2）电流产生的机制</p>
+    <p style="color: #000">正向电压时扩散大于漂移，反向时漂移大于扩散</p>
+    <p style="color: #000">（3）Vf对准中性区少子的影响</p>
+    <p style="color: #000">准中性区多子浓度nn0等于Nd，pp0=Na;</p>
+    <p style="color: #000">利用Vbi的反向式Na*Nd/ni^2=exp(q*Vbi/(k*T))可以得到多子表达式：</p>
+    <p style="color: #F00">！这部分的原理是掺杂浓度与Vbi之间的关系式转化为准中性区多子与内建电势的关系</p>
+    <p style="color: #000">pp0=ni^2*exp(q*Vbi/(k*T))/nn0;</p>
+    <p style="color: #000">nn0=ni^2*exp(q*Vbi/(k*T))/pp0；</p>
+    <p style="color: #000">根据多子与少子的守恒关系：nn0*np0=ni^2;pp0*pn0=ni^2 的</p>
+    <p style="color: #000">pp0=np0*exp(q*Vbi/(k*T));</p>
+    <p style="color: #000">nn0=pn0*exp(q*Vbi/(k*T));</p>
+    <p style="color: #000">反过来得到少子浓度表达式：</p>
+    <p style="color: #000">np0=pp0*exp(-q*Vbi/(k*T));</p>
+    <p style="color: #000">pn0=nn0*exp(-q*Vbi/(k*T));</p>
+    <p style="color: #000">语言描述为：n区少子等于p区多子的exp（-qV*bi/(k*T)）,p区少子也一样。</p>
+    <p style="color: #000">物理描述为：多子越多的区自生的少子越少，对面的少子越多。</p>
+    <p style="color: #000">空间电荷区边界少子浓度：</p>
+    <p style="color: #000">利用外加电压对内建电势的转化式Vbi=Vbi0-Vf可以将少子公式转化为</p>
+    <p style="color: #000">np(xn)=pp0*exp(-q*(Vbi-Vf)/(k*T))=pp0* exp(-q*Vbi/kT)*exp(Vf*q/kT)=np0*exp(qVf/kT)</p>
+    <p style="color: #000">同理：pn(xp)=pn0*exp(qVf/kT)</p>
+    <p style="color: #F00">!注意，pp0的书面表达为P区空穴浓度,记为P_p0；np0为N区空穴浓度，记为P_n0</p>
+    <p style="color: #000">小结：外加电压通过对内建电势的影响转化为对耗尽区边界的影响。内建电势与多子浓度具有对应关系，多子与少子具有关系，最后得到准中性区中少子与多子和内建电势的关系。</p>
+    <p style="color: #000">（4）准中性区x&gt;xn和x&lt;-xp中载流子的分布（准中性区中的少子分布及多子分布）</p>
+    <p style="color: #000">在理想的PN结中，耗尽区是没有扩散电流的，载流子的漂移忽略时，扩散电流只发生在载流子存在浓度梯度的地方。这部分的电流主要是少子起作用，所以二极管也称为少子器件。</p>
+    <p style="color: #000">先考虑x&gt;xn:</p>
+    <p style="color: #000">外加电场只作用在耗尽区，准中性区外加电压为0，则E=0</p>
+    <p style="color: #000">稳态时，电流连续性中Pn'(t)=0;</p>
+    <p style="color: #000">不考虑产生：G=0</p>
+    <p style="color: #000">得到的载流子连续性方程：Pn''-(Pn-Pn0)/(Dp*tp)=0,且Dp*tp=Lp^2</p>
+    <p style="color: #000">均匀衬底中：（Pn-Pn0）''-(Pn-Pn0)/Lp^2=0</p>
+    <p style="color: #000">边界条件就是：np0和np(xn)的值</p>
+    <p style="color: #000">可以得到N区少子分布的通解形式，扩散电流由电流输运方程即可得到。</p>
+    <p style="color: #000">（5）长短PN结的近似</p>
+    <p style="color: #000">对于长PN结：耗尽N区宽度Wn远大于N区少子的扩散长度，耗尽P区宽度远大于P区少子的浓度，得到的电流近似式为：J0=q*Dp*Pno/Lp+q*Dn*Np0/Ln</p>
+    <p style="color: #000">对于短PN结：定义类似，近似式为J0=q(Dp*Pn0/Wn'+Dn*Np0/Wp')</p>
+    <p style="color: #000">其中J0为反向饱和电流。</p>
+    <p style="color: #000">J=J0[exp(qV/kT)-1),V=0时J=J0</p>
+    <p style="color: #F00">！接下来本来应该是实际的PN结，但出于理解的方便，下面会转向理想的BJT和MOS及MOSFET的推导，这部分的内容都是要会推导的，与实际器件的模型理解是不同的内容要求。</p>
+    <p style="color: #F00"><a name="point4" id="point4"></a></p>
+    <h2 style="color: #000000">4、三极管的理想电流电压模型</h2>
+    <p style="color: #000000">（1）三极管定义</p>
+    <p style="color: #000000">三极管，三级指的是发射级（E）、集电极（c）、基极（b）；</p>
+    <p style="color: #000000">两结：集电结，发射结。</p>
+    <p style="color: #000000">基本的接法：共E和共B（没有共C是由于集电极掺杂浓度较低，电流不会很大）</p>
+    <p style="color: #000000">晶体管：使用某两个端口控制另一端口的电流的器件、</p>
+    <p style="color: #000000">双极：两种载流子都参与传输</p>
+    <p style="color: #000000">单极：只有一种载流子，如JFET和MOSFET</p>
+    <p style="color: #000000">（2）晶体管的放大</p>
+    <p style="color: #000000">放大条件：</p>
+    <p style="color: #000000">1）Wb&lt;&lt;Lnb（以后的分析不说明都指的是NPN型晶体管，Lnb就是基区少子扩散长度），也就是少子不会在基区中被复合。</p>
+    <p style="color: #000000">2）发射结正偏：发射极的多子大量的进入基区</p>
+    <p style="color: #000000">3）集电结反偏：基区少子能否进入集电极受到基区电压的控制。</p>
+    <p style="color: #000000">放大的原理就是基区的小电压控制了基区的少子能否大量到集电极</p>
+    <p style="color: #000000">（3）晶体管中的电流形式</p>
+    <p style="color: #000000">Ie=Iep + Ien + Ier</p>
+    <p style="color: #000000">Ic=Icn + Icbo</p>
+    <p style="color: #000000">Ib=Ie-Ic (从中可以看出基区只是用于计算电流的，不用于实际的电流描述，这也是多端口的研究特点，用其他的端口描述一个口以简化计算）</p>
+    <p style="color: #000000">Ien=-q*A*Dnb*ni^2*[exp(qVbe/kT)-1)]/(Wb*Nb)</p>
+    <p style="color: #000000">Iep=-q*A*Dpe*ni^2*[exp(qVbe/kT)-1)]/(Lpe*Ne)</p>
+    <p style="color: #000000">(可以看到和前面的PN结中的扩散电流很像，具体的推导下面再看）</p>
+    <p style="color: #000000">Bt=Ien/Iep(发射极电流增益，这表明E中以Ien为主，B中以Iep为主）</p>
+    <p style="color: #000000">Af0=Icn/Ie（共基极的电流增益，可以看到C中以Icn为主）</p>
+    <p style="color: #000000">Gm=Ien/Ie(发射效率，指E中主要电流Ien的占比）</p>
+    <p style="color: #000000">Aft=Icn/Ien(基区传输因子，基区中从E流入的和从C流出的电流之比）</p>
+    <p style="color: #000000">显然Af0=Aft*Gm</p>
+    <p style="color: #000000">Bt0=Af0/(1-Af0),(Bt0为共发射极接法的直流增益，这里用的是Af0共基极接法的增益，这表明增益之间是有物理模型的关联性的。）</p>
+    <p style="color: #000000">Iceo=Icbo/(1-Af0)，这是基区开路时发射极-集电极反向饱和电流。</p>
+    <p style="color: #000000">!小结：对于共E接法，Ie=Ib+Ic,Ic=Bt0*Ib+Iceo,其中的Iceo一般为常数；</p>
+    <p style="color: #000000">对于共B接法，Ie=Ib+Ic，Ic=Af0*Ie</p>
+    <p style="color: #000000">（4）理想晶体管的电流电压关系</p>
+    <p style="color: #000000">1）理想晶体管的条件</p>
+    <p style="color: #000000">均匀掺杂，外压都在结上，无产生复合电流，无串联电阻，小注入。</p>
+    <p style="color: #000000">简单理解：均匀掺杂主要是简化运算，外压作用在结上简化了漂移电流，无产生复合</p>
+    <p style="color: #000000">电流也是连续性方程的简化，无串联电阻主要是保证电压明确，小注入是少子器件的标准要求，大注入效应在实际器件中会有介绍。</p>
+    <p style="color: #000000">2）基区少子连续方程</p>
+    <p style="color: #000000">Dnb*Npb''-(Npb-Npb0)/tn=0</p>
+    <p style="color: #000000">同样只有扩散电流。</p>
+    <p style="color: #000000">边界条件：</p>
+    <p style="color: #000000">Npb(0)=Npb0exp(qVbe/kT),这部分的参考PN结中求外压对耗尽区边界少子的影响</p>
+    <p style="color: #000000">Npb(Wb)=Npb0exp(qVbc/kT)，这部分也是类似的，由于PN结反偏，这个值约等于0</p>
+    <p style="color: #000000">解得Npb（x）就是基区少子的分布方程。</p>
+    <p style="color: #000000">近似为:Npb（x)=Npb0[exp(qVbe/kT)-1](1-x/Wb)</p>
+    <p style="color: #000000">3)发射区少子分布解析表达式</p>
+    <p style="color: #000000">同样是连续性方程：</p>
+    <p style="color: #000000">Pne''(x)-(Pne-Pne0)/Lpe^2=0</p>
+    <p style="color: #000000">边界条件：Pne(-We)=Pne0,Pne(-xe)=Pne0*exp(qVbe/kT)</p>
+    <p style="color: #000000">可以近似解得:Pne(x)=Pne0+Pne0[exp(qVbe/kT)-1]*exp[(x+xe)/Lpe]</p>
+    <p style="color: #000000">4）集电区少子分布</p>
+    <p style="color: #000000">连续性方程：Pnc''(x)-(Pnc(x)-Pnc0)/Lpc^2=0</p>
+    <p style="color: #000000">边界条件：Pnc(Wc)=Pnc0,Pnc(xc)=Pnc0*exp(qVbc/kT)</p>
+    <p style="color: #000000">解得:Pnc(x)=Pnc0+Pnc0[exp(q*Vbc/kT)-1]exp[-(x-xc)/Lpc]</p>
+    <p style="color: #000000">（5）三种模式的小结：</p>
+    <p style="color: #000000">连续性方程都类似，边界条件则是抓住耗尽区边界受结压控制，准中性区边界的少子等于掺杂浓度来构建的。</p>
+    <p style="color: #000000">在结果中主要有两个结压，初始少子浓度,对应区域的少子寿命，对应耗尽区边界，基区</p>
+    <p style="color: #000000">宽度。</p>
+    <p style="color: #000000">近似条件均为少子扩散长度小于相应的扩散区域的长度。</p>
+    <p style="color: #000000">（5）发射区和集电区电流</p>
+    <p style="color: #000000">Ien=A*q*Dnb*Nb'(x)(x=0)</p>
+    <p style="color: #000000">Iep=-A*q*Dpe*Pe'(x) (x=-xe)</p>
+    <p style="color: #000000">Icn=A[q*Dn*Np'(x)] (x=Wb)</p>
+    <p style="color: #000000">Icp=-AqDpc*Pc'(x)(x=xc)</p>
+    <p style="color: #000">其中E区多子电流等于自身的多子输运，少子电流等于基区的多子输运，</p>
+    <p style="color: #000">C区的多子电流等于自身的多子输运，少子电流等于基区另外的边界的多子输运</p>
+    <p style="color: #000">具体的结果化简后：</p>
+    <p style="color: #000">Iep=-qA*Dpe*ni^2*exp(qVbe/kT)/(Lpe*Ne)</p>
+    <p style="color: #000">Ien=-qA*Dnb*ni^2*exp(qVbe/kT)/(Wb*Nb)    </p>
+    <p style="color: #000">Gm=Ien/Ie=1/(1+Dpe*Wb*Nb/(Dnb*Lpe*Ne)</p>
+    <p style="color: #000">这里得到的发射系数主要用于确定器件的性能。</p>
+    <p style="color: #000">方块电阻：Rsh.e=Roe/We,------------Rsh.b=Rob/Wb</p>
+    <p style="color: #000">Gm=(1+Rsh.e/Rsh.b)^-1</p>
+    <p style="color: #000">集电区简化：</p>
+    <p style="color: #000">Aft=Icn/Ien=1-Wb^2/(2*Lnb^2)</p>
+    <p style="color: #000">降低基区宽度十分重要，可以有效提高基区输运因子。    </p>
+    <p style="color: #000"><a name="point5" id="point5"></a></p>
+    <h2 style="color: #000">5、理想MOS结构</h2>
+    <p style="color: #000">（1）定义</p>
+    <p style="color: #000">MOS，就是金属氧化层半导体结构。</p>
+    <p style="color: #000">（2）理想MOS二极管的条件</p>
+    <p style="color: #000">金属功函数差为0，氧化层中不存在电荷，直流偏置下氧化层中没有电流，界面态</p>
+    <p style="color: #000">电荷密度为0.</p>
+    <p style="color: #000">（介绍理想的条件主要是为实际的器件的分析留下分类标准）</p>
+    <p style="color: #000">（3）基本的物理参量：</p>
+    <p style="color: #000">以P型半导体为例</p>
+    <p style="color: #000">q*Vg=Efp-Efm</p>
+    <p style="color: #000">Vg&lt;0 : 积累&nbsp; ， Vg=0 ：平带，Vg&gt;0:耗尽，Vg&gt;&gt;0:反型</p>
+    <p style="color: #000">这里对于不同类型的半导体的状态的条件不一样，具体的判断要依据实际的能带的</p>
+    <p style="color: #000">弯曲与本征能级的位置。整体的把握是金属能级高于半导体，上弯，反之下弯。</p>
+    <p style="color: #000">&nbsp;</p>
+    <p style="color: #000">&nbsp;</p>
+    <p style="color: #000">&nbsp;</p>
+    <p style="color: #000">&nbsp;</p>
+    <p style="color: #000">&nbsp;</p>
+    <p style="color: #000">&nbsp;</p>
+    <p style="color: #000">&nbsp;</p></td>
+    <!-- InstanceEndEditable -->
+  </tr>
+</table>
+</body>
+<!-- InstanceEnd --></html>
