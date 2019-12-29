@@ -204,8 +204,69 @@
     <p style="color: #000">Vg&lt;0 : 积累&nbsp; ， Vg=0 ：平带，Vg&gt;0:耗尽，Vg&gt;&gt;0:反型</p>
     <p style="color: #000">这里对于不同类型的半导体的状态的条件不一样，具体的判断要依据实际的能带的</p>
     <p style="color: #000">弯曲与本征能级的位置。整体的把握是金属能级高于半导体，上弯，反之下弯。</p>
+    <p style="color: #000">（4）MOS结构的基本参量</p>
+    <p style="color: #000">Qm：金属端电荷，Qn：氧化层半导体电荷，Qsc金属：半导体表面最大电荷=qNa*Wm</p>
+    <p style="color: #000">强反型条件：Vs=2Yb=2kT*ln(Na/ni)/q</p>
+    <p style="color: #000">强反型时的最大耗尽区宽度Wm=(2*cs*(2Yb)/(q*Na))^0.5</p>
+    <p style="color: #000">最大表面电荷Qsc=-q*Na*Wm</p>
+    <p style="color: #000">（5）表面电场与表面电荷</p>
+    <p style="color: #000">Es=2^0.5*kT*F(qVs/kT,Np0/Pp0)/(q*Ld ),其中gF函数式表征电荷层的重要参数</p>
+    <p style="color: #000">Ld为德拜长度，指的是非平衡载流子的有效空间范围，和扩散长度类似的概念。</p>
+    <p style="color: #000">表面电荷Qs=-cs*Es，</p>
+    <p style="color: #000">（6）半导体表面的电压分布</p>
+    <p style="color: #000">Vg=Vox+Vs(电压被电容和半导体分割）</p>
+    <p style="color: #000">Vox=Qox/Cox,</p>
+    <p style="color: #000">Vs存在三个节点：0，Yb,2Yb。</p>
+    <p style="color: #000">其中我们关注的是Vs=2Yb时的情况，此时Qox=Qsc=q*Na*Wm,Cox=cs/tox</p>
+    <p style="color: #000">记录此时Vg=Vt（阈值电压）</p>
+    <p style="color: #000">（7）半导体表面电荷与半导体氧化层的界面电荷</p>
+    <p style="color: #000">当Vg&gt;Vt时，半导体表面电荷Qs=Cox(Vt-2Yb),半导体界面电荷Qn=Cox(Vg-Vt)    </p>
+    <p style="color: #000">简而言之，就是多余的电压不再对半导体表面产生影响，而是转化为界面的电荷</p>
+    <p style="color: #000">的影响。</p>
+    <p style="color: #000"><a name="point6" id="point6"></a></p>
+    <h2 style="color: #000">6、理想MOSFET结构</h2>
+    <p style="color: #000">（1）MOSFET的电学参数</p>
+    <p style="color: #000">Vg：栅压，Vs：源压，Vd：漏压，Vb：衬压</p>
+    <p style="color: #000">Vds：漏源压，Vgs：栅源压，Vbs：体源压</p>
+    <p style="color: #000">一般Vs=0，Vbs=0，Vb=0</p>
+    <p style="color: #000">就是选取参考点</p>
+    <p style="color: #000">（2）近似条件：</p>
+    <p style="color: #000">长沟和宽沟，衬底掺杂均匀，氧化层为薄层电荷，强反型近似成立（就是Vg对MOS的控制可以使用MOS中的结论计算）</p>
+    <p style="color: #000">（3）工作原理</p>
+    <p style="color: #000">栅压为0时，忽略反向电流，Ids=0</p>
+    <p style="color: #000">栅压大于Vt时，半导体表面反型，Ids具有相应的值。</p>
+    <p style="color: #000">（4）输出特性</p>
+    <p style="color: #000">Vds较小时，表面沟道类似电阻，ro=1/(q*un*n),R=ro*l/s=L/(un*Qn*W)    </p>
+    <p style="color: #000">Vds=Vds(sat)(夹断电压），此时电流为Ids(sat)(饱和电流）</p>
+    <p style="color: #000">其中Vds（sat）=Vgs-Vt</p>
+    <p style="color: #000">这里没有具体的推导，但这个公式实际上是连接输出曲线和转移曲线的关键。</p>
+    <p style="color: #000">具体的推导以后见到再说，现在先用着。</p>
+    <p style="color: #000">（5）MOSFET的分类</p>
+    <p style="color: #000">NMOS：栅源的掺杂为N，导电载流子为n，所以为NMOS，PMOS的定义类似。</p>
+    <p style="color: #000">增强型：栅压为0时不存在导电沟道，属于增强栅压工作，</p>
+    <p style="color: #000">耗尽型：栅压为0时存在导电沟道，属于没有栅压工作。</p>
+    <p style="color: #000">一般接触的是增强型NMOS器件，其他的器件做一下了解。</p>
+    <p style="color: #000">（6）IV特性的推导</p>
+    <p style="color: #000">假设：还是为了忽略各种效应，这里列出来以便后面的学习使用。</p>
+    <p style="color: #000">S和D区的压降忽略（电压理想）</p>
+    <p style="color: #000">不存在产生复合电流；沟道内为漂移电流，迁移率为常数，（连续性方程）</p>
+    <p style="color: #000">衬底源无电流，缓变沟道近似（主要忽略器件的结构影响）</p>
+    <p style="color: #000">推导过程不会详细说明，大概讲一下思路。</p>
+    <p style="color: #000">①由二维泊松方程得到薄层沟道的电荷不受Ey的影响</p>
+    <p style="color: #000">②给出漂移电流的表达式，利用反型层中电子的密度的表达式简化</p>
+    <p style="color: #000">J=-q*n*un*dVy/dy</p>
+    <p style="color: #000">即可得到结果</p>
+    <p style="color: #000">Id=-W*un*Cox*[(Vgs-Vt)*Vds-0.5*Vds^2]/L</p>
+    <p style="color: #000">线性区：Id=-W*un*Cox*(Vgs-Vt)*Vds/L</p>
+    <p style="color: #000">饱和区：Id=-W*un*Cox*(Vgs-Vt)^2/2L</p>
+    <p style="color: #000">可以看到MOSFET的工作电流与W/L,Cox,un这三个器件参数成正比。</p>
+    <p style="color: #000">（7） 跨导gm=Ids'(Vgs)和漏导gd=Ids'(Vds)</p>
+    <p style="color: #000">这两个参量是电路中使用比较多的，这里主要提一下。</p>
     <p style="color: #000">&nbsp;</p>
     <p style="color: #000">&nbsp;</p>
+    <p style="color: #000">&nbsp;</p>
+    <p style="color: #000">&nbsp;</p>
+    <p style="color: #000">&nbsp; </p>
     <p style="color: #000">&nbsp;</p>
     <p style="color: #000">&nbsp;</p>
     <p style="color: #000">&nbsp;</p>
