@@ -25,7 +25,10 @@
     <p>第七节--<a href="device_7th.html">结型场效应管</a></p>
     <p>返回页：</p>
     <p><a href="../index.html">电子科学与技术</a></p>
-    <p><a href="device.html">半导体器件首页</a></p></td>
+    <p><a href="device.html">半导体器件首页</a></p>
+    <p>总结页</p>
+    <p><a href="device_all.html">理想模型</a></p>
+    <p><a href="device_all_2.html">实际模型</a></p></td>
     <!-- InstanceBeginEditable name="work" -->
     <td width="86%" valign="top"><h1>实际半导体器件的性质</h1>
     <p><a name="point1" id="point1"></a></p>
@@ -305,12 +308,38 @@
     <p>L为沟道长度。可以看出截止频率与外加栅压有关，就是静态工作点。</p>
     <h4>（5）短沟道效应</h4>
     <p>a-阈值电压的短沟、窄沟效应</p>
-    <p>b-漏感应势垒降低效应（DIBL）    </p>
+    <p>简单推导：</p>
+    <p>假设结耗尽区和沟道下的耗尽区的宽度相等，耗尽区上的压降等于两倍IDE费米势，△L为短沟</p>
+    <p>下栅压对沟道下面的收缩距离。</p>
+    <p>△Qb=Qb*△L/L , </p>
+    <p>(△L+xj)^2=(xj+Xdmax)^2-Xdmax^2,这里有一个Xdma=Xdmax的近似。</p>
+    <p>这是一个：△L+xj，Xdmax,Xdmax+xj的直角三角形    </p>
+    <p>△L=xj[(1+2*xdmax/xj)0.5-1]    这是窄沟变化量，</p>
+    <p>代入得到△Qb的值，</p>
+    <p>其中Qb=Qb0*L*W</p>
+    <p>△Vt=△Qb/(Cox*W*L)=Qb0*△L/(Cox*L)=qNa*Xdmax*△L/L*Cox</p>
+    <p>从中可以看到Na，tox，xj越小，△Vt越小。    </p>
+    <p>沟道变窄后，1/2圆柱体的体积为π*Xdmax^2*L/2,</p>
+    <p>Qb`=Qb(1+π*Xdmax/2W),这里实际上 就是半圆面积除以矩形面积的比例参数。取出了共同的因子</p>
+    <p>LW，</p>
+    <p>同样可以得到△Vt=△Qb/Cox=qNa*Xdmax*pai*Xdmax/(2*Cox*W)=pai*q*Na*xdmax^2/(2*Cox*W)</p>
+    <p>上面推导的核心：△Vt=△Qb/Cox,△Qb=Qb`-Qb,</p>
+    <p>通过不同的形状解的△Q。</p>
+    <p>在短沟中，△Q=Qb△L/L,在窄沟中，△Q=Qb*（0.5pai*Xdmax/W）    </p>
+    <p>b-漏感应势垒降低效应（DIBL） </p>
+    <p>在沟道较小时源漏势垒降低的情况，降低阈值电压，输出曲线不再饱和，限制了尺寸的缩小。</p>
     <p>c-穿通效应</p>
+    <p>亚表面穿通效应，源漏空间电荷区不经过沟道而在亚表面形成通道，势垒完全消失，电流较大。</p>
+    <p>抑制方法：在亚表面加上HALO结构。</p>
     <p>d-速度饱和</p>
+    <p>由于电子迁移率不能满足饱和电流的需求，比物理沟道夹断还要低。</p>
     <p>e-高场效应</p>
+    <p>热电子效应：电子能量过大，可能会产生碰撞电离，</p>
+    <p>高场效应的结果：漏流增加，氧化层充电导致阈值电压漂移，产生衬底电流，产生寄生晶体管效应</p>
+    <p>降低DS高电场的措施：tox，Xj增大，Vds，Vdd减小，采用新型结构；</p>
+    <p>DDD和LDD（双扩散和低掺杂漏）</p>
     <p>f-CMOS结构</p>
-    <p>&nbsp;</p></td>
+    <p>Cmos结构中具有闩锁效应，就是在电压加大，电流较小时状态被锁定。</p></td>
     <!-- InstanceEndEditable -->
   </tr>
 </table>

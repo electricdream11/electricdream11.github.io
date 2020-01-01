@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form>
+        <center>
+        <p>input1</p>
+        <input type="number" title="input1" id="input1">
+        <br>
+        <P>input2</P>
+        <input type="number" title="input2"  id="input2">
+        <br>
+        <p>output</p>
+        <input type="text" title="output" id="out">
+        </center>
+    </form>
+    <script>
+        function add(){
+            var  x=document.getElementById("input1").value;
+            var  y=document.getElementById("input2").value;
+            var  z=parseFloat(x)+parseFloat(y);
+            document.getElementById("out").value=z;
+            return 0;
+        }
+        function cut(){
+            var z;
+            var  x=document.getElementById("input1").value;
+            var  y=document.getElementById("input2").value;
+            z=parseFloat(x)-parseFloat(y);
+            document.getElementById("out").value=z;            
+            return 0;
+        }    
+        function mul(){
+            var  x=document.getElementById("input1").value;
+            var  y=document.getElementById("input2").value;
+            var  z=parseFloat(x)*parseFloat(y);
+            document.getElementById("out").value=z;           
+            return 0;
+        }
+        function div(){
+            var  x=document.getElementById("input1").value;
+            var  y=document.getElementById("input2").value;
+            var  z=parseFloat(x)/parseFloat(y);
+            document.getElementById("out").value=z;        
+            return 0;
+        } 
+    </script>
+    <br>
+    <center>
+    <p>
+    <button onclick="add()">+</button>
+    <button onclick="cut()">-</button>
+    <button onclick="mul()">x</button>
+    <button onclick="div()">/</button>
+    </p>
+    </center>
+</body> 
+</html>
