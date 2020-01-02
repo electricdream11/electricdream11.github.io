@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+    <p>求素数</p>
+    <form>
+        <p>输入最大整数</p>
+        <p>友情提示：太大的值会使网页崩溃</p>
+        <input type="number" id="input1">
+    </form>
+    <button onclick="bu1()"> 计算 </button>
+    <p>结果是</p>
+    <!-- <input type="text" id="output1"> -->
+    <textarea name="result" id="out1" cols="30" rows="1"></textarea>
+    <script>
+        function demo(x){
+            var i,j;
+            var t;
+            var h=0;
+            for(i=2;i<x;i++)
+            {
+                t=0;
+                for(j=1;j<=i;j++)
+                {
+                    if(i%j==0)
+                    t++;
+                }
+                if(t==2)
+                {
+                // document.getElementById("output1").value+=i+",";
+                document.getElementById("out1").value+=i+",";
+                h++;
+                }
+                if(h%24==0){
+                    h=0;
+                    document.getElementById("out1").rows++;
+                }                
+            }
+        }
+        function bu1(){
+            var x=document.getElementById("input1").value;
+            demo(parseInt(x));
+        }
+    </script>
+    </center>
+</body>
+</html>

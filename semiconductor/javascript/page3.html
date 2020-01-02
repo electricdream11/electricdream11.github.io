@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <h1>
+        <p>控制物体</p>
+        </h1>
+        <script>
+            function f1(){
+               var a= document.getElementById("11");
+                a.style.top=a.offsetTop -10+"px";
+            }
+            function f2(){
+               var b= document.getElementById("11");
+                b.style.top=b.offsetTop +10+"px";
+            }  
+            function f3(){
+               var c= document.getElementById("11");
+               c.style.left=c.offsetLeft -10+"px";
+            }
+            function f4(){
+               var d= document.getElementById("11");
+               d.style.left=d.offsetLeft +10+"px";
+            }      
+        </script>       
+        <button onclick="f1()">上</button>
+        <button onclick="f2()">下</button>
+        <button onclick="f3()">左</button>
+        <button onclick="f4()">右</button>
+        <!-- 注意这里的style属性 -->
+        <img src="imags/timg.jfif" id="11" style="position: absolute; height: 100px; width: 
+        100px; top: 200px; left: 200px;">
+</body>
+</html>
