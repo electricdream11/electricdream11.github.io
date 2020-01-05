@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/tpl_electromagnetic.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>electromagnetic</title>
+<!-- InstanceEndEditable -->
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+</head>
+
+<body>
+<table width="100%%" height="516" border="1">
+  <tr>
+    <td height="74" colspan="3" align="center" valign="middle" bgcolor="#3399CC"><h1>电磁场与电磁波</h1></td>
+  </tr>
+  <tr>
+    <td width="13%" height="434" align="left" valign="top" bgcolor="#CCCC99"><p>目录页：</p>
+    <p><a href="electromagnetic_1th.html">1、矢量分析</a></p>
+    <p><a href="electromagnetic_2th.html">2、电磁场的基本规律</a></p>
+    <p><a href="electromagnetic_3th.html">3、静态电磁场及边值</a></p>
+    <p><a href="electromagnetic_4th.html">4、时变电磁场</a></p>
+    <p><a href="electromagnetic_5th.html">5、均匀平面波</a></p>
+    <p><a href="electromagnetic_6th.html">6、平面波的反射与透射</a></p>
+    <p><a href="electromagnetic_7th.html">7、导行电磁波</a></p>
+    <p><a href="electromagnetic_8th.html">8、电磁辐射</a></p>
+    <p>返回页：</p>
+    <p><a href="electromagnetic.html">电磁场与电磁波</a></p>
+    <p><a href="../index.html">电子科学与技术</a></p>
+    <p>类似页：</p>
+    <p><a href="../device/device.html">半导体器件</a></p>
+    <p><a href="../semiconductor_material/material.html">半导体材料</a></p>
+    <p><a href="../artificial_circuit/artificial_circuit.html">集成电路设计</a></p></td>
+    <!-- InstanceBeginEditable name="EditRegion3" -->
+    <td width="77%" valign="top"><h1>平面波的无限空间传播模型的推导</h1>
+    <h2>1、均匀平面波对分界面的垂直入射 </h2>
+    <p>入射波：</p>
+    <p>Ei=ex*Eim*exp（-γ1*z）</p>
+    <p>Hi（z）=ez×1/η1c *Ei（x）=ey*1/η1c*Eim*exp（-γ1*z）</p>
+    <p>反射波：</p>
+    <p>Er相对于Ei的波方向相反（z变为-z），振幅为Erm</p>
+    <p>Hr相对于Hi除了方向反向，振幅也反向。因为Hr=-ez×1/η1c*Er</p>
+    <p>透射波：</p>
+    <p>E2=ex*Etm*e xp（-γ2z）</p>
+    <p>H2=ez×1/η2c*Etm*exp（γ2z）</p>
+    <p>利用边界条件可以解得：    </p>
+    <p>反射系数Γ=（η2c-η1c）/(η2c+η1c）</p>
+    <p>透射系数t=2η2c/(η1c+η2c）</p>
+    <p>1+Γ=t，反射系数加上入射比例1等于透射系数。</p>
+    <p>所谓的透射系数和反射系数就是幅值的比值。</p>
+    <p>下面是实际的近似计算：</p>
+    <p>理想导体，σ=无穷大，η2c=0，t=0，Γ=-1；</p>
+    <p>Erm=-Eim，</p>
+    <p>这时的合成波为驻波，就是相位只是与时间有关的波。驻波在z=-n*λ/2处有波结点，在波结点中间有波腹。</p>
+    <p>理想介质，σ=0，</p>
+    <p>γ1=jβ1，γ2=β2</p>
+    <p>η1c=η1，η2c=η2</p>
+    <p>直接代入Γ和t即可解得实际的波函数。</p>
+    <p>分析结果可以得到介质1中为行波和驻波组合，具有一个驻波系数S=（1+|Γ|）/（1-|Γ|），的描述方法，单位为分贝，分贝数为20logS</p>
+    <h2>2、多层介质的垂直入射</h2>
+    <p>多层介质的垂直入射要从最后一层开始分析。由折射系数得到上一层的反射系数，依次推导。其中比较重要的是三层介质的推导。</p>
+    <p>ηef=η2*（η3+jη2*tan（β2d））/(η2+jη3*tan（β2d）</p>
+    <p>这是第二层分界面对第一层分界面的影响。</p>
+    <p>当d=λ/4时，ηef=η2²/η3，若取η2²=η1*η3，则反射系数Γ1=0，得到匹配层。</p>
+    <p>当d=λ/2时，ηef=η3，取η1=η3，则反射系数Γ1=0，得到匹配层。</p>
+    <h2>3、理想介质的斜入射</h2>
+    <p>斜入射时考虑两种波：垂直极化波（相对于入射平面）和平行极化波</p>
+    <p>首先，反射时有反射定律：θr=θi，透射时有sinθt/sinθi=k1/k2=n1/n2</p>
+    <p>n1=c/v1,n2=c/v2</p>
+    <p>v=w/k,n1和n2是折射率的定义。 </p>
+    <p>对于垂直极化波：</p>
+    <p>Γ的变化：在η2上加乘cosθi，在η1上乘cosθt就可以了。</p>
+    <p>t的变化：和前面的Γ一样。</p>
+    <p>对于非磁性介质：η1/η2=（ε2/ε1） ^0.5,sinθt=（ε1/ε2）^0.5*sinθi，可以化简得到简化式。</p>
+    <p>对于平行极化波：</p>
+    <p>在η1乘cosθi，在η2乘cosθt，和垂直极化波恰好相反。</p>
+    <p>注意：非磁性介质的折射定律简化为sinθt=（ε1/ε2）^0.5*sinθi，</p>
+    <p>当sinθi=（ε2/ε1），θt=0，发生全反射，这个θi为临界角。</p>
+    <p>只有ε2&lt;ε1时才会出现，即光密到光疏发生的现象，对应到反射系数为1.</p>
+    <p>另外一种重要的现象是全透射。</p>
+    <p>当平行入射波进入界面时，如满足θi=arctan（ε2/ε1）^1/2</p>
+    <p>&nbsp;这个角叫布儒斯特角，可以使平行极化波全入射，反射波中只有垂直极化波，所以这个角也叫极化角。</p>
+    <h2>4、理想导体的斜入射</h2>
+    <p>理想导体，σ=无穷大，η2=0，</p>
+    <p>对于垂直入射波：</p>
+    <p>反射系数Γ=-1，透射系数t=0</p>
+    <p>这种波在x方向没有电场，所以叫TE波（横电波） </p>
+    <p>对于平行极化波：</p>
+    <p>Γ=1，t=0，</p>
+    <p>同样可以得到在x方向没有磁场，只有电场，所以叫TM波（横磁波），这里的横实际上就是在传播方向上没有的意思。</p>
+    <p>当然，这部分还有一些具体的问题，这里由于时间关系就不多加阐述，在后面的实际计算中会有具体的解释。这里只考虑原理。</p></td>
+    <!-- InstanceEndEditable -->
+    <td width="10%" valign="top" bgcolor="#CCFFFF"><p>重要的名词解释</p>
+    <p><a href="electromagnetic_keyword.html#point1">叉乘公式</a></p>
+    <p><a href="electromagnetic_keyword.html#point2">麦克斯韦方程组</a></p>
+    <p>&nbsp;</p>
+    <p>物理模型：</p>
+    <p><a href="electromagnetic_module1.html">静态电磁场</a></p>
+    <p><a href="electromagnetic_module2.html">时态电磁场</a></p>
+    <p><a href="electromagnetic_module3.html">均匀平面波</a></p>
+    <p><a href="electromagnetic_module4.html">界面平面波</a></p>
+    <p><a href="electromagnetic_module5.html">区域平面波</a></p></td>
+  </tr>
+</table>
+</body>
+<!-- InstanceEnd --></html>

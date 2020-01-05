@@ -41,7 +41,25 @@
     <p><a href="../device/device.html">半导体器件</a></p>
     <p>&nbsp;</p></th>
     <!-- InstanceBeginEditable name="work" -->
-    <td width="88%" valign="top">work1</td>
+    <td width="88%" valign="top"><h1>MOS器件</h1>
+      <h2>1、器件模型</h2>
+    <p>在刚刚学习完了半导体器件物理，这部分的知识应该不陌生。</p>
+    <p>核心公式就2个：</p>
+    <p>饱和区：Ids=μCoxW/L*(Vgs-Vth)²</p>
+    <p>线性区：Ids=0.5μCoxW/L*(Vgs-Vth)Vds;</p>
+    <p>考虑到二级效应，这里引入λ（沟道调制系数）</p>
+    <p>饱和区变为：Ids=μCoxW/L*(Vgs-Vth)²（1+λVds）</p>
+    <p>gm就是Ids对Vgs的求导，也要相应的修正。</p>
+    <h2>2、MOS小信号模型</h2>
+    <p>这部分的知识设计的主要是电路知识，需要的是电路的基础。主要有以下四种模型：</p>
+    <p>1）只考虑跨导的作用，忽略其他因素。</p>
+    <p>2）考虑漏导和跨导</p>
+    <p>3）考虑跨导和沟道调制效应r0</p>
+    <p>4）考虑跨导，沟道调制效应，体效应带来的体导和衬底电压。</p>
+    <p>在小信号模型中，以上四个模型就是用于前期估算的标注模型。后面的电路分析也是基于这几个模型的。    </p>
+    <p>&nbsp; </p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p></td>
     <!-- InstanceEndEditable -->
   </tr>
 </table>

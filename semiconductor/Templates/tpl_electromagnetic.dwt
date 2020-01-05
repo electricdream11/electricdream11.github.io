@@ -36,8 +36,14 @@
     <!-- TemplateEndEditable -->
     <td width="10%" valign="top" bgcolor="#CCFFFF"><p>重要的名词解释</p>
     <p><a href="../electromagnetic/electromagnetic_keyword.html#point1">叉乘公式</a></p>
-    <p><a href="../electromagnetic/electromagnetic_keyword.html#point2">格林公式</a></p>
-    <p><a href="../electromagnetic/electromagnetic_keyword.html#point3">麦克斯韦方程</a></p></td>
+    <p><a href="../electromagnetic/electromagnetic_keyword.html#point2">麦克斯韦方程组</a></p>
+    <p>&nbsp;</p>
+    <p>物理模型：</p>
+    <p><a href="../electromagnetic/electromagnetic_module1.html">静态电磁场</a></p>
+    <p><a href="../electromagnetic/electromagnetic_module2.html">时态电磁场</a></p>
+    <p><a href="../electromagnetic/electromagnetic_module3.html">均匀平面波</a></p>
+    <p><a href="../electromagnetic/electromagnetic_module4.html">界面平面波</a></p>
+    <p><a href="../electromagnetic/electromagnetic_module5.html">区域平面波</a></p></td>
   </tr>
 </table>
 </body>

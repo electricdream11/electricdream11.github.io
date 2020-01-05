@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/tpl_electromagnetic.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>electromagnetic</title>
+<!-- InstanceEndEditable -->
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+</head>
+
+<body>
+<table width="100%%" height="516" border="1">
+  <tr>
+    <td height="74" colspan="3" align="center" valign="middle" bgcolor="#3399CC"><h1>电磁场与电磁波</h1></td>
+  </tr>
+  <tr>
+    <td width="13%" height="434" align="left" valign="top" bgcolor="#CCCC99"><p>目录页：</p>
+    <p><a href="electromagnetic_1th.html">1、矢量分析</a></p>
+    <p><a href="electromagnetic_2th.html">2、电磁场的基本规律</a></p>
+    <p><a href="electromagnetic_3th.html">3、静态电磁场及边值</a></p>
+    <p><a href="electromagnetic_4th.html">4、时变电磁场</a></p>
+    <p><a href="electromagnetic_5th.html">5、均匀平面波</a></p>
+    <p><a href="electromagnetic_6th.html">6、平面波的反射与透射</a></p>
+    <p><a href="electromagnetic_7th.html">7、导行电磁波</a></p>
+    <p><a href="electromagnetic_8th.html">8、电磁辐射</a></p>
+    <p>返回页：</p>
+    <p><a href="electromagnetic.html">电磁场与电磁波</a></p>
+    <p><a href="../index.html">电子科学与技术</a></p>
+    <p>类似页：</p>
+    <p><a href="../device/device.html">半导体器件</a></p>
+    <p><a href="../semiconductor_material/material.html">半导体材料</a></p>
+    <p><a href="../artificial_circuit/artificial_circuit.html">集成电路设计</a></p></td>
+    <!-- InstanceBeginEditable name="EditRegion3" -->
+    <td width="77%" valign="top"><h1>时变电磁场的模型推导</h1>
+    <h2>1、波动方程</h2>
+    <p>无源区域，▽²E-μεd²E/dt²=0</p>
+    <p>磁场强度H的表达式相等。</p>
+    <h2>2、位函数</h2>
+    <p>注意这里的A和磁矢位A不是同一个物理量。    虽然表达式一样。</p>
+    <p>洛伦兹条件下：</p>
+    <p>▽A=-μεdφ/dt</p>
+    <p>进而得到达朗贝尔方程：</p>
+    <p>▽²A-μεA``(t)=-μJ</p>
+    <p>▽²φ-μεφ``(t)=-1/ε*ρ</p>
+    <p>这是为了简化方程的求解。</p>
+    <h2>3、电磁场的能量</h2>
+    <p>We=1/2*ED</p>
+    <p>Wm=1/2*HB</p>
+    <p>能流密度矢量S=E×H（也就是坡印延矢量）</p>
+    <p>指的是单位面积的功率相关的矢量</p>
+    <p>P=S对面积的积分。</p>
+    <h2>4、唯一性定理</h2>
+    <p>在以闭合曲面S为边界的区域V内，对于给定了t=0时刻的E和H的初始值，在t&gt;0时，给定边界E的切向分量或H的切向分量，</p>
+    <p>则在区域V内的电磁场满足唯一的麦克斯韦方程。</p>
+    <h2>5、时谐电磁场的复数表示 </h2>
+    <p>时谐电磁场的实数表示：</p>
+    <p>u（r,t）=um(r)cos(wt+φ（r））,就是余弦波动方程</p>
+    <p>时谐电磁场的复数表示：</p>
+    <p>`u(r)=um(r)*exp(jφ（r）)</p>
+    <p>从上面的公式可以看出，复数表示就是将时间变量分立出去。</p>
+    <p>注意，实数表示可以改写成复数取实部，但这不是复数形式，只是将复数引入表示。</p>
+    <p>改写实部的方法就是利用高斯方程，将J后面的项直接对应到cos后面。</p>
+    <p>引入复数表示后，其他的物理量也可以转化为复数表示：</p>
+    <p>麦克斯韦方程：</p>
+    <p>1，2：▽×H=J+jwD，▽×E=-jwB</p>
+    <p>可以看出，复数表示就是将对t的导数转化为jw。</p>
+    <p>复电容率：εc=ε-jσ/w，其中损耗角的正切tanθ=σ/εw</p>
+    <p>复磁导率:  μc=μ`-jμ``  , 损耗角也是μ``/μ·</p>
+    <p>亥姆霍兹方程转化为：</p>
+    <p>kc=w(μεc）^1/2,εc就是上面的表达式。</p>
+    <p>▽²H+kc²H=0，E的方程式也是一样的。 </p>
+    <p>亥姆霍兹方程就是无源空间的电磁场满足的方程。</p>
+    <p>位函数：</p>
+    <p>H=1/μ*▽×A</p>
+    <p>E=-jwA-▽φ</p>
+    <p>达朗贝尔方程：</p>
+    <p>k²=w²με</p>
+    <p>洛伦兹条件：φ=▽A/(-jwμε）</p>
+    <p>平均能流密度：Sav=1/2*Re[E×H^*]</p>
+    <p>这里给出的是实数表示。</p>
+    <p>坡印延矢量：S=1/2[E×Hexp（j2wt）]+1/2Re[E×H^*]</p>
+    <p>至于坡印延矢量的复数表示计算比实数表示还复杂，了解一下就行。</p>
+    <p>注意复矢量和实矢量的转化：复矢量*exp（jwt）的实部就是实矢量。</p>
+    <p>实矢量的复数表示去掉时间就是复矢量。</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p></td>
+    <!-- InstanceEndEditable -->
+    <td width="10%" valign="top" bgcolor="#CCFFFF"><p>重要的名词解释</p>
+    <p><a href="electromagnetic_keyword.html#point1">叉乘公式</a></p>
+    <p><a href="electromagnetic_keyword.html#point2">麦克斯韦方程组</a></p>
+    <p>&nbsp;</p>
+    <p>物理模型：</p>
+    <p><a href="electromagnetic_module1.html">静态电磁场</a></p>
+    <p><a href="electromagnetic_module2.html">时态电磁场</a></p>
+    <p><a href="electromagnetic_module3.html">均匀平面波</a></p>
+    <p><a href="electromagnetic_module4.html">界面平面波</a></p>
+    <p><a href="electromagnetic_module5.html">区域平面波</a></p></td>
+  </tr>
+</table>
+</body>
+<!-- InstanceEnd --></html>

@@ -35,19 +35,70 @@
     <td width="77%" valign="top"><h1>电磁场与电磁波的关键词说明</h1>
     <p>为了方便的查询比较重要的公式和名词解释，这里将大部分的公式都列举出来，以供参考。</p>
     <p><a name="point1" id="point1"></a></p>
-    <p>叉乘公式（三类坐标系）</p>
-    <p>&nbsp;</p>
+    <h2>叉乘公式（三类坐标系）</h2>
+    <p>直角坐标系：</p>
+    <p>▽×F=</p>
+    <p>ex&nbsp;  &nbsp;&nbsp; &nbsp;  ey&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; ez</p>
+    <p>d/dx&nbsp; d/dy&nbsp; &nbsp;&nbsp; d/dz</p>
+    <p>Fx    &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Fy&nbsp; &nbsp;&nbsp; Fz</p>
+    <p>圆柱坐标系：    </p>
+    <p>▽×F= 1/ρ *</p>
+    <p>eρ&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;ρeφ&nbsp; &nbsp;&nbsp; &nbsp;ez</p>
+    <p>d/dρ&nbsp; &nbsp; d/dφ&nbsp; &nbsp; d/dz</p>
+    <p>Fρ&nbsp; &nbsp;&nbsp; &nbsp; ρFφ &nbsp;&nbsp; &nbsp;Fz</p>
+    <p>球坐标系：</p>
+    <p>▽×F=1/r²sinθ*</p>
+    <p>er &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; reθ&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; rsinθeφ</p>
+    <p>d/dr&nbsp; &nbsp;&nbsp; d/dθ&nbsp; &nbsp;&nbsp;  d/dφ</p>
+    <p>Fr&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rFr&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; rsinθFφ    </p>
     <p><a name="point2" id="point2"></a></p>
-    <p>格林公式</p>
-    <p>&nbsp;</p>
-    <p><a name="point3" id="point3"></a></p>
-    <p>麦克斯韦方程组的两种形式及边界条件</p>
-    <p>&nbsp;</p></td>
+    <h2>麦克斯韦方程组的两种形式及边界条件</h2>
+    <p>麦克斯韦方程组微分形式</p>
+    <p>▽×H=J+dD/dt</p>
+    <p>▽×E=-dB/t</p>
+    <p>这部分是描述电磁转化的关系式，也是电磁的旋度定理</p>
+    <p>▽*B=0</p>
+    <p>▽*D=ρ</p>
+    <p>这部分是电磁的散度定理</p>
+    <p>本构关系：</p>
+    <p>D=εE&nbsp; （从这可以看出电位移矢量是介质属性，E是真空属性）</p>
+    <p>B=μH（B是介质属性，H是真空属性）</p>
+    <p>J=σE（J是导体属性，E是真空属性）</p>
+    <p>（这里的介质属性指的是受介质影响，真空属性指的是不受介质的影响，个人记忆需要，不必细究）</p>
+    <p>麦克斯韦方程组的积分形式：</p>
+    <p>磁场强度的环流等于环面通过的电流和电位移矢量的变化量。</p>
+    <p>电场强度的环流等于环面通过的磁感应强度的变化量。</p>
+    <p>（以上的两个公式是基于平面积分的）</p>
+    <p>磁感应强度的体表面积分和为0</p>
+    <p>电位移矢量的体表面积分等于电荷密度的体积分。</p>
+    <p>（以上两个公式是基于体积单元的积分）</p>
+    <p>这里的简单的理解就是磁由电生，电由磁生，磁核不灭，电荷守恒。</p>
+    <p>还有一点值得注意，由电（J+dD/dt）产生的磁场为H（真空量），而不是B（介质量），这体现了电磁相互作用中的最佳描述就是介质的</p>
+    <p>作用只需出现一次。</p>
+    <p>麦克斯韦方程组的边界条件：</p>
+    <p>对于H的第一方程条件：切向方向之差为Js，对于有限电导率的Js=0，切向连续。</p>
+    <p>对于E的第二方程条件：切向方向之差为0，切向连续。</p>
+    <p>对于B的第三方程条件：法向方向之差为0，法向连续。</p>
+    <p>对于D的第四方程条件：法向之差为ρs,法向不连续。</p>
+    <p>以上四个边界条件是根据麦克斯韦方程组对应的边界条件。</p>
+    <p>简单理解就是旋度的值决定了切向方向连续与否，散度决定了法向方向连续与否。</p>
+    <p>而在实际应用中，</p>
+    <p>一般分为理想导体和理想介质两种形式：</p>
+    <p>理想导体：存在Js和ρs，磁场强度和电位移矢量在切向和法向不连续。</p>
+    <p>理想介质：所有方向都连续。</p>
+    <p>注意书上的表达方式（矢量表达式中法向矢量在前说明切向存在差值，反之亦然）</p>
+    <p>在了解了基本的麦克斯韦方程组后，后面就是对具体的物理模型的构建和应用了。</p></td>
     <!-- InstanceEndEditable -->
     <td width="10%" valign="top" bgcolor="#CCFFFF"><p>重要的名词解释</p>
     <p><a href="electromagnetic_keyword.html#point1">叉乘公式</a></p>
-    <p><a href="electromagnetic_keyword.html#point2">格林公式</a></p>
-    <p><a href="electromagnetic_keyword.html#point3">麦克斯韦方程</a></p></td>
+    <p><a href="electromagnetic_keyword.html#point2">麦克斯韦方程组</a></p>
+    <p>&nbsp;</p>
+    <p>物理模型：</p>
+    <p><a href="electromagnetic_module1.html">静态电磁场</a></p>
+    <p><a href="electromagnetic_module2.html">时态电磁场</a></p>
+    <p><a href="electromagnetic_module3.html">均匀平面波</a></p>
+    <p><a href="electromagnetic_module4.html">界面平面波</a></p>
+    <p><a href="electromagnetic_module5.html">区域平面波</a></p></td>
   </tr>
 </table>
 </body>

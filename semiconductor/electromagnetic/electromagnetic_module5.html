@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/tpl_electromagnetic.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>electromagnetic</title>
+<!-- InstanceEndEditable -->
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+</head>
+
+<body>
+<table width="100%%" height="516" border="1">
+  <tr>
+    <td height="74" colspan="3" align="center" valign="middle" bgcolor="#3399CC"><h1>电磁场与电磁波</h1></td>
+  </tr>
+  <tr>
+    <td width="13%" height="434" align="left" valign="top" bgcolor="#CCCC99"><p>目录页：</p>
+    <p><a href="electromagnetic_1th.html">1、矢量分析</a></p>
+    <p><a href="electromagnetic_2th.html">2、电磁场的基本规律</a></p>
+    <p><a href="electromagnetic_3th.html">3、静态电磁场及边值</a></p>
+    <p><a href="electromagnetic_4th.html">4、时变电磁场</a></p>
+    <p><a href="electromagnetic_5th.html">5、均匀平面波</a></p>
+    <p><a href="electromagnetic_6th.html">6、平面波的反射与透射</a></p>
+    <p><a href="electromagnetic_7th.html">7、导行电磁波</a></p>
+    <p><a href="electromagnetic_8th.html">8、电磁辐射</a></p>
+    <p>返回页：</p>
+    <p><a href="electromagnetic.html">电磁场与电磁波</a></p>
+    <p><a href="../index.html">电子科学与技术</a></p>
+    <p>类似页：</p>
+    <p><a href="../device/device.html">半导体器件</a></p>
+    <p><a href="../semiconductor_material/material.html">半导体材料</a></p>
+    <p><a href="../artificial_circuit/artificial_circuit.html">集成电路设计</a></p></td>
+    <!-- InstanceBeginEditable name="EditRegion3" -->
+    <td width="77%" valign="top"><h1>有限空间平面波传播的模型推导</h1>
+      <h2>1、导行电磁波的概论</h2>
+      <p>这里主要区分波的类型：</p>
+      <p>TEM：纵向没有电场和磁场</p>
+      <p>TE：纵向没有电场</p>
+      <p>TM：纵向没有磁场</p>
+      <p>其中TEM波和无界空间的平面波特性相同。ZTEM=η</p>
+      <p>ZTM=γ/jwε，H=1/ZTM*ez×E</p>
+      <p>ZTE=jwμ/γ，E=-ZTE*（ez×H）</p>
+      <p>其中上面两式γ=（kc²-k²）^0.5</p>
+      <p>这里的γ是传播特性的主要描述量。</p>
+      <h2>2、矩形波导</h2>
+      <p>矩形波导的推导原理就是采用亥姆霍兹方程的分量化简，得到的是截止波数kc^2=（mπ/a）^2+(nπ/b)^2</p>
+      <p>对于TEmn来说，m，n可以为0，但是不全为0.对于TM波，m，n不为0</p>
+      <p>得到kc后就可以计算矩形波导中的传播特性了。</p>
+      <p>γ=（kc²-k²）^1/2</p>
+      <p>γ=jβ</p>
+      <p>知道了相位常数β，后面的都可以计算了。</p>
+      <p>当k=kc时具有截止波数kc，由截止波数可以得到截止频率和截止角频率。</p>
+      <p>当然也可以返回求解ZTE和ZTM，这里ZTE对应wμ/β，ZTM对应β/wε。简单记忆就是横磁波没有磁导率μ，横电波没有介电常数ε。      </p>
+      <p>主模就是截止频率最低的模式。一般是TE波。</p>
+      <p>主模对应的是单模区，当第二个模出现时进入多模区。</p>
+      <p>矩形波导的传输功率：对于TE10（主模）=ab/4ZTE*(Em²）</p>
+      <p>对于极限，将Em换成Ebr（击穿电压）</p>
+      <h2>3、圆柱形波导</h2>
+      <p>圆柱形的传导和矩形类似，还是先考虑kc的值。具体的表达式比较复杂就不给出了，说明几个相应的结论。</p>
+      <p>圆柱波导的主模为TE11，这里的具体的要查看公式</p>
+      <p>对于圆柱波导，除了E-H简并，还有极化简并，（在mn都不为0时存在的简并模式） </p>
+      <p>三种主要的工作方式是：</p>
+      <p>主模TE11，圆对称模TM01，低损耗模TE01，</p>
+      <p>主模不适合远距离传输，但是可以实现圆柱波导与矩形波导的转化。</p>
+      <p>圆对称模用作天线机械扫描装置的旋转关节的工作模式，</p>
+      <p>低损耗模适用于高Q的谐振腔的工作。</p>
+      <p>这里注意就是圆柱的β²=k²-kc²，和矩形波导相反。</p>
+      <h2>4、同轴波导</h2>
+      <p>同轴波导中的TEM波和无限空间的电磁波相等，</p>
+      <p>γ=η，</p>
+      <p>传输功率：P=π/η*|Em|²ln（b/a）,其中b是外径。</p>
+      <p>和矩形波导一样，最高功率就是将Em换成Ebr。</p>
+      <p>TEM波的频率过高时会出现高次模。</p>
+      <h2>5、谐振腔</h2>
+      <p>谐振腔的作用是将辐射源的的电磁波约束在谐振腔中，不让其干扰其他电路。</p>
+      <p>品质因素Q=2π*W/Wt，就是储存的能量/损耗的能量，损耗越小，品质越高。 </p>
+    <h2>6、传输线</h2>
+    <p>传输线方程：将电磁波传输过程的影响等效于电容和电阻，具体的推导比较繁琐，这里不多说。</p>
+    <p>相对于模型的理解，这里更加关注的是参数的意义。</p>
+    <p>传输线具有特性参数：</p>
+    <p>特性阻抗Z0，传播常数β，相速度vp，波长λg</p>
+    <p>传输线的工作参数：</p>
+    <p>输入阻抗Zins，终端开路线，终端负载等于特性阻抗，λ/4线，λ/2</p>
+    <p>反射系数，</p>
+    <p>驻波系数和行波系数。</p>
+    <p>上面的参数做一个了解即可。都是实际应用中的总结特性。</p>
+    <p>传输线的工作状态：</p>
+    <p>行波状态：传输线上没有反射波，也就没有驻波的状态。</p>
+    <p>驻波状态 ：终端短路或者开路，只有驻波的状态。</p>
+    <p>混合状态：负载既不是等于特征阻抗，也不是短路或开路，这时既有驻波，又有行波。    </p>
+    <p>&nbsp;</p></td>
+    <!-- InstanceEndEditable -->
+    <td width="10%" valign="top" bgcolor="#CCFFFF"><p>重要的名词解释</p>
+    <p><a href="electromagnetic_keyword.html#point1">叉乘公式</a></p>
+    <p><a href="electromagnetic_keyword.html#point2">麦克斯韦方程组</a></p>
+    <p>&nbsp;</p>
+    <p>物理模型：</p>
+    <p><a href="electromagnetic_module1.html">静态电磁场</a></p>
+    <p><a href="electromagnetic_module2.html">时态电磁场</a></p>
+    <p><a href="electromagnetic_module3.html">均匀平面波</a></p>
+    <p><a href="electromagnetic_module4.html">界面平面波</a></p>
+    <p><a href="electromagnetic_module5.html">区域平面波</a></p></td>
+  </tr>
+</table>
+</body>
+<!-- InstanceEnd --></html>
