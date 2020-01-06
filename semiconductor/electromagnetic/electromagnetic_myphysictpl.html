@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/tpl_electromagnetic.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>electromagnetic</title>
+<!-- InstanceEndEditable -->
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+</head>
+
+<body>
+<table width="100%%" height="516" border="1">
+  <tr>
+    <td height="74" colspan="3" align="center" valign="middle" bgcolor="#3399CC"><h1>电磁场与电磁波</h1></td>
+  </tr>
+  <tr>
+    <td width="13%" height="434" align="left" valign="top" bgcolor="#CCCC99"><p>目录页：</p>
+    <p><a href="electromagnetic_1th.html">1、矢量分析</a></p>
+    <p><a href="electromagnetic_2th.html">2、电磁场的基本规律</a></p>
+    <p><a href="electromagnetic_3th.html">3、静态电磁场及边值</a></p>
+    <p><a href="electromagnetic_4th.html">4、时变电磁场</a></p>
+    <p><a href="electromagnetic_5th.html">5、均匀平面波</a></p>
+    <p><a href="electromagnetic_6th.html">6、平面波的反射与透射</a></p>
+    <p><a href="electromagnetic_7th.html">7、导行电磁波</a></p>
+    <p><a href="electromagnetic_8th.html">8、电磁辐射</a></p>
+    <p>返回页：</p>
+    <p><a href="electromagnetic.html">电磁场与电磁波</a></p>
+    <p><a href="../index.html">电子科学与技术</a></p>
+    <p>类似页：</p>
+    <p><a href="../device/device.html">半导体器件</a></p>
+    <p><a href="../semiconductor_material/material.html">半导体材料</a></p>
+    <p><a href="../artificial_circuit/artificial_circuit.html">集成电路设计</a></p></td>
+    <!-- InstanceBeginEditable name="EditRegion3" -->
+    <td width="77%" valign="top"><h1>物理概念流程：</h1>
+    <h2>第一节：静态电磁场概念模型</h2>
+    <p>（1）静电场的求解</p>
+    <p>首先，电位函数满足泊松方程（或者拉普拉斯方程）</p>
+    <p>根据边界条件（非导体平面和导体平面的边界按照E的边界可以得到解）</p>
+    <p>在均匀的场强中的电位与x成正比。</p>
+    <p>注意E=▽×φ</p>
+    <p>由φ可以引出C的计算式。C=q/U,</p>
+    <p>C=εs/d是 定义式。</p>
+    <p>电容的引入可以得到We（电场能量）</p>
+    <p>We=1/2qU=1/2CU²</p>
+    <p>能量密度we=1/2DE</p>
+    <p>能量引入后可以得到F=dWe/dx(能量对位移的导数等于静电力）</p>
+    <p>计算恒定电场时将D转化为J就行了，ε变成σ。</p>
+    <p>J的定义式J=I/S，在必要的时候也会用到。</p>
+    <p>（2）恒定磁场的计算</p>
+    <p>B=▽×A，A为磁矢位。</p>
+    <p>根据B的微分式可以得到A=μ/4π(J/|r-r`|)的体积分。</p>
+    <p>以此为基础可以得到A的积分的最小单位。</p>
+    <p>求解的过程和点电荷的积分类似。</p>
+    <p>在空间内不存在电流J时，</p>
+    <p>▽H=φ，φ是标量磁位。</p>
+    <p>计算完矢量和标量磁位，就是考虑电感的计算的时候了。</p>
+    <p>电感的计算主要计算磁通量Ψ，求出B后乘以S即可，</p>
+    <p>L=Ψ/I,这就是电感的计算式。要注意求B时的电流的变化。</p>
+    <p>互感的求解就是磁通的源换一个。</p>
+    <p>注意线圈之间的互感有一个现成的纽曼公式：</p>
+    <p>M=μa1a2/2*(cosθdθ/[d²+a1²+a2²-2a1a2cosθ]^0.5）对0到2π的θ积分。</p>
+    <p>这个公式推导比较困难，可以记一下。</p>
+    <p>电感后要求的就是磁场的能量。</p>
+    <p>磁场能量Wm=1/2(JA)的体积分</p>
+    <p>磁场的能量密度we=1/2*BH，</p>
+    <p>注意能量密度可以对体积积分得到能量We，这在实际的计算中比使用JA求解要更加方便。</p>
+    <p>能量后面就是磁场力，求出磁场能量随力方向的位移偏导就可。</p>
+    <p>其中双线圈模型中可以直接使用F=I1I2*dM/dd|I为常数。</p>
+    <p>这点了解一下。</p>
+    <p>（3）静态场中的边值问题</p>
+    <p>前面已经将电场和磁场的泊松方程都得到了，但是解二阶微分方程需要边界条件。</p>
+    <p>边界条件的具体应用在数物方程中有详细的解法。</p>
+    <p>这里同样需要一个唯一性定理来保证泊松方程的解是唯一解。</p>
+    <p>（4）镜像法和分离变量法</p>
+    <p>电荷的点镜像和线镜像都是ρ=-ρ，d=-d</p>
+    <p>其他的连接到静电场的积分。</p>
+    <p>球面的镜像：</p>
+    <p>q`=-a/d*q,d``=a^2/d</p>
+    <p>在非接地的</p>
+    <p>q``=-q`</p>
+    <p>这里注意线模型的电势</p>
+    <p>φ=ρl/2πε*ln（1/d)，d是源距离。</p>
+    <p>圆柱镜面：</p>
+    <p>ρ`=-ρ；</p>
+    <p>d`=a^2/d；</p>
+    <p>双圆柱镜像：</p>
+    <p>ρl·=ρl</p>
+    <p>b=（h²-a²）^1/2</p>
+    <p>介质平面的镜像：</p>
+    <p>q·=（ε1-ε2）/(ε1+ε2）*q,q``=-q`;</p>
+    <p>磁场的顺序反向。</p>
+    <p>以上就是镜像法求解带有边界的电磁场的方法，原理比较简单，就是利用边界的连续性在两边的值的体现构建等效电荷。消除界面。</p>
+    <p>分离变量法就是解方程：</p>
+    <p>二阶微分方程元项为+，则结果为sin+cos，如果为负，则为sinh+cosh</p>
+    <p>柱坐标中的解为：φ为sin+cos，ρ为e-+e+</p>
+    <h2>第二节：时变电磁场 </h2>
+    <p>时变电磁场的核心是波动方程，</p>
+    <p>主要的计算量是功率P</p>
+    <p>P=S*S，（坡印延矢量与面积的乘积）</p>
+    <p>S=E×H，瞬时能流密度。</p>
+    <p>实数表示和复数表示区分一下。</p>
+    <p>Sav=S对周期的积分</p>
+    <h2>第三节：均匀平面波在无界空间中的传播</h2>
+    <p>这部分引入了波阻抗η和相位常数k，以及γ=jkc的复数形式，将电磁波的特性描述出来。</p>
+    <h2>第四节：平面波在界面处的特性</h2>
+    <p>这部分带来的是反射系数Γ和透射系数t，以及和这两个系数相关的现象。</p>
+    <h2>第五节：平面波在波导中的传播特性</h2>
+    <p>这部分讨论的焦点在于kc的不同所导致的ZTE和ZTM的不同，不同的kc导致了不同的模式，工作在不同的模式会导致不同的结果，</p>
+    <p>这里的主要计算是截止频率f，截止波数k，截止波长λ的连续计算。</p>
+    <p>由于后面几章主要是计算公式，没有物理模型的理解公式，所以简要的带过即可，只要记住核心公式，问题就不大。前三章需要结合</p>
+    <p>具体的物理模型理解物理概念。</p></td>
+    <!-- InstanceEndEditable -->
+    <td width="10%" valign="top" bgcolor="#CCFFFF"><p>重要的名词解释</p>
+    <p><a href="electromagnetic_keyword.html#point1">叉乘公式</a></p>
+    <p><a href="electromagnetic_keyword.html#point2">麦克斯韦方程组</a></p>
+    <p>&nbsp;</p>
+    <p>物理模型：</p>
+    <p><a href="electromagnetic_module1.html">静态电磁场</a></p>
+    <p><a href="electromagnetic_module2.html">时态电磁场</a></p>
+    <p><a href="electromagnetic_module3.html">均匀平面波</a></p>
+    <p><a href="electromagnetic_module4.html">界面平面波</a></p>
+    <p><a href="electromagnetic_module5.html">区域平面波</a></p>
+    <p>实战模型：</p>
+    <p><a href="electromagnetic_myhomework.html">作业练习</a></p>
+    <p><a href="electromagnetic_myphysictpl.html">组合概念</a></p></td>
+  </tr>
+</table>
+</body>
+<!-- InstanceEnd --></html>

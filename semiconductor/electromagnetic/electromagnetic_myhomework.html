@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/tpl_electromagnetic.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>electromagnetic</title>
+<!-- InstanceEndEditable -->
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+</head>
+
+<body>
+<table width="100%%" height="516" border="1">
+  <tr>
+    <td height="74" colspan="3" align="center" valign="middle" bgcolor="#3399CC"><h1>电磁场与电磁波</h1></td>
+  </tr>
+  <tr>
+    <td width="13%" height="434" align="left" valign="top" bgcolor="#CCCC99"><p>目录页：</p>
+    <p><a href="electromagnetic_1th.html">1、矢量分析</a></p>
+    <p><a href="electromagnetic_2th.html">2、电磁场的基本规律</a></p>
+    <p><a href="electromagnetic_3th.html">3、静态电磁场及边值</a></p>
+    <p><a href="electromagnetic_4th.html">4、时变电磁场</a></p>
+    <p><a href="electromagnetic_5th.html">5、均匀平面波</a></p>
+    <p><a href="electromagnetic_6th.html">6、平面波的反射与透射</a></p>
+    <p><a href="electromagnetic_7th.html">7、导行电磁波</a></p>
+    <p><a href="electromagnetic_8th.html">8、电磁辐射</a></p>
+    <p>返回页：</p>
+    <p><a href="electromagnetic.html">电磁场与电磁波</a></p>
+    <p><a href="../index.html">电子科学与技术</a></p>
+    <p>类似页：</p>
+    <p><a href="../device/device.html">半导体器件</a></p>
+    <p><a href="../semiconductor_material/material.html">半导体材料</a></p>
+    <p><a href="../artificial_circuit/artificial_circuit.html">集成电路设计</a></p></td>
+    <!-- InstanceBeginEditable name="EditRegion3" -->
+    <td width="77%" valign="top"><h1>实战模型</h1>
+      <h2>第一章：矢量分析</h2>
+    <p>1、证明▽（fA）=f▽A+A▽f</p>
+    <p>这里实际上就是（xy）`=x`y+xy`</p>
+    <p>只不过这里的x，y是矢量。利用坐标系化简就可以得到标量式即可证明。</p>
+    <p>2、证明▽（A×H）=H▽×A-A▽×H</p>
+    <p>这里的证明就比较困难了，具体的可能需要展开后再合并。记住×公式就可以了。</p>
+    <p>这个证明结果可以和例题1结合起来看。叉乘的梯度为左内右外型，负号位于顺序项。</p>
+    <p>3、证明▽×（fG）=f▽×G+▽f×G</p>
+    <p>这个则是叉乘和点乘的对应式，表示了叉乘的分配律。可以看到×G是公共项，前面的项为交替项。</p>
+    <p>证明思路还是展开。</p>
+    <h2>第二章：电磁场的基本规律</h2>
+    <p>4、计算电偶极子的电场强度</p>
+    <p>电偶极子，就是距离近的两个正负电荷的系统。</p>
+    <p>对于点电荷：</p>
+    <p>E=q/4πε（er/r²），这里的er指代电荷与作用点的方向，常为r/|r|,</p>
+    <p>这里可以在两个电荷的叠加下得到结果。</p>
+    <p>但是，这只是开始，电偶极子是可以在远点近似的，</p>
+    <p>得到E=P/4πεr^3*(er2cosθ+eθsinθ）,</p>
+    <p>其中P=ez*q*d，也就是电偶极距。</p>
+    <p>5、计算均匀带点圆环的轴线任意一点的电场强度E</p>
+    <p>圆环内径为a，外径为b，这里主要考虑电荷面密度的积分。</p>
+    <p>E(r)=ρs/4πε*（ρs的面积分）</p>
+    <p>其中ρ到P的距离的矢量表示为ez*z-eρ*ρ`，这是确定方向。</p>
+    <p>标量表示为（z²+ρ`²）^0.5,即可得到一份面积的作用。再进行面积分即可，注意ds=ρ`dφdρ</p>
+    <p>(这里注意的是面积分的微分项，还有球积分的微分项是dv=r^2*sinθdrdθdφ（不一定准确，但是修正是有的）)</p>
+    <p>6、计算线电流圆环轴上的任一点的磁感应强度</p>
+    <p>线电流上的微分单元Idr`=eφ*I*adφ`，位置矢量r·=eρ*a，场点P的位置矢量r=ez*z，</p>
+    <p>这里的位置矢量和场点的位置矢量都是基于参考点选取的，主要是为了简化计算。</p>
+    <p>B=μ/4π（I×（r-r·）/|r-r`|^3），这里的r-r·就是源与作用点间的矢量距离。</p>
+    <p>解得</p>
+    <p>B=ez*（μ*I*a^2/(2*(z²+a²）^1.5）</p>
+    <p>远点近似为B=ez*μ*I*a²/2z^3</p>
+    <p>7、已知E求电荷体密度ρs</p>
+    <p>这里主要使用麦4式，和D=εE可以直接得到ρs</p>
+    <p>8、已知极化强度P，求极化电荷体密度和面密度以及自由电荷体密度</p>
+    <p>这个P（r）就是极化强度，D（r）=ε0E（r）+P（r），注意这里的ε0是不受介质改变的定义式，介质的作用转化到了P（r）上。    </p>
+    <p>极化电荷体密度ρp=-▽P</p>
+    <p>极化电荷面密度ρs=P*en，（en即为极化强度的方向）</p>
+    <p>自由电荷密度ρ=▽D，带入前面的等式即可。</p>
+    <p>注意在有介质ε的情况下，D=εE，而上面的等式则有ε0，不要消掉了。</p>
+    <p>9、已知磁化强度求磁化电流密度</p>
+    <p>和电介质一样，磁介质的作用也可以等效为磁化强度M</p>
+    <p>H=B/μ0&nbsp; - M</p>
+    <p>磁化电流体密度Jm=▽×M</p>
+    <p>磁化电流面密度Jms=M×en，这里的en=er</p>
+    <p>ez在球坐标系=er*cosθ-eθ*sinθ，</p>
+    <p>代入得到Jsm。</p>
+    <p>10、求解磁感应强度后计算M，由M可以得到Jm和Jms。</p>
+    <p>计算规则图形的B就是使用麦1得到H，</p>
+    <p>然后结M，再求M的旋度得到体密度，求×内外表面法向得到面密度。</p>
+    <p>11、法拉第电磁感应定律的应用</p>
+    <p>这个定律也就是麦2的公式，求解感应电动势。</p>
+    <p>感应电动势在一定程度上就是E的旋度式。</p>
+    <p>12、位移电流和传导电流的求解</p>
+    <p>Jd=D`(t)</p>
+    <p>J=σE</p>
+    <p>对于一直频率的电场可以设为余弦处理</p>
+    <p>13、证明导线传导电流等于位移电流（在电容系统中）</p>
+    <p>首先得到导线传导电流ic=Cdu/dt，这里的导线传导电流不是真正的传导电流。</p>
+    <p>E=u/d,可以得到E，而后得到D，再利用C=εS0/d化简即可得到位移电流。</p>
+    <p>求到磁场的话就是用麦1即可。 </p>
+    <p>13、麦克斯韦方程组的谐振解</p>
+    <p>在无源，电导率=0，中，谐振信号需要满足k²=w²με，</p>
+    <p>这也是电磁波的重要关系式。</p>
+    <p>14、电磁波的边界条件</p>
+    <p>对于麦1，H切向连续需要J为0</p>
+    <p>对于麦2，E切向连续</p>
+    <p>对于麦3，B法向连续</p>
+    <p>对于麦4 ，D法向连续需要ρ=0</p>
+    <p>其中HB为一组，ED为一组。</p>
+    <p>H代表切向，B代表法向。</p>
+    <p>已知两个界面的方程时，直接带入即可解未知数。</p>
+    <p>对于只知道一个界面的方程，</p>
+    <p>则可以根据切向连续和法向方向连续得到两个方程后得到解（在三维中根据切面连续可以得到两个变量的比值）</p>
+    <p>注意切向和法向连续的条件，这可以用来求解一些不连续时的条件。</p>
+    <h2>第三章：静态电磁场</h2>
+    <p>这里需要特别注意的是位函数的引入对于计算的简化，在计算中要注意区分。</p>
+    <p>后面的例题就是对具体概念的使用和掌握了，不必要一步步的对到计算了，所以这里就不再以练习为模板进行分析了，而是在后面</p>
+    <p>采用大量的物理关系串联来得到结果。</p></td>
+    <!-- InstanceEndEditable -->
+    <td width="10%" valign="top" bgcolor="#CCFFFF"><p>重要的名词解释</p>
+    <p><a href="electromagnetic_keyword.html#point1">叉乘公式</a></p>
+    <p><a href="electromagnetic_keyword.html#point2">麦克斯韦方程组</a></p>
+    <p>&nbsp;</p>
+    <p>物理模型：</p>
+    <p><a href="electromagnetic_module1.html">静态电磁场</a></p>
+    <p><a href="electromagnetic_module2.html">时态电磁场</a></p>
+    <p><a href="electromagnetic_module3.html">均匀平面波</a></p>
+    <p><a href="electromagnetic_module4.html">界面平面波</a></p>
+    <p><a href="electromagnetic_module5.html">区域平面波</a></p>
+    <p>实战模型：</p>
+    <p><a href="electromagnetic_myhomework.html">作业练习</a></p>
+    <p><a href="electromagnetic_myphysictpl.html">组合概念</a></p></td>
+  </tr>
+</table>
+</body>
+<!-- InstanceEnd --></html>

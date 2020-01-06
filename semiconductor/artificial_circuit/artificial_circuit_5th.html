@@ -41,7 +41,17 @@
     <p><a href="../device/device.html">半导体器件</a></p>
     <p>&nbsp;</p></th>
     <!-- InstanceBeginEditable name="work" -->
-    <td width="88%" valign="top">work5</td>
+    <td width="88%" valign="top"><p>共源极电阻负载电路的分析：</p>
+    <p><img src="imags/imag_001.png" width="1020" height="723" /></p>
+    <p>上面给出的是共源极的电阻负载的器件电路和小信号等效电路。</p>
+    <p>先给出大信号推导的过程（这是一个复杂的流程）</p>
+    <p>Vout=Vdd-Rd*1/2*un*Cox*W/L&amp;*(Vin-Vth)^2,这是求解饱和区的输出电压。</p>
+    <p>直接根据这个方程可以得到Av=gm*Rd。</p>
+    <p>但是这里需要保证Vout&gt;Vin-Vth.在线性区的跨导会减小。</p>
+    <p>同时，大信号对gm的影响会导致增益的依赖，这是我们所不需要的。</p>
+    <p>考虑沟道调制：</p>
+    <p>Av=-gm*（ro//Rd）;</p>
+    <p>当电阻变成电流源时，Av=-gm*ro，这是本征增益。</p></td>
     <!-- InstanceEndEditable -->
   </tr>
 </table>
