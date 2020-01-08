@@ -41,7 +41,21 @@
     <p><a href="../device/device.html">半导体器件</a></p>
     <p>&nbsp;</p></th>
     <!-- InstanceBeginEditable name="work" -->
-    <td width="88%" valign="top">work11</td>
+    <td width="88%" valign="top"><h1>七、源跟随器（共漏极放大器）</h1>
+    <p><img src="imags/imag_008.png" width="655" height="598" />将Vout下移得到的简单源跟随器</p>
+    <p>大信号分析就略过了，看一下小信号分析：</p>
+    <p>不考虑调制效应，</p>
+    <p>Vout=（(Vin-Vout)*Gm-Vout*gmb)*Rs</p>
+    <p>这里要注意Vin和Vgs1的区别。</p>
+    <p>得到的增益Av= gmRs/(1+(gm+gmb)Rs)</p>
+    <p>可以看到随着Rs的增大，增益趋近于1，所以叫跟随器。当然，gmb的存在会使增益下降。</p>
+    <p>跟随器的作用就是减小小负载带来的影响。</p>
+    <p>源极电阻负反馈跟随器的的漏电流受输入的电压影响较大，漏电流的增大直接导致Vgs-Vth增大，进而影响Vout对Vin的跟随作用，一般可以采用电流源</p>
+    <p>负反馈来减小Vin对Ids的影响。</p>
+    <p>引入电流源后，非线性效应有所降低，使用S和B相连的方法也可以消除衬底的体效应（PMOS才有用），但是，Vth与源极电压之间的非线性关系还是会影响输入输出</p>
+    <p>特性。除此之外，直流电平产生的Vgs漂移也会消耗电压余度。</p>
+    <p>S跟随器的优势在于高的输入阻抗和中等的输出阻抗，可以实现小负载的过渡。</p>
+    <p>源跟随器的输出电阻并不大，限制了驱动能力，是的这种结构应用的并不多。</p></td>
     <!-- InstanceEndEditable -->
   </tr>
 </table>

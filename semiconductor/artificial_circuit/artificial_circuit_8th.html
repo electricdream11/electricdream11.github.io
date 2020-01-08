@@ -41,7 +41,15 @@
     <p><a href="../device/device.html">半导体器件</a></p>
     <p>&nbsp;</p></th>
     <!-- InstanceBeginEditable name="work" -->
-    <td width="88%" valign="top">work8</td>
+    <td width="88%" valign="top"><h1>四、有源负载的共源极</h1>
+    <p><img src="imags/imag_005.png" width="647" height="540" />受到Vin控制的PMOS负载。</p>
+    <p>上面的PMOS与下面的NMOS是电流反向的，所以增大Vin会是Vout降低来自M1的Id1拉低，和Id2的拉低。</p>
+    <p>准确的表达式Av=-（gm1+gm2）*（ro1+ro2），</p>
+    <p>显然，这个电路的增益还是可观的，但是可以还是问题存在。</p>
+    <p>一个是Vdd和Vth直接作用于偏置电流，（偏置电流为PVT强函数）。 这使得漏电流会随之变化。</p>
+    <p>第二个就是电源噪声会放大。这个问题在下面的学习会有详细的分析。</p>
+    <p>这说明CMOS也是可以作为放大电路的。</p>
+    <p>&nbsp;</p></td>
     <!-- InstanceEndEditable -->
   </tr>
 </table>
