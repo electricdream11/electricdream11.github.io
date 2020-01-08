@@ -20,20 +20,20 @@
     <p>二之<a href="artificial_circuit_2th.html">单级放大器</a></p>
     <p>三之<a href="artificial_circuit_3th.html">差动放大器</a></p>
     <p>四之<a href="artificial_circuit_4th.html">电流镜偏置</a></p>
-    <p>五之<a href="artificial_circuit_5th.html">实际电路1</a></p>
-    <p>六之<a href="artificial_circuit_6th.html">实际电路2</a></p>
-    <p>七之<a href="artificial_circuit_7th.html">实际电路3</a></p>
-    <p>八之<a href="artificial_circuit_8th.html">实际电路4</a></p>
-    <p>九之<a href="artificial_circuit_9th.html">实际电路5</a></p>
-    <p>十之<a href="artificial_circuit_10th.html">实际电路6</a></p>
-    <p>十一之<a href="artificial_circuit_11th.html">实际电路7</a></p>
-    <p>十二之<a href="artificial_circuit_12th.html">实际电路8</a></p>
-    <p>十三之<a href="artificial_circuit_13th.html">实际电路9</a></p>
-    <p>十四之<a href="artificial_circuit_14th.html">实际电路10</a></p>
-    <p>十五之<a href="artificial_circuit_15th.html">实际电路11</a></p>
-    <p>十六之<a href="artificial_circuit_16th.html">实际电路12</a></p>
-    <p>十七之<a href="artificial_circuit_17th.html">实际电路13</a></p>
-    <p>十八之<a href="artificial_circuit_18th.html">实际电路14</a></p>
+    <p>五之<a href="artificial_circuit_5th.html">共源电阻负载</a></p>
+    <p>六之<a href="artificial_circuit_6th.html">共源二极管负载</a></p>
+    <p>七之<a href="artificial_circuit_7th.html">共源电流源负载</a></p>
+    <p>八之<a href="artificial_circuit_8th.html">共源电流反馈</a></p>
+    <p>九之<a href="artificial_circuit_9th.html">线性区MOS负载</a></p>
+    <p>十之<a href="artificial_circuit_10th.html">共源极负反馈负载</a></p>
+    <p>十一之<a href="artificial_circuit_11th.html">源跟随器（共漏）</a></p>
+    <p>十二之<a href="artificial_circuit_12th.html">共栅极</a></p>
+    <p>十三之<a href="artificial_circuit_13th.html">共源共栅</a></p>
+    <p>十四之<a href="artificial_circuit_14th.html">差动放大器</a></p>
+    <p>十五之<a href="artificial_circuit_15th.html">电流镜</a></p>
+    <p>十六之<a href="artificial_circuit_16th.html">偏置电路</a></p>
+    <p>十七之<a href="artificial_circuit_17th.html">小技巧1</a></p>
+    <p>十八之<a href="artificial_circuit_18th.html">小技巧2</a></p>
     <p>返回页：</p>
     <p><a href="../index.html">电子科学与技术</a></p>
     <p><a href="artificial_circuit.html">模拟电路主页</a></p>
@@ -41,7 +41,17 @@
     <p><a href="../device/device.html">半导体器件</a></p>
     <p>&nbsp;</p></th>
     <!-- InstanceBeginEditable name="work" -->
-    <td width="88%" valign="top">work17</td>
+    <td width="88%" valign="top"><h1>关于简单的电路知识的补充：</h1>
+      <p>大信号分析：</p>
+      <p>假设MOS器件为两条支路的器件，忽略栅电流。</p>
+      <p>这样Ids就是MOS上的主体电流。</p>
+      <p>MOS干路上可能的器件有gm，ro，gmb这三个器件。</p>
+      <p>MOS支路上存在栅压Vgs。</p>
+    <p>0&lt;Vgs&lt;Vth,Ids=0，Vds=Vgs=Vth0，（假设Vd&gt;Vth）.</p>
+    <p>Vgs&gt;Vth,这是达到了开启条件，电流受到线性区和饱和区的调控。</p>
+    <p>在大电流下，求解电流电压关系就可以得到结果。</p>
+    <p>在小电流下，根据等效电流就可以得到实际的结果。</p>
+    <p>这部分需要的是对电学性质的理解。</p></td>
     <!-- InstanceEndEditable -->
   </tr>
 </table>

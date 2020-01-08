@@ -20,20 +20,20 @@
     <p>二之<a href="artificial_circuit_2th.html">单级放大器</a></p>
     <p>三之<a href="artificial_circuit_3th.html">差动放大器</a></p>
     <p>四之<a href="artificial_circuit_4th.html">电流镜偏置</a></p>
-    <p>五之<a href="artificial_circuit_5th.html">实际电路1</a></p>
-    <p>六之<a href="artificial_circuit_6th.html">实际电路2</a></p>
-    <p>七之<a href="artificial_circuit_7th.html">实际电路3</a></p>
-    <p>八之<a href="artificial_circuit_8th.html">实际电路4</a></p>
-    <p>九之<a href="artificial_circuit_9th.html">实际电路5</a></p>
-    <p>十之<a href="artificial_circuit_10th.html">实际电路6</a></p>
-    <p>十一之<a href="artificial_circuit_11th.html">实际电路7</a></p>
-    <p>十二之<a href="artificial_circuit_12th.html">实际电路8</a></p>
-    <p>十三之<a href="artificial_circuit_13th.html">实际电路9</a></p>
-    <p>十四之<a href="artificial_circuit_14th.html">实际电路10</a></p>
-    <p>十五之<a href="artificial_circuit_15th.html">实际电路11</a></p>
-    <p>十六之<a href="artificial_circuit_16th.html">实际电路12</a></p>
-    <p>十七之<a href="artificial_circuit_17th.html">实际电路13</a></p>
-    <p>十八之<a href="artificial_circuit_18th.html">实际电路14</a></p>
+    <p>五之<a href="artificial_circuit_5th.html">共源电阻负载</a></p>
+    <p>六之<a href="artificial_circuit_6th.html">共源二极管负载</a></p>
+    <p>七之<a href="artificial_circuit_7th.html">共源电流源负载</a></p>
+    <p>八之<a href="artificial_circuit_8th.html">共源电流反馈</a></p>
+    <p>九之<a href="artificial_circuit_9th.html">线性区MOS负载</a></p>
+    <p>十之<a href="artificial_circuit_10th.html">共源极负反馈负载</a></p>
+    <p>十一之<a href="artificial_circuit_11th.html">源跟随器（共漏）</a></p>
+    <p>十二之<a href="artificial_circuit_12th.html">共栅极</a></p>
+    <p>十三之<a href="artificial_circuit_13th.html">共源共栅</a></p>
+    <p>十四之<a href="artificial_circuit_14th.html">差动放大器</a></p>
+    <p>十五之<a href="artificial_circuit_15th.html">电流镜</a></p>
+    <p>十六之<a href="artificial_circuit_16th.html">偏置电路</a></p>
+    <p>十七之<a href="artificial_circuit_17th.html">小技巧1</a></p>
+    <p>十八之<a href="artificial_circuit_18th.html">小技巧2</a></p>
     <p>返回页：</p>
     <p><a href="../index.html">电子科学与技术</a></p>
     <p><a href="artificial_circuit.html">模拟电路主页</a></p>
@@ -41,7 +41,22 @@
     <p><a href="../device/device.html">半导体器件</a></p>
     <p>&nbsp;</p></th>
     <!-- InstanceBeginEditable name="work" -->
-    <td width="88%" valign="top">work15</td>
+    <td width="88%" valign="top"><h1>十一、电流镜</h1>
+    <p>电流镜的初衷就是考虑偏置电压可以使MOS管形成稳定的电流源。</p>
+    <p>难点在哪：Vth是变化的。</p>
+    <p>先看一个简单的电流镜：</p>
+    <p><img src="imags/imag_012.png" width="493" height="533" /></p>
+    <p>这是一个简单的电流镜，原理也简单，就是M1由电流源驱动，产生生成Iref的栅压转移到M2复制，</p>
+    <p>Iout=W/L(2)/[W/L(1)]*Iref,</p>
+    <p>这样的电流复制称为电流镜。</p>
+    <p>但是，这个复制需要没有沟道调制效应，在加入沟道调制效应后，</p>
+    <p>Iout=W/L(2/1)*Iref*(1+Vdsλ)(2/1)</p>
+    <p>如果要保证Iout和Iref之间存在确定的比例，Vds1=Vds2，</p>
+    <p>casecode电流镜</p>
+    <p>利用二极管型晶体管的稳定电压来保证Vds的恒定。</p>
+    <p>电流镜的改善有很多中方法，其中比较重要的就是保证Vds1=Vds2.</p>
+    <p>&nbsp; </p>
+    <p>&nbsp;</p></td>
     <!-- InstanceEndEditable -->
   </tr>
 </table>

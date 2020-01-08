@@ -20,20 +20,20 @@
     <p>二之<a href="artificial_circuit_2th.html">单级放大器</a></p>
     <p>三之<a href="artificial_circuit_3th.html">差动放大器</a></p>
     <p>四之<a href="artificial_circuit_4th.html">电流镜偏置</a></p>
-    <p>五之<a href="artificial_circuit_5th.html">实际电路1</a></p>
-    <p>六之<a href="artificial_circuit_6th.html">实际电路2</a></p>
-    <p>七之<a href="artificial_circuit_7th.html">实际电路3</a></p>
-    <p>八之<a href="artificial_circuit_8th.html">实际电路4</a></p>
-    <p>九之<a href="artificial_circuit_9th.html">实际电路5</a></p>
-    <p>十之<a href="artificial_circuit_10th.html">实际电路6</a></p>
-    <p>十一之<a href="artificial_circuit_11th.html">实际电路7</a></p>
-    <p>十二之<a href="artificial_circuit_12th.html">实际电路8</a></p>
-    <p>十三之<a href="artificial_circuit_13th.html">实际电路9</a></p>
-    <p>十四之<a href="artificial_circuit_14th.html">实际电路10</a></p>
-    <p>十五之<a href="artificial_circuit_15th.html">实际电路11</a></p>
-    <p>十六之<a href="artificial_circuit_16th.html">实际电路12</a></p>
-    <p>十七之<a href="artificial_circuit_17th.html">实际电路13</a></p>
-    <p>十八之<a href="artificial_circuit_18th.html">实际电路14</a></p>
+    <p>五之<a href="artificial_circuit_5th.html">共源电阻负载</a></p>
+    <p>六之<a href="artificial_circuit_6th.html">共源二极管负载</a></p>
+    <p>七之<a href="artificial_circuit_7th.html">共源电流源负载</a></p>
+    <p>八之<a href="artificial_circuit_8th.html">共源电流反馈</a></p>
+    <p>九之<a href="artificial_circuit_9th.html">线性区MOS负载</a></p>
+    <p>十之<a href="artificial_circuit_10th.html">共源极负反馈负载</a></p>
+    <p>十一之<a href="artificial_circuit_11th.html">源跟随器（共漏）</a></p>
+    <p>十二之<a href="artificial_circuit_12th.html">共栅极</a></p>
+    <p>十三之<a href="artificial_circuit_13th.html">共源共栅</a></p>
+    <p>十四之<a href="artificial_circuit_14th.html">差动放大器</a></p>
+    <p>十五之<a href="artificial_circuit_15th.html">电流镜</a></p>
+    <p>十六之<a href="artificial_circuit_16th.html">偏置电路</a></p>
+    <p>十七之<a href="artificial_circuit_17th.html">小技巧1</a></p>
+    <p>十八之<a href="artificial_circuit_18th.html">小技巧2</a></p>
     <p>返回页：</p>
     <p><a href="../index.html">电子科学与技术</a></p>
     <p><a href="artificial_circuit.html">模拟电路主页</a></p>
@@ -41,7 +41,19 @@
     <p><a href="../device/device.html">半导体器件</a></p>
     <p>&nbsp;</p></th>
     <!-- InstanceBeginEditable name="work" -->
-    <td width="88%" valign="top">work18</td>
+    <td width="88%" valign="top"><h1>关于电路功能分析的解答：</h1>
+      <p>在等效电路中，如何快速确定等效器件起作用的部分是十分重要的。</p>
+      <p>大电流在电路计算中扮演着实际角色，而等效电路则是简化的产物。</p>
+      <p>正确的理解简化和计算之间的差距是重要的。</p>
+    <p>处理MOS器件在电路中的关系的步骤：</p>
+    <p>一、确定有无负载（这是增益计算的需要），</p>
+    <p>二、有负载就计算后移到增益部分。无就算了。</p>
+    <p>三、确定有无源极反馈</p>
+    <p>四、有源极反馈就计算Gm，无就是用gm</p>
+    <p>五、有无λ，有就加入ro移入负载并联，</p>
+    <p>六、有无体效应，有就加入gmb并联至gm，</p>
+    <p>七、是否Vgs存在线性区。有，则gm的公式调整</p>
+    <p>八、是否存在Vgs会截止，如果截止，则是压降强制为Vth。</p></td>
     <!-- InstanceEndEditable -->
   </tr>
 </table>
