@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form >
+        <input  id="i1" type="text">
+        <br>
+        <input  id="i2" type="text" style="display: none;">
+    </form>
+    <button onclick="create()">新建</button>
+    <script>
+            function create(){
+               var i2= document.getElementById("i2");
+               i2.style.display="inline";
+            }
+    </script>
+</body>
+</html>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/electricdream11/"/>
-  <updated>2019-12-10T13:58:18.646Z</updated>
+  <updated>2020-01-19T13:53:32.098Z</updated>
   <id>https://github.com/electricdream11/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>关于VHDL的学习</title>
+    <link href="https://github.com/electricdream11/2020/01/19/%E5%85%B3%E4%BA%8EVHDL%E7%9A%84%E5%AD%A6%E4%B9%A0/"/>
+    <id>https://github.com/electricdream11/2020/01/19/关于VHDL的学习/</id>
+    <published>2020-01-19T13:46:48.000Z</published>
+    <updated>2020-01-19T13:53:32.098Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="关于VHDL的学习"><a href="#关于VHDL的学习" class="headerlink" title="关于VHDL的学习"></a>关于VHDL的学习</h1><h2 id="VHDL的意义"><a href="#VHDL的意义" class="headerlink" title="VHDL的意义"></a>VHDL的意义</h2><p>VHDL是比verilog应用更加接近硬件的描述语言。掌握基本的VHDL可以更加深刻地理解硬件的运行机制，这是将硬件的作用转化到实际的根本手段。</p><h2 id="VHDL学习的初步规划"><a href="#VHDL学习的初步规划" class="headerlink" title="VHDL学习的初步规划"></a>VHDL学习的初步规划</h2><p>和verilog不同，VHDL更加接近硬件的基本结构，所以，在学习VHDL时考虑具体的电路结构是必要的。此外，根据学习verilog的经验，把握实际的电路功能层次也是必要的一步。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;关于VHDL的学习&quot;&gt;&lt;a href=&quot;#关于VHDL的学习&quot; class=&quot;headerlink&quot; title=&quot;关于VHDL的学习&quot;&gt;&lt;/a&gt;关于VHDL的学习&lt;/h1&gt;&lt;h2 id=&quot;VHDL的意义&quot;&gt;&lt;a href=&quot;#VHDL的意义&quot; class=&quot;he
+      
+    
+    </summary>
+    
+    
+      <category term="FPGA" scheme="https://github.com/electricdream11/categories/FPGA/"/>
+    
+    
+      <category term="FPGA" scheme="https://github.com/electricdream11/tags/FPGA/"/>
+    
+      <category term="VHDL" scheme="https://github.com/electricdream11/tags/VHDL/"/>
+    
+  </entry>
   
   <entry>
     <title>通知之理论知识模块</title>
