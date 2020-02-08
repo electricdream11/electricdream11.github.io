@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+    <p>求斗牛中牛牛的概率</p>
+    <button onclick="bu1()">显示牛牛的概率 </button>
+    <!-- <input type="text" id="output1"> -->
+    <textarea name="result" id="out1" cols="30" rows="1" style="width: 1000px; height: 50px;"></textarea>
+    <script>
+        function demo1(){
+            var i,j,k,m,n;
+            var card1,card2,card3,card4,card5;
+            var cv1,cv2,cv3,cv4,cv5;
+            var cc1,cc2,cc3,cc4,cc5;
+            var cv;
+            var arr =new Array(10);
+            var num;
+            var h;
+            for(i=1;i<41;i++)
+            {
+                num=0;
+                card1=i;
+                //第一张牌
+                for(j=1;j<41;j++)
+                {
+                    if(j!=i)
+                        card2=j;
+                        //第二张牌
+                    else break;
+                    for(k=1;k<41;k++)
+                    {
+                        if(k!=j && k!=i)
+                        card3=k;
+                        else break;
+                        //第三张牌
+                        for(m=1;m<41;m++)
+                        {
+                            if(m!=i && m!=j && m!=k)
+                            card4=m;
+                            //第四张牌
+                            else break;
+                            for(n=1;n<41;n++)
+                            {
+                                if(n!=i && n!=j && n!=k && n!=m)
+                                card5=n;
+                                //第五张牌
+                                else break;
+                                //判断点数
+                                cv1=change(card1);
+                                cv2=change(card2);
+                                cv3=change(card3);
+                                cv4=change(card4);
+                                cv5=change(card5);
+                                cv=cv1+cv2+cv3+cv4+cv5;
+                                arr[0]=cv1+cv2+cv3;
+                                arr[1]=cv1+cv2+cv4;
+                                arr[2]=cv1+cv2+cv5;
+                                arr[3]=cv1+cv3+cv4;
+                                arr[4]=cv1+cv3+cv5;
+                                arr[5]=cv1+cv4+cv5;
+                                arr[6]=cv2+cv3+cv4;
+                                arr[7]=cv2+cv3+cv5;
+                                arr[8]=cv2+cv4+cv5;
+                                arr[9]=cv3+cv4+cv5;
+                                if(cv % 10==0)
+                                {
+                                    for(h=0;h<10;h++)
+                                    {
+                                        if(arr[h]%10==0)
+                                        {
+                                            num=num+1;
+
+                                            // if(card1<11)
+                                            // cc1="黑桃";
+                                            // else if(10<card1<21)
+                                            // cc1="红心";
+                                            // else if(20<card1<31)
+                                            // cc1="梅花";
+                                            // else
+                                            // cc1="方块";
+
+                                            // if(card2<11)
+                                            // cc2="黑桃";
+                                            // else if(10<card2<21)
+                                            // cc2="红心";
+                                            // else if(20<card2<31)
+                                            // cc2="梅花";
+                                            // else
+                                            // cc2="方块";
+
+                                            // if(card3<11)
+                                            // cc3="黑桃";
+                                            // else if(10<card3<21)
+                                            // cc3="红心";
+                                            // else if(20<card3<31)
+                                            // cc3="梅花";
+                                            // else
+                                            // cc3="方块";
+
+                                            // if(card4<11)
+                                            // cc4="黑桃";
+                                            // else if(10<card4<21)
+                                            // cc4="红心";
+                                            // else if(20<card4<31)
+                                            // cc4="梅花";
+                                            // else
+                                            // cc4="方块";
+
+                                            // document.getElementById("out1").value+="所有牛牛的可能组合:"
+                                            // +cc1+cv1
+                                            // +","+cc2+cv2
+                                            // +","+cc3+cv3
+                                            // +","+cc4+cv4
+                                            // +","+cc5+cv5;
+                                            // break;
+                                            // document.getElementById("out1").rows++;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            document.getElementById("out1").value+="牛牛的概率："  + num/(40*39*38*37*36/5/4/3/2/1);
+            document.getElementById("out1").value+="\n";
+            document.getElementById("out1").value+="牛牛的种类："  + num;
+        }
+        function change(x)
+        {
+            if(x<11)
+            x=x;
+            else if(10<x<21)
+            x=x-10;
+            else if(20<x<31)
+            x=x-20;
+            else if(30<x<41)
+            x=x-30;
+            return x;
+        }
+        function bu1(){
+            demo1();
+        }
+    </script>
+    </center>
+</body>
+</html>
