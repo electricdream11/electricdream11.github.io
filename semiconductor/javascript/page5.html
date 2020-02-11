@@ -8,8 +8,9 @@
 </head>
 <body>
     <center>
-    <p>求斗牛中牛牛的概率</p>
-    <button onclick="bu1()">显示牛牛的概率 </button>
+    <p>求从40张扑克牌中抽取5张牌，取得的牌三张是10的倍数，<br>
+        剩下的两张也是10的倍数的概率</p>
+    <button onclick="bu1()">显示概率 </button>
     <!-- <input type="text" id="output1"> -->
     <textarea name="result" id="out1" cols="30" rows="1" style="width: 1000px; height: 50px;"></textarea>
     <script>
@@ -75,7 +76,7 @@
                                         if(arr[h]%10==0)
                                         {
                                             num=num+1;
-
+                                            break;
                                             // if(card1<11)
                                             // cc1="黑桃";
                                             // else if(10<card1<21)
@@ -128,9 +129,9 @@
                     }
                 }
             }
-            document.getElementById("out1").value+="牛牛的概率："  + num/(40*39*38*37*36/5/4/3/2/1);
+            document.getElementById("out1").value+="概率："  + num/(40*39*38*37*36/5/4/3/2/1);
             document.getElementById("out1").value+="\n";
-            document.getElementById("out1").value+="牛牛的种类："  + num;
+            document.getElementById("out1").value+="种类："  + num;
         }
         function change(x)
         {
