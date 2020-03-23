@@ -36,9 +36,9 @@
             </a>
             <p><b><i>音乐</i></b></p>
             <hr> 
-             <a href="../music_imag/yumu.mp3" target="_parent"><button  onClick=
-            "window.open('https://electricdream11.github.io/semiconductor/digital_circuit/index.html','_black','')">
-            雨幕</button></a>   
+            <iframe id="imusic1" frameborder="no" border="0" marginwidth="0" marginheight="0" width="180" 
+            height="110" loading="lazy" sandbox="allow-popups allow-scripts allow-same-origin" 
+            src="https://www.xiami.com/webapp/embed-player?autoPlay=1&id=1771126167"></iframe>
         </div> 
     </div>
     <div id="div21" style="width: 100px; height: 700px; text-align: left; border: black; border-width: 1px;
@@ -79,17 +79,20 @@
             var button2=document.getElementById("b2");
             var div14 = document.getElementById("div14");
             var div13 = document.getElementById("div13");
+            var imusic1 = document.getElementById("imusic1");
             if(button2.textContent=="off"){
                 button2.textContent="on";   
                 div14.style.width="30px";
                 div14.style.left=(parseInt(div14.style.left)+13) + "%";
                 div13.style.width=(parseInt(div13.style.width)+14)+"%";
+                imusic1.style.display="none";
             }
             else {
                 div14.style.width="190px";
                 button2.textContent="off";
                 div14.style.left=(parseInt(div14.style.left)-13) + "%";
                 div13.style.width=(parseInt(div13.style.width)-14)+"%";
+                imusic1.style.display="block";
             }
         }
 		 function button_width(x){

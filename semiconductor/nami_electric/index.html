@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>menu</title>
 </head>
 <body style="background-color: rgb(45, 45, 46); margin: 0px; padding: 0px; border: 0px;">
     <div id="div11";  style="width: max-width; height: 100px; color: aquamarine; 
     background-color: rgb(68, 66, 62);">
-    <h1 style="position: absolute; left: 40%;"><i>纳电子学</i></h1>        
+    <h1 style="position: absolute; left: 40%;">纳电子学</h1>     
         <div  id="div12" style="width: 10px; height: 700px; left: 105px; top: 100px; position:  relative;">
             <button id="b1" onclick="button1()" style="width: 10px; height: 700px;">&lt;</button>
         </div>
@@ -23,7 +24,21 @@
             <p><b><i>导航</i></b></p>
             <hr>
             <hr>
-
+            <a href="https://electricdream11.github.io">主页</a>
+            <hr>
+            <a href="https://electricdream11.github.io/semiconductor/index.html">首页</a>
+            <hr>
+            <hr>
+            <p><b><i>工具</i></b></p>
+            <hr>
+            <a href="https://www.baidu.com">
+            <img src="../music_imag/imag1.jpg" alt="……" style="width: 100%; height: auto;">
+            </a>
+            <p><b><i>音乐</i></b></p>
+            <hr> 
+            <iframe id="imusic1" frameborder="no" border="0" marginwidth="0" marginheight="0" width="180" 
+            height="110" loading="lazy" sandbox="allow-popups allow-scripts allow-same-origin" 
+            src="https://www.xiami.com/webapp/embed-player?autoPlay=1&id=1771126167"></iframe>
         </div> 
     </div>
     <div id="div21" style="width: 100px; height: 700px; text-align: left; border: black; border-width: 1px;
@@ -31,7 +46,7 @@
         <p> <b><i>目录</i></b></p>
         <hr>
         <hr>
-        <button id="b3" style="width: 80px;" onclick="button3()">page1</button>
+        <button id="b3" style="width: 80px;" onclick="button3()">导论</button>
         <hr>
         <button id="b4" style="width: 80px;" onclick="button4()">page2</button>
         <hr>
@@ -64,20 +79,23 @@
             var button2=document.getElementById("b2");
             var div14 = document.getElementById("div14");
             var div13 = document.getElementById("div13");
+            var imusic1 = document.getElementById("imusic1");
             if(button2.textContent=="off"){
                 button2.textContent="on";   
                 div14.style.width="30px";
                 div14.style.left=(parseInt(div14.style.left)+13) + "%";
                 div13.style.width=(parseInt(div13.style.width)+14)+"%";
+                imusic1.style.display="none";
             }
             else {
                 div14.style.width="190px";
                 button2.textContent="off";
                 div14.style.left=(parseInt(div14.style.left)-13) + "%";
                 div13.style.width=(parseInt(div13.style.width)-14)+"%";
+                imusic1.style.display="block";
             }
         }
-        function button_width(x){
+		 function button_width(x){
             var button3=document.getElementById("b3");
             var button4=document.getElementById("b4");
             var button5=document.getElementById("b5");
@@ -116,7 +134,8 @@
             button_width(5);
             var iframe1=document.getElementById("i1");
             iframe1.setAttribute("src","page3.html");
-        }       
+        }
     </script>
+
 </body>
 </html>
