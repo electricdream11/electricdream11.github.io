@@ -3,14 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>page1</title>
+    <title>page2</title>
 </head>
 <body>
     <div style="text-align: left; background-color: cornflowerblue; width: 100%; height: 50px;">
-        <h1>test of the file</h1>
+        <h1>制作工艺</h1>
     </div>
     <div style="background-color: rgb(139, 233, 189);">
-
+        <h2> 
+             cmos集成电路的制造
+        </h2>
+        <p>
+             cmos的基础就是Pmos和Nmos，两种器件的结构在半导体器件内已经学习了。如果不了解的话，可以点击下面的
+             连接：<a href="../device/device.html">半导体器件</a> ； 半导体工艺的话，大致的了解就可以了。例如
+             半导体材料中的硅单晶的制取（<a href="../semiconductor_material/material.html">半导体材料</a>）,
+             半导体工艺中的光刻、半导体材料中的离子注入、扩散、刻蚀等一系列的知识。感兴趣的话可以去其他的模块逛逛，
+             这里不做过多的说明。
+        </p>
+        <h2>
+             设计规则
+        </h2>
+        <p>
+             这里是重点部分。<br>
+            数字电路设计的规则采用了协议式的约束，以提高设计者和工艺间的连接。掌握好这些知识是解决实际与理论不符的最好的
+            方法。主要的规则如下：<br>
+            <hr>
+            CMOS设计的内容：衬底、扩散区（配套的有选择区）、多晶硅层（也做互连层）、金属互连层、接触孔和通孔。<br>
+            层内规则：限制最小尺寸<br>
+            层间规则：晶体管的长宽约束、接触和通孔规则、阱和衬底接触规则。
+            <hr>
+            了解设计规则是制作CMOS电路的版图实现相应的设计基础工作。这么多的规则使版图能够和实际工艺厂来对接。后面会在
+            实际的电路的版图来得到设计的基本思路。以CMOS为主，也包括小部分的传输门。
+        </p>
+        <h2>
+             封装
+        </h2>
+        <p>
+             封装主要是提高芯片的物理抗性，这部分可以到网络上自行查找，这部分不做说明。
+        </p>
     </div>    
 </body>
 </html>

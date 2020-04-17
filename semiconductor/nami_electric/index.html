@@ -39,18 +39,36 @@
             <iframe id="imusic1" frameborder="no" border="0" marginwidth="0" marginheight="0" width="180" 
             height="110" loading="lazy" sandbox="allow-popups allow-scripts allow-same-origin" 
             src="https://www.xiami.com/webapp/embed-player?autoPlay=1&id=1771126167"></iframe>
+            <hr>
+            <div style="width: 90%;">
+                <p>注释内容</p>
+                <textarea  id="ta1" cols="20" rows="5" style="width: 100%;"></textarea>
+            </div>
         </div> 
     </div>
     <div id="div21" style="width: 100px; height: 700px; text-align: left; border: black; border-width: 1px;
     border-style: solid; background-color: rgb(85, 80, 69);">
         <p> <b><i>目录</i></b></p>
         <hr>
-        <hr>
         <button id="b3" style="width: 80px;" onclick="button3()">导论</button>
         <hr>
-        <button id="b4" style="width: 80px;" onclick="button4()">page2</button>
+        <button id="b4" style="width: 80px;" onclick="button4()">基础</button>
         <hr>
         <button id="b5" style="width: 80px;" onclick="button5()">page3</button>
+        <hr>
+        <button id="b6" style="width: 80px;" onclick="button6()">page4</button>
+        <hr>
+        <button id="b7" style="width: 80px;" onclick="button7()">page5</button>
+        <hr>
+        <button id="b8" style="width: 80px;" onclick="button8()">page6</button>
+        <hr>
+        <button id="b9" style="width: 80px;" onclick="button9()">page7</button>
+        <hr>
+        <button id="b10" style="width: 80px;" onclick="button10()">page8</button>
+        <hr>
+        <button id="b11" style="width: 80px;" onclick="button11()">page9</button>
+        <hr>
+        <button id="b12" style="width: 80px;" onclick="button12()">page10</button>
         <hr>
     </div>
     <script>
@@ -80,12 +98,14 @@
             var div14 = document.getElementById("div14");
             var div13 = document.getElementById("div13");
             var imusic1 = document.getElementById("imusic1");
+            var ta1  =   document.getElementById("ta1");
             if(button2.textContent=="off"){
                 button2.textContent="on";   
                 div14.style.width="30px";
                 div14.style.left=(parseInt(div14.style.left)+13) + "%";
                 div13.style.width=(parseInt(div13.style.width)+14)+"%";
                 imusic1.style.display="none";
+                ta1.style.display="none";
             }
             else {
                 div14.style.width="190px";
@@ -93,32 +113,147 @@
                 div14.style.left=(parseInt(div14.style.left)-13) + "%";
                 div13.style.width=(parseInt(div13.style.width)-14)+"%";
                 imusic1.style.display="block";
+                ta1.style.display="block";
             }
         }
-		 function button_width(x){
+        function button_width(x){
             var button3=document.getElementById("b3");
             var button4=document.getElementById("b4");
             var button5=document.getElementById("b5");
+            var button6=document.getElementById("b6");
+            var button7=document.getElementById("b7");
+            var button8=document.getElementById("b8");
+            var button9=document.getElementById("b9");
+            var button10=document.getElementById("b10");
+            var button11=document.getElementById("b11");
+            var button12=document.getElementById("b12");
+
             switch(x){
-                case 3: button5.style.width="80px",
-                        button4.style.width="80px",
+                case 3: 
                         button3.style.width="90px";
+                        button4.style.width="80px";
+                        button5.style.width="80px";
+                        button6.style.width="80px";
+                        button7.style.width="80px";
+                        button8.style.width="80px";
+                        button9.style.width="80px";
+                        button10.style.width="80px";
+                        button11.style.width="80px";
+                        button12.style.width="80px";
                         break;
 
-                case 4: button5.style.width="80px",
-                        button4.style.width="90px",
+                case 4: 
                         button3.style.width="80px";
+                        button4.style.width="90px";
+                        button5.style.width="80px";
+                        button6.style.width="80px";
+                        button7.style.width="80px";
+                        button8.style.width="80px";
+                        button9.style.width="80px";
+                        button10.style.width="80px";
+                        button11.style.width="80px";
+                        button12.style.width="80px";
                         break;
-
-                case 5: button5.style.width="90px",
-                        button4.style.width="80px",
+                case 5: 
                         button3.style.width="80px";
+                        button4.style.width="80px";
+                        button5.style.width="90px";
+                        button6.style.width="80px";
+                        button7.style.width="80px";
+                        button8.style.width="80px";
+                        button9.style.width="80px";
+                        button10.style.width="80px";
+                        button11.style.width="80px";
+                        button12.style.width="80px";
+                        break;
+                case 6: 
+                        button3.style.width="80px";
+                        button4.style.width="80px";
+                        button5.style.width="80px";
+                        button6.style.width="90px";
+                        button7.style.width="80px";
+                        button8.style.width="80px";
+                        button9.style.width="80px";
+                        button10.style.width="80px";
+                        button11.style.width="80px";
+                        button12.style.width="80px";
+                        break;
+                case 7: 
+                        button3.style.width="80px";
+                        button4.style.width="80px";
+                        button5.style.width="80px";
+                        button6.style.width="80px";
+                        button7.style.width="90px";
+                        button8.style.width="80px";
+                        button9.style.width="80px";
+                        button10.style.width="80px";
+                        button11.style.width="80px";
+                        button12.style.width="80px";
+                        break;
+                case 8: 
+                        button3.style.width="80px";
+                        button4.style.width="80px";
+                        button5.style.width="80px";
+                        button6.style.width="80px";
+                        button7.style.width="80px";
+                        button8.style.width="90px";
+                        button9.style.width="80px";
+                        button10.style.width="80px";
+                        button11.style.width="80px";
+                        button12.style.width="80px";
+                        break;
+                case 9: 
+                        button3.style.width="80px";
+                        button4.style.width="80px";
+                        button5.style.width="80px";
+                        button6.style.width="80px";
+                        button7.style.width="80px";
+                        button8.style.width="80px";
+                        button9.style.width="90px";
+                        button10.style.width="80px";
+                        button11.style.width="80px";
+                        button12.style.width="80px";
+                        break;
+                case 10: 
+                        button3.style.width="80px";
+                        button4.style.width="80px";
+                        button5.style.width="80px";
+                        button6.style.width="80px";
+                        button7.style.width="80px";
+                        button8.style.width="80px";
+                        button9.style.width="80px";
+                        button10.style.width="90px";
+                        button11.style.width="80px";
+                        button12.style.width="80px";
+                        break;
+                case 11: 
+                        button3.style.width="80px";
+                        button4.style.width="80px";
+                        button5.style.width="80px";
+                        button6.style.width="80px";
+                        button7.style.width="80px";
+                        button8.style.width="80px";
+                        button9.style.width="80px";
+                        button10.style.width="80px";
+                        button11.style.width="90px";
+                        button12.style.width="80px";
+                        break;
+                case 12: 
+                        button3.style.width="80px";
+                        button4.style.width="80px";
+                        button5.style.width="80px";
+                        button6.style.width="80px";
+                        button7.style.width="80px";
+                        button8.style.width="80px";
+                        button9.style.width="80px";
+                        button10.style.width="80px";
+                        button11.style.width="80px";
+                        button12.style.width="90px";
                         break;
                 default: ;
             }
-
         }
-        function button3(){
+            function button3(){
             button_width(3);
 
             var iframe1=document.getElementById("i1");
@@ -134,6 +269,41 @@
             button_width(5);
             var iframe1=document.getElementById("i1");
             iframe1.setAttribute("src","page3.html");
+        }
+        function button6(){
+            button_width(6);
+            var iframe1=document.getElementById("i1");
+            iframe1.setAttribute("src","page4.html");
+        }
+        function button7(){
+            button_width(7);
+            var iframe1=document.getElementById("i1");
+            iframe1.setAttribute("src","page5.html");
+        }
+        function button8(){
+            button_width(8);
+            var iframe1=document.getElementById("i1");
+            iframe1.setAttribute("src","page6.html");
+        }
+        function button9(){
+            button_width(9);
+            var iframe1=document.getElementById("i1");
+            iframe1.setAttribute("src","page7.html");
+        }
+        function button10(){
+            button_width(10);
+            var iframe1=document.getElementById("i1");
+            iframe1.setAttribute("src","page8.html");
+        }
+        function button11(){
+            button_width(11);
+            var iframe1=document.getElementById("i1");
+            iframe1.setAttribute("src","page9.html");
+        }
+        function button12(){
+            button_width(12);
+            var iframe1=document.getElementById("i1");
+            iframe1.setAttribute("src","page10.html");
         }
     </script>
 

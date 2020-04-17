@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>page5</title>
+</head>
+<body>
+    <div style="text-align: left; background-color: cornflowerblue; width: 100%; height: 50px;">
+        <h1>数字基础电路</h1>
+    </div>
+    <div style="background-color: rgb(139, 233, 189);">
+        <h2> 
+             简单CMOS电路
+        </h2>
+        <p>
+             CMOS的定义：由上拉网络和下拉网络组成的MOS电路，上拉采用PMOS，下拉采用NMOS。<br>
+             <button onclick="ta1()">为什么NMOS做下拉网络</button>
+             <script>
+                 function ta1(){
+                     window.parent.document.getElementById("ta1").innerHTML="NMOS的阈值电压比PMOS大，作为下拉是可以为CMOS提供更高的阈值电压";          
+                 }
+             </script>
+        <br>
+             <button onclick='ta2()'>互斥的原因</button>
+                  <script>
+                       function ta2(){
+                       window.parent.document.getElementById('ta1').innerHTML='有比电路可以设置输出电压，而非固定电压';
+                      }
+                  </script>
+        <br>
+            NMOS网络的拓扑：NMOS串联为与，NMOS并联为或。根据逻辑表达式可以很快得到。
+            <br>
+            PMOS网络的拓扑：PMOS串联为非与，PMOS并联为非或。和NMOS类似。
+            <br>
+            显然，对于CMOS网络，上拉网络和下拉网络需要互斥，则PMOS拓扑和NMOS的拓扑结果相反。即
+            NMOS与PMOS的对应关系为串对并，并对串。逻辑关系通过一个拓扑网络进行判断即可。例如
+            NMOS为A*B，结构为串联结构，则CMOS为~（A*B）。此时的PMOS为~（A*B），结构为并联结构。
+        <br>
+            位宽的拓扑：<br>
+            计算法则-串联L相加，并联相加。这是基于器件的实际结构得到的，和电阻阻值类似。<br>
+            等效法则-串联W倍增，并联不变。这里就是考虑如何得到W/L的值为1，串联的两个2W/L和
+            并联两个W/L等于一个W/L的等效网络。<br>
+            总结：串联W加倍，并联不变。
+            <br>
+            <button onclick='ta3()'>为什么并联不变</button>
+                 <script>
+                      function ta3(){
+                      window.parent.document.getElementById('ta1').innerHTML='计算法则适于同输入，等效法则是不同输入，不同输入等效时并联不影响尺寸';
+                     }
+                 </script>
+        </p>
+        <h2>
+             
+        </h2>
+        <p>
+             
+        </p>
+        <h2>
+             
+        </h2>
+        <p>
+             
+        </p>
+    </div>
+</body>
+</html>

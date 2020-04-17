@@ -7,11 +7,40 @@
 </head>
 <body>
     <div style="text-align: left; background-color: cornflowerblue; width: 100%; height: 50px;">
-        <h1>test of the file</h1>
+        <h1>导论</h1>
     </div>
     <div style="background-color: rgb(139, 233, 189);">
-
+        <h2>学习内容</h2>
+        <p>
+            1）集成电路的历史需要了解一下，制作工艺要大体地熟悉，
+            器件的基本结构也要了解，然后是导线的设计属性。这是第一
+            部分的学习内容。
+        </p>
+        <p>
+            2）以第一部分为基础，可以开始CMOS组合逻辑的设计，其中还有部分
+            传输管的理论（传输管是可编程逻辑器件的基础），然后是时序电路
+            的理论分析。
+        </p>
+        <p>
+            3）第三部分则是开启系统设计的思路，包括IC设计的实现策略，互联问题的
+            解决，时序问题的处理，运算功能块的设计和存储器和阵列结构设计。
+        </p>
+        <h2>章节分配</h2>
+        <p>
+            1）一二节为了解内容，后面八节一半为基础，一半为系统设计。总的内容
+            采用2、4、4的结构完成。
+        </p>
+        <p>
+            2）结构阅读指南，前面两节可以跳过，以第三节开始逐步地得到数字电路设计
+            能力。
+        </p>
+        <h2>其他功能</h2>
+        <button onclick="ta()">注释</button>
     </div>
-    
+    <script>
+        function ta(){
+            window.parent.document.getElementById("ta1").innerHTML="text";          
+        }
+    </script>
 </body>
 </html>
